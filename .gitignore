@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Lets not push our own output for the minute
+docs/pyremaid/
