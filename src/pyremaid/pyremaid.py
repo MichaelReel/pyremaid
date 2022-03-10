@@ -6,20 +6,30 @@ from files.destination import (
     update_output_file,
 )
 from files.source import find_all_python_files, get_source_code_from_file, get_import_name_from_path
-from ast_tools import get_ast_root_node_for_file, get_markdown_dump_for_ast_node, get_used_import_list
+from ast_tools import (
+    create_links_from_ast_model,
+    get_ast_root_node_for_file,
+    get_markdown_dump_for_ast_node,
+    get_used_import_list,
+)
 from ast_tools.import_map import get_all_imports_from_files
 from markdown_tools import create_markdown_content
+from mermaid_tools import create_mermaid_flow_graph_from_links
+from models import MermaidLink
 
 def create_mermaid_analysis_from_python(input_path : str, output_path :str):
     create_cleared_output_folder(output_path=output_path)
     python_files = find_all_python_files(input_path=input_path)
-    global_import_list = get_all_imports_from_files(input_path=input_path, python_files=python_files)
+    global_import_list = get_all_imports_from_files(
+        input_path=input_path, python_files=python_files
+    )
 
     print("\n".join([f"{k}: {v}" for k,v in global_import_list.items()]))
 
     for in_file in python_files:
+        relative_in_file = in_file.replace(input_path, "")
         out_file = get_output_file_path_for_input_file(
-            input_path=in_file, output_root=output_path
+            input_path=relative_in_file, output_root=output_path
         )
 
         debug_dump = ""
@@ -34,13 +44,16 @@ def create_mermaid_analysis_from_python(input_path : str, output_path :str):
                 debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)
                 # Get the imports used in this file
                 import_list = get_used_import_list(ast_node=ast_node)
-
-
+                # Get the link information from the AST model
+                link_info : list[MermaidLink] = create_links_from_ast_model(model=ast_node)
+                # Get the mermaid translation of the link_info
+                mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)
         
         markdown_content = create_markdown_content(
             input_file=in_file,
             import_list=import_list, # Not useful yet, still debug
-            debug_dump=debug_dump
+            mermaid_diagrams=[mermaid_diagram],
+            debug_dump=debug_dump,
         )
 
         update_output_file(content=markdown_content, output_file=out_file)

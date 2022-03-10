@@ -2,13 +2,17 @@
 def create_markdown_content(
     input_file: str,
     import_list: list[str],
+    mermaid_diagrams: list[str],
     debug_dump: str,
 ) -> str:
     debug_block = create_markdown_debug_dump_block(debug_content=debug_dump)
     import_block = turn_out_the_import_list(import_list=import_list)
+    mermaid_blocks = "\n".join(mermaid_diagrams)
     return (
         f"# {input_file}\n\n"
         f"{import_block}\n"
+        "---\n"
+        f"{mermaid_blocks}"
         "---\n"
         "\n"
         f"{debug_block}\n"

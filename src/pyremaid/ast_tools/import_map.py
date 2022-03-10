@@ -19,8 +19,21 @@ class ImportMap:
         self.import_from[to].append[from_]
 
 
+def _get_import_to_file_map(input_path: str, python_files: list[str]) -> dict[str, str]:
+    """ Create a mapping of import paths to filenames first """
+    import_to_file_map = {}
+
+    for in_file in python_files:
+        import_name = get_import_name_from_path(
+            input_path=input_path, input_file=in_file
+        )
+        import_to_file_map[import_name] = in_file
+
+    return import_to_file_map
+
+
 def _get_parent_import(import_name: str) -> str:
-    pass
+    return import_name[0: import_name.rfind('.')]
 
 
 def _create_import_table(
@@ -52,14 +65,9 @@ def get_all_imports_from_files(input_path: str, python_files: list[str]):
     It's tricky not to require multiple passes to achieve what is being done here
     """
 
-    # Create a mapping of import paths to filenames first
-    import_to_file_map = {}
-    for in_file in python_files:
-        import_name = get_import_name_from_path(
-            input_path=input_path, input_file=in_file
-        )
-        import_to_file_map[import_name] = in_file
-
+    import_to_file_map = _get_import_to_file_map(
+        input_path=input_path, python_files=python_files
+    )
 
     all_imports_list = _create_import_table(
         python_files=python_files, import_to_file_map=import_to_file_map
