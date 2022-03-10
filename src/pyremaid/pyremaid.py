@@ -7,7 +7,7 @@ from files.destination import (
 )
 from files.source import find_all_python_files, get_source_code_from_file, get_import_name_from_path
 from ast_tools import (
-    create_links_from_ast_model,
+    create_mermaid_model_from_ast_model,
     get_ast_root_node_for_file,
     get_markdown_dump_for_ast_node,
     get_used_import_list,
@@ -15,7 +15,7 @@ from ast_tools import (
 from ast_tools.import_map import get_all_imports_from_files
 from markdown_tools import create_markdown_content
 from mermaid_tools import create_mermaid_flow_graph_from_links
-from models import MermaidLink
+from models import MermaidElement
 
 def create_mermaid_analysis_from_python(input_path : str, output_path :str):
     create_cleared_output_folder(output_path=output_path)
@@ -45,7 +45,9 @@ def create_mermaid_analysis_from_python(input_path : str, output_path :str):
                 # Get the imports used in this file
                 import_list = get_used_import_list(ast_node=ast_node)
                 # Get the link information from the AST model
-                link_info : list[MermaidLink] = create_links_from_ast_model(model=ast_node)
+                link_info : list[MermaidElement] = (
+                    create_mermaid_model_from_ast_model(model=ast_node)
+                )
                 # Get the mermaid translation of the link_info
                 mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)
         

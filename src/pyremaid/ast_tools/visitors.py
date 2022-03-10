@@ -1,5 +1,5 @@
-from ast import AST, Import, ImportFrom, NodeVisitor
-from models import MermaidLink, MermaidNode
+from ast import AST, Import, ImportFrom, Module, NodeVisitor
+from models import MermaidBlock, MermaidElement, MermaidLink, MermaidNode
 from typing import Any, Optional
 
 
@@ -22,7 +22,7 @@ class ImportNodeFinder(NodeVisitor):
 
 class LinkGenerator(NodeVisitor):
     def __init__(self) -> None:
-        self.links : list[MermaidLink] = []
+        self.elements : list[MermaidElement] = []
         self.prev_node : Optional[AST] = None
         self.count : int = 0
 
@@ -39,11 +39,42 @@ class LinkGenerator(NodeVisitor):
         )
         self.count += 1
         if self.prev_node:
-            self.links.append(MermaidLink(from_=self.prev_node, to=mermaid_data))
+            self.elements.append(MermaidLink(from_=self.prev_node, to=mermaid_data))
         self.prev_node = mermaid_data
 
         # Don't forget to visit the children nodes
         return super().generic_visit(node)
 
-    def get_list_of_links(self) -> list[MermaidLink]:
-        return self.links
+    def get_list_of_elements(self) -> list[MermaidLink]:
+        return self.elements
+
+
+class BlockGenerator(NodeVisitor):
+    def __init__(self) -> None:
+        self.elements : list[MermaidElement] = []
+        self.count : int = 0
+
+    def _count(self) -> int:
+        value = self.count
+        self.count +=1
+        return value
+
+    def visit_Module(self, block_node: Module) -> Any:
+        """This is a block, we might want a subgraph, so parse content"""
+        link_generator = LinkGenerator()
+        link_generator.visit(node=block_node)
+
+        mermaid_block = MermaidBlock(
+            ast_node = block_node,
+            mermaid_safe_name = f"module_{self._count()}",
+            block_contents = link_generator.get_list_of_elements()
+        )
+
+        self.elements.append(mermaid_block)
+
+    def generic_visit(self, _node: AST) -> Any:
+        """Non block nodes are not interesting here"""
+        pass
+
+    def get_list_of_elements(self) -> list[MermaidElement]:
+        return self.elements

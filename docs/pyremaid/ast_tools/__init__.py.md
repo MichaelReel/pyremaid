@@ -2,7 +2,7 @@
 
 ### Imports
 
-  - ast_tools.ast_tools.create_links_from_ast_model
+  - ast_tools.ast_tools.create_mermaid_model_from_ast_model
   - ast_tools.ast_tools.get_ast_root_node_for_file
   - ast_tools.ast_tools.get_used_import_list
   - ast_tools.ast_tools.get_markdown_dump_for_ast_node
@@ -24,7 +24,7 @@ Module(
     ImportFrom(
       module='ast_tools.ast_tools',
       names=[
-        alias(name='create_links_from_ast_model'),
+        alias(name='create_mermaid_model_from_ast_model'),
         alias(name='get_ast_root_node_for_file'),
         alias(name='get_used_import_list'),
         alias(name='get_markdown_dump_for_ast_node')],
