@@ -34,3 +34,8 @@ class MermaidModule(MermaidBlock):
 @dataclass(unsafe_hash=True, frozen=True)
 class MermaidFunction(MermaidBlock):
     pass
+
+
+@dataclass(unsafe_hash=True, frozen=True)
+class MermaidClass(MermaidBlock):
+    pass

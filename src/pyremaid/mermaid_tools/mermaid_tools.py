@@ -1,5 +1,6 @@
 from models import (
     MermaidBlock,
+    MermaidClass,
     MermaidElement,
     MermaidFunction,
     MermaidLink,
@@ -67,6 +68,12 @@ def _get_block_text(block: MermaidBlock, indent: int) -> str:
         block_text += f"{TAB * indent}subgraph {function_def.display_name}\n"
         block_text += f"{TAB * (indent + 1)}direction TB\n"
         block_text += _get_flow_connections(function_def.block_contents, indent + 1)
+        block_text += f"{TAB * indent}end\n"
+    elif isinstance(block, MermaidClass):
+        class_def : MermaidClass = block
+        block_text += f"{TAB * indent}subgraph {class_def.display_name}\n"
+        block_text += f"{TAB * (indent + 1)}direction TB\n"
+        block_text += _get_flow_connections(class_def.block_contents, indent + 1)
         block_text += f"{TAB * indent}end\n"
     else:
         block_text += _get_flow_connections(block.block_contents, indent)

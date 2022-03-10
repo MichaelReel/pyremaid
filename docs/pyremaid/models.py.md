@@ -10,200 +10,105 @@
 ---
 ```mermaid
 flowchart TB
-  _node_0["ClassDef"]
-  _node_1["Pass"]
-  _node_2["Call"]
-  _node_3["Name"]
-  _node_4["Load"]
-  _node_5["keyword"]
-  _node_6["Constant"]
-  _node_7["ClassDef"]
-  _node_8["Name"]
-  _node_9["Load"]
-  _node_10["AnnAssign"]
-  _node_11["Name"]
-  _node_12["Store"]
-  _node_13["Name"]
-  _node_14["Load"]
-  _node_15["AnnAssign"]
-  _node_16["Name"]
-  _node_17["Store"]
-  _node_18["Name"]
-  _node_19["Load"]
-  _node_20["AnnAssign"]
-  _node_21["Name"]
-  _node_22["Store"]
-  _node_23["Name"]
-  _node_24["Load"]
-  _node_25["Call"]
-  _node_26["Name"]
-  _node_27["Load"]
-  _node_28["keyword"]
-  _node_29["Constant"]
-  _node_30["keyword"]
-  _node_31["Constant"]
-  _node_32["ClassDef"]
-  _node_33["Name"]
-  _node_34["Load"]
-  _node_35["AnnAssign"]
-  _node_36["Name"]
-  _node_37["Store"]
-  _node_38["Name"]
-  _node_39["Load"]
-  _node_40["AnnAssign"]
-  _node_41["Name"]
-  _node_42["Store"]
-  _node_43["Name"]
-  _node_44["Load"]
-  _node_45["Call"]
-  _node_46["Name"]
-  _node_47["Load"]
-  _node_48["keyword"]
-  _node_49["Constant"]
-  _node_50["ClassDef"]
-  _node_51["Name"]
-  _node_52["Load"]
-  _node_53["AnnAssign"]
-  _node_54["Name"]
-  _node_55["Store"]
-  _node_56["Subscript"]
-  _node_57["Name"]
-  _node_58["Load"]
-  _node_59["Name"]
-  _node_60["Load"]
-  _node_61["Load"]
-  _node_62["Call"]
-  _node_63["Name"]
-  _node_64["Load"]
-  _node_65["keyword"]
-  _node_66["Name"]
-  _node_67["Load"]
-  _node_68["Call"]
-  _node_69["Name"]
-  _node_70["Load"]
-  _node_71["keyword"]
-  _node_72["Constant"]
-  _node_73["keyword"]
-  _node_74["Constant"]
-  _node_75["ClassDef"]
-  _node_76["Name"]
-  _node_77["Load"]
-  _node_78["Pass"]
-  _node_79["Call"]
-  _node_80["Name"]
-  _node_81["Load"]
-  _node_82["keyword"]
-  _node_83["Constant"]
-  _node_84["keyword"]
-  _node_85["Constant"]
-  _node_86["ClassDef"]
-  _node_87["Name"]
-  _node_88["Load"]
-  _node_89["Pass"]
-  _node_90["Call"]
-  _node_91["Name"]
-  _node_92["Load"]
-  _node_93["keyword"]
-  _node_94["Constant"]
-  _node_95["keyword"]
-  _node_96["Constant"]
+  _c1_n1["AnnAssign"]
+  _c1_n2["Name"]
+  _c1_n3["Store"]
+  _c1_n4["Name"]
+  _c1_n5["Load"]
+  _c1_n6["AnnAssign"]
+  _c1_n7["Name"]
+  _c1_n8["Store"]
+  _c1_n9["Name"]
+  _c1_n10["Load"]
+  _c1_n11["AnnAssign"]
+  _c1_n12["Name"]
+  _c1_n13["Store"]
+  _c1_n14["Name"]
+  _c1_n15["Load"]
+  _c2_n16["AnnAssign"]
+  _c2_n17["Name"]
+  _c2_n18["Store"]
+  _c2_n19["Name"]
+  _c2_n20["Load"]
+  _c2_n21["AnnAssign"]
+  _c2_n22["Name"]
+  _c2_n23["Store"]
+  _c2_n24["Name"]
+  _c2_n25["Load"]
+  _c3_n26["AnnAssign"]
+  _c3_n27["Name"]
+  _c3_n28["Store"]
+  _c3_n29["Subscript"]
+  _c3_n30["Name"]
+  _c3_n31["Load"]
+  _c3_n32["Name"]
+  _c3_n33["Load"]
+  _c3_n34["Load"]
+  _c3_n35["Call"]
+  _c3_n36["Name"]
+  _c3_n37["Load"]
+  _c3_n38["keyword"]
+  _c3_n39["Name"]
+  _c3_n40["Load"]
 
-  _node_0 --> _node_1
-  _node_1 --> _node_2
-  _node_2 --> _node_3
-  _node_3 --> _node_4
-  _node_4 --> _node_5
-  _node_5 --> _node_6
-  _node_6 --> _node_7
-  _node_7 --> _node_8
-  _node_8 --> _node_9
-  _node_9 --> _node_10
-  _node_10 --> _node_11
-  _node_11 --> _node_12
-  _node_12 --> _node_13
-  _node_13 --> _node_14
-  _node_14 --> _node_15
-  _node_15 --> _node_16
-  _node_16 --> _node_17
-  _node_17 --> _node_18
-  _node_18 --> _node_19
-  _node_19 --> _node_20
-  _node_20 --> _node_21
-  _node_21 --> _node_22
-  _node_22 --> _node_23
-  _node_23 --> _node_24
-  _node_24 --> _node_25
-  _node_25 --> _node_26
-  _node_26 --> _node_27
-  _node_27 --> _node_28
-  _node_28 --> _node_29
-  _node_29 --> _node_30
-  _node_30 --> _node_31
-  _node_31 --> _node_32
-  _node_32 --> _node_33
-  _node_33 --> _node_34
-  _node_34 --> _node_35
-  _node_35 --> _node_36
-  _node_36 --> _node_37
-  _node_37 --> _node_38
-  _node_38 --> _node_39
-  _node_39 --> _node_40
-  _node_40 --> _node_41
-  _node_41 --> _node_42
-  _node_42 --> _node_43
-  _node_43 --> _node_44
-  _node_44 --> _node_45
-  _node_45 --> _node_46
-  _node_46 --> _node_47
-  _node_47 --> _node_48
-  _node_48 --> _node_49
-  _node_49 --> _node_50
-  _node_50 --> _node_51
-  _node_51 --> _node_52
-  _node_52 --> _node_53
-  _node_53 --> _node_54
-  _node_54 --> _node_55
-  _node_55 --> _node_56
-  _node_56 --> _node_57
-  _node_57 --> _node_58
-  _node_58 --> _node_59
-  _node_59 --> _node_60
-  _node_60 --> _node_61
-  _node_61 --> _node_62
-  _node_62 --> _node_63
-  _node_63 --> _node_64
-  _node_64 --> _node_65
-  _node_65 --> _node_66
-  _node_66 --> _node_67
-  _node_67 --> _node_68
-  _node_68 --> _node_69
-  _node_69 --> _node_70
-  _node_70 --> _node_71
-  _node_71 --> _node_72
-  _node_72 --> _node_73
-  _node_73 --> _node_74
-  _node_74 --> _node_75
-  _node_75 --> _node_76
-  _node_76 --> _node_77
-  _node_77 --> _node_78
-  _node_78 --> _node_79
-  _node_79 --> _node_80
-  _node_80 --> _node_81
-  _node_81 --> _node_82
-  _node_82 --> _node_83
-  _node_83 --> _node_84
-  _node_84 --> _node_85
-  _node_85 --> _node_86
-  _node_86 --> _node_87
-  _node_87 --> _node_88
-  _node_88 --> _node_89
-  _node_89 --> _node_90
-  _node_90 --> _node_91
-  _node_91 --> _node_92
-  _node_92 --> _node_93
-  _node_93 --> _node_94
-  _node_94 --> _node_95
-  _node_95 --> _node_96
+  subgraph MermaidElement
+    direction TB
+  end
+  subgraph MermaidNode
+    direction TB
+    _c1_n1 --> _c1_n2
+    _c1_n2 --> _c1_n3
+    _c1_n3 --> _c1_n4
+    _c1_n4 --> _c1_n5
+    _c1_n5 --> _c1_n6
+    _c1_n6 --> _c1_n7
+    _c1_n7 --> _c1_n8
+    _c1_n8 --> _c1_n9
+    _c1_n9 --> _c1_n10
+    _c1_n10 --> _c1_n11
+    _c1_n11 --> _c1_n12
+    _c1_n12 --> _c1_n13
+    _c1_n13 --> _c1_n14
+    _c1_n14 --> _c1_n15
+  end
+  subgraph MermaidLink
+    direction TB
+    _c2_n16 --> _c2_n17
+    _c2_n17 --> _c2_n18
+    _c2_n18 --> _c2_n19
+    _c2_n19 --> _c2_n20
+    _c2_n20 --> _c2_n21
+    _c2_n21 --> _c2_n22
+    _c2_n22 --> _c2_n23
+    _c2_n23 --> _c2_n24
+    _c2_n24 --> _c2_n25
+  end
+  subgraph MermaidBlock
+    direction TB
+    _c3_n26 --> _c3_n27
+    _c3_n27 --> _c3_n28
+    _c3_n28 --> _c3_n29
+    _c3_n29 --> _c3_n30
+    _c3_n30 --> _c3_n31
+    _c3_n31 --> _c3_n32
+    _c3_n32 --> _c3_n33
+    _c3_n33 --> _c3_n34
+    _c3_n34 --> _c3_n35
+    _c3_n35 --> _c3_n36
+    _c3_n36 --> _c3_n37
+    _c3_n37 --> _c3_n38
+    _c3_n38 --> _c3_n39
+    _c3_n39 --> _c3_n40
+  end
+  subgraph MermaidModule
+    direction TB
+  end
+  subgraph MermaidFunction
+    direction TB
+  end
+  subgraph MermaidClass
+    direction TB
+  end
 
 ```
 ---
@@ -715,6 +620,66 @@ Module(
       lineno=35,
       col_offset=0,
       end_lineno=36,
+      end_col_offset=8),
+    ClassDef(
+      name='MermaidClass',
+      bases=[
+        Name(
+          id='MermaidBlock',
+          ctx=Load(),
+          lineno=40,
+          col_offset=19,
+          end_lineno=40,
+          end_col_offset=31)],
+      keywords=[],
+      body=[
+        Pass(
+          lineno=41,
+          col_offset=4,
+          end_lineno=41,
+          end_col_offset=8)],
+      decorator_list=[
+        Call(
+          func=Name(
+            id='dataclass',
+            ctx=Load(),
+            lineno=39,
+            col_offset=1,
+            end_lineno=39,
+            end_col_offset=10),
+          args=[],
+          keywords=[
+            keyword(
+              arg='unsafe_hash',
+              value=Constant(
+                value=True,
+                lineno=39,
+                col_offset=23,
+                end_lineno=39,
+                end_col_offset=27),
+              lineno=39,
+              col_offset=11,
+              end_lineno=39,
+              end_col_offset=27),
+            keyword(
+              arg='frozen',
+              value=Constant(
+                value=True,
+                lineno=39,
+                col_offset=36,
+                end_lineno=39,
+                end_col_offset=40),
+              lineno=39,
+              col_offset=29,
+              end_lineno=39,
+              end_col_offset=40)],
+          lineno=39,
+          col_offset=1,
+          end_lineno=39,
+          end_col_offset=41)],
+      lineno=40,
+      col_offset=0,
+      end_lineno=41,
       end_col_offset=8)],
   type_ignores=[])
 ```
