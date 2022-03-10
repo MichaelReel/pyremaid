@@ -2,11 +2,11 @@
 
 ### Imports
 
-  - models.MermaidBlock
-  - models.MermaidElement
-  - models.MermaidFunction
-  - models.MermaidLink
-  - models.MermaidNode
+  - [models.MermaidBlock](/docs/pyremaid/models.py.md)
+  - [models.MermaidElement](/docs/pyremaid/models.py.md)
+  - [models.MermaidFunction](/docs/pyremaid/models.py.md)
+  - [models.MermaidLink](/docs/pyremaid/models.py.md)
+  - [models.MermaidNode](/docs/pyremaid/models.py.md)
 
 ---
 ```mermaid

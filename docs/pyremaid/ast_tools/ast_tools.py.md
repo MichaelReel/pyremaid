@@ -6,9 +6,9 @@
   - ast.dump
   - ast.parse
   - typing.Optional
-  - ast_tools.visitors.BlockGenerator
-  - ast_tools.visitors.ImportNodeFinder
-  - models.MermaidElement
+  - [ast_tools.visitors.BlockGenerator](/docs/pyremaid/ast_tools/visitors.py.md)
+  - [ast_tools.visitors.ImportNodeFinder](/docs/pyremaid/ast_tools/visitors.py.md)
+  - [models.MermaidElement](/docs/pyremaid/models.py.md)
 
 ---
 ```mermaid

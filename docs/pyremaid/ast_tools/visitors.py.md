@@ -8,12 +8,12 @@
   - ast.ImportFrom
   - ast.Module
   - ast.NodeVisitor
-  - models.MermaidBlock
-  - models.MermaidElement
-  - models.MermaidFunction
-  - models.MermaidLink
-  - models.MermaidModule
-  - models.MermaidNode
+  - [models.MermaidBlock](/docs/pyremaid/models.py.md)
+  - [models.MermaidElement](/docs/pyremaid/models.py.md)
+  - [models.MermaidFunction](/docs/pyremaid/models.py.md)
+  - [models.MermaidLink](/docs/pyremaid/models.py.md)
+  - [models.MermaidModule](/docs/pyremaid/models.py.md)
+  - [models.MermaidNode](/docs/pyremaid/models.py.md)
   - typing.Any
   - typing.Optional
 

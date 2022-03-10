@@ -20,11 +20,9 @@ from models import MermaidElement
 def create_mermaid_analysis_from_python(input_path : str, output_path :str):
     create_cleared_output_folder(output_path=output_path)
     python_files = find_all_python_files(input_path=input_path)
-    global_import_list = get_all_imports_from_files(
-        input_path=input_path, python_files=python_files
+    global_import_table = get_global_input_table(
+        input_path=input_path, python_files=python_files, output_root=output_path
     )
-
-    print("\n".join([f"{k}: {v}" for k,v in global_import_list.items()]))
 
     for in_file in python_files:
         relative_in_file = in_file.replace(input_path, "")
@@ -53,12 +51,28 @@ def create_mermaid_analysis_from_python(input_path : str, output_path :str):
         
         markdown_content = create_markdown_content(
             input_file=in_file,
-            import_list=import_list, # Not useful yet, still debug
+            import_list=import_list,
+            global_import_table=global_import_table,
             mermaid_diagrams=[mermaid_diagram],
             debug_dump=debug_dump,
         )
 
         update_output_file(content=markdown_content, output_file=out_file)
+
+def get_global_input_table(
+    input_path: str, python_files: list[str], output_root: str
+) -> dict[str,str]:
+    global_import_table = get_all_imports_from_files(
+        input_path=input_path, python_files=python_files
+    )
+    for global_import in global_import_table:
+        relative_in_file = global_import_table[global_import].replace(input_path, "")
+        if relative_in_file:
+            global_import_table[global_import] = get_output_file_path_for_input_file(
+                input_path=relative_in_file, output_root=output_root
+            ).lstrip(".")
+    print("\n".join([f"{k}: {v}" for k,v in global_import_table.items()]))
+    return global_import_table
 
 
 if __name__ == "__main__":
