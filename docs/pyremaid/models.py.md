@@ -10,148 +10,200 @@
 ---
 ```mermaid
 flowchart TB
-  node_0["ast.Module object at 0x1067e4fa0"]
-  node_1["ast.ClassDef object at 0x1068cf0a0"]
-  node_2["ast.Pass object at 0x1068cf0d0"]
-  node_3["ast.Call object at 0x1068cf310"]
-  node_4["ast.Name object at 0x1068cfa90"]
-  node_5["ast.Load object at 0x1067e70d0"]
-  node_6["ast.keyword object at 0x1068cfd00"]
-  node_7["ast.Constant object at 0x1068cf700"]
-  node_8["ast.ClassDef object at 0x1068cf730"]
-  node_9["ast.Name object at 0x1068cf2e0"]
-  node_10["ast.Load object at 0x1067e70d0"]
-  node_11["ast.AnnAssign object at 0x1068cf8e0"]
-  node_12["ast.Name object at 0x1068cf5e0"]
-  node_13["ast.Store object at 0x1067e7070"]
-  node_14["ast.Name object at 0x1068cffd0"]
-  node_15["ast.Load object at 0x1067e70d0"]
-  node_16["ast.AnnAssign object at 0x1068cf5b0"]
-  node_17["ast.Name object at 0x1068cfe80"]
-  node_18["ast.Store object at 0x1067e7070"]
-  node_19["ast.Name object at 0x1068cfbb0"]
-  node_20["ast.Load object at 0x1067e70d0"]
-  node_21["ast.Call object at 0x1068cfb80"]
-  node_22["ast.Name object at 0x1068cffa0"]
-  node_23["ast.Load object at 0x1067e70d0"]
-  node_24["ast.keyword object at 0x1068cfb50"]
-  node_25["ast.Constant object at 0x1068cf670"]
-  node_26["ast.keyword object at 0x1068cf3d0"]
-  node_27["ast.Constant object at 0x1068cf6d0"]
-  node_28["ast.ClassDef object at 0x1068cfb20"]
-  node_29["ast.Name object at 0x1068cf340"]
-  node_30["ast.Load object at 0x1067e70d0"]
-  node_31["ast.AnnAssign object at 0x1068cff70"]
-  node_32["ast.Name object at 0x1068cfc70"]
-  node_33["ast.Store object at 0x1067e7070"]
-  node_34["ast.Name object at 0x1068cf850"]
-  node_35["ast.Load object at 0x1067e70d0"]
-  node_36["ast.AnnAssign object at 0x1068cfbe0"]
-  node_37["ast.Name object at 0x1068c7e20"]
-  node_38["ast.Store object at 0x1067e7070"]
-  node_39["ast.Name object at 0x1068c77f0"]
-  node_40["ast.Load object at 0x1067e70d0"]
-  node_41["ast.Call object at 0x1068c7220"]
-  node_42["ast.Name object at 0x1068c7d90"]
-  node_43["ast.Load object at 0x1067e70d0"]
-  node_44["ast.keyword object at 0x1068c7fd0"]
-  node_45["ast.Constant object at 0x1068c78b0"]
-  node_46["ast.ClassDef object at 0x1068c7c10"]
-  node_47["ast.Name object at 0x1068c7940"]
-  node_48["ast.Load object at 0x1067e70d0"]
-  node_49["ast.AnnAssign object at 0x1068c7880"]
-  node_50["ast.Name object at 0x1068c79d0"]
-  node_51["ast.Store object at 0x1067e7070"]
-  node_52["ast.Subscript object at 0x1068c75e0"]
-  node_53["ast.Name object at 0x1068c7760"]
-  node_54["ast.Load object at 0x1067e70d0"]
-  node_55["ast.Name object at 0x1068c72b0"]
-  node_56["ast.Load object at 0x1067e70d0"]
-  node_57["ast.Load object at 0x1067e70d0"]
-  node_58["ast.Call object at 0x1068c7bb0"]
-  node_59["ast.Name object at 0x1068c7610"]
-  node_60["ast.Load object at 0x1067e70d0"]
-  node_61["ast.keyword object at 0x1068c70a0"]
-  node_62["ast.Name object at 0x1068c7e80"]
-  node_63["ast.Load object at 0x1067e70d0"]
-  node_64["ast.Call object at 0x1068c76a0"]
-  node_65["ast.Name object at 0x1068c7d00"]
-  node_66["ast.Load object at 0x1067e70d0"]
-  node_67["ast.keyword object at 0x1068c7df0"]
-  node_68["ast.Constant object at 0x1068c78e0"]
-  node_69["ast.keyword object at 0x1068c7ac0"]
-  node_70["ast.Constant object at 0x1068c76d0"]
+  _node_0["ClassDef"]
+  _node_1["Pass"]
+  _node_2["Call"]
+  _node_3["Name"]
+  _node_4["Load"]
+  _node_5["keyword"]
+  _node_6["Constant"]
+  _node_7["ClassDef"]
+  _node_8["Name"]
+  _node_9["Load"]
+  _node_10["AnnAssign"]
+  _node_11["Name"]
+  _node_12["Store"]
+  _node_13["Name"]
+  _node_14["Load"]
+  _node_15["AnnAssign"]
+  _node_16["Name"]
+  _node_17["Store"]
+  _node_18["Name"]
+  _node_19["Load"]
+  _node_20["AnnAssign"]
+  _node_21["Name"]
+  _node_22["Store"]
+  _node_23["Name"]
+  _node_24["Load"]
+  _node_25["Call"]
+  _node_26["Name"]
+  _node_27["Load"]
+  _node_28["keyword"]
+  _node_29["Constant"]
+  _node_30["keyword"]
+  _node_31["Constant"]
+  _node_32["ClassDef"]
+  _node_33["Name"]
+  _node_34["Load"]
+  _node_35["AnnAssign"]
+  _node_36["Name"]
+  _node_37["Store"]
+  _node_38["Name"]
+  _node_39["Load"]
+  _node_40["AnnAssign"]
+  _node_41["Name"]
+  _node_42["Store"]
+  _node_43["Name"]
+  _node_44["Load"]
+  _node_45["Call"]
+  _node_46["Name"]
+  _node_47["Load"]
+  _node_48["keyword"]
+  _node_49["Constant"]
+  _node_50["ClassDef"]
+  _node_51["Name"]
+  _node_52["Load"]
+  _node_53["AnnAssign"]
+  _node_54["Name"]
+  _node_55["Store"]
+  _node_56["Subscript"]
+  _node_57["Name"]
+  _node_58["Load"]
+  _node_59["Name"]
+  _node_60["Load"]
+  _node_61["Load"]
+  _node_62["Call"]
+  _node_63["Name"]
+  _node_64["Load"]
+  _node_65["keyword"]
+  _node_66["Name"]
+  _node_67["Load"]
+  _node_68["Call"]
+  _node_69["Name"]
+  _node_70["Load"]
+  _node_71["keyword"]
+  _node_72["Constant"]
+  _node_73["keyword"]
+  _node_74["Constant"]
+  _node_75["ClassDef"]
+  _node_76["Name"]
+  _node_77["Load"]
+  _node_78["Pass"]
+  _node_79["Call"]
+  _node_80["Name"]
+  _node_81["Load"]
+  _node_82["keyword"]
+  _node_83["Constant"]
+  _node_84["keyword"]
+  _node_85["Constant"]
+  _node_86["ClassDef"]
+  _node_87["Name"]
+  _node_88["Load"]
+  _node_89["Pass"]
+  _node_90["Call"]
+  _node_91["Name"]
+  _node_92["Load"]
+  _node_93["keyword"]
+  _node_94["Constant"]
+  _node_95["keyword"]
+  _node_96["Constant"]
 
-  node_0 --> node_1
-  node_1 --> node_2
-  node_2 --> node_3
-  node_3 --> node_4
-  node_4 --> node_5
-  node_5 --> node_6
-  node_6 --> node_7
-  node_7 --> node_8
-  node_8 --> node_9
-  node_9 --> node_10
-  node_10 --> node_11
-  node_11 --> node_12
-  node_12 --> node_13
-  node_13 --> node_14
-  node_14 --> node_15
-  node_15 --> node_16
-  node_16 --> node_17
-  node_17 --> node_18
-  node_18 --> node_19
-  node_19 --> node_20
-  node_20 --> node_21
-  node_21 --> node_22
-  node_22 --> node_23
-  node_23 --> node_24
-  node_24 --> node_25
-  node_25 --> node_26
-  node_26 --> node_27
-  node_27 --> node_28
-  node_28 --> node_29
-  node_29 --> node_30
-  node_30 --> node_31
-  node_31 --> node_32
-  node_32 --> node_33
-  node_33 --> node_34
-  node_34 --> node_35
-  node_35 --> node_36
-  node_36 --> node_37
-  node_37 --> node_38
-  node_38 --> node_39
-  node_39 --> node_40
-  node_40 --> node_41
-  node_41 --> node_42
-  node_42 --> node_43
-  node_43 --> node_44
-  node_44 --> node_45
-  node_45 --> node_46
-  node_46 --> node_47
-  node_47 --> node_48
-  node_48 --> node_49
-  node_49 --> node_50
-  node_50 --> node_51
-  node_51 --> node_52
-  node_52 --> node_53
-  node_53 --> node_54
-  node_54 --> node_55
-  node_55 --> node_56
-  node_56 --> node_57
-  node_57 --> node_58
-  node_58 --> node_59
-  node_59 --> node_60
-  node_60 --> node_61
-  node_61 --> node_62
-  node_62 --> node_63
-  node_63 --> node_64
-  node_64 --> node_65
-  node_65 --> node_66
-  node_66 --> node_67
-  node_67 --> node_68
-  node_68 --> node_69
-  node_69 --> node_70
+  _node_0 --> _node_1
+  _node_1 --> _node_2
+  _node_2 --> _node_3
+  _node_3 --> _node_4
+  _node_4 --> _node_5
+  _node_5 --> _node_6
+  _node_6 --> _node_7
+  _node_7 --> _node_8
+  _node_8 --> _node_9
+  _node_9 --> _node_10
+  _node_10 --> _node_11
+  _node_11 --> _node_12
+  _node_12 --> _node_13
+  _node_13 --> _node_14
+  _node_14 --> _node_15
+  _node_15 --> _node_16
+  _node_16 --> _node_17
+  _node_17 --> _node_18
+  _node_18 --> _node_19
+  _node_19 --> _node_20
+  _node_20 --> _node_21
+  _node_21 --> _node_22
+  _node_22 --> _node_23
+  _node_23 --> _node_24
+  _node_24 --> _node_25
+  _node_25 --> _node_26
+  _node_26 --> _node_27
+  _node_27 --> _node_28
+  _node_28 --> _node_29
+  _node_29 --> _node_30
+  _node_30 --> _node_31
+  _node_31 --> _node_32
+  _node_32 --> _node_33
+  _node_33 --> _node_34
+  _node_34 --> _node_35
+  _node_35 --> _node_36
+  _node_36 --> _node_37
+  _node_37 --> _node_38
+  _node_38 --> _node_39
+  _node_39 --> _node_40
+  _node_40 --> _node_41
+  _node_41 --> _node_42
+  _node_42 --> _node_43
+  _node_43 --> _node_44
+  _node_44 --> _node_45
+  _node_45 --> _node_46
+  _node_46 --> _node_47
+  _node_47 --> _node_48
+  _node_48 --> _node_49
+  _node_49 --> _node_50
+  _node_50 --> _node_51
+  _node_51 --> _node_52
+  _node_52 --> _node_53
+  _node_53 --> _node_54
+  _node_54 --> _node_55
+  _node_55 --> _node_56
+  _node_56 --> _node_57
+  _node_57 --> _node_58
+  _node_58 --> _node_59
+  _node_59 --> _node_60
+  _node_60 --> _node_61
+  _node_61 --> _node_62
+  _node_62 --> _node_63
+  _node_63 --> _node_64
+  _node_64 --> _node_65
+  _node_65 --> _node_66
+  _node_66 --> _node_67
+  _node_67 --> _node_68
+  _node_68 --> _node_69
+  _node_69 --> _node_70
+  _node_70 --> _node_71
+  _node_71 --> _node_72
+  _node_72 --> _node_73
+  _node_73 --> _node_74
+  _node_74 --> _node_75
+  _node_75 --> _node_76
+  _node_76 --> _node_77
+  _node_77 --> _node_78
+  _node_78 --> _node_79
+  _node_79 --> _node_80
+  _node_80 --> _node_81
+  _node_81 --> _node_82
+  _node_82 --> _node_83
+  _node_83 --> _node_84
+  _node_84 --> _node_85
+  _node_85 --> _node_86
+  _node_86 --> _node_87
+  _node_87 --> _node_88
+  _node_88 --> _node_89
+  _node_89 --> _node_90
+  _node_90 --> _node_91
+  _node_91 --> _node_92
+  _node_92 --> _node_93
+  _node_93 --> _node_94
+  _node_94 --> _node_95
+  _node_95 --> _node_96
 
 ```
 ---
@@ -282,7 +334,27 @@ Module(
           lineno=14,
           col_offset=4,
           end_lineno=14,
-          end_col_offset=26)],
+          end_col_offset=26),
+        AnnAssign(
+          target=Name(
+            id='display_name',
+            ctx=Store(),
+            lineno=15,
+            col_offset=4,
+            end_lineno=15,
+            end_col_offset=16),
+          annotation=Name(
+            id='str',
+            ctx=Load(),
+            lineno=15,
+            col_offset=18,
+            end_lineno=15,
+            end_col_offset=21),
+          simple=1,
+          lineno=15,
+          col_offset=4,
+          end_lineno=15,
+          end_col_offset=21)],
       decorator_list=[
         Call(
           func=Name(
@@ -324,17 +396,17 @@ Module(
           end_col_offset=41)],
       lineno=12,
       col_offset=0,
-      end_lineno=14,
-      end_col_offset=26),
+      end_lineno=15,
+      end_col_offset=21),
     ClassDef(
       name='MermaidLink',
       bases=[
         Name(
           id='MermaidElement',
           ctx=Load(),
-          lineno=18,
+          lineno=19,
           col_offset=18,
-          end_lineno=18,
+          end_lineno=19,
           end_col_offset=32)],
       keywords=[],
       body=[
@@ -342,50 +414,50 @@ Module(
           target=Name(
             id='from_',
             ctx=Store(),
-            lineno=19,
+            lineno=20,
             col_offset=4,
-            end_lineno=19,
+            end_lineno=20,
             end_col_offset=9),
           annotation=Name(
             id='MermaidNode',
             ctx=Load(),
-            lineno=19,
+            lineno=20,
             col_offset=11,
-            end_lineno=19,
+            end_lineno=20,
             end_col_offset=22),
           simple=1,
-          lineno=19,
+          lineno=20,
           col_offset=4,
-          end_lineno=19,
+          end_lineno=20,
           end_col_offset=22),
         AnnAssign(
           target=Name(
             id='to',
             ctx=Store(),
-            lineno=20,
+            lineno=21,
             col_offset=4,
-            end_lineno=20,
+            end_lineno=21,
             end_col_offset=6),
           annotation=Name(
             id='MermaidNode',
             ctx=Load(),
-            lineno=20,
+            lineno=21,
             col_offset=8,
-            end_lineno=20,
+            end_lineno=21,
             end_col_offset=19),
           simple=1,
-          lineno=20,
+          lineno=21,
           col_offset=4,
-          end_lineno=20,
+          end_lineno=21,
           end_col_offset=19)],
       decorator_list=[
         Call(
           func=Name(
             id='dataclass',
             ctx=Load(),
-            lineno=17,
+            lineno=18,
             col_offset=1,
-            end_lineno=17,
+            end_lineno=18,
             end_col_offset=10),
           args=[],
           keywords=[
@@ -393,21 +465,21 @@ Module(
               arg='frozen',
               value=Constant(
                 value=True,
-                lineno=17,
+                lineno=18,
                 col_offset=18,
-                end_lineno=17,
+                end_lineno=18,
                 end_col_offset=22),
-              lineno=17,
+              lineno=18,
               col_offset=11,
-              end_lineno=17,
+              end_lineno=18,
               end_col_offset=22)],
-          lineno=17,
+          lineno=18,
           col_offset=1,
-          end_lineno=17,
+          end_lineno=18,
           end_col_offset=23)],
-      lineno=18,
+      lineno=19,
       col_offset=0,
-      end_lineno=20,
+      end_lineno=21,
       end_col_offset=19),
     ClassDef(
       name='MermaidBlock',
@@ -415,9 +487,9 @@ Module(
         Name(
           id='MermaidNode',
           ctx=Load(),
-          lineno=24,
+          lineno=25,
           col_offset=19,
-          end_lineno=24,
+          end_lineno=25,
           end_col_offset=30)],
       keywords=[],
       body=[
@@ -425,37 +497,37 @@ Module(
           target=Name(
             id='block_contents',
             ctx=Store(),
-            lineno=25,
+            lineno=26,
             col_offset=4,
-            end_lineno=25,
+            end_lineno=26,
             end_col_offset=18),
           annotation=Subscript(
             value=Name(
               id='list',
               ctx=Load(),
-              lineno=25,
+              lineno=26,
               col_offset=20,
-              end_lineno=25,
+              end_lineno=26,
               end_col_offset=24),
             slice=Name(
               id='MermaidLink',
               ctx=Load(),
-              lineno=25,
+              lineno=26,
               col_offset=25,
-              end_lineno=25,
+              end_lineno=26,
               end_col_offset=36),
             ctx=Load(),
-            lineno=25,
+            lineno=26,
             col_offset=20,
-            end_lineno=25,
+            end_lineno=26,
             end_col_offset=37),
           value=Call(
             func=Name(
               id='field',
               ctx=Load(),
-              lineno=25,
+              lineno=26,
               col_offset=40,
-              end_lineno=25,
+              end_lineno=26,
               end_col_offset=45),
             args=[],
             keywords=[
@@ -464,31 +536,31 @@ Module(
                 value=Name(
                   id='list',
                   ctx=Load(),
-                  lineno=25,
+                  lineno=26,
                   col_offset=62,
-                  end_lineno=25,
+                  end_lineno=26,
                   end_col_offset=66),
-                lineno=25,
+                lineno=26,
                 col_offset=46,
-                end_lineno=25,
+                end_lineno=26,
                 end_col_offset=66)],
-            lineno=25,
+            lineno=26,
             col_offset=40,
-            end_lineno=25,
+            end_lineno=26,
             end_col_offset=67),
           simple=1,
-          lineno=25,
+          lineno=26,
           col_offset=4,
-          end_lineno=25,
+          end_lineno=26,
           end_col_offset=67)],
       decorator_list=[
         Call(
           func=Name(
             id='dataclass',
             ctx=Load(),
-            lineno=23,
+            lineno=24,
             col_offset=1,
-            end_lineno=23,
+            end_lineno=24,
             end_col_offset=10),
           args=[],
           keywords=[
@@ -496,34 +568,154 @@ Module(
               arg='unsafe_hash',
               value=Constant(
                 value=True,
-                lineno=23,
+                lineno=24,
                 col_offset=23,
-                end_lineno=23,
+                end_lineno=24,
                 end_col_offset=27),
-              lineno=23,
+              lineno=24,
               col_offset=11,
-              end_lineno=23,
+              end_lineno=24,
               end_col_offset=27),
             keyword(
               arg='frozen',
               value=Constant(
                 value=True,
-                lineno=23,
+                lineno=24,
                 col_offset=36,
-                end_lineno=23,
+                end_lineno=24,
                 end_col_offset=40),
-              lineno=23,
+              lineno=24,
               col_offset=29,
-              end_lineno=23,
+              end_lineno=24,
               end_col_offset=40)],
-          lineno=23,
+          lineno=24,
           col_offset=1,
-          end_lineno=23,
+          end_lineno=24,
           end_col_offset=41)],
-      lineno=24,
+      lineno=25,
       col_offset=0,
-      end_lineno=25,
-      end_col_offset=67)],
+      end_lineno=26,
+      end_col_offset=67),
+    ClassDef(
+      name='MermaidModule',
+      bases=[
+        Name(
+          id='MermaidBlock',
+          ctx=Load(),
+          lineno=30,
+          col_offset=20,
+          end_lineno=30,
+          end_col_offset=32)],
+      keywords=[],
+      body=[
+        Pass(
+          lineno=31,
+          col_offset=4,
+          end_lineno=31,
+          end_col_offset=8)],
+      decorator_list=[
+        Call(
+          func=Name(
+            id='dataclass',
+            ctx=Load(),
+            lineno=29,
+            col_offset=1,
+            end_lineno=29,
+            end_col_offset=10),
+          args=[],
+          keywords=[
+            keyword(
+              arg='unsafe_hash',
+              value=Constant(
+                value=True,
+                lineno=29,
+                col_offset=23,
+                end_lineno=29,
+                end_col_offset=27),
+              lineno=29,
+              col_offset=11,
+              end_lineno=29,
+              end_col_offset=27),
+            keyword(
+              arg='frozen',
+              value=Constant(
+                value=True,
+                lineno=29,
+                col_offset=36,
+                end_lineno=29,
+                end_col_offset=40),
+              lineno=29,
+              col_offset=29,
+              end_lineno=29,
+              end_col_offset=40)],
+          lineno=29,
+          col_offset=1,
+          end_lineno=29,
+          end_col_offset=41)],
+      lineno=30,
+      col_offset=0,
+      end_lineno=31,
+      end_col_offset=8),
+    ClassDef(
+      name='MermaidFunction',
+      bases=[
+        Name(
+          id='MermaidBlock',
+          ctx=Load(),
+          lineno=35,
+          col_offset=22,
+          end_lineno=35,
+          end_col_offset=34)],
+      keywords=[],
+      body=[
+        Pass(
+          lineno=36,
+          col_offset=4,
+          end_lineno=36,
+          end_col_offset=8)],
+      decorator_list=[
+        Call(
+          func=Name(
+            id='dataclass',
+            ctx=Load(),
+            lineno=34,
+            col_offset=1,
+            end_lineno=34,
+            end_col_offset=10),
+          args=[],
+          keywords=[
+            keyword(
+              arg='unsafe_hash',
+              value=Constant(
+                value=True,
+                lineno=34,
+                col_offset=23,
+                end_lineno=34,
+                end_col_offset=27),
+              lineno=34,
+              col_offset=11,
+              end_lineno=34,
+              end_col_offset=27),
+            keyword(
+              arg='frozen',
+              value=Constant(
+                value=True,
+                lineno=34,
+                col_offset=36,
+                end_lineno=34,
+                end_col_offset=40),
+              lineno=34,
+              col_offset=29,
+              end_lineno=34,
+              end_col_offset=40)],
+          lineno=34,
+          col_offset=1,
+          end_lineno=34,
+          end_col_offset=41)],
+      lineno=35,
+      col_offset=0,
+      end_lineno=36,
+      end_col_offset=8)],
   type_ignores=[])
 ```
 </details>

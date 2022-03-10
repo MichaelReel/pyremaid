@@ -1,4 +1,10 @@
-from models import MermaidBlock, MermaidElement, MermaidLink, MermaidNode
+from models import (
+    MermaidBlock,
+    MermaidElement,
+    MermaidFunction,
+    MermaidLink,
+    MermaidNode,
+)
 
 TAB = "  "
 
@@ -30,7 +36,7 @@ def _get_unique_nodes(elements: list[MermaidElement]) -> list[MermaidNode]:
 def _get_aliases_for_safe_names(elements: list[MermaidElement], indent: int = 1) -> str:
     alias_string = ""
     for node in _get_unique_nodes(elements=elements):
-        alias_string += f"{TAB*indent}{node.mermaid_safe_name}[\"{node.ast_node}\"]\n"
+        alias_string += f"{TAB * indent}{node.mermaid_safe_name}[\"{node.display_name}\"]\n"
     return _sanitize(alias_string)
 
 
@@ -55,7 +61,15 @@ def _get_flow_connections(elements: list[MermaidElement], indent: int = 1) -> st
 
 
 def _get_block_text(block: MermaidBlock, indent: int) -> str:
-    block_text = _get_flow_connections(block.block_contents, indent)
+    block_text = ""
+    if isinstance(block, MermaidFunction):
+        function_def : MermaidFunction = block
+        block_text += f"{TAB * indent}subgraph {function_def.display_name}\n"
+        block_text += f"{TAB * (indent + 1)}direction TB\n"
+        block_text += _get_flow_connections(function_def.block_contents, indent + 1)
+        block_text += f"{TAB * indent}end\n"
+    else:
+        block_text += _get_flow_connections(block.block_contents, indent)
     return block_text
 
 

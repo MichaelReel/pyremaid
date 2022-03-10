@@ -8,294 +8,243 @@
 ---
 ```mermaid
 flowchart TB
-  node_0["ast.Module object at 0x106933250"]
-  node_1["ast.FunctionDef object at 0x106915610"]
-  node_2["ast.arguments object at 0x1069152e0"]
-  node_3["ast.arg object at 0x106915af0"]
-  node_4["ast.Name object at 0x106915700"]
-  node_5["ast.Load object at 0x1067e70d0"]
-  node_6["ast.Assign object at 0x106915c40"]
-  node_7["ast.Name object at 0x106915c10"]
-  node_8["ast.Store object at 0x1067e7070"]
-  node_9["ast.List object at 0x106915ca0"]
-  node_10["ast.Load object at 0x1067e70d0"]
-  node_11["ast.For object at 0x106915c70"]
-  node_12["ast.Tuple object at 0x106915b50"]
-  node_13["ast.Name object at 0x106915b20"]
-  node_14["ast.Store object at 0x1067e7070"]
-  node_15["ast.Name object at 0x106915bb0"]
-  node_16["ast.Store object at 0x1067e7070"]
-  node_17["ast.Name object at 0x106915b80"]
-  node_18["ast.Store object at 0x1067e7070"]
-  node_19["ast.Store object at 0x1067e7070"]
-  node_20["ast.Call object at 0x1069159a0"]
-  node_21["ast.Attribute object at 0x1069158b0"]
-  node_22["ast.Name object at 0x106915ac0"]
-  node_23["ast.Load object at 0x1067e70d0"]
-  node_24["ast.Load object at 0x1067e70d0"]
-  node_25["ast.Name object at 0x106915a90"]
-  node_26["ast.Load object at 0x1067e70d0"]
-  node_27["ast.For object at 0x106915a00"]
-  node_28["ast.Name object at 0x1069159d0"]
-  node_29["ast.Store object at 0x1067e7070"]
-  node_30["ast.Name object at 0x106915a60"]
-  node_31["ast.Load object at 0x1067e70d0"]
-  node_32["ast.If object at 0x106915a30"]
-  node_33["ast.Call object at 0x106915910"]
-  node_34["ast.Name object at 0x1069158e0"]
-  node_35["ast.Load object at 0x1067e70d0"]
-  node_36["ast.Constant object at 0x106915970"]
-  node_37["ast.Name object at 0x106915940"]
-  node_38["ast.Load object at 0x1067e70d0"]
-  node_39["ast.Expr object at 0x106915820"]
-  node_40["ast.Call object at 0x1069157f0"]
-  node_41["ast.Attribute object at 0x106915880"]
-  node_42["ast.Name object at 0x106915850"]
-  node_43["ast.Load object at 0x1067e70d0"]
-  node_44["ast.Load object at 0x1067e70d0"]
-  node_45["ast.Call object at 0x106915760"]
-  node_46["ast.Attribute object at 0x106915730"]
-  node_47["ast.Attribute object at 0x1069157c0"]
-  node_48["ast.Name object at 0x106915790"]
-  node_49["ast.Load object at 0x1067e70d0"]
-  node_50["ast.Load object at 0x1067e70d0"]
-  node_51["ast.Load object at 0x1067e70d0"]
-  node_52["ast.Name object at 0x106915670"]
-  node_53["ast.Load object at 0x1067e70d0"]
-  node_54["ast.Name object at 0x106915640"]
-  node_55["ast.Load object at 0x1067e70d0"]
-  node_56["ast.Return object at 0x1069156a0"]
-  node_57["ast.Name object at 0x1069154c0"]
-  node_58["ast.Load object at 0x1067e70d0"]
-  node_59["ast.Subscript object at 0x1069155e0"]
-  node_60["ast.Name object at 0x1069155b0"]
-  node_61["ast.Load object at 0x1067e70d0"]
-  node_62["ast.Name object at 0x106915520"]
-  node_63["ast.Load object at 0x1067e70d0"]
-  node_64["ast.Load object at 0x1067e70d0"]
-  node_65["ast.FunctionDef object at 0x1069154f0"]
-  node_66["ast.arguments object at 0x106915580"]
-  node_67["ast.arg object at 0x106915550"]
-  node_68["ast.Name object at 0x106915430"]
-  node_69["ast.Load object at 0x1067e70d0"]
-  node_70["ast.Assign object at 0x106915400"]
-  node_71["ast.Name object at 0x106915490"]
-  node_72["ast.Store object at 0x1067e7070"]
-  node_73["ast.Constant object at 0x106915460"]
-  node_74["ast.With object at 0x1069151f0"]
-  node_75["ast.withitem object at 0x106915340"]
-  node_76["ast.Call object at 0x106915310"]
-  node_77["ast.Name object at 0x1069153a0"]
-  node_78["ast.Load object at 0x1067e70d0"]
-  node_79["ast.Name object at 0x106915370"]
-  node_80["ast.Load object at 0x1067e70d0"]
-  node_81["ast.Constant object at 0x106915250"]
-  node_82["ast.Name object at 0x1069152b0"]
-  node_83["ast.Store object at 0x1067e7070"]
-  node_84["ast.Assign object at 0x106915280"]
-  node_85["ast.Name object at 0x1069150a0"]
-  node_86["ast.Store object at 0x1067e7070"]
-  node_87["ast.Call object at 0x1069151c0"]
-  node_88["ast.Attribute object at 0x106915190"]
-  node_89["ast.Name object at 0x106915100"]
-  node_90["ast.Load object at 0x1067e70d0"]
-  node_91["ast.Load object at 0x1067e70d0"]
-  node_92["ast.Return object at 0x1069150d0"]
-  node_93["ast.Name object at 0x106915160"]
-  node_94["ast.Load object at 0x1067e70d0"]
-  node_95["ast.Name object at 0x106915070"]
-  node_96["ast.Load object at 0x1067e70d0"]
-  node_97["ast.FunctionDef object at 0x106915040"]
-  node_98["ast.arguments object at 0x106914cd0"]
-  node_99["ast.arg object at 0x106914a60"]
-  node_100["ast.Name object at 0x106914dc0"]
-  node_101["ast.Load object at 0x1067e70d0"]
-  node_102["ast.arg object at 0x106914f70"]
-  node_103["ast.Name object at 0x106914fd0"]
-  node_104["ast.Load object at 0x1067e70d0"]
-  node_105["ast.Return object at 0x106914fa0"]
-  node_106["ast.Call object at 0x106914ee0"]
-  node_107["ast.Attribute object at 0x106914eb0"]
-  node_108["ast.Call object at 0x106914f40"]
-  node_109["ast.Attribute object at 0x106914f10"]
-  node_110["ast.Call object at 0x106914e20"]
-  node_111["ast.Attribute object at 0x106914df0"]
-  node_112["ast.Call object at 0x106914e80"]
-  node_113["ast.Attribute object at 0x106914e50"]
-  node_114["ast.Call object at 0x106914d30"]
-  node_115["ast.Attribute object at 0x106914d00"]
-  node_116["ast.Call object at 0x106914d90"]
-  node_117["ast.Attribute object at 0x106914d60"]
-  node_118["ast.Name object at 0x106914b80"]
-  node_119["ast.Load object at 0x1067e70d0"]
-  node_120["ast.Load object at 0x1067e70d0"]
-  node_121["ast.Name object at 0x106914a90"]
-  node_122["ast.Load object at 0x1067e70d0"]
-  node_123["ast.Constant object at 0x106914ca0"]
-  node_124["ast.Load object at 0x1067e70d0"]
-  node_125["ast.Constant object at 0x106914c70"]
-  node_126["ast.Constant object at 0x106914be0"]
-  node_127["ast.Load object at 0x1067e70d0"]
-  node_128["ast.Constant object at 0x106914bb0"]
-  node_129["ast.Constant object at 0x106914c40"]
-  node_130["ast.Load object at 0x1067e70d0"]
-  node_131["ast.Attribute object at 0x106914c10"]
-  node_132["ast.Name object at 0x106914af0"]
-  node_133["ast.Load object at 0x1067e70d0"]
-  node_134["ast.Load object at 0x1067e70d0"]
-  node_135["ast.Constant object at 0x106914ac0"]
-  node_136["ast.Load object at 0x1067e70d0"]
-  node_137["ast.Constant object at 0x106914b50"]
-  node_138["ast.Constant object at 0x106914b20"]
-  node_139["ast.Load object at 0x1067e70d0"]
-  node_140["ast.Constant object at 0x1069149d0"]
-  node_141["ast.Constant object at 0x1069148e0"]
-  node_142["ast.Name object at 0x106914a00"]
-  node_143["ast.Load object at 0x1067e70d0"]
+  _find_all_python_files_node_0["Assign"]
+  _find_all_python_files_node_1["Name"]
+  _find_all_python_files_node_2["Store"]
+  _find_all_python_files_node_3["List"]
+  _find_all_python_files_node_4["Load"]
+  _find_all_python_files_node_5["For"]
+  _find_all_python_files_node_6["Tuple"]
+  _find_all_python_files_node_7["Name"]
+  _find_all_python_files_node_8["Store"]
+  _find_all_python_files_node_9["Name"]
+  _find_all_python_files_node_10["Store"]
+  _find_all_python_files_node_11["Name"]
+  _find_all_python_files_node_12["Store"]
+  _find_all_python_files_node_13["Store"]
+  _find_all_python_files_node_14["Call"]
+  _find_all_python_files_node_15["Attribute"]
+  _find_all_python_files_node_16["Name"]
+  _find_all_python_files_node_17["Load"]
+  _find_all_python_files_node_18["Load"]
+  _find_all_python_files_node_19["Name"]
+  _find_all_python_files_node_20["Load"]
+  _find_all_python_files_node_21["For"]
+  _find_all_python_files_node_22["Name"]
+  _find_all_python_files_node_23["Store"]
+  _find_all_python_files_node_24["Name"]
+  _find_all_python_files_node_25["Load"]
+  _find_all_python_files_node_26["If"]
+  _find_all_python_files_node_27["Call"]
+  _find_all_python_files_node_28["Name"]
+  _find_all_python_files_node_29["Load"]
+  _find_all_python_files_node_30["Constant"]
+  _find_all_python_files_node_31["Name"]
+  _find_all_python_files_node_32["Load"]
+  _find_all_python_files_node_33["Expr"]
+  _find_all_python_files_node_34["Call"]
+  _find_all_python_files_node_35["Attribute"]
+  _find_all_python_files_node_36["Name"]
+  _find_all_python_files_node_37["Load"]
+  _find_all_python_files_node_38["Load"]
+  _find_all_python_files_node_39["Call"]
+  _find_all_python_files_node_40["Attribute"]
+  _find_all_python_files_node_41["Attribute"]
+  _find_all_python_files_node_42["Name"]
+  _find_all_python_files_node_43["Load"]
+  _find_all_python_files_node_44["Load"]
+  _find_all_python_files_node_45["Load"]
+  _find_all_python_files_node_46["Name"]
+  _find_all_python_files_node_47["Load"]
+  _find_all_python_files_node_48["Name"]
+  _find_all_python_files_node_49["Load"]
+  _find_all_python_files_node_50["Return"]
+  _find_all_python_files_node_51["Name"]
+  _find_all_python_files_node_52["Load"]
+  _get_source_code_from_file_node_0["Assign"]
+  _get_source_code_from_file_node_1["Name"]
+  _get_source_code_from_file_node_2["Store"]
+  _get_source_code_from_file_node_3["Constant"]
+  _get_source_code_from_file_node_4["With"]
+  _get_source_code_from_file_node_5["withitem"]
+  _get_source_code_from_file_node_6["Call"]
+  _get_source_code_from_file_node_7["Name"]
+  _get_source_code_from_file_node_8["Load"]
+  _get_source_code_from_file_node_9["Name"]
+  _get_source_code_from_file_node_10["Load"]
+  _get_source_code_from_file_node_11["Constant"]
+  _get_source_code_from_file_node_12["Name"]
+  _get_source_code_from_file_node_13["Store"]
+  _get_source_code_from_file_node_14["Assign"]
+  _get_source_code_from_file_node_15["Name"]
+  _get_source_code_from_file_node_16["Store"]
+  _get_source_code_from_file_node_17["Call"]
+  _get_source_code_from_file_node_18["Attribute"]
+  _get_source_code_from_file_node_19["Name"]
+  _get_source_code_from_file_node_20["Load"]
+  _get_source_code_from_file_node_21["Load"]
+  _get_source_code_from_file_node_22["Return"]
+  _get_source_code_from_file_node_23["Name"]
+  _get_source_code_from_file_node_24["Load"]
+  _get_import_name_from_path_node_0["Return"]
+  _get_import_name_from_path_node_1["Call"]
+  _get_import_name_from_path_node_2["Attribute"]
+  _get_import_name_from_path_node_3["Call"]
+  _get_import_name_from_path_node_4["Attribute"]
+  _get_import_name_from_path_node_5["Call"]
+  _get_import_name_from_path_node_6["Attribute"]
+  _get_import_name_from_path_node_7["Call"]
+  _get_import_name_from_path_node_8["Attribute"]
+  _get_import_name_from_path_node_9["Call"]
+  _get_import_name_from_path_node_10["Attribute"]
+  _get_import_name_from_path_node_11["Call"]
+  _get_import_name_from_path_node_12["Attribute"]
+  _get_import_name_from_path_node_13["Name"]
+  _get_import_name_from_path_node_14["Load"]
+  _get_import_name_from_path_node_15["Load"]
+  _get_import_name_from_path_node_16["Name"]
+  _get_import_name_from_path_node_17["Load"]
+  _get_import_name_from_path_node_18["Constant"]
+  _get_import_name_from_path_node_19["Load"]
+  _get_import_name_from_path_node_20["Constant"]
+  _get_import_name_from_path_node_21["Constant"]
+  _get_import_name_from_path_node_22["Load"]
+  _get_import_name_from_path_node_23["Constant"]
+  _get_import_name_from_path_node_24["Constant"]
+  _get_import_name_from_path_node_25["Load"]
+  _get_import_name_from_path_node_26["Attribute"]
+  _get_import_name_from_path_node_27["Name"]
+  _get_import_name_from_path_node_28["Load"]
+  _get_import_name_from_path_node_29["Load"]
+  _get_import_name_from_path_node_30["Constant"]
+  _get_import_name_from_path_node_31["Load"]
+  _get_import_name_from_path_node_32["Constant"]
+  _get_import_name_from_path_node_33["Constant"]
+  _get_import_name_from_path_node_34["Load"]
+  _get_import_name_from_path_node_35["Constant"]
+  _get_import_name_from_path_node_36["Constant"]
 
-  node_0 --> node_1
-  node_1 --> node_2
-  node_2 --> node_3
-  node_3 --> node_4
-  node_4 --> node_5
-  node_5 --> node_6
-  node_6 --> node_7
-  node_7 --> node_8
-  node_8 --> node_9
-  node_9 --> node_10
-  node_10 --> node_11
-  node_11 --> node_12
-  node_12 --> node_13
-  node_13 --> node_14
-  node_14 --> node_15
-  node_15 --> node_16
-  node_16 --> node_17
-  node_17 --> node_18
-  node_18 --> node_19
-  node_19 --> node_20
-  node_20 --> node_21
-  node_21 --> node_22
-  node_22 --> node_23
-  node_23 --> node_24
-  node_24 --> node_25
-  node_25 --> node_26
-  node_26 --> node_27
-  node_27 --> node_28
-  node_28 --> node_29
-  node_29 --> node_30
-  node_30 --> node_31
-  node_31 --> node_32
-  node_32 --> node_33
-  node_33 --> node_34
-  node_34 --> node_35
-  node_35 --> node_36
-  node_36 --> node_37
-  node_37 --> node_38
-  node_38 --> node_39
-  node_39 --> node_40
-  node_40 --> node_41
-  node_41 --> node_42
-  node_42 --> node_43
-  node_43 --> node_44
-  node_44 --> node_45
-  node_45 --> node_46
-  node_46 --> node_47
-  node_47 --> node_48
-  node_48 --> node_49
-  node_49 --> node_50
-  node_50 --> node_51
-  node_51 --> node_52
-  node_52 --> node_53
-  node_53 --> node_54
-  node_54 --> node_55
-  node_55 --> node_56
-  node_56 --> node_57
-  node_57 --> node_58
-  node_58 --> node_59
-  node_59 --> node_60
-  node_60 --> node_61
-  node_61 --> node_62
-  node_62 --> node_63
-  node_63 --> node_64
-  node_64 --> node_65
-  node_65 --> node_66
-  node_66 --> node_67
-  node_67 --> node_68
-  node_68 --> node_69
-  node_69 --> node_70
-  node_70 --> node_71
-  node_71 --> node_72
-  node_72 --> node_73
-  node_73 --> node_74
-  node_74 --> node_75
-  node_75 --> node_76
-  node_76 --> node_77
-  node_77 --> node_78
-  node_78 --> node_79
-  node_79 --> node_80
-  node_80 --> node_81
-  node_81 --> node_82
-  node_82 --> node_83
-  node_83 --> node_84
-  node_84 --> node_85
-  node_85 --> node_86
-  node_86 --> node_87
-  node_87 --> node_88
-  node_88 --> node_89
-  node_89 --> node_90
-  node_90 --> node_91
-  node_91 --> node_92
-  node_92 --> node_93
-  node_93 --> node_94
-  node_94 --> node_95
-  node_95 --> node_96
-  node_96 --> node_97
-  node_97 --> node_98
-  node_98 --> node_99
-  node_99 --> node_100
-  node_100 --> node_101
-  node_101 --> node_102
-  node_102 --> node_103
-  node_103 --> node_104
-  node_104 --> node_105
-  node_105 --> node_106
-  node_106 --> node_107
-  node_107 --> node_108
-  node_108 --> node_109
-  node_109 --> node_110
-  node_110 --> node_111
-  node_111 --> node_112
-  node_112 --> node_113
-  node_113 --> node_114
-  node_114 --> node_115
-  node_115 --> node_116
-  node_116 --> node_117
-  node_117 --> node_118
-  node_118 --> node_119
-  node_119 --> node_120
-  node_120 --> node_121
-  node_121 --> node_122
-  node_122 --> node_123
-  node_123 --> node_124
-  node_124 --> node_125
-  node_125 --> node_126
-  node_126 --> node_127
-  node_127 --> node_128
-  node_128 --> node_129
-  node_129 --> node_130
-  node_130 --> node_131
-  node_131 --> node_132
-  node_132 --> node_133
-  node_133 --> node_134
-  node_134 --> node_135
-  node_135 --> node_136
-  node_136 --> node_137
-  node_137 --> node_138
-  node_138 --> node_139
-  node_139 --> node_140
-  node_140 --> node_141
-  node_141 --> node_142
-  node_142 --> node_143
+  subgraph find_all_python_files
+    direction TB
+    _find_all_python_files_node_0 --> _find_all_python_files_node_1
+    _find_all_python_files_node_1 --> _find_all_python_files_node_2
+    _find_all_python_files_node_2 --> _find_all_python_files_node_3
+    _find_all_python_files_node_3 --> _find_all_python_files_node_4
+    _find_all_python_files_node_4 --> _find_all_python_files_node_5
+    _find_all_python_files_node_5 --> _find_all_python_files_node_6
+    _find_all_python_files_node_6 --> _find_all_python_files_node_7
+    _find_all_python_files_node_7 --> _find_all_python_files_node_8
+    _find_all_python_files_node_8 --> _find_all_python_files_node_9
+    _find_all_python_files_node_9 --> _find_all_python_files_node_10
+    _find_all_python_files_node_10 --> _find_all_python_files_node_11
+    _find_all_python_files_node_11 --> _find_all_python_files_node_12
+    _find_all_python_files_node_12 --> _find_all_python_files_node_13
+    _find_all_python_files_node_13 --> _find_all_python_files_node_14
+    _find_all_python_files_node_14 --> _find_all_python_files_node_15
+    _find_all_python_files_node_15 --> _find_all_python_files_node_16
+    _find_all_python_files_node_16 --> _find_all_python_files_node_17
+    _find_all_python_files_node_17 --> _find_all_python_files_node_18
+    _find_all_python_files_node_18 --> _find_all_python_files_node_19
+    _find_all_python_files_node_19 --> _find_all_python_files_node_20
+    _find_all_python_files_node_20 --> _find_all_python_files_node_21
+    _find_all_python_files_node_21 --> _find_all_python_files_node_22
+    _find_all_python_files_node_22 --> _find_all_python_files_node_23
+    _find_all_python_files_node_23 --> _find_all_python_files_node_24
+    _find_all_python_files_node_24 --> _find_all_python_files_node_25
+    _find_all_python_files_node_25 --> _find_all_python_files_node_26
+    _find_all_python_files_node_26 --> _find_all_python_files_node_27
+    _find_all_python_files_node_27 --> _find_all_python_files_node_28
+    _find_all_python_files_node_28 --> _find_all_python_files_node_29
+    _find_all_python_files_node_29 --> _find_all_python_files_node_30
+    _find_all_python_files_node_30 --> _find_all_python_files_node_31
+    _find_all_python_files_node_31 --> _find_all_python_files_node_32
+    _find_all_python_files_node_32 --> _find_all_python_files_node_33
+    _find_all_python_files_node_33 --> _find_all_python_files_node_34
+    _find_all_python_files_node_34 --> _find_all_python_files_node_35
+    _find_all_python_files_node_35 --> _find_all_python_files_node_36
+    _find_all_python_files_node_36 --> _find_all_python_files_node_37
+    _find_all_python_files_node_37 --> _find_all_python_files_node_38
+    _find_all_python_files_node_38 --> _find_all_python_files_node_39
+    _find_all_python_files_node_39 --> _find_all_python_files_node_40
+    _find_all_python_files_node_40 --> _find_all_python_files_node_41
+    _find_all_python_files_node_41 --> _find_all_python_files_node_42
+    _find_all_python_files_node_42 --> _find_all_python_files_node_43
+    _find_all_python_files_node_43 --> _find_all_python_files_node_44
+    _find_all_python_files_node_44 --> _find_all_python_files_node_45
+    _find_all_python_files_node_45 --> _find_all_python_files_node_46
+    _find_all_python_files_node_46 --> _find_all_python_files_node_47
+    _find_all_python_files_node_47 --> _find_all_python_files_node_48
+    _find_all_python_files_node_48 --> _find_all_python_files_node_49
+    _find_all_python_files_node_49 --> _find_all_python_files_node_50
+    _find_all_python_files_node_50 --> _find_all_python_files_node_51
+    _find_all_python_files_node_51 --> _find_all_python_files_node_52
+  end
+  subgraph get_source_code_from_file
+    direction TB
+    _get_source_code_from_file_node_0 --> _get_source_code_from_file_node_1
+    _get_source_code_from_file_node_1 --> _get_source_code_from_file_node_2
+    _get_source_code_from_file_node_2 --> _get_source_code_from_file_node_3
+    _get_source_code_from_file_node_3 --> _get_source_code_from_file_node_4
+    _get_source_code_from_file_node_4 --> _get_source_code_from_file_node_5
+    _get_source_code_from_file_node_5 --> _get_source_code_from_file_node_6
+    _get_source_code_from_file_node_6 --> _get_source_code_from_file_node_7
+    _get_source_code_from_file_node_7 --> _get_source_code_from_file_node_8
+    _get_source_code_from_file_node_8 --> _get_source_code_from_file_node_9
+    _get_source_code_from_file_node_9 --> _get_source_code_from_file_node_10
+    _get_source_code_from_file_node_10 --> _get_source_code_from_file_node_11
+    _get_source_code_from_file_node_11 --> _get_source_code_from_file_node_12
+    _get_source_code_from_file_node_12 --> _get_source_code_from_file_node_13
+    _get_source_code_from_file_node_13 --> _get_source_code_from_file_node_14
+    _get_source_code_from_file_node_14 --> _get_source_code_from_file_node_15
+    _get_source_code_from_file_node_15 --> _get_source_code_from_file_node_16
+    _get_source_code_from_file_node_16 --> _get_source_code_from_file_node_17
+    _get_source_code_from_file_node_17 --> _get_source_code_from_file_node_18
+    _get_source_code_from_file_node_18 --> _get_source_code_from_file_node_19
+    _get_source_code_from_file_node_19 --> _get_source_code_from_file_node_20
+    _get_source_code_from_file_node_20 --> _get_source_code_from_file_node_21
+    _get_source_code_from_file_node_21 --> _get_source_code_from_file_node_22
+    _get_source_code_from_file_node_22 --> _get_source_code_from_file_node_23
+    _get_source_code_from_file_node_23 --> _get_source_code_from_file_node_24
+  end
+  subgraph get_import_name_from_path
+    direction TB
+    _get_import_name_from_path_node_0 --> _get_import_name_from_path_node_1
+    _get_import_name_from_path_node_1 --> _get_import_name_from_path_node_2
+    _get_import_name_from_path_node_2 --> _get_import_name_from_path_node_3
+    _get_import_name_from_path_node_3 --> _get_import_name_from_path_node_4
+    _get_import_name_from_path_node_4 --> _get_import_name_from_path_node_5
+    _get_import_name_from_path_node_5 --> _get_import_name_from_path_node_6
+    _get_import_name_from_path_node_6 --> _get_import_name_from_path_node_7
+    _get_import_name_from_path_node_7 --> _get_import_name_from_path_node_8
+    _get_import_name_from_path_node_8 --> _get_import_name_from_path_node_9
+    _get_import_name_from_path_node_9 --> _get_import_name_from_path_node_10
+    _get_import_name_from_path_node_10 --> _get_import_name_from_path_node_11
+    _get_import_name_from_path_node_11 --> _get_import_name_from_path_node_12
+    _get_import_name_from_path_node_12 --> _get_import_name_from_path_node_13
+    _get_import_name_from_path_node_13 --> _get_import_name_from_path_node_14
+    _get_import_name_from_path_node_14 --> _get_import_name_from_path_node_15
+    _get_import_name_from_path_node_15 --> _get_import_name_from_path_node_16
+    _get_import_name_from_path_node_16 --> _get_import_name_from_path_node_17
+    _get_import_name_from_path_node_17 --> _get_import_name_from_path_node_18
+    _get_import_name_from_path_node_18 --> _get_import_name_from_path_node_19
+    _get_import_name_from_path_node_19 --> _get_import_name_from_path_node_20
+    _get_import_name_from_path_node_20 --> _get_import_name_from_path_node_21
+    _get_import_name_from_path_node_21 --> _get_import_name_from_path_node_22
+    _get_import_name_from_path_node_22 --> _get_import_name_from_path_node_23
+    _get_import_name_from_path_node_23 --> _get_import_name_from_path_node_24
+    _get_import_name_from_path_node_24 --> _get_import_name_from_path_node_25
+    _get_import_name_from_path_node_25 --> _get_import_name_from_path_node_26
+    _get_import_name_from_path_node_26 --> _get_import_name_from_path_node_27
+    _get_import_name_from_path_node_27 --> _get_import_name_from_path_node_28
+    _get_import_name_from_path_node_28 --> _get_import_name_from_path_node_29
+    _get_import_name_from_path_node_29 --> _get_import_name_from_path_node_30
+    _get_import_name_from_path_node_30 --> _get_import_name_from_path_node_31
+    _get_import_name_from_path_node_31 --> _get_import_name_from_path_node_32
+    _get_import_name_from_path_node_32 --> _get_import_name_from_path_node_33
+    _get_import_name_from_path_node_33 --> _get_import_name_from_path_node_34
+    _get_import_name_from_path_node_34 --> _get_import_name_from_path_node_35
+    _get_import_name_from_path_node_35 --> _get_import_name_from_path_node_36
+  end
 
 ```
 ---

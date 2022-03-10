@@ -20,448 +20,432 @@
 ---
 ```mermaid
 flowchart TB
-  node_0["ast.Module object at 0x1068e7fd0"]
-  node_1["ast.FunctionDef object at 0x1068e7910"]
-  node_2["ast.arguments object at 0x1068e78e0"]
-  node_3["ast.arg object at 0x1068e78b0"]
-  node_4["ast.Name object at 0x1068e7880"]
-  node_5["ast.Load object at 0x1067e70d0"]
-  node_6["ast.arg object at 0x1068e7850"]
-  node_7["ast.Name object at 0x1068e7820"]
-  node_8["ast.Load object at 0x1067e70d0"]
-  node_9["ast.Expr object at 0x1068e77c0"]
-  node_10["ast.Call object at 0x1068e7790"]
-  node_11["ast.Name object at 0x1068e76a0"]
-  node_12["ast.Load object at 0x1067e70d0"]
-  node_13["ast.keyword object at 0x1068f15b0"]
-  node_14["ast.Name object at 0x1068f15e0"]
-  node_15["ast.Load object at 0x1067e70d0"]
-  node_16["ast.Assign object at 0x1068f1580"]
-  node_17["ast.Name object at 0x1068f1040"]
-  node_18["ast.Store object at 0x1067e7070"]
-  node_19["ast.Call object at 0x1068f34f0"]
-  node_20["ast.Name object at 0x1068f34c0"]
-  node_21["ast.Load object at 0x1067e70d0"]
-  node_22["ast.keyword object at 0x1068f3550"]
-  node_23["ast.Name object at 0x1068f3520"]
-  node_24["ast.Load object at 0x1067e70d0"]
-  node_25["ast.Assign object at 0x1068f3400"]
-  node_26["ast.Name object at 0x1068f3460"]
-  node_27["ast.Store object at 0x1067e7070"]
-  node_28["ast.Call object at 0x1068f3430"]
-  node_29["ast.Name object at 0x1068f3370"]
-  node_30["ast.Load object at 0x1067e70d0"]
-  node_31["ast.keyword object at 0x1068f3280"]
-  node_32["ast.Name object at 0x1068f33d0"]
-  node_33["ast.Load object at 0x1067e70d0"]
-  node_34["ast.keyword object at 0x1068f33a0"]
-  node_35["ast.Name object at 0x1068f32e0"]
-  node_36["ast.Load object at 0x1067e70d0"]
-  node_37["ast.Expr object at 0x1068f32b0"]
-  node_38["ast.Call object at 0x1068f3340"]
-  node_39["ast.Name object at 0x1068f3310"]
-  node_40["ast.Load object at 0x1067e70d0"]
-  node_41["ast.Call object at 0x1068f31f0"]
-  node_42["ast.Attribute object at 0x1068f3100"]
-  node_43["ast.Constant object at 0x1068f3250"]
-  node_44["ast.Load object at 0x1067e70d0"]
-  node_45["ast.ListComp object at 0x1068f3220"]
-  node_46["ast.JoinedStr object at 0x1068f3160"]
-  node_47["ast.FormattedValue object at 0x1068f3130"]
-  node_48["ast.Name object at 0x1068f31c0"]
-  node_49["ast.Load object at 0x1067e70d0"]
-  node_50["ast.Constant object at 0x1068f3190"]
-  node_51["ast.FormattedValue object at 0x1068f3070"]
-  node_52["ast.Name object at 0x1068f3040"]
-  node_53["ast.Load object at 0x1067e70d0"]
-  node_54["ast.comprehension object at 0x1068f30a0"]
-  node_55["ast.Tuple object at 0x1068e8190"]
-  node_56["ast.Name object at 0x1068e8370"]
-  node_57["ast.Store object at 0x1067e7070"]
-  node_58["ast.Name object at 0x1068e8070"]
-  node_59["ast.Store object at 0x1067e7070"]
-  node_60["ast.Store object at 0x1067e7070"]
-  node_61["ast.Call object at 0x1068e8100"]
-  node_62["ast.Attribute object at 0x1068e80a0"]
-  node_63["ast.Name object at 0x1068e82b0"]
-  node_64["ast.Load object at 0x1067e70d0"]
-  node_65["ast.Load object at 0x1067e70d0"]
-  node_66["ast.For object at 0x1068e8160"]
-  node_67["ast.Name object at 0x1068e8340"]
-  node_68["ast.Store object at 0x1067e7070"]
-  node_69["ast.Name object at 0x1068e86a0"]
-  node_70["ast.Load object at 0x1067e70d0"]
-  node_71["ast.Assign object at 0x1068e8220"]
-  node_72["ast.Name object at 0x1068e8310"]
-  node_73["ast.Store object at 0x1067e7070"]
-  node_74["ast.Call object at 0x1068e8430"]
-  node_75["ast.Attribute object at 0x1068e8250"]
-  node_76["ast.Name object at 0x1068e8880"]
-  node_77["ast.Load object at 0x1067e70d0"]
-  node_78["ast.Load object at 0x1067e70d0"]
-  node_79["ast.Name object at 0x1068e81f0"]
-  node_80["ast.Load object at 0x1067e70d0"]
-  node_81["ast.Constant object at 0x1068e81c0"]
-  node_82["ast.Assign object at 0x1068e83d0"]
-  node_83["ast.Name object at 0x1068e80d0"]
-  node_84["ast.Store object at 0x1067e7070"]
-  node_85["ast.Call object at 0x1068e8400"]
-  node_86["ast.Name object at 0x1068e83a0"]
-  node_87["ast.Load object at 0x1067e70d0"]
-  node_88["ast.keyword object at 0x1068e8910"]
-  node_89["ast.Name object at 0x1068e8be0"]
-  node_90["ast.Load object at 0x1067e70d0"]
-  node_91["ast.keyword object at 0x1068e88e0"]
-  node_92["ast.Name object at 0x1068e88b0"]
-  node_93["ast.Load object at 0x1067e70d0"]
-  node_94["ast.Assign object at 0x1068e8f70"]
-  node_95["ast.Name object at 0x1068e8850"]
-  node_96["ast.Store object at 0x1067e7070"]
-  node_97["ast.Constant object at 0x1068e8d30"]
-  node_98["ast.Assign object at 0x1068e8df0"]
-  node_99["ast.Name object at 0x1068e8d90"]
-  node_100["ast.Store object at 0x1067e7070"]
-  node_101["ast.List object at 0x1068e8d60"]
-  node_102["ast.Load object at 0x1067e70d0"]
-  node_103["ast.If object at 0x1068e8790"]
-  node_104["ast.NamedExpr object at 0x1068e8760"]
-  node_105["ast.Name object at 0x1068e8460"]
-  node_106["ast.Store object at 0x1067e7070"]
-  node_107["ast.Call object at 0x1068e87c0"]
-  node_108["ast.Name object at 0x1068e8fa0"]
-  node_109["ast.Load object at 0x1067e70d0"]
-  node_110["ast.keyword object at 0x1068e8fd0"]
-  node_111["ast.Name object at 0x1068e8670"]
-  node_112["ast.Load object at 0x1067e70d0"]
-  node_113["ast.If object at 0x1068e8610"]
-  node_114["ast.NamedExpr object at 0x1068e8040"]
-  node_115["ast.Name object at 0x1068e8130"]
-  node_116["ast.Store object at 0x1067e7070"]
-  node_117["ast.Call object at 0x1068e8f10"]
-  node_118["ast.Name object at 0x1068e8ee0"]
-  node_119["ast.Load object at 0x1067e70d0"]
-  node_120["ast.keyword object at 0x1068e85e0"]
-  node_121["ast.Name object at 0x1068e8940"]
-  node_122["ast.Load object at 0x1067e70d0"]
-  node_123["ast.keyword object at 0x1068e8730"]
-  node_124["ast.Name object at 0x1068e8f40"]
-  node_125["ast.Load object at 0x1067e70d0"]
-  node_126["ast.Assign object at 0x1068e8eb0"]
-  node_127["ast.Name object at 0x1068e8820"]
-  node_128["ast.Store object at 0x1067e7070"]
-  node_129["ast.Call object at 0x1068e8700"]
-  node_130["ast.Name object at 0x1068e87f0"]
-  node_131["ast.Load object at 0x1067e70d0"]
-  node_132["ast.keyword object at 0x1068e8c70"]
-  node_133["ast.Name object at 0x1068e84c0"]
-  node_134["ast.Load object at 0x1067e70d0"]
-  node_135["ast.Assign object at 0x1068e8c40"]
-  node_136["ast.Name object at 0x1068e8c10"]
-  node_137["ast.Store object at 0x1067e7070"]
-  node_138["ast.Call object at 0x1068e8cd0"]
-  node_139["ast.Name object at 0x1068e8bb0"]
-  node_140["ast.Load object at 0x1067e70d0"]
-  node_141["ast.keyword object at 0x1068e8d00"]
-  node_142["ast.Name object at 0x1068e8ca0"]
-  node_143["ast.Load object at 0x1067e70d0"]
-  node_144["ast.AnnAssign object at 0x1068e89d0"]
-  node_145["ast.Name object at 0x1068e8970"]
-  node_146["ast.Store object at 0x1067e7070"]
-  node_147["ast.Subscript object at 0x1068e8490"]
-  node_148["ast.Name object at 0x1068e84f0"]
-  node_149["ast.Load object at 0x1067e70d0"]
-  node_150["ast.Name object at 0x1068e8b80"]
-  node_151["ast.Load object at 0x1067e70d0"]
-  node_152["ast.Load object at 0x1067e70d0"]
-  node_153["ast.Call object at 0x1068e8a00"]
-  node_154["ast.Name object at 0x1068e86d0"]
-  node_155["ast.Load object at 0x1067e70d0"]
-  node_156["ast.keyword object at 0x1068e8ac0"]
-  node_157["ast.Name object at 0x1068e8a90"]
-  node_158["ast.Load object at 0x1067e70d0"]
-  node_159["ast.Assign object at 0x1068e8550"]
-  node_160["ast.Name object at 0x1068e85b0"]
-  node_161["ast.Store object at 0x1067e7070"]
-  node_162["ast.Call object at 0x1068e8b50"]
-  node_163["ast.Name object at 0x1068e8640"]
-  node_164["ast.Load object at 0x1067e70d0"]
-  node_165["ast.Name object at 0x1068e8e80"]
-  node_166["ast.Load object at 0x1067e70d0"]
-  node_167["ast.Assign object at 0x1068e8e20"]
-  node_168["ast.Name object at 0x1068e8b20"]
-  node_169["ast.Store object at 0x1067e7070"]
-  node_170["ast.Call object at 0x1068e8a30"]
-  node_171["ast.Name object at 0x1068e8e50"]
-  node_172["ast.Load object at 0x1067e70d0"]
-  node_173["ast.keyword object at 0x1068e8a60"]
-  node_174["ast.Name object at 0x1068e8af0"]
-  node_175["ast.Load object at 0x1067e70d0"]
-  node_176["ast.keyword object at 0x1068e3790"]
-  node_177["ast.Name object at 0x1068e3850"]
-  node_178["ast.Load object at 0x1067e70d0"]
-  node_179["ast.keyword object at 0x1068e3040"]
-  node_180["ast.List object at 0x1068e3880"]
-  node_181["ast.Name object at 0x1068e3190"]
-  node_182["ast.Load object at 0x1067e70d0"]
-  node_183["ast.Load object at 0x1067e70d0"]
-  node_184["ast.keyword object at 0x1068e3250"]
-  node_185["ast.Name object at 0x1068e3730"]
-  node_186["ast.Load object at 0x1067e70d0"]
-  node_187["ast.Expr object at 0x1068e31f0"]
-  node_188["ast.Call object at 0x1068e30a0"]
-  node_189["ast.Name object at 0x1068e31c0"]
-  node_190["ast.Load object at 0x1067e70d0"]
-  node_191["ast.keyword object at 0x1068e3760"]
-  node_192["ast.Name object at 0x1068e3280"]
-  node_193["ast.Load object at 0x1067e70d0"]
-  node_194["ast.keyword object at 0x1068e3640"]
-  node_195["ast.Name object at 0x1068e3160"]
-  node_196["ast.Load object at 0x1067e70d0"]
-  node_197["ast.If object at 0x1068e3610"]
-  node_198["ast.Compare object at 0x1068e35e0"]
-  node_199["ast.Name object at 0x1068e34f0"]
-  node_200["ast.Load object at 0x1067e70d0"]
-  node_201["ast.Eq object at 0x1067e7e50"]
-  node_202["ast.Constant object at 0x1068e35b0"]
-  node_203["ast.Assign object at 0x1068e3550"]
-  node_204["ast.Name object at 0x1068e34c0"]
-  node_205["ast.Store object at 0x1067e7070"]
-  node_206["ast.Constant object at 0x1068e3e50"]
-  node_207["ast.Assign object at 0x1068e3c40"]
-  node_208["ast.Name object at 0x1068e30d0"]
-  node_209["ast.Store object at 0x1067e7070"]
-  node_210["ast.Constant object at 0x1068e3eb0"]
-  node_211["ast.Expr object at 0x1068e3e20"]
-  node_212["ast.Call object at 0x1068e3df0"]
-  node_213["ast.Name object at 0x1068e3940"]
-  node_214["ast.Load object at 0x1067e70d0"]
-  node_215["ast.keyword object at 0x1068e3d60"]
-  node_216["ast.Name object at 0x1068e39a0"]
-  node_217["ast.Load object at 0x1067e70d0"]
-  node_218["ast.keyword object at 0x1068e3f40"]
-  node_219["ast.Name object at 0x1068e3ac0"]
-  node_220["ast.Load object at 0x1067e70d0"]
+  _create_mermaid_analysis_from_python_node_0["Expr"]
+  _create_mermaid_analysis_from_python_node_1["Call"]
+  _create_mermaid_analysis_from_python_node_2["Name"]
+  _create_mermaid_analysis_from_python_node_3["Load"]
+  _create_mermaid_analysis_from_python_node_4["keyword"]
+  _create_mermaid_analysis_from_python_node_5["Name"]
+  _create_mermaid_analysis_from_python_node_6["Load"]
+  _create_mermaid_analysis_from_python_node_7["Assign"]
+  _create_mermaid_analysis_from_python_node_8["Name"]
+  _create_mermaid_analysis_from_python_node_9["Store"]
+  _create_mermaid_analysis_from_python_node_10["Call"]
+  _create_mermaid_analysis_from_python_node_11["Name"]
+  _create_mermaid_analysis_from_python_node_12["Load"]
+  _create_mermaid_analysis_from_python_node_13["keyword"]
+  _create_mermaid_analysis_from_python_node_14["Name"]
+  _create_mermaid_analysis_from_python_node_15["Load"]
+  _create_mermaid_analysis_from_python_node_16["Assign"]
+  _create_mermaid_analysis_from_python_node_17["Name"]
+  _create_mermaid_analysis_from_python_node_18["Store"]
+  _create_mermaid_analysis_from_python_node_19["Call"]
+  _create_mermaid_analysis_from_python_node_20["Name"]
+  _create_mermaid_analysis_from_python_node_21["Load"]
+  _create_mermaid_analysis_from_python_node_22["keyword"]
+  _create_mermaid_analysis_from_python_node_23["Name"]
+  _create_mermaid_analysis_from_python_node_24["Load"]
+  _create_mermaid_analysis_from_python_node_25["keyword"]
+  _create_mermaid_analysis_from_python_node_26["Name"]
+  _create_mermaid_analysis_from_python_node_27["Load"]
+  _create_mermaid_analysis_from_python_node_28["Expr"]
+  _create_mermaid_analysis_from_python_node_29["Call"]
+  _create_mermaid_analysis_from_python_node_30["Name"]
+  _create_mermaid_analysis_from_python_node_31["Load"]
+  _create_mermaid_analysis_from_python_node_32["Call"]
+  _create_mermaid_analysis_from_python_node_33["Attribute"]
+  _create_mermaid_analysis_from_python_node_34["Constant"]
+  _create_mermaid_analysis_from_python_node_35["Load"]
+  _create_mermaid_analysis_from_python_node_36["ListComp"]
+  _create_mermaid_analysis_from_python_node_37["JoinedStr"]
+  _create_mermaid_analysis_from_python_node_38["FormattedValue"]
+  _create_mermaid_analysis_from_python_node_39["Name"]
+  _create_mermaid_analysis_from_python_node_40["Load"]
+  _create_mermaid_analysis_from_python_node_41["Constant"]
+  _create_mermaid_analysis_from_python_node_42["FormattedValue"]
+  _create_mermaid_analysis_from_python_node_43["Name"]
+  _create_mermaid_analysis_from_python_node_44["Load"]
+  _create_mermaid_analysis_from_python_node_45["comprehension"]
+  _create_mermaid_analysis_from_python_node_46["Tuple"]
+  _create_mermaid_analysis_from_python_node_47["Name"]
+  _create_mermaid_analysis_from_python_node_48["Store"]
+  _create_mermaid_analysis_from_python_node_49["Name"]
+  _create_mermaid_analysis_from_python_node_50["Store"]
+  _create_mermaid_analysis_from_python_node_51["Store"]
+  _create_mermaid_analysis_from_python_node_52["Call"]
+  _create_mermaid_analysis_from_python_node_53["Attribute"]
+  _create_mermaid_analysis_from_python_node_54["Name"]
+  _create_mermaid_analysis_from_python_node_55["Load"]
+  _create_mermaid_analysis_from_python_node_56["Load"]
+  _create_mermaid_analysis_from_python_node_57["For"]
+  _create_mermaid_analysis_from_python_node_58["Name"]
+  _create_mermaid_analysis_from_python_node_59["Store"]
+  _create_mermaid_analysis_from_python_node_60["Name"]
+  _create_mermaid_analysis_from_python_node_61["Load"]
+  _create_mermaid_analysis_from_python_node_62["Assign"]
+  _create_mermaid_analysis_from_python_node_63["Name"]
+  _create_mermaid_analysis_from_python_node_64["Store"]
+  _create_mermaid_analysis_from_python_node_65["Call"]
+  _create_mermaid_analysis_from_python_node_66["Attribute"]
+  _create_mermaid_analysis_from_python_node_67["Name"]
+  _create_mermaid_analysis_from_python_node_68["Load"]
+  _create_mermaid_analysis_from_python_node_69["Load"]
+  _create_mermaid_analysis_from_python_node_70["Name"]
+  _create_mermaid_analysis_from_python_node_71["Load"]
+  _create_mermaid_analysis_from_python_node_72["Constant"]
+  _create_mermaid_analysis_from_python_node_73["Assign"]
+  _create_mermaid_analysis_from_python_node_74["Name"]
+  _create_mermaid_analysis_from_python_node_75["Store"]
+  _create_mermaid_analysis_from_python_node_76["Call"]
+  _create_mermaid_analysis_from_python_node_77["Name"]
+  _create_mermaid_analysis_from_python_node_78["Load"]
+  _create_mermaid_analysis_from_python_node_79["keyword"]
+  _create_mermaid_analysis_from_python_node_80["Name"]
+  _create_mermaid_analysis_from_python_node_81["Load"]
+  _create_mermaid_analysis_from_python_node_82["keyword"]
+  _create_mermaid_analysis_from_python_node_83["Name"]
+  _create_mermaid_analysis_from_python_node_84["Load"]
+  _create_mermaid_analysis_from_python_node_85["Assign"]
+  _create_mermaid_analysis_from_python_node_86["Name"]
+  _create_mermaid_analysis_from_python_node_87["Store"]
+  _create_mermaid_analysis_from_python_node_88["Constant"]
+  _create_mermaid_analysis_from_python_node_89["Assign"]
+  _create_mermaid_analysis_from_python_node_90["Name"]
+  _create_mermaid_analysis_from_python_node_91["Store"]
+  _create_mermaid_analysis_from_python_node_92["List"]
+  _create_mermaid_analysis_from_python_node_93["Load"]
+  _create_mermaid_analysis_from_python_node_94["If"]
+  _create_mermaid_analysis_from_python_node_95["NamedExpr"]
+  _create_mermaid_analysis_from_python_node_96["Name"]
+  _create_mermaid_analysis_from_python_node_97["Store"]
+  _create_mermaid_analysis_from_python_node_98["Call"]
+  _create_mermaid_analysis_from_python_node_99["Name"]
+  _create_mermaid_analysis_from_python_node_100["Load"]
+  _create_mermaid_analysis_from_python_node_101["keyword"]
+  _create_mermaid_analysis_from_python_node_102["Name"]
+  _create_mermaid_analysis_from_python_node_103["Load"]
+  _create_mermaid_analysis_from_python_node_104["If"]
+  _create_mermaid_analysis_from_python_node_105["NamedExpr"]
+  _create_mermaid_analysis_from_python_node_106["Name"]
+  _create_mermaid_analysis_from_python_node_107["Store"]
+  _create_mermaid_analysis_from_python_node_108["Call"]
+  _create_mermaid_analysis_from_python_node_109["Name"]
+  _create_mermaid_analysis_from_python_node_110["Load"]
+  _create_mermaid_analysis_from_python_node_111["keyword"]
+  _create_mermaid_analysis_from_python_node_112["Name"]
+  _create_mermaid_analysis_from_python_node_113["Load"]
+  _create_mermaid_analysis_from_python_node_114["keyword"]
+  _create_mermaid_analysis_from_python_node_115["Name"]
+  _create_mermaid_analysis_from_python_node_116["Load"]
+  _create_mermaid_analysis_from_python_node_117["Assign"]
+  _create_mermaid_analysis_from_python_node_118["Name"]
+  _create_mermaid_analysis_from_python_node_119["Store"]
+  _create_mermaid_analysis_from_python_node_120["Call"]
+  _create_mermaid_analysis_from_python_node_121["Name"]
+  _create_mermaid_analysis_from_python_node_122["Load"]
+  _create_mermaid_analysis_from_python_node_123["keyword"]
+  _create_mermaid_analysis_from_python_node_124["Name"]
+  _create_mermaid_analysis_from_python_node_125["Load"]
+  _create_mermaid_analysis_from_python_node_126["Assign"]
+  _create_mermaid_analysis_from_python_node_127["Name"]
+  _create_mermaid_analysis_from_python_node_128["Store"]
+  _create_mermaid_analysis_from_python_node_129["Call"]
+  _create_mermaid_analysis_from_python_node_130["Name"]
+  _create_mermaid_analysis_from_python_node_131["Load"]
+  _create_mermaid_analysis_from_python_node_132["keyword"]
+  _create_mermaid_analysis_from_python_node_133["Name"]
+  _create_mermaid_analysis_from_python_node_134["Load"]
+  _create_mermaid_analysis_from_python_node_135["AnnAssign"]
+  _create_mermaid_analysis_from_python_node_136["Name"]
+  _create_mermaid_analysis_from_python_node_137["Store"]
+  _create_mermaid_analysis_from_python_node_138["Subscript"]
+  _create_mermaid_analysis_from_python_node_139["Name"]
+  _create_mermaid_analysis_from_python_node_140["Load"]
+  _create_mermaid_analysis_from_python_node_141["Name"]
+  _create_mermaid_analysis_from_python_node_142["Load"]
+  _create_mermaid_analysis_from_python_node_143["Load"]
+  _create_mermaid_analysis_from_python_node_144["Call"]
+  _create_mermaid_analysis_from_python_node_145["Name"]
+  _create_mermaid_analysis_from_python_node_146["Load"]
+  _create_mermaid_analysis_from_python_node_147["keyword"]
+  _create_mermaid_analysis_from_python_node_148["Name"]
+  _create_mermaid_analysis_from_python_node_149["Load"]
+  _create_mermaid_analysis_from_python_node_150["Assign"]
+  _create_mermaid_analysis_from_python_node_151["Name"]
+  _create_mermaid_analysis_from_python_node_152["Store"]
+  _create_mermaid_analysis_from_python_node_153["Call"]
+  _create_mermaid_analysis_from_python_node_154["Name"]
+  _create_mermaid_analysis_from_python_node_155["Load"]
+  _create_mermaid_analysis_from_python_node_156["Name"]
+  _create_mermaid_analysis_from_python_node_157["Load"]
+  _create_mermaid_analysis_from_python_node_158["Assign"]
+  _create_mermaid_analysis_from_python_node_159["Name"]
+  _create_mermaid_analysis_from_python_node_160["Store"]
+  _create_mermaid_analysis_from_python_node_161["Call"]
+  _create_mermaid_analysis_from_python_node_162["Name"]
+  _create_mermaid_analysis_from_python_node_163["Load"]
+  _create_mermaid_analysis_from_python_node_164["keyword"]
+  _create_mermaid_analysis_from_python_node_165["Name"]
+  _create_mermaid_analysis_from_python_node_166["Load"]
+  _create_mermaid_analysis_from_python_node_167["keyword"]
+  _create_mermaid_analysis_from_python_node_168["Name"]
+  _create_mermaid_analysis_from_python_node_169["Load"]
+  _create_mermaid_analysis_from_python_node_170["keyword"]
+  _create_mermaid_analysis_from_python_node_171["List"]
+  _create_mermaid_analysis_from_python_node_172["Name"]
+  _create_mermaid_analysis_from_python_node_173["Load"]
+  _create_mermaid_analysis_from_python_node_174["Load"]
+  _create_mermaid_analysis_from_python_node_175["keyword"]
+  _create_mermaid_analysis_from_python_node_176["Name"]
+  _create_mermaid_analysis_from_python_node_177["Load"]
+  _create_mermaid_analysis_from_python_node_178["Expr"]
+  _create_mermaid_analysis_from_python_node_179["Call"]
+  _create_mermaid_analysis_from_python_node_180["Name"]
+  _create_mermaid_analysis_from_python_node_181["Load"]
+  _create_mermaid_analysis_from_python_node_182["keyword"]
+  _create_mermaid_analysis_from_python_node_183["Name"]
+  _create_mermaid_analysis_from_python_node_184["Load"]
+  _create_mermaid_analysis_from_python_node_185["keyword"]
+  _create_mermaid_analysis_from_python_node_186["Name"]
+  _create_mermaid_analysis_from_python_node_187["Load"]
+  _node_0["If"]
+  _node_1["Compare"]
+  _node_2["Name"]
+  _node_3["Load"]
+  _node_4["Eq"]
+  _node_5["Constant"]
+  _node_6["Assign"]
+  _node_7["Name"]
+  _node_8["Store"]
+  _node_9["Constant"]
+  _node_10["Assign"]
+  _node_11["Name"]
+  _node_12["Store"]
+  _node_13["Constant"]
+  _node_14["Expr"]
+  _node_15["Call"]
+  _node_16["Name"]
+  _node_17["Load"]
+  _node_18["keyword"]
+  _node_19["Name"]
+  _node_20["Load"]
+  _node_21["keyword"]
+  _node_22["Name"]
+  _node_23["Load"]
 
-  node_0 --> node_1
-  node_1 --> node_2
-  node_2 --> node_3
-  node_3 --> node_4
-  node_4 --> node_5
-  node_5 --> node_6
-  node_6 --> node_7
-  node_7 --> node_8
-  node_8 --> node_9
-  node_9 --> node_10
-  node_10 --> node_11
-  node_11 --> node_12
-  node_12 --> node_13
-  node_13 --> node_14
-  node_14 --> node_15
-  node_15 --> node_16
-  node_16 --> node_17
-  node_17 --> node_18
-  node_18 --> node_19
-  node_19 --> node_20
-  node_20 --> node_21
-  node_21 --> node_22
-  node_22 --> node_23
-  node_23 --> node_24
-  node_24 --> node_25
-  node_25 --> node_26
-  node_26 --> node_27
-  node_27 --> node_28
-  node_28 --> node_29
-  node_29 --> node_30
-  node_30 --> node_31
-  node_31 --> node_32
-  node_32 --> node_33
-  node_33 --> node_34
-  node_34 --> node_35
-  node_35 --> node_36
-  node_36 --> node_37
-  node_37 --> node_38
-  node_38 --> node_39
-  node_39 --> node_40
-  node_40 --> node_41
-  node_41 --> node_42
-  node_42 --> node_43
-  node_43 --> node_44
-  node_44 --> node_45
-  node_45 --> node_46
-  node_46 --> node_47
-  node_47 --> node_48
-  node_48 --> node_49
-  node_49 --> node_50
-  node_50 --> node_51
-  node_51 --> node_52
-  node_52 --> node_53
-  node_53 --> node_54
-  node_54 --> node_55
-  node_55 --> node_56
-  node_56 --> node_57
-  node_57 --> node_58
-  node_58 --> node_59
-  node_59 --> node_60
-  node_60 --> node_61
-  node_61 --> node_62
-  node_62 --> node_63
-  node_63 --> node_64
-  node_64 --> node_65
-  node_65 --> node_66
-  node_66 --> node_67
-  node_67 --> node_68
-  node_68 --> node_69
-  node_69 --> node_70
-  node_70 --> node_71
-  node_71 --> node_72
-  node_72 --> node_73
-  node_73 --> node_74
-  node_74 --> node_75
-  node_75 --> node_76
-  node_76 --> node_77
-  node_77 --> node_78
-  node_78 --> node_79
-  node_79 --> node_80
-  node_80 --> node_81
-  node_81 --> node_82
-  node_82 --> node_83
-  node_83 --> node_84
-  node_84 --> node_85
-  node_85 --> node_86
-  node_86 --> node_87
-  node_87 --> node_88
-  node_88 --> node_89
-  node_89 --> node_90
-  node_90 --> node_91
-  node_91 --> node_92
-  node_92 --> node_93
-  node_93 --> node_94
-  node_94 --> node_95
-  node_95 --> node_96
-  node_96 --> node_97
-  node_97 --> node_98
-  node_98 --> node_99
-  node_99 --> node_100
-  node_100 --> node_101
-  node_101 --> node_102
-  node_102 --> node_103
-  node_103 --> node_104
-  node_104 --> node_105
-  node_105 --> node_106
-  node_106 --> node_107
-  node_107 --> node_108
-  node_108 --> node_109
-  node_109 --> node_110
-  node_110 --> node_111
-  node_111 --> node_112
-  node_112 --> node_113
-  node_113 --> node_114
-  node_114 --> node_115
-  node_115 --> node_116
-  node_116 --> node_117
-  node_117 --> node_118
-  node_118 --> node_119
-  node_119 --> node_120
-  node_120 --> node_121
-  node_121 --> node_122
-  node_122 --> node_123
-  node_123 --> node_124
-  node_124 --> node_125
-  node_125 --> node_126
-  node_126 --> node_127
-  node_127 --> node_128
-  node_128 --> node_129
-  node_129 --> node_130
-  node_130 --> node_131
-  node_131 --> node_132
-  node_132 --> node_133
-  node_133 --> node_134
-  node_134 --> node_135
-  node_135 --> node_136
-  node_136 --> node_137
-  node_137 --> node_138
-  node_138 --> node_139
-  node_139 --> node_140
-  node_140 --> node_141
-  node_141 --> node_142
-  node_142 --> node_143
-  node_143 --> node_144
-  node_144 --> node_145
-  node_145 --> node_146
-  node_146 --> node_147
-  node_147 --> node_148
-  node_148 --> node_149
-  node_149 --> node_150
-  node_150 --> node_151
-  node_151 --> node_152
-  node_152 --> node_153
-  node_153 --> node_154
-  node_154 --> node_155
-  node_155 --> node_156
-  node_156 --> node_157
-  node_157 --> node_158
-  node_158 --> node_159
-  node_159 --> node_160
-  node_160 --> node_161
-  node_161 --> node_162
-  node_162 --> node_163
-  node_163 --> node_164
-  node_164 --> node_165
-  node_165 --> node_166
-  node_166 --> node_167
-  node_167 --> node_168
-  node_168 --> node_169
-  node_169 --> node_170
-  node_170 --> node_171
-  node_171 --> node_172
-  node_172 --> node_173
-  node_173 --> node_174
-  node_174 --> node_175
-  node_175 --> node_176
-  node_176 --> node_177
-  node_177 --> node_178
-  node_178 --> node_179
-  node_179 --> node_180
-  node_180 --> node_181
-  node_181 --> node_182
-  node_182 --> node_183
-  node_183 --> node_184
-  node_184 --> node_185
-  node_185 --> node_186
-  node_186 --> node_187
-  node_187 --> node_188
-  node_188 --> node_189
-  node_189 --> node_190
-  node_190 --> node_191
-  node_191 --> node_192
-  node_192 --> node_193
-  node_193 --> node_194
-  node_194 --> node_195
-  node_195 --> node_196
-  node_196 --> node_197
-  node_197 --> node_198
-  node_198 --> node_199
-  node_199 --> node_200
-  node_200 --> node_201
-  node_201 --> node_202
-  node_202 --> node_203
-  node_203 --> node_204
-  node_204 --> node_205
-  node_205 --> node_206
-  node_206 --> node_207
-  node_207 --> node_208
-  node_208 --> node_209
-  node_209 --> node_210
-  node_210 --> node_211
-  node_211 --> node_212
-  node_212 --> node_213
-  node_213 --> node_214
-  node_214 --> node_215
-  node_215 --> node_216
-  node_216 --> node_217
-  node_217 --> node_218
-  node_218 --> node_219
-  node_219 --> node_220
+  subgraph create_mermaid_analysis_from_python
+    direction TB
+    _create_mermaid_analysis_from_python_node_0 --> _create_mermaid_analysis_from_python_node_1
+    _create_mermaid_analysis_from_python_node_1 --> _create_mermaid_analysis_from_python_node_2
+    _create_mermaid_analysis_from_python_node_2 --> _create_mermaid_analysis_from_python_node_3
+    _create_mermaid_analysis_from_python_node_3 --> _create_mermaid_analysis_from_python_node_4
+    _create_mermaid_analysis_from_python_node_4 --> _create_mermaid_analysis_from_python_node_5
+    _create_mermaid_analysis_from_python_node_5 --> _create_mermaid_analysis_from_python_node_6
+    _create_mermaid_analysis_from_python_node_6 --> _create_mermaid_analysis_from_python_node_7
+    _create_mermaid_analysis_from_python_node_7 --> _create_mermaid_analysis_from_python_node_8
+    _create_mermaid_analysis_from_python_node_8 --> _create_mermaid_analysis_from_python_node_9
+    _create_mermaid_analysis_from_python_node_9 --> _create_mermaid_analysis_from_python_node_10
+    _create_mermaid_analysis_from_python_node_10 --> _create_mermaid_analysis_from_python_node_11
+    _create_mermaid_analysis_from_python_node_11 --> _create_mermaid_analysis_from_python_node_12
+    _create_mermaid_analysis_from_python_node_12 --> _create_mermaid_analysis_from_python_node_13
+    _create_mermaid_analysis_from_python_node_13 --> _create_mermaid_analysis_from_python_node_14
+    _create_mermaid_analysis_from_python_node_14 --> _create_mermaid_analysis_from_python_node_15
+    _create_mermaid_analysis_from_python_node_15 --> _create_mermaid_analysis_from_python_node_16
+    _create_mermaid_analysis_from_python_node_16 --> _create_mermaid_analysis_from_python_node_17
+    _create_mermaid_analysis_from_python_node_17 --> _create_mermaid_analysis_from_python_node_18
+    _create_mermaid_analysis_from_python_node_18 --> _create_mermaid_analysis_from_python_node_19
+    _create_mermaid_analysis_from_python_node_19 --> _create_mermaid_analysis_from_python_node_20
+    _create_mermaid_analysis_from_python_node_20 --> _create_mermaid_analysis_from_python_node_21
+    _create_mermaid_analysis_from_python_node_21 --> _create_mermaid_analysis_from_python_node_22
+    _create_mermaid_analysis_from_python_node_22 --> _create_mermaid_analysis_from_python_node_23
+    _create_mermaid_analysis_from_python_node_23 --> _create_mermaid_analysis_from_python_node_24
+    _create_mermaid_analysis_from_python_node_24 --> _create_mermaid_analysis_from_python_node_25
+    _create_mermaid_analysis_from_python_node_25 --> _create_mermaid_analysis_from_python_node_26
+    _create_mermaid_analysis_from_python_node_26 --> _create_mermaid_analysis_from_python_node_27
+    _create_mermaid_analysis_from_python_node_27 --> _create_mermaid_analysis_from_python_node_28
+    _create_mermaid_analysis_from_python_node_28 --> _create_mermaid_analysis_from_python_node_29
+    _create_mermaid_analysis_from_python_node_29 --> _create_mermaid_analysis_from_python_node_30
+    _create_mermaid_analysis_from_python_node_30 --> _create_mermaid_analysis_from_python_node_31
+    _create_mermaid_analysis_from_python_node_31 --> _create_mermaid_analysis_from_python_node_32
+    _create_mermaid_analysis_from_python_node_32 --> _create_mermaid_analysis_from_python_node_33
+    _create_mermaid_analysis_from_python_node_33 --> _create_mermaid_analysis_from_python_node_34
+    _create_mermaid_analysis_from_python_node_34 --> _create_mermaid_analysis_from_python_node_35
+    _create_mermaid_analysis_from_python_node_35 --> _create_mermaid_analysis_from_python_node_36
+    _create_mermaid_analysis_from_python_node_36 --> _create_mermaid_analysis_from_python_node_37
+    _create_mermaid_analysis_from_python_node_37 --> _create_mermaid_analysis_from_python_node_38
+    _create_mermaid_analysis_from_python_node_38 --> _create_mermaid_analysis_from_python_node_39
+    _create_mermaid_analysis_from_python_node_39 --> _create_mermaid_analysis_from_python_node_40
+    _create_mermaid_analysis_from_python_node_40 --> _create_mermaid_analysis_from_python_node_41
+    _create_mermaid_analysis_from_python_node_41 --> _create_mermaid_analysis_from_python_node_42
+    _create_mermaid_analysis_from_python_node_42 --> _create_mermaid_analysis_from_python_node_43
+    _create_mermaid_analysis_from_python_node_43 --> _create_mermaid_analysis_from_python_node_44
+    _create_mermaid_analysis_from_python_node_44 --> _create_mermaid_analysis_from_python_node_45
+    _create_mermaid_analysis_from_python_node_45 --> _create_mermaid_analysis_from_python_node_46
+    _create_mermaid_analysis_from_python_node_46 --> _create_mermaid_analysis_from_python_node_47
+    _create_mermaid_analysis_from_python_node_47 --> _create_mermaid_analysis_from_python_node_48
+    _create_mermaid_analysis_from_python_node_48 --> _create_mermaid_analysis_from_python_node_49
+    _create_mermaid_analysis_from_python_node_49 --> _create_mermaid_analysis_from_python_node_50
+    _create_mermaid_analysis_from_python_node_50 --> _create_mermaid_analysis_from_python_node_51
+    _create_mermaid_analysis_from_python_node_51 --> _create_mermaid_analysis_from_python_node_52
+    _create_mermaid_analysis_from_python_node_52 --> _create_mermaid_analysis_from_python_node_53
+    _create_mermaid_analysis_from_python_node_53 --> _create_mermaid_analysis_from_python_node_54
+    _create_mermaid_analysis_from_python_node_54 --> _create_mermaid_analysis_from_python_node_55
+    _create_mermaid_analysis_from_python_node_55 --> _create_mermaid_analysis_from_python_node_56
+    _create_mermaid_analysis_from_python_node_56 --> _create_mermaid_analysis_from_python_node_57
+    _create_mermaid_analysis_from_python_node_57 --> _create_mermaid_analysis_from_python_node_58
+    _create_mermaid_analysis_from_python_node_58 --> _create_mermaid_analysis_from_python_node_59
+    _create_mermaid_analysis_from_python_node_59 --> _create_mermaid_analysis_from_python_node_60
+    _create_mermaid_analysis_from_python_node_60 --> _create_mermaid_analysis_from_python_node_61
+    _create_mermaid_analysis_from_python_node_61 --> _create_mermaid_analysis_from_python_node_62
+    _create_mermaid_analysis_from_python_node_62 --> _create_mermaid_analysis_from_python_node_63
+    _create_mermaid_analysis_from_python_node_63 --> _create_mermaid_analysis_from_python_node_64
+    _create_mermaid_analysis_from_python_node_64 --> _create_mermaid_analysis_from_python_node_65
+    _create_mermaid_analysis_from_python_node_65 --> _create_mermaid_analysis_from_python_node_66
+    _create_mermaid_analysis_from_python_node_66 --> _create_mermaid_analysis_from_python_node_67
+    _create_mermaid_analysis_from_python_node_67 --> _create_mermaid_analysis_from_python_node_68
+    _create_mermaid_analysis_from_python_node_68 --> _create_mermaid_analysis_from_python_node_69
+    _create_mermaid_analysis_from_python_node_69 --> _create_mermaid_analysis_from_python_node_70
+    _create_mermaid_analysis_from_python_node_70 --> _create_mermaid_analysis_from_python_node_71
+    _create_mermaid_analysis_from_python_node_71 --> _create_mermaid_analysis_from_python_node_72
+    _create_mermaid_analysis_from_python_node_72 --> _create_mermaid_analysis_from_python_node_73
+    _create_mermaid_analysis_from_python_node_73 --> _create_mermaid_analysis_from_python_node_74
+    _create_mermaid_analysis_from_python_node_74 --> _create_mermaid_analysis_from_python_node_75
+    _create_mermaid_analysis_from_python_node_75 --> _create_mermaid_analysis_from_python_node_76
+    _create_mermaid_analysis_from_python_node_76 --> _create_mermaid_analysis_from_python_node_77
+    _create_mermaid_analysis_from_python_node_77 --> _create_mermaid_analysis_from_python_node_78
+    _create_mermaid_analysis_from_python_node_78 --> _create_mermaid_analysis_from_python_node_79
+    _create_mermaid_analysis_from_python_node_79 --> _create_mermaid_analysis_from_python_node_80
+    _create_mermaid_analysis_from_python_node_80 --> _create_mermaid_analysis_from_python_node_81
+    _create_mermaid_analysis_from_python_node_81 --> _create_mermaid_analysis_from_python_node_82
+    _create_mermaid_analysis_from_python_node_82 --> _create_mermaid_analysis_from_python_node_83
+    _create_mermaid_analysis_from_python_node_83 --> _create_mermaid_analysis_from_python_node_84
+    _create_mermaid_analysis_from_python_node_84 --> _create_mermaid_analysis_from_python_node_85
+    _create_mermaid_analysis_from_python_node_85 --> _create_mermaid_analysis_from_python_node_86
+    _create_mermaid_analysis_from_python_node_86 --> _create_mermaid_analysis_from_python_node_87
+    _create_mermaid_analysis_from_python_node_87 --> _create_mermaid_analysis_from_python_node_88
+    _create_mermaid_analysis_from_python_node_88 --> _create_mermaid_analysis_from_python_node_89
+    _create_mermaid_analysis_from_python_node_89 --> _create_mermaid_analysis_from_python_node_90
+    _create_mermaid_analysis_from_python_node_90 --> _create_mermaid_analysis_from_python_node_91
+    _create_mermaid_analysis_from_python_node_91 --> _create_mermaid_analysis_from_python_node_92
+    _create_mermaid_analysis_from_python_node_92 --> _create_mermaid_analysis_from_python_node_93
+    _create_mermaid_analysis_from_python_node_93 --> _create_mermaid_analysis_from_python_node_94
+    _create_mermaid_analysis_from_python_node_94 --> _create_mermaid_analysis_from_python_node_95
+    _create_mermaid_analysis_from_python_node_95 --> _create_mermaid_analysis_from_python_node_96
+    _create_mermaid_analysis_from_python_node_96 --> _create_mermaid_analysis_from_python_node_97
+    _create_mermaid_analysis_from_python_node_97 --> _create_mermaid_analysis_from_python_node_98
+    _create_mermaid_analysis_from_python_node_98 --> _create_mermaid_analysis_from_python_node_99
+    _create_mermaid_analysis_from_python_node_99 --> _create_mermaid_analysis_from_python_node_100
+    _create_mermaid_analysis_from_python_node_100 --> _create_mermaid_analysis_from_python_node_101
+    _create_mermaid_analysis_from_python_node_101 --> _create_mermaid_analysis_from_python_node_102
+    _create_mermaid_analysis_from_python_node_102 --> _create_mermaid_analysis_from_python_node_103
+    _create_mermaid_analysis_from_python_node_103 --> _create_mermaid_analysis_from_python_node_104
+    _create_mermaid_analysis_from_python_node_104 --> _create_mermaid_analysis_from_python_node_105
+    _create_mermaid_analysis_from_python_node_105 --> _create_mermaid_analysis_from_python_node_106
+    _create_mermaid_analysis_from_python_node_106 --> _create_mermaid_analysis_from_python_node_107
+    _create_mermaid_analysis_from_python_node_107 --> _create_mermaid_analysis_from_python_node_108
+    _create_mermaid_analysis_from_python_node_108 --> _create_mermaid_analysis_from_python_node_109
+    _create_mermaid_analysis_from_python_node_109 --> _create_mermaid_analysis_from_python_node_110
+    _create_mermaid_analysis_from_python_node_110 --> _create_mermaid_analysis_from_python_node_111
+    _create_mermaid_analysis_from_python_node_111 --> _create_mermaid_analysis_from_python_node_112
+    _create_mermaid_analysis_from_python_node_112 --> _create_mermaid_analysis_from_python_node_113
+    _create_mermaid_analysis_from_python_node_113 --> _create_mermaid_analysis_from_python_node_114
+    _create_mermaid_analysis_from_python_node_114 --> _create_mermaid_analysis_from_python_node_115
+    _create_mermaid_analysis_from_python_node_115 --> _create_mermaid_analysis_from_python_node_116
+    _create_mermaid_analysis_from_python_node_116 --> _create_mermaid_analysis_from_python_node_117
+    _create_mermaid_analysis_from_python_node_117 --> _create_mermaid_analysis_from_python_node_118
+    _create_mermaid_analysis_from_python_node_118 --> _create_mermaid_analysis_from_python_node_119
+    _create_mermaid_analysis_from_python_node_119 --> _create_mermaid_analysis_from_python_node_120
+    _create_mermaid_analysis_from_python_node_120 --> _create_mermaid_analysis_from_python_node_121
+    _create_mermaid_analysis_from_python_node_121 --> _create_mermaid_analysis_from_python_node_122
+    _create_mermaid_analysis_from_python_node_122 --> _create_mermaid_analysis_from_python_node_123
+    _create_mermaid_analysis_from_python_node_123 --> _create_mermaid_analysis_from_python_node_124
+    _create_mermaid_analysis_from_python_node_124 --> _create_mermaid_analysis_from_python_node_125
+    _create_mermaid_analysis_from_python_node_125 --> _create_mermaid_analysis_from_python_node_126
+    _create_mermaid_analysis_from_python_node_126 --> _create_mermaid_analysis_from_python_node_127
+    _create_mermaid_analysis_from_python_node_127 --> _create_mermaid_analysis_from_python_node_128
+    _create_mermaid_analysis_from_python_node_128 --> _create_mermaid_analysis_from_python_node_129
+    _create_mermaid_analysis_from_python_node_129 --> _create_mermaid_analysis_from_python_node_130
+    _create_mermaid_analysis_from_python_node_130 --> _create_mermaid_analysis_from_python_node_131
+    _create_mermaid_analysis_from_python_node_131 --> _create_mermaid_analysis_from_python_node_132
+    _create_mermaid_analysis_from_python_node_132 --> _create_mermaid_analysis_from_python_node_133
+    _create_mermaid_analysis_from_python_node_133 --> _create_mermaid_analysis_from_python_node_134
+    _create_mermaid_analysis_from_python_node_134 --> _create_mermaid_analysis_from_python_node_135
+    _create_mermaid_analysis_from_python_node_135 --> _create_mermaid_analysis_from_python_node_136
+    _create_mermaid_analysis_from_python_node_136 --> _create_mermaid_analysis_from_python_node_137
+    _create_mermaid_analysis_from_python_node_137 --> _create_mermaid_analysis_from_python_node_138
+    _create_mermaid_analysis_from_python_node_138 --> _create_mermaid_analysis_from_python_node_139
+    _create_mermaid_analysis_from_python_node_139 --> _create_mermaid_analysis_from_python_node_140
+    _create_mermaid_analysis_from_python_node_140 --> _create_mermaid_analysis_from_python_node_141
+    _create_mermaid_analysis_from_python_node_141 --> _create_mermaid_analysis_from_python_node_142
+    _create_mermaid_analysis_from_python_node_142 --> _create_mermaid_analysis_from_python_node_143
+    _create_mermaid_analysis_from_python_node_143 --> _create_mermaid_analysis_from_python_node_144
+    _create_mermaid_analysis_from_python_node_144 --> _create_mermaid_analysis_from_python_node_145
+    _create_mermaid_analysis_from_python_node_145 --> _create_mermaid_analysis_from_python_node_146
+    _create_mermaid_analysis_from_python_node_146 --> _create_mermaid_analysis_from_python_node_147
+    _create_mermaid_analysis_from_python_node_147 --> _create_mermaid_analysis_from_python_node_148
+    _create_mermaid_analysis_from_python_node_148 --> _create_mermaid_analysis_from_python_node_149
+    _create_mermaid_analysis_from_python_node_149 --> _create_mermaid_analysis_from_python_node_150
+    _create_mermaid_analysis_from_python_node_150 --> _create_mermaid_analysis_from_python_node_151
+    _create_mermaid_analysis_from_python_node_151 --> _create_mermaid_analysis_from_python_node_152
+    _create_mermaid_analysis_from_python_node_152 --> _create_mermaid_analysis_from_python_node_153
+    _create_mermaid_analysis_from_python_node_153 --> _create_mermaid_analysis_from_python_node_154
+    _create_mermaid_analysis_from_python_node_154 --> _create_mermaid_analysis_from_python_node_155
+    _create_mermaid_analysis_from_python_node_155 --> _create_mermaid_analysis_from_python_node_156
+    _create_mermaid_analysis_from_python_node_156 --> _create_mermaid_analysis_from_python_node_157
+    _create_mermaid_analysis_from_python_node_157 --> _create_mermaid_analysis_from_python_node_158
+    _create_mermaid_analysis_from_python_node_158 --> _create_mermaid_analysis_from_python_node_159
+    _create_mermaid_analysis_from_python_node_159 --> _create_mermaid_analysis_from_python_node_160
+    _create_mermaid_analysis_from_python_node_160 --> _create_mermaid_analysis_from_python_node_161
+    _create_mermaid_analysis_from_python_node_161 --> _create_mermaid_analysis_from_python_node_162
+    _create_mermaid_analysis_from_python_node_162 --> _create_mermaid_analysis_from_python_node_163
+    _create_mermaid_analysis_from_python_node_163 --> _create_mermaid_analysis_from_python_node_164
+    _create_mermaid_analysis_from_python_node_164 --> _create_mermaid_analysis_from_python_node_165
+    _create_mermaid_analysis_from_python_node_165 --> _create_mermaid_analysis_from_python_node_166
+    _create_mermaid_analysis_from_python_node_166 --> _create_mermaid_analysis_from_python_node_167
+    _create_mermaid_analysis_from_python_node_167 --> _create_mermaid_analysis_from_python_node_168
+    _create_mermaid_analysis_from_python_node_168 --> _create_mermaid_analysis_from_python_node_169
+    _create_mermaid_analysis_from_python_node_169 --> _create_mermaid_analysis_from_python_node_170
+    _create_mermaid_analysis_from_python_node_170 --> _create_mermaid_analysis_from_python_node_171
+    _create_mermaid_analysis_from_python_node_171 --> _create_mermaid_analysis_from_python_node_172
+    _create_mermaid_analysis_from_python_node_172 --> _create_mermaid_analysis_from_python_node_173
+    _create_mermaid_analysis_from_python_node_173 --> _create_mermaid_analysis_from_python_node_174
+    _create_mermaid_analysis_from_python_node_174 --> _create_mermaid_analysis_from_python_node_175
+    _create_mermaid_analysis_from_python_node_175 --> _create_mermaid_analysis_from_python_node_176
+    _create_mermaid_analysis_from_python_node_176 --> _create_mermaid_analysis_from_python_node_177
+    _create_mermaid_analysis_from_python_node_177 --> _create_mermaid_analysis_from_python_node_178
+    _create_mermaid_analysis_from_python_node_178 --> _create_mermaid_analysis_from_python_node_179
+    _create_mermaid_analysis_from_python_node_179 --> _create_mermaid_analysis_from_python_node_180
+    _create_mermaid_analysis_from_python_node_180 --> _create_mermaid_analysis_from_python_node_181
+    _create_mermaid_analysis_from_python_node_181 --> _create_mermaid_analysis_from_python_node_182
+    _create_mermaid_analysis_from_python_node_182 --> _create_mermaid_analysis_from_python_node_183
+    _create_mermaid_analysis_from_python_node_183 --> _create_mermaid_analysis_from_python_node_184
+    _create_mermaid_analysis_from_python_node_184 --> _create_mermaid_analysis_from_python_node_185
+    _create_mermaid_analysis_from_python_node_185 --> _create_mermaid_analysis_from_python_node_186
+    _create_mermaid_analysis_from_python_node_186 --> _create_mermaid_analysis_from_python_node_187
+  end
+  _node_0 --> _node_1
+  _node_1 --> _node_2
+  _node_2 --> _node_3
+  _node_3 --> _node_4
+  _node_4 --> _node_5
+  _node_5 --> _node_6
+  _node_6 --> _node_7
+  _node_7 --> _node_8
+  _node_8 --> _node_9
+  _node_9 --> _node_10
+  _node_10 --> _node_11
+  _node_11 --> _node_12
+  _node_12 --> _node_13
+  _node_13 --> _node_14
+  _node_14 --> _node_15
+  _node_15 --> _node_16
+  _node_16 --> _node_17
+  _node_17 --> _node_18
+  _node_18 --> _node_19
+  _node_19 --> _node_20
+  _node_20 --> _node_21
+  _node_21 --> _node_22
+  _node_22 --> _node_23
 
 ```
 ---
