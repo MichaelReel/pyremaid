@@ -12,11 +12,15 @@ def _sanitize(markdown: str) -> str:
 
 
 def _get_unique_nodes(links: list[MermaidLink]) -> list[MermaidNode]:
-    node_set = set()
+    # For mainy debug reasons, want to keep this in the input order
+    # Change back to a set with `add`s when order isn't important
+    node_set = []
     for link in links:
-        node_set.add(link.from_)
-        node_set.add(link.to)
-    return list(node_set)
+        if link.from_ not in node_set:
+            node_set.append(link.from_)
+        if link.to not in node_set:
+            node_set.append(link.to)
+    return node_set
 
 
 def _get_aliases_for_safe_names(links: list[MermaidLink]) -> str:
