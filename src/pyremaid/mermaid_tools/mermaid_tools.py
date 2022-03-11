@@ -2,6 +2,7 @@ from models import (
     MermaidBlock,
     MermaidClass,
     MermaidElement,
+    MermaidFor,
     MermaidFunction,
     MermaidLink,
     MermaidNode,
@@ -75,6 +76,11 @@ def _get_block_text(block: MermaidBlock, indent: int) -> str:
         block_text += f"{TAB * (indent + 1)}direction TB\n"
         block_text += _get_flow_connections(class_def.block_contents, indent + 1)
         block_text += f"{TAB * indent}end\n"
+    elif isinstance(block, MermaidFor):
+        for_def : MermaidFor = block
+        block_text += f"{TAB * indent}%% loop {for_def.display_name}\n"
+        block_text += _get_flow_connections(for_def.block_contents, indent + 1)
+        block_text += f"{TAB * indent}%% end {for_def.display_name}\n"
     else:
         block_text += _get_flow_connections(block.block_contents, indent)
     return block_text

@@ -50,6 +50,26 @@ flowchart TB
   _c3_n38["keyword"]
   _c3_n39["Name"]
   _c3_n40["Load"]
+  _c7_n44["AnnAssign"]
+  _c7_n45["Name"]
+  _c7_n46["Store"]
+  _c7_n47["Subscript"]
+  _c7_n48["Name"]
+  _c7_n49["Load"]
+  _c7_n50["Name"]
+  _c7_n51["Load"]
+  _c7_n52["Load"]
+  _c7_n53["Constant"]
+  _c7_n54["AnnAssign"]
+  _c7_n55["Name"]
+  _c7_n56["Store"]
+  _c7_n57["Subscript"]
+  _c7_n58["Name"]
+  _c7_n59["Load"]
+  _c7_n60["Name"]
+  _c7_n61["Load"]
+  _c7_n62["Load"]
+  _c7_n63["Constant"]
 
   subgraph MermaidElement
     direction TB
@@ -108,6 +128,28 @@ flowchart TB
   end
   subgraph MermaidClass
     direction TB
+  end
+  subgraph MermaidFor
+    direction TB
+    _c7_n44 --> _c7_n45
+    _c7_n45 --> _c7_n46
+    _c7_n46 --> _c7_n47
+    _c7_n47 --> _c7_n48
+    _c7_n48 --> _c7_n49
+    _c7_n49 --> _c7_n50
+    _c7_n50 --> _c7_n51
+    _c7_n51 --> _c7_n52
+    _c7_n52 --> _c7_n53
+    _c7_n53 --> _c7_n54
+    _c7_n54 --> _c7_n55
+    _c7_n55 --> _c7_n56
+    _c7_n56 --> _c7_n57
+    _c7_n57 --> _c7_n58
+    _c7_n58 --> _c7_n59
+    _c7_n59 --> _c7_n60
+    _c7_n60 --> _c7_n61
+    _c7_n61 --> _c7_n62
+    _c7_n62 --> _c7_n63
   end
 
 ```
@@ -680,7 +722,140 @@ Module(
       lineno=40,
       col_offset=0,
       end_lineno=41,
-      end_col_offset=8)],
+      end_col_offset=8),
+    ClassDef(
+      name='MermaidFor',
+      bases=[
+        Name(
+          id='MermaidBlock',
+          ctx=Load(),
+          lineno=45,
+          col_offset=17,
+          end_lineno=45,
+          end_col_offset=29)],
+      keywords=[],
+      body=[
+        AnnAssign(
+          target=Name(
+            id='target',
+            ctx=Store(),
+            lineno=46,
+            col_offset=4,
+            end_lineno=46,
+            end_col_offset=10),
+          annotation=Subscript(
+            value=Name(
+              id='Optional',
+              ctx=Load(),
+              lineno=46,
+              col_offset=12,
+              end_lineno=46,
+              end_col_offset=20),
+            slice=Name(
+              id='str',
+              ctx=Load(),
+              lineno=46,
+              col_offset=21,
+              end_lineno=46,
+              end_col_offset=24),
+            ctx=Load(),
+            lineno=46,
+            col_offset=12,
+            end_lineno=46,
+            end_col_offset=25),
+          value=Constant(
+            value=None,
+            lineno=46,
+            col_offset=28,
+            end_lineno=46,
+            end_col_offset=32),
+          simple=1,
+          lineno=46,
+          col_offset=4,
+          end_lineno=46,
+          end_col_offset=32),
+        AnnAssign(
+          target=Name(
+            id='iterator',
+            ctx=Store(),
+            lineno=47,
+            col_offset=4,
+            end_lineno=47,
+            end_col_offset=12),
+          annotation=Subscript(
+            value=Name(
+              id='Optional',
+              ctx=Load(),
+              lineno=47,
+              col_offset=14,
+              end_lineno=47,
+              end_col_offset=22),
+            slice=Name(
+              id='str',
+              ctx=Load(),
+              lineno=47,
+              col_offset=23,
+              end_lineno=47,
+              end_col_offset=26),
+            ctx=Load(),
+            lineno=47,
+            col_offset=14,
+            end_lineno=47,
+            end_col_offset=27),
+          value=Constant(
+            value=None,
+            lineno=47,
+            col_offset=30,
+            end_lineno=47,
+            end_col_offset=34),
+          simple=1,
+          lineno=47,
+          col_offset=4,
+          end_lineno=47,
+          end_col_offset=34)],
+      decorator_list=[
+        Call(
+          func=Name(
+            id='dataclass',
+            ctx=Load(),
+            lineno=44,
+            col_offset=1,
+            end_lineno=44,
+            end_col_offset=10),
+          args=[],
+          keywords=[
+            keyword(
+              arg='unsafe_hash',
+              value=Constant(
+                value=True,
+                lineno=44,
+                col_offset=23,
+                end_lineno=44,
+                end_col_offset=27),
+              lineno=44,
+              col_offset=11,
+              end_lineno=44,
+              end_col_offset=27),
+            keyword(
+              arg='frozen',
+              value=Constant(
+                value=True,
+                lineno=44,
+                col_offset=36,
+                end_lineno=44,
+                end_col_offset=40),
+              lineno=44,
+              col_offset=29,
+              end_lineno=44,
+              end_col_offset=40)],
+          lineno=44,
+          col_offset=1,
+          end_lineno=44,
+          end_col_offset=41)],
+      lineno=45,
+      col_offset=0,
+      end_lineno=47,
+      end_col_offset=34)],
   type_ignores=[])
 ```
 </details>

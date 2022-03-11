@@ -1,7 +1,18 @@
-from ast import AST, ClassDef, FunctionDef, Import, ImportFrom, Module, NodeVisitor
+from ast import (
+    AST,
+    ClassDef,
+    For,
+    FunctionDef,
+    Import,
+    ImportFrom,
+    Module,
+    NodeVisitor,
+    unparse,
+)
 from models import (
     MermaidClass,
     MermaidElement,
+    MermaidFor,
     MermaidFunction,
     MermaidLink,
     MermaidModule,
@@ -57,6 +68,25 @@ class LinkGenerator(NodeVisitor):
         block_generator = BlockGenerator(prefix=self.prefix)
         block_generator.visit(node)
         self.elements.extend(block_generator.get_list_of_elements())
+
+    def visit_For(self, node: For) -> Any:
+        block_generator = BlockGenerator(prefix=self.prefix)
+        block_generator.visit(node)
+
+        for_loop_elements = block_generator.get_list_of_elements()
+        loop_start = for_loop_elements[0]
+        if isinstance(loop_start, MermaidLink):
+            loop_start = loop_start.from_
+        loop_end = for_loop_elements[-1]
+        if isinstance(loop_end, MermaidLink):
+            loop_end = loop_end.to
+
+        # Still want to connect into this "block"
+        if self.prev_node:
+            self.elements.append(MermaidLink(from_=self.prev_node, to=loop_start))
+        # Include the contents
+        self.elements.extend(for_loop_elements)
+        self.prev_node = loop_end
 
     def generic_visit(self, node: AST) -> Any:
         mermaid_data = MermaidNode(
@@ -134,6 +164,36 @@ class BlockGenerator(NodeVisitor):
         )
 
         self.elements.append(mermaid_block)
+
+    def visit_For(self, block_node: For) -> Any:
+        """This is a block, we want a subgraph, so parse content"""
+        mermaid_safe_name = f"{self.prefix}_l{BlockGenerator._count()}"
+        link_generator = LinkGenerator(prefix=mermaid_safe_name)
+        for sub_element in block_node.body:
+            link_generator.visit(node=sub_element)
+
+        for_loop_elements = link_generator.get_list_of_elements()
+
+        # Still want to connect into this "block"
+        loop_start = for_loop_elements[0]
+        if isinstance(loop_start, MermaidLink):
+            loop_start = loop_start.from_
+        loop_end = for_loop_elements[-1]
+        if isinstance(loop_end, MermaidLink):
+            loop_end = loop_end.to
+
+        mermaid_block = MermaidFor(
+            ast_node = block_node,
+            mermaid_safe_name = mermaid_safe_name,
+            block_contents = for_loop_elements,
+            display_name=unparse(block_node.target),
+            target = unparse(block_node.target),
+            iterator = unparse(block_node.iter),
+        )
+        self.elements.append(mermaid_block)
+
+        # Include link back to the start of the loop
+        self.elements.append(MermaidLink(from_=loop_end, to=loop_start))
 
     def generic_visit(self, _node: AST) -> Any:
         """Non block nodes are not interesting here"""

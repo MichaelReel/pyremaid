@@ -39,3 +39,10 @@ class MermaidFunction(MermaidBlock):
 @dataclass(unsafe_hash=True, frozen=True)
 class MermaidClass(MermaidBlock):
     pass
+
+
+@dataclass(unsafe_hash=True, frozen=True)
+class MermaidFor(MermaidBlock):
+    target: Optional[str] = None
+    iterator: Optional[str] = None
+
