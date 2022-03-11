@@ -6,214 +6,41 @@
 ---
 ```mermaid
 flowchart TB
-  _f9_n64["Assign"]
-  _f9_n65["Name"]
-  _f9_n66["Store"]
-  _f9_n67["Call"]
-  _f9_n68["Name"]
-  _f9_n69["Load"]
-  _f9_n70["keyword"]
-  _f9_n71["Name"]
-  _f9_n72["Load"]
-  _f9_n73["Assign"]
-  _f9_n74["Name"]
-  _f9_n75["Store"]
-  _f9_n76["Call"]
-  _f9_n77["Name"]
-  _f9_n78["Load"]
-  _f9_n79["keyword"]
-  _f9_n80["Name"]
-  _f9_n81["Load"]
-  _f9_n82["keyword"]
-  _f9_n83["Name"]
-  _f9_n84["Load"]
-  _f9_n85["Assign"]
-  _f9_n86["Name"]
-  _f9_n87["Store"]
-  _f9_n88["Call"]
-  _f9_n89["Attribute"]
-  _f9_n90["Constant"]
-  _f9_n91["Load"]
-  _f9_n92["Name"]
-  _f9_n93["Load"]
-  _f9_n94["Return"]
-  _f9_n95["JoinedStr"]
-  _f9_n96["Constant"]
-  _f9_n97["FormattedValue"]
-  _f9_n98["Name"]
-  _f9_n99["Load"]
-  _f9_n100["Constant"]
-  _f9_n101["FormattedValue"]
-  _f9_n102["Name"]
-  _f9_n103["Load"]
-  _f9_n104["Constant"]
-  _f9_n105["FormattedValue"]
-  _f9_n106["Name"]
-  _f9_n107["Load"]
-  _f9_n108["Constant"]
-  _f9_n109["FormattedValue"]
-  _f9_n110["Name"]
-  _f9_n111["Load"]
-  _f9_n112["Constant"]
-  _f10_n113["Assign"]
-  _f10_n114["Name"]
-  _f10_n115["Store"]
-  _f10_n116["Constant"]
+  _f9_n12["debug_block = create_markdown_debug_dump_block(debug_content=debug_dump)"]
+  _f9_n13["import_block = turn_out_the_import_list(import_list=import_list, global_import_table=global_import_table)"]
+  _f9_n14["mermaid_blocks = '\n'.join(mermaid_diagrams)"]
+  _f9_n15["return f'# {input_file}\n\n{import_block}\n---\n{mermaid_blocks}---\n\n{debug_block}\n'"]
+  _f10_n16["list_str = '### Imports\n\n'"]
   _f10_l11["import_item"]
-  _f10_l11_n117["Assign"]
-  _f10_l11_n118["Name"]
-  _f10_l11_n119["Store"]
-  _f10_l11_n120["Subscript"]
-  _f10_l11_n121["Name"]
-  _f10_l11_n122["Load"]
-  _f10_l11_n123["Name"]
-  _f10_l11_n124["Load"]
-  _f10_l11_n125["Load"]
-  _f10_l11_n126["If"]
-  _f10_l11_n127["Name"]
-  _f10_l11_n128["Load"]
-  _f10_l11_n129["AugAssign"]
-  _f10_l11_n130["Name"]
-  _f10_l11_n131["Store"]
-  _f10_l11_n132["Add"]
-  _f10_l11_n133["JoinedStr"]
-  _f10_l11_n134["Constant"]
-  _f10_l11_n135["FormattedValue"]
-  _f10_l11_n136["Name"]
-  _f10_l11_n137["Load"]
-  _f10_l11_n138["Constant"]
-  _f10_l11_n139["FormattedValue"]
-  _f10_l11_n140["Name"]
-  _f10_l11_n141["Load"]
-  _f10_l11_n142["Constant"]
-  _f10_l11_n143["AugAssign"]
-  _f10_l11_n144["Name"]
-  _f10_l11_n145["Store"]
-  _f10_l11_n146["Add"]
-  _f10_l11_n147["JoinedStr"]
-  _f10_l11_n148["Constant"]
-  _f10_l11_n149["FormattedValue"]
-  _f10_l11_n150["Name"]
-  _f10_l11_n151["Load"]
-  _f10_l11_n152["Constant"]
-  _f10_n153["Return"]
-  _f10_n154["Name"]
-  _f10_n155["Load"]
-  _f12_n156["Return"]
-  _f12_n157["JoinedStr"]
-  _f12_n158["Constant"]
-  _f12_n159["FormattedValue"]
-  _f12_n160["Name"]
-  _f12_n161["Load"]
-  _f12_n162["Constant"]
+  _f10_l11_n17["url = global_import_table[import_item]"]
+  _f10_l11_n18["If"]
+  _f10_l11_n19["Name"]
+  _f10_l11_n20["Load"]
+  _f10_l11_n21["list_str += f'  - [{import_item}]({url})\n'"]
+  _f10_l11_n22["list_str += f'  - {import_item}\n'"]
+  _f10_n23["return list_str"]
 
   subgraph _create_markdown_content
     direction TB
-    _f9_n64 --> _f9_n65
-    _f9_n65 --> _f9_n66
-    _f9_n66 --> _f9_n67
-    _f9_n67 --> _f9_n68
-    _f9_n68 --> _f9_n69
-    _f9_n69 --> _f9_n70
-    _f9_n70 --> _f9_n71
-    _f9_n71 --> _f9_n72
-    _f9_n72 --> _f9_n73
-    _f9_n73 --> _f9_n74
-    _f9_n74 --> _f9_n75
-    _f9_n75 --> _f9_n76
-    _f9_n76 --> _f9_n77
-    _f9_n77 --> _f9_n78
-    _f9_n78 --> _f9_n79
-    _f9_n79 --> _f9_n80
-    _f9_n80 --> _f9_n81
-    _f9_n81 --> _f9_n82
-    _f9_n82 --> _f9_n83
-    _f9_n83 --> _f9_n84
-    _f9_n84 --> _f9_n85
-    _f9_n85 --> _f9_n86
-    _f9_n86 --> _f9_n87
-    _f9_n87 --> _f9_n88
-    _f9_n88 --> _f9_n89
-    _f9_n89 --> _f9_n90
-    _f9_n90 --> _f9_n91
-    _f9_n91 --> _f9_n92
-    _f9_n92 --> _f9_n93
-    _f9_n93 --> _f9_n94
-    _f9_n94 --> _f9_n95
-    _f9_n95 --> _f9_n96
-    _f9_n96 --> _f9_n97
-    _f9_n97 --> _f9_n98
-    _f9_n98 --> _f9_n99
-    _f9_n99 --> _f9_n100
-    _f9_n100 --> _f9_n101
-    _f9_n101 --> _f9_n102
-    _f9_n102 --> _f9_n103
-    _f9_n103 --> _f9_n104
-    _f9_n104 --> _f9_n105
-    _f9_n105 --> _f9_n106
-    _f9_n106 --> _f9_n107
-    _f9_n107 --> _f9_n108
-    _f9_n108 --> _f9_n109
-    _f9_n109 --> _f9_n110
-    _f9_n110 --> _f9_n111
-    _f9_n111 --> _f9_n112
+    _f9_n12 --> _f9_n13
+    _f9_n13 --> _f9_n14
+    _f9_n14 --> _f9_n15
   end
   subgraph _turn_out_the_import_list
     direction TB
-    _f10_n113 --> _f10_n114
-    _f10_n114 --> _f10_n115
-    _f10_n115 --> _f10_n116
-    _f10_n116 --> _f10_l11
+    _f10_n16 --> _f10_l11
     %% loop import_item
-      _f10_l11_n117 --> _f10_l11_n118
-      _f10_l11_n118 --> _f10_l11_n119
-      _f10_l11_n119 --> _f10_l11_n120
-      _f10_l11_n120 --> _f10_l11_n121
-      _f10_l11_n121 --> _f10_l11_n122
-      _f10_l11_n122 --> _f10_l11_n123
-      _f10_l11_n123 --> _f10_l11_n124
-      _f10_l11_n124 --> _f10_l11_n125
-      _f10_l11_n125 --> _f10_l11_n126
-      _f10_l11_n126 --> _f10_l11_n127
-      _f10_l11_n127 --> _f10_l11_n128
-      _f10_l11_n128 --> _f10_l11_n129
-      _f10_l11_n129 --> _f10_l11_n130
-      _f10_l11_n130 --> _f10_l11_n131
-      _f10_l11_n131 --> _f10_l11_n132
-      _f10_l11_n132 --> _f10_l11_n133
-      _f10_l11_n133 --> _f10_l11_n134
-      _f10_l11_n134 --> _f10_l11_n135
-      _f10_l11_n135 --> _f10_l11_n136
-      _f10_l11_n136 --> _f10_l11_n137
-      _f10_l11_n137 --> _f10_l11_n138
-      _f10_l11_n138 --> _f10_l11_n139
-      _f10_l11_n139 --> _f10_l11_n140
-      _f10_l11_n140 --> _f10_l11_n141
-      _f10_l11_n141 --> _f10_l11_n142
-      _f10_l11_n142 --> _f10_l11_n143
-      _f10_l11_n143 --> _f10_l11_n144
-      _f10_l11_n144 --> _f10_l11_n145
-      _f10_l11_n145 --> _f10_l11_n146
-      _f10_l11_n146 --> _f10_l11_n147
-      _f10_l11_n147 --> _f10_l11_n148
-      _f10_l11_n148 --> _f10_l11_n149
-      _f10_l11_n149 --> _f10_l11_n150
-      _f10_l11_n150 --> _f10_l11_n151
-      _f10_l11_n151 --> _f10_l11_n152
+      _f10_l11_n17 --> _f10_l11_n18
+      _f10_l11_n18 --> _f10_l11_n19
+      _f10_l11_n19 --> _f10_l11_n20
+      _f10_l11_n20 --> _f10_l11_n21
+      _f10_l11_n21 --> _f10_l11_n22
     %% end import_item
-    _f10_l11_n152 --> _f10_l11_n117
-    _f10_l11_n117 --> _f10_n153
-    _f10_n153 --> _f10_n154
-    _f10_n154 --> _f10_n155
+    _f10_l11_n22 --> _f10_l11_n17
+    _f10_l11_n17 --> _f10_n23
   end
   subgraph _create_markdown_debug_dump_block
     direction TB
-    _f12_n156 --> _f12_n157
-    _f12_n157 --> _f12_n158
-    _f12_n158 --> _f12_n159
-    _f12_n159 --> _f12_n160
-    _f12_n160 --> _f12_n161
-    _f12_n161 --> _f12_n162
   end
 
 ```

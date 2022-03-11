@@ -13,148 +13,32 @@
 ---
 ```mermaid
 flowchart TB
-  _f63_n1727["Return"]
-  _f63_n1728["Call"]
-  _f63_n1729["Name"]
-  _f63_n1730["Load"]
-  _f63_n1731["keyword"]
-  _f63_n1732["Name"]
-  _f63_n1733["Load"]
-  _f63_n1734["keyword"]
-  _f63_n1735["Name"]
-  _f63_n1736["Load"]
-  _f63_n1737["keyword"]
-  _f63_n1738["Constant"]
-  _f63_n1739["keyword"]
-  _f63_n1740["Constant"]
-  _f64_n1741["Return"]
-  _f64_n1742["Call"]
-  _f64_n1743["Name"]
-  _f64_n1744["Load"]
-  _f64_n1745["Name"]
-  _f64_n1746["Load"]
-  _f64_n1747["keyword"]
-  _f64_n1748["Constant"]
-  _f64_n1749["keyword"]
-  _f64_n1750["Constant"]
-  _f64_n1751["keyword"]
-  _f64_n1752["Constant"]
-  _f65_n1753["Assign"]
-  _f65_n1754["Name"]
-  _f65_n1755["Store"]
-  _f65_n1756["Call"]
-  _f65_n1757["Name"]
-  _f65_n1758["Load"]
-  _f65_n1759["Expr"]
-  _f65_n1760["Call"]
-  _f65_n1761["Attribute"]
-  _f65_n1762["Name"]
-  _f65_n1763["Load"]
-  _f65_n1764["Load"]
-  _f65_n1765["Name"]
-  _f65_n1766["Load"]
-  _f65_n1767["Return"]
-  _f65_n1768["Call"]
-  _f65_n1769["Attribute"]
-  _f65_n1770["Name"]
-  _f65_n1771["Load"]
-  _f65_n1772["Load"]
-  _f66_n1773["Assign"]
-  _f66_n1774["Name"]
-  _f66_n1775["Store"]
-  _f66_n1776["Call"]
-  _f66_n1777["Name"]
-  _f66_n1778["Load"]
-  _f66_n1779["Expr"]
-  _f66_n1780["Call"]
-  _f66_n1781["Attribute"]
-  _f66_n1782["Name"]
-  _f66_n1783["Load"]
-  _f66_n1784["Load"]
-  _f66_n1785["keyword"]
-  _f66_n1786["Name"]
-  _f66_n1787["Load"]
-  _f66_n1788["Return"]
-  _f66_n1789["Call"]
-  _f66_n1790["Attribute"]
-  _f66_n1791["Name"]
-  _f66_n1792["Load"]
-  _f66_n1793["Load"]
+  _f67_n291["finder = ImportNodeFinder()"]
+  _f67_n292["Expr"]
+  _f67_n293["finder.visit(ast_node)"]
+  _f67_n294["return finder.get_found_imports()"]
+  _f68_n295["generator = BlockGenerator()"]
+  _f68_n296["Expr"]
+  _f68_n297["generator.visit(node=model)"]
+  _f68_n298["return generator.get_list_of_elements()"]
 
   subgraph _get_ast_root_node_for_file
     direction TB
-    _f63_n1727 --> _f63_n1728
-    _f63_n1728 --> _f63_n1729
-    _f63_n1729 --> _f63_n1730
-    _f63_n1730 --> _f63_n1731
-    _f63_n1731 --> _f63_n1732
-    _f63_n1732 --> _f63_n1733
-    _f63_n1733 --> _f63_n1734
-    _f63_n1734 --> _f63_n1735
-    _f63_n1735 --> _f63_n1736
-    _f63_n1736 --> _f63_n1737
-    _f63_n1737 --> _f63_n1738
-    _f63_n1738 --> _f63_n1739
-    _f63_n1739 --> _f63_n1740
   end
   subgraph _get_markdown_dump_for_ast_node
     direction TB
-    _f64_n1741 --> _f64_n1742
-    _f64_n1742 --> _f64_n1743
-    _f64_n1743 --> _f64_n1744
-    _f64_n1744 --> _f64_n1745
-    _f64_n1745 --> _f64_n1746
-    _f64_n1746 --> _f64_n1747
-    _f64_n1747 --> _f64_n1748
-    _f64_n1748 --> _f64_n1749
-    _f64_n1749 --> _f64_n1750
-    _f64_n1750 --> _f64_n1751
-    _f64_n1751 --> _f64_n1752
   end
   subgraph _get_used_import_list
     direction TB
-    _f65_n1753 --> _f65_n1754
-    _f65_n1754 --> _f65_n1755
-    _f65_n1755 --> _f65_n1756
-    _f65_n1756 --> _f65_n1757
-    _f65_n1757 --> _f65_n1758
-    _f65_n1758 --> _f65_n1759
-    _f65_n1759 --> _f65_n1760
-    _f65_n1760 --> _f65_n1761
-    _f65_n1761 --> _f65_n1762
-    _f65_n1762 --> _f65_n1763
-    _f65_n1763 --> _f65_n1764
-    _f65_n1764 --> _f65_n1765
-    _f65_n1765 --> _f65_n1766
-    _f65_n1766 --> _f65_n1767
-    _f65_n1767 --> _f65_n1768
-    _f65_n1768 --> _f65_n1769
-    _f65_n1769 --> _f65_n1770
-    _f65_n1770 --> _f65_n1771
-    _f65_n1771 --> _f65_n1772
+    _f67_n291 --> _f67_n292
+    _f67_n292 --> _f67_n293
+    _f67_n293 --> _f67_n294
   end
   subgraph _create_mermaid_model_from_ast_model
     direction TB
-    _f66_n1773 --> _f66_n1774
-    _f66_n1774 --> _f66_n1775
-    _f66_n1775 --> _f66_n1776
-    _f66_n1776 --> _f66_n1777
-    _f66_n1777 --> _f66_n1778
-    _f66_n1778 --> _f66_n1779
-    _f66_n1779 --> _f66_n1780
-    _f66_n1780 --> _f66_n1781
-    _f66_n1781 --> _f66_n1782
-    _f66_n1782 --> _f66_n1783
-    _f66_n1783 --> _f66_n1784
-    _f66_n1784 --> _f66_n1785
-    _f66_n1785 --> _f66_n1786
-    _f66_n1786 --> _f66_n1787
-    _f66_n1787 --> _f66_n1788
-    _f66_n1788 --> _f66_n1789
-    _f66_n1789 --> _f66_n1790
-    _f66_n1790 --> _f66_n1791
-    _f66_n1791 --> _f66_n1792
-    _f66_n1792 --> _f66_n1793
+    _f68_n295 --> _f68_n296
+    _f68_n296 --> _f68_n297
+    _f68_n297 --> _f68_n298
   end
 
 ```

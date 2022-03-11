@@ -22,6 +22,15 @@ from models import (
 from typing import Any, Optional
 
 
+def _sanitize(markdown: str) -> str:
+    return (
+        markdown
+        .replace("<","")
+        .replace(">","")
+        .replace("\"","''")
+    )
+
+
 class ImportNodeFinder(NodeVisitor):
     def __init__(self) -> None:
         self.found_imports : list[str] = []
@@ -88,6 +97,48 @@ class LinkGenerator(NodeVisitor):
         self.elements.extend(for_loop_elements)
         self.prev_node = loop_end
 
+    def _generic_expression_expand(self, node: AST) -> Any:
+        mermaid_data = MermaidNode(
+            ast_node=node,
+            mermaid_safe_name=f"{self.prefix}_n{LinkGenerator._count()}",
+            display_name=_sanitize(unparse(node)),
+        )
+        if self.prev_node:
+            self.elements.append(MermaidLink(from_=self.prev_node, to=mermaid_data))
+        self.prev_node = mermaid_data
+
+    visit_Await = _generic_expression_expand
+    visit_AnnAssign = _generic_expression_expand
+    visit_Assign = _generic_expression_expand
+    visit_Attribute = _generic_expression_expand
+    visit_AugAssign = _generic_expression_expand
+    visit_BinOp = _generic_expression_expand
+    visit_BoolOp = _generic_expression_expand
+    visit_Call = _generic_expression_expand
+    visit_Compare = _generic_expression_expand
+    visit_Constant = _generic_expression_expand
+    visit_Delete = _generic_expression_expand
+    visit_Dict = _generic_expression_expand
+    visit_DictComp = _generic_expression_expand
+    visit_FormattedValue = _generic_expression_expand
+    visit_GeneratorExp = _generic_expression_expand
+    visit_JoinedStr = _generic_expression_expand
+    visit_Lambda = _generic_expression_expand
+    visit_List = _generic_expression_expand
+    visit_ListComp = _generic_expression_expand
+    visit_Name = _generic_expression_expand
+    visit_NamedExpr = _generic_expression_expand
+    visit_Return = _generic_expression_expand
+    visit_Set = _generic_expression_expand
+    visit_SetComp = _generic_expression_expand
+    visit_Slice = _generic_expression_expand
+    visit_Starred = _generic_expression_expand
+    visit_Subscript = _generic_expression_expand
+    visit_Tuple = _generic_expression_expand
+    visit_UnaryOp = _generic_expression_expand
+    visit_Yield = _generic_expression_expand
+    visit_YieldFrom = _generic_expression_expand
+
     def generic_visit(self, node: AST) -> Any:
         mermaid_data = MermaidNode(
             ast_node=node,
@@ -102,7 +153,10 @@ class LinkGenerator(NodeVisitor):
         return super().generic_visit(node)
 
     def get_list_of_elements(self) -> list[MermaidLink]:
-        return self.elements
+        if self.elements:
+            return self.elements
+        else:
+            return [self.prev_node]
 
 
 class BlockGenerator(NodeVisitor):

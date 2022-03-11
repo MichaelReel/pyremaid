@@ -10,66 +10,13 @@
 ---
 ```mermaid
 flowchart TB
-  _c1_n1["AnnAssign"]
-  _c1_n2["Name"]
-  _c1_n3["Store"]
-  _c1_n4["Name"]
-  _c1_n5["Load"]
-  _c1_n6["AnnAssign"]
-  _c1_n7["Name"]
-  _c1_n8["Store"]
-  _c1_n9["Name"]
-  _c1_n10["Load"]
-  _c1_n11["AnnAssign"]
-  _c1_n12["Name"]
-  _c1_n13["Store"]
-  _c1_n14["Name"]
-  _c1_n15["Load"]
-  _c2_n16["AnnAssign"]
-  _c2_n17["Name"]
-  _c2_n18["Store"]
-  _c2_n19["Name"]
-  _c2_n20["Load"]
-  _c2_n21["AnnAssign"]
-  _c2_n22["Name"]
-  _c2_n23["Store"]
-  _c2_n24["Name"]
-  _c2_n25["Load"]
-  _c3_n26["AnnAssign"]
-  _c3_n27["Name"]
-  _c3_n28["Store"]
-  _c3_n29["Subscript"]
-  _c3_n30["Name"]
-  _c3_n31["Load"]
-  _c3_n32["Name"]
-  _c3_n33["Load"]
-  _c3_n34["Load"]
-  _c3_n35["Call"]
-  _c3_n36["Name"]
-  _c3_n37["Load"]
-  _c3_n38["keyword"]
-  _c3_n39["Name"]
-  _c3_n40["Load"]
-  _c7_n44["AnnAssign"]
-  _c7_n45["Name"]
-  _c7_n46["Store"]
-  _c7_n47["Subscript"]
-  _c7_n48["Name"]
-  _c7_n49["Load"]
-  _c7_n50["Name"]
-  _c7_n51["Load"]
-  _c7_n52["Load"]
-  _c7_n53["Constant"]
-  _c7_n54["AnnAssign"]
-  _c7_n55["Name"]
-  _c7_n56["Store"]
-  _c7_n57["Subscript"]
-  _c7_n58["Name"]
-  _c7_n59["Load"]
-  _c7_n60["Name"]
-  _c7_n61["Load"]
-  _c7_n62["Load"]
-  _c7_n63["Constant"]
+  _c1_n1["ast_node: AST"]
+  _c1_n2["mermaid_safe_name: str"]
+  _c1_n3["display_name: str"]
+  _c2_n4["from_: MermaidNode"]
+  _c2_n5["to: MermaidNode"]
+  _c7_n10["target: Optional[str] = None"]
+  _c7_n11["iterator: Optional[str] = None"]
 
   subgraph MermaidElement
     direction TB
@@ -78,47 +25,13 @@ flowchart TB
     direction TB
     _c1_n1 --> _c1_n2
     _c1_n2 --> _c1_n3
-    _c1_n3 --> _c1_n4
-    _c1_n4 --> _c1_n5
-    _c1_n5 --> _c1_n6
-    _c1_n6 --> _c1_n7
-    _c1_n7 --> _c1_n8
-    _c1_n8 --> _c1_n9
-    _c1_n9 --> _c1_n10
-    _c1_n10 --> _c1_n11
-    _c1_n11 --> _c1_n12
-    _c1_n12 --> _c1_n13
-    _c1_n13 --> _c1_n14
-    _c1_n14 --> _c1_n15
   end
   subgraph MermaidLink
     direction TB
-    _c2_n16 --> _c2_n17
-    _c2_n17 --> _c2_n18
-    _c2_n18 --> _c2_n19
-    _c2_n19 --> _c2_n20
-    _c2_n20 --> _c2_n21
-    _c2_n21 --> _c2_n22
-    _c2_n22 --> _c2_n23
-    _c2_n23 --> _c2_n24
-    _c2_n24 --> _c2_n25
+    _c2_n4 --> _c2_n5
   end
   subgraph MermaidBlock
     direction TB
-    _c3_n26 --> _c3_n27
-    _c3_n27 --> _c3_n28
-    _c3_n28 --> _c3_n29
-    _c3_n29 --> _c3_n30
-    _c3_n30 --> _c3_n31
-    _c3_n31 --> _c3_n32
-    _c3_n32 --> _c3_n33
-    _c3_n33 --> _c3_n34
-    _c3_n34 --> _c3_n35
-    _c3_n35 --> _c3_n36
-    _c3_n36 --> _c3_n37
-    _c3_n37 --> _c3_n38
-    _c3_n38 --> _c3_n39
-    _c3_n39 --> _c3_n40
   end
   subgraph MermaidModule
     direction TB
@@ -131,25 +44,7 @@ flowchart TB
   end
   subgraph MermaidFor
     direction TB
-    _c7_n44 --> _c7_n45
-    _c7_n45 --> _c7_n46
-    _c7_n46 --> _c7_n47
-    _c7_n47 --> _c7_n48
-    _c7_n48 --> _c7_n49
-    _c7_n49 --> _c7_n50
-    _c7_n50 --> _c7_n51
-    _c7_n51 --> _c7_n52
-    _c7_n52 --> _c7_n53
-    _c7_n53 --> _c7_n54
-    _c7_n54 --> _c7_n55
-    _c7_n55 --> _c7_n56
-    _c7_n56 --> _c7_n57
-    _c7_n57 --> _c7_n58
-    _c7_n58 --> _c7_n59
-    _c7_n59 --> _c7_n60
-    _c7_n60 --> _c7_n61
-    _c7_n61 --> _c7_n62
-    _c7_n62 --> _c7_n63
+    _c7_n10 --> _c7_n11
   end
 
 ```
