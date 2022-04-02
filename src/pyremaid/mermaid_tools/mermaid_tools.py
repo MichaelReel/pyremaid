@@ -1,4 +1,4 @@
-from models import (
+from pyremaid.models import (
     MermaidBlock,
     MermaidClass,
     MermaidElement,

@@ -2,7 +2,7 @@
 
 ### Imports
 
-  - [mermaid_tools.mermaid_tools.create_mermaid_flow_graph_from_links](/docs/pyremaid/mermaid_tools/mermaid_tools.py.md)
+  - pyremaid.mermaid_tools.mermaid_tools.create_mermaid_flow_graph_from_links
 
 ---
 ```mermaid
@@ -19,19 +19,19 @@ flowchart TB
 Module(
   body=[
     ImportFrom(
-      module='mermaid_tools.mermaid_tools',
+      module='pyremaid.mermaid_tools.mermaid_tools',
       names=[
         alias(
           name='create_mermaid_flow_graph_from_links',
           lineno=1,
-          col_offset=40,
+          col_offset=49,
           end_lineno=1,
-          end_col_offset=76)],
+          end_col_offset=85)],
       level=0,
       lineno=1,
       col_offset=0,
       end_lineno=1,
-      end_col_offset=76)],
+      end_col_offset=85)],
   type_ignores=[])
 ```
 </details>

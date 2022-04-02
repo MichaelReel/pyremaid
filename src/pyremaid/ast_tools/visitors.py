@@ -9,7 +9,9 @@ from ast import (
     NodeVisitor,
     unparse,
 )
-from models import (
+from typing import Any, Optional
+
+from pyremaid.models import (
     MermaidClass,
     MermaidElement,
     MermaidFor,
@@ -18,8 +20,6 @@ from models import (
     MermaidModule,
     MermaidNode,
 )
-
-from typing import Any, Optional
 
 
 def _sanitize(markdown: str) -> str:

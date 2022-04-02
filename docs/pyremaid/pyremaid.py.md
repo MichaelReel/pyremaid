@@ -2,20 +2,20 @@
 
 ### Imports
 
-  - [files.destination.create_cleared_output_folder](/docs/pyremaid/files/destination.py.md)
-  - [files.destination.get_output_file_path_for_input_file](/docs/pyremaid/files/destination.py.md)
-  - [files.destination.update_output_file](/docs/pyremaid/files/destination.py.md)
-  - [files.source.find_all_python_files](/docs/pyremaid/files/source.py.md)
-  - [files.source.get_source_code_from_file](/docs/pyremaid/files/source.py.md)
-  - [files.source.get_import_name_from_path](/docs/pyremaid/files/source.py.md)
-  - [ast_tools.create_mermaid_model_from_ast_model](/docs/pyremaid/ast_tools/__init__.py.md)
-  - [ast_tools.get_ast_root_node_for_file](/docs/pyremaid/ast_tools/__init__.py.md)
-  - [ast_tools.get_markdown_dump_for_ast_node](/docs/pyremaid/ast_tools/__init__.py.md)
-  - [ast_tools.get_used_import_list](/docs/pyremaid/ast_tools/__init__.py.md)
-  - [ast_tools.import_map.get_all_imports_from_files](/docs/pyremaid/ast_tools/import_map.py.md)
-  - [markdown_tools.create_markdown_content](/docs/pyremaid/markdown_tools.py.md)
-  - [mermaid_tools.create_mermaid_flow_graph_from_links](/docs/pyremaid/mermaid_tools/__init__.py.md)
-  - [models.MermaidElement](/docs/pyremaid/models.py.md)
+  - pyremaid.files.destination.create_cleared_output_folder
+  - pyremaid.files.destination.get_output_file_path_for_input_file
+  - pyremaid.files.destination.update_output_file
+  - pyremaid.files.source.find_all_python_files
+  - pyremaid.files.source.get_source_code_from_file
+  - pyremaid.files.source.get_import_name_from_path
+  - pyremaid.ast_tools.create_mermaid_model_from_ast_model
+  - pyremaid.ast_tools.get_ast_root_node_for_file
+  - pyremaid.ast_tools.get_markdown_dump_for_ast_node
+  - pyremaid.ast_tools.get_used_import_list
+  - pyremaid.ast_tools.import_map.get_all_imports_from_files
+  - pyremaid.markdown_tools.create_markdown_content
+  - pyremaid.mermaid_tools.create_mermaid_flow_graph_from_links
+  - pyremaid.models.MermaidElement
 
 ---
 ```mermaid
@@ -25,36 +25,40 @@ flowchart TB
   _f9_n14["python_files = find_all_python_files(input_path=input_path)"]
   _f9_n15["global_import_table = get_global_input_table(input_path=input_path, python_files=python_files, output_root=output_path)"]
   _f9_l10["in_file"]
-  _f9_l10_n16["relative_in_file = in_file.replace(input_path, '')"]
-  _f9_l10_n17["out_file = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_path)"]
-  _f9_l10_n18["debug_dump = ''"]
-  _f9_l10_n19["import_list = []"]
-  _f9_l10_n20["If"]
-  _f9_l10_n21["(source_code := get_source_code_from_file(input_file=in_file))"]
-  _f9_l10_n22["If"]
-  _f9_l10_n23["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
-  _f9_l10_n24["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
-  _f9_l10_n25["import_list = get_used_import_list(ast_node=ast_node)"]
-  _f9_l10_n26["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
-  _f9_l10_n27["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
-  _f9_l10_n28["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=[mermaid_diagram], debug_dump=debug_dump)"]
-  _f9_l10_n29["Expr"]
-  _f9_l10_n30["update_output_file(content=markdown_content, output_file=out_file)"]
-  _f11_n31["global_import_table = get_all_imports_from_files(input_path=input_path, python_files=python_files)"]
-  _f11_l12["global_import"]
-  _f11_l12_n32["relative_in_file = global_import_table[global_import].replace(input_path, '')"]
-  _f11_l12_n33["If"]
-  _f11_l12_n34["relative_in_file"]
-  _f11_l12_n35["global_import_table[global_import] = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_root).lstrip('.')"]
-  _f11_n36["Expr"]
-  _f11_n37["print('\n'.join([f'{k}: {v}' for (k, v) in global_import_table.items()]))"]
-  _f11_n38["return global_import_table"]
-  _n39["If"]
-  _n40["__name__ == '__main__'"]
-  _n41["input_path = './src/pyremaid/'"]
-  _n42["output_path = './docs/pyremaid/'"]
-  _n43["Expr"]
-  _n44["create_mermaid_analysis_from_python(input_path=input_path, output_path=output_path)"]
+  _f9_l10_n16["Expr"]
+  _f9_l10_n17["create_new_mermaid_analysis_for_file(input_path=input_path, output_path=output_path, global_import_table=global_import_table, in_file=in_file)"]
+  _f11_n18["relative_in_file = in_file.replace(input_path, '')"]
+  _f11_n19["out_file = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_path)"]
+  _f11_n20["debug_dump = ''"]
+  _f11_n21["import_list = []"]
+  _f11_n22["mermaid_diagrams = []"]
+  _f11_n23["If"]
+  _f11_n24["(source_code := get_source_code_from_file(input_file=in_file))"]
+  _f11_n25["If"]
+  _f11_n26["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
+  _f11_n27["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
+  _f11_n28["import_list = get_used_import_list(ast_node=ast_node)"]
+  _f11_n29["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
+  _f11_n30["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
+  _f11_n31["mermaid_diagrams = [mermaid_diagram]"]
+  _f11_n32["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=mermaid_diagrams, debug_dump=debug_dump)"]
+  _f11_n33["Expr"]
+  _f11_n34["update_output_file(content=markdown_content, output_file=out_file)"]
+  _f12_n35["global_import_table = get_all_imports_from_files(input_path=input_path, python_files=python_files)"]
+  _f12_l13["global_import"]
+  _f12_l13_n36["relative_in_file = global_import_table[global_import].replace(input_path, '')"]
+  _f12_l13_n37["If"]
+  _f12_l13_n38["relative_in_file"]
+  _f12_l13_n39["global_import_table[global_import] = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_root).lstrip('.')"]
+  _f12_n40["Expr"]
+  _f12_n41["print('\n'.join([f'{k}: {v}' for (k, v) in global_import_table.items()]))"]
+  _f12_n42["return global_import_table"]
+  _n43["If"]
+  _n44["__name__ == '__main__'"]
+  _n45["input_path = './src/pyremaid/'"]
+  _n46["output_path = './docs/pyremaid/'"]
+  _n47["Expr"]
+  _n48["create_mermaid_analysis_from_python(input_path=input_path, output_path=output_path)"]
 
   subgraph _create_mermaid_analysis_from_python
     direction TB
@@ -64,40 +68,46 @@ flowchart TB
     _f9_n15 --> _f9_l10
     %% loop in_file
       _f9_l10_n16 --> _f9_l10_n17
-      _f9_l10_n17 --> _f9_l10_n18
-      _f9_l10_n18 --> _f9_l10_n19
-      _f9_l10_n19 --> _f9_l10_n20
-      _f9_l10_n20 --> _f9_l10_n21
-      _f9_l10_n21 --> _f9_l10_n22
-      _f9_l10_n22 --> _f9_l10_n23
-      _f9_l10_n23 --> _f9_l10_n24
-      _f9_l10_n24 --> _f9_l10_n25
-      _f9_l10_n25 --> _f9_l10_n26
-      _f9_l10_n26 --> _f9_l10_n27
-      _f9_l10_n27 --> _f9_l10_n28
-      _f9_l10_n28 --> _f9_l10_n29
-      _f9_l10_n29 --> _f9_l10_n30
     %% end in_file
-    _f9_l10_n30 --> _f9_l10_n16
+    _f9_l10_n17 --> _f9_l10_n16
+  end
+  subgraph _create_new_mermaid_analysis_for_file
+    direction TB
+    _f11_n18 --> _f11_n19
+    _f11_n19 --> _f11_n20
+    _f11_n20 --> _f11_n21
+    _f11_n21 --> _f11_n22
+    _f11_n22 --> _f11_n23
+    _f11_n23 --> _f11_n24
+    _f11_n24 --> _f11_n25
+    _f11_n25 --> _f11_n26
+    _f11_n26 --> _f11_n27
+    _f11_n27 --> _f11_n28
+    _f11_n28 --> _f11_n29
+    _f11_n29 --> _f11_n30
+    _f11_n30 --> _f11_n31
+    _f11_n31 --> _f11_n32
+    _f11_n32 --> _f11_n33
+    _f11_n33 --> _f11_n34
   end
   subgraph _get_global_input_table
     direction TB
-    _f11_n31 --> _f11_l12
+    _f12_n35 --> _f12_l13
     %% loop global_import
-      _f11_l12_n32 --> _f11_l12_n33
-      _f11_l12_n33 --> _f11_l12_n34
-      _f11_l12_n34 --> _f11_l12_n35
+      _f12_l13_n36 --> _f12_l13_n37
+      _f12_l13_n37 --> _f12_l13_n38
+      _f12_l13_n38 --> _f12_l13_n39
     %% end global_import
-    _f11_l12_n35 --> _f11_l12_n32
-    _f11_l12_n32 --> _f11_n36
-    _f11_n36 --> _f11_n37
-    _f11_n37 --> _f11_n38
+    _f12_l13_n39 --> _f12_l13_n36
+    _f12_l13_n36 --> _f12_n40
+    _f12_n40 --> _f12_n41
+    _f12_n41 --> _f12_n42
   end
-  _n39 --> _n40
-  _n40 --> _n41
-  _n41 --> _n42
-  _n42 --> _n43
   _n43 --> _n44
+  _n44 --> _n45
+  _n45 --> _n46
+  _n46 --> _n47
+  _n47 --> _n48
 
 ```
 ---
@@ -109,7 +119,7 @@ flowchart TB
 Module(
   body=[
     ImportFrom(
-      module='files.destination',
+      module='pyremaid.files.destination',
       names=[
         alias(
           name='create_cleared_output_folder',
@@ -135,7 +145,7 @@ Module(
       end_lineno=7,
       end_col_offset=1),
     ImportFrom(
-      module='files.source',
+      module='pyremaid.files.source',
       names=[
         alias(
           name='find_all_python_files',
@@ -161,7 +171,7 @@ Module(
       end_lineno=12,
       end_col_offset=1),
     ImportFrom(
-      module='ast_tools',
+      module='pyremaid.ast_tools',
       names=[
         alias(
           name='create_mermaid_model_from_ast_model',
@@ -193,61 +203,61 @@ Module(
       end_lineno=18,
       end_col_offset=1),
     ImportFrom(
-      module='ast_tools.import_map',
+      module='pyremaid.ast_tools.import_map',
       names=[
         alias(
           name='get_all_imports_from_files',
           lineno=19,
-          col_offset=33,
+          col_offset=42,
           end_lineno=19,
-          end_col_offset=59)],
+          end_col_offset=68)],
       level=0,
       lineno=19,
       col_offset=0,
       end_lineno=19,
-      end_col_offset=59),
+      end_col_offset=68),
     ImportFrom(
-      module='markdown_tools',
+      module='pyremaid.markdown_tools',
       names=[
         alias(
           name='create_markdown_content',
           lineno=20,
-          col_offset=27,
+          col_offset=36,
           end_lineno=20,
-          end_col_offset=50)],
+          end_col_offset=59)],
       level=0,
       lineno=20,
       col_offset=0,
       end_lineno=20,
-      end_col_offset=50),
+      end_col_offset=59),
     ImportFrom(
-      module='mermaid_tools',
+      module='pyremaid.mermaid_tools',
       names=[
         alias(
           name='create_mermaid_flow_graph_from_links',
           lineno=21,
-          col_offset=26,
+          col_offset=35,
           end_lineno=21,
-          end_col_offset=62)],
+          end_col_offset=71)],
       level=0,
       lineno=21,
       col_offset=0,
       end_lineno=21,
-      end_col_offset=62),
+      end_col_offset=71),
     ImportFrom(
-      module='models',
+      module='pyremaid.models',
       names=[
         alias(
           name='MermaidElement',
           lineno=22,
-          col_offset=19,
+          col_offset=28,
           end_lineno=22,
-          end_col_offset=33)],
+          end_col_offset=42)],
       level=0,
       lineno=22,
       col_offset=0,
       end_lineno=22,
-      end_col_offset=33),
+      end_col_offset=42),
     FunctionDef(
       name='create_mermaid_analysis_from_python',
       args=arguments(
@@ -437,578 +447,788 @@ Module(
             end_lineno=32,
             end_col_offset=31),
           body=[
-            Assign(
-              targets=[
-                Name(
-                  id='relative_in_file',
-                  ctx=Store(),
-                  lineno=33,
-                  col_offset=8,
-                  end_lineno=33,
-                  end_col_offset=24)],
-              value=Call(
-                func=Attribute(
-                  value=Name(
-                    id='in_file',
-                    ctx=Load(),
-                    lineno=33,
-                    col_offset=27,
-                    end_lineno=33,
-                    end_col_offset=34),
-                  attr='replace',
-                  ctx=Load(),
-                  lineno=33,
-                  col_offset=27,
-                  end_lineno=33,
-                  end_col_offset=42),
-                args=[
-                  Name(
-                    id='input_path',
-                    ctx=Load(),
-                    lineno=33,
-                    col_offset=43,
-                    end_lineno=33,
-                    end_col_offset=53),
-                  Constant(
-                    value='',
-                    lineno=33,
-                    col_offset=55,
-                    end_lineno=33,
-                    end_col_offset=57)],
-                keywords=[],
-                lineno=33,
-                col_offset=27,
-                end_lineno=33,
-                end_col_offset=58),
-              lineno=33,
-              col_offset=8,
-              end_lineno=33,
-              end_col_offset=58),
-            Assign(
-              targets=[
-                Name(
-                  id='out_file',
-                  ctx=Store(),
-                  lineno=34,
-                  col_offset=8,
-                  end_lineno=34,
-                  end_col_offset=16)],
+            Expr(
               value=Call(
                 func=Name(
-                  id='get_output_file_path_for_input_file',
+                  id='create_new_mermaid_analysis_for_file',
                   ctx=Load(),
-                  lineno=34,
-                  col_offset=19,
-                  end_lineno=34,
-                  end_col_offset=54),
+                  lineno=33,
+                  col_offset=8,
+                  end_lineno=33,
+                  end_col_offset=44),
                 args=[],
                 keywords=[
                   keyword(
                     arg='input_path',
                     value=Name(
-                      id='relative_in_file',
+                      id='input_path',
                       ctx=Load(),
-                      lineno=35,
+                      lineno=34,
                       col_offset=23,
-                      end_lineno=35,
-                      end_col_offset=39),
-                    lineno=35,
+                      end_lineno=34,
+                      end_col_offset=33),
+                    lineno=34,
                     col_offset=12,
-                    end_lineno=35,
-                    end_col_offset=39),
+                    end_lineno=34,
+                    end_col_offset=33),
                   keyword(
-                    arg='output_root',
+                    arg='output_path',
                     value=Name(
                       id='output_path',
                       ctx=Load(),
                       lineno=35,
-                      col_offset=53,
-                      end_lineno=35,
-                      end_col_offset=64),
-                    lineno=35,
-                    col_offset=41,
-                    end_lineno=35,
-                    end_col_offset=64)],
-                lineno=34,
-                col_offset=19,
-                end_lineno=36,
-                end_col_offset=9),
-              lineno=34,
-              col_offset=8,
-              end_lineno=36,
-              end_col_offset=9),
-            Assign(
-              targets=[
-                Name(
-                  id='debug_dump',
-                  ctx=Store(),
-                  lineno=38,
-                  col_offset=8,
-                  end_lineno=38,
-                  end_col_offset=18)],
-              value=Constant(
-                value='',
-                lineno=38,
-                col_offset=21,
-                end_lineno=38,
-                end_col_offset=23),
-              lineno=38,
-              col_offset=8,
-              end_lineno=38,
-              end_col_offset=23),
-            Assign(
-              targets=[
-                Name(
-                  id='import_list',
-                  ctx=Store(),
-                  lineno=39,
-                  col_offset=8,
-                  end_lineno=39,
-                  end_col_offset=19)],
-              value=List(
-                elts=[],
-                ctx=Load(),
-                lineno=39,
-                col_offset=22,
-                end_lineno=39,
-                end_col_offset=24),
-              lineno=39,
-              col_offset=8,
-              end_lineno=39,
-              end_col_offset=24),
-            If(
-              test=NamedExpr(
-                target=Name(
-                  id='source_code',
-                  ctx=Store(),
-                  lineno=41,
-                  col_offset=11,
-                  end_lineno=41,
-                  end_col_offset=22),
-                value=Call(
-                  func=Name(
-                    id='get_source_code_from_file',
-                    ctx=Load(),
-                    lineno=41,
-                    col_offset=26,
-                    end_lineno=41,
-                    end_col_offset=51),
-                  args=[],
-                  keywords=[
-                    keyword(
-                      arg='input_file',
-                      value=Name(
-                        id='in_file',
-                        ctx=Load(),
-                        lineno=41,
-                        col_offset=63,
-                        end_lineno=41,
-                        end_col_offset=70),
-                      lineno=41,
-                      col_offset=52,
-                      end_lineno=41,
-                      end_col_offset=70)],
-                  lineno=41,
-                  col_offset=26,
-                  end_lineno=41,
-                  end_col_offset=71),
-                lineno=41,
-                col_offset=11,
-                end_lineno=41,
-                end_col_offset=71),
-              body=[
-                If(
-                  test=NamedExpr(
-                    target=Name(
-                      id='ast_node',
-                      ctx=Store(),
-                      lineno=42,
-                      col_offset=15,
-                      end_lineno=42,
-                      end_col_offset=23),
-                    value=Call(
-                      func=Name(
-                        id='get_ast_root_node_for_file',
-                        ctx=Load(),
-                        lineno=42,
-                        col_offset=27,
-                        end_lineno=42,
-                        end_col_offset=53),
-                      args=[],
-                      keywords=[
-                        keyword(
-                          arg='source_code',
-                          value=Name(
-                            id='source_code',
-                            ctx=Load(),
-                            lineno=43,
-                            col_offset=28,
-                            end_lineno=43,
-                            end_col_offset=39),
-                          lineno=43,
-                          col_offset=16,
-                          end_lineno=43,
-                          end_col_offset=39),
-                        keyword(
-                          arg='input_file',
-                          value=Name(
-                            id='in_file',
-                            ctx=Load(),
-                            lineno=44,
-                            col_offset=27,
-                            end_lineno=44,
-                            end_col_offset=34),
-                          lineno=44,
-                          col_offset=16,
-                          end_lineno=44,
-                          end_col_offset=34)],
-                      lineno=42,
-                      col_offset=27,
-                      end_lineno=45,
-                      end_col_offset=13),
-                    lineno=42,
-                    col_offset=15,
-                    end_lineno=45,
-                    end_col_offset=13),
-                  body=[
-                    Assign(
-                      targets=[
-                        Name(
-                          id='debug_dump',
-                          ctx=Store(),
-                          lineno=47,
-                          col_offset=16,
-                          end_lineno=47,
-                          end_col_offset=26)],
-                      value=Call(
-                        func=Name(
-                          id='get_markdown_dump_for_ast_node',
-                          ctx=Load(),
-                          lineno=47,
-                          col_offset=29,
-                          end_lineno=47,
-                          end_col_offset=59),
-                        args=[],
-                        keywords=[
-                          keyword(
-                            arg='ast_node',
-                            value=Name(
-                              id='ast_node',
-                              ctx=Load(),
-                              lineno=47,
-                              col_offset=69,
-                              end_lineno=47,
-                              end_col_offset=77),
-                            lineno=47,
-                            col_offset=60,
-                            end_lineno=47,
-                            end_col_offset=77)],
-                        lineno=47,
-                        col_offset=29,
-                        end_lineno=47,
-                        end_col_offset=78),
-                      lineno=47,
-                      col_offset=16,
-                      end_lineno=47,
-                      end_col_offset=78),
-                    Assign(
-                      targets=[
-                        Name(
-                          id='import_list',
-                          ctx=Store(),
-                          lineno=49,
-                          col_offset=16,
-                          end_lineno=49,
-                          end_col_offset=27)],
-                      value=Call(
-                        func=Name(
-                          id='get_used_import_list',
-                          ctx=Load(),
-                          lineno=49,
-                          col_offset=30,
-                          end_lineno=49,
-                          end_col_offset=50),
-                        args=[],
-                        keywords=[
-                          keyword(
-                            arg='ast_node',
-                            value=Name(
-                              id='ast_node',
-                              ctx=Load(),
-                              lineno=49,
-                              col_offset=60,
-                              end_lineno=49,
-                              end_col_offset=68),
-                            lineno=49,
-                            col_offset=51,
-                            end_lineno=49,
-                            end_col_offset=68)],
-                        lineno=49,
-                        col_offset=30,
-                        end_lineno=49,
-                        end_col_offset=69),
-                      lineno=49,
-                      col_offset=16,
-                      end_lineno=49,
-                      end_col_offset=69),
-                    AnnAssign(
-                      target=Name(
-                        id='link_info',
-                        ctx=Store(),
-                        lineno=51,
-                        col_offset=16,
-                        end_lineno=51,
-                        end_col_offset=25),
-                      annotation=Subscript(
-                        value=Name(
-                          id='list',
-                          ctx=Load(),
-                          lineno=51,
-                          col_offset=27,
-                          end_lineno=51,
-                          end_col_offset=31),
-                        slice=Name(
-                          id='MermaidElement',
-                          ctx=Load(),
-                          lineno=51,
-                          col_offset=32,
-                          end_lineno=51,
-                          end_col_offset=46),
-                        ctx=Load(),
-                        lineno=51,
-                        col_offset=27,
-                        end_lineno=51,
-                        end_col_offset=47),
-                      value=Call(
-                        func=Name(
-                          id='create_mermaid_model_from_ast_model',
-                          ctx=Load(),
-                          lineno=51,
-                          col_offset=50,
-                          end_lineno=51,
-                          end_col_offset=85),
-                        args=[],
-                        keywords=[
-                          keyword(
-                            arg='model',
-                            value=Name(
-                              id='ast_node',
-                              ctx=Load(),
-                              lineno=52,
-                              col_offset=26,
-                              end_lineno=52,
-                              end_col_offset=34),
-                            lineno=52,
-                            col_offset=20,
-                            end_lineno=52,
-                            end_col_offset=34)],
-                        lineno=51,
-                        col_offset=50,
-                        end_lineno=53,
-                        end_col_offset=17),
-                      simple=1,
-                      lineno=51,
-                      col_offset=16,
-                      end_lineno=53,
-                      end_col_offset=17),
-                    Assign(
-                      targets=[
-                        Name(
-                          id='mermaid_diagram',
-                          ctx=Store(),
-                          lineno=55,
-                          col_offset=16,
-                          end_lineno=55,
-                          end_col_offset=31)],
-                      value=Call(
-                        func=Name(
-                          id='create_mermaid_flow_graph_from_links',
-                          ctx=Load(),
-                          lineno=55,
-                          col_offset=34,
-                          end_lineno=55,
-                          end_col_offset=70),
-                        args=[
-                          Name(
-                            id='link_info',
-                            ctx=Load(),
-                            lineno=55,
-                            col_offset=71,
-                            end_lineno=55,
-                            end_col_offset=80)],
-                        keywords=[],
-                        lineno=55,
-                        col_offset=34,
-                        end_lineno=55,
-                        end_col_offset=81),
-                      lineno=55,
-                      col_offset=16,
-                      end_lineno=55,
-                      end_col_offset=81)],
-                  orelse=[],
-                  lineno=42,
-                  col_offset=12,
-                  end_lineno=55,
-                  end_col_offset=81)],
-              orelse=[],
-              lineno=41,
-              col_offset=8,
-              end_lineno=55,
-              end_col_offset=81),
-            Assign(
-              targets=[
-                Name(
-                  id='markdown_content',
-                  ctx=Store(),
-                  lineno=57,
-                  col_offset=8,
-                  end_lineno=57,
-                  end_col_offset=24)],
-              value=Call(
-                func=Name(
-                  id='create_markdown_content',
-                  ctx=Load(),
-                  lineno=57,
-                  col_offset=27,
-                  end_lineno=57,
-                  end_col_offset=50),
-                args=[],
-                keywords=[
-                  keyword(
-                    arg='input_file',
-                    value=Name(
-                      id='in_file',
-                      ctx=Load(),
-                      lineno=58,
-                      col_offset=23,
-                      end_lineno=58,
-                      end_col_offset=30),
-                    lineno=58,
-                    col_offset=12,
-                    end_lineno=58,
-                    end_col_offset=30),
-                  keyword(
-                    arg='import_list',
-                    value=Name(
-                      id='import_list',
-                      ctx=Load(),
-                      lineno=59,
                       col_offset=24,
-                      end_lineno=59,
+                      end_lineno=35,
                       end_col_offset=35),
-                    lineno=59,
+                    lineno=35,
                     col_offset=12,
-                    end_lineno=59,
+                    end_lineno=35,
                     end_col_offset=35),
                   keyword(
                     arg='global_import_table',
                     value=Name(
                       id='global_import_table',
                       ctx=Load(),
-                      lineno=60,
+                      lineno=36,
                       col_offset=32,
-                      end_lineno=60,
+                      end_lineno=36,
                       end_col_offset=51),
-                    lineno=60,
+                    lineno=36,
                     col_offset=12,
-                    end_lineno=60,
+                    end_lineno=36,
                     end_col_offset=51),
                   keyword(
-                    arg='mermaid_diagrams',
-                    value=List(
-                      elts=[
-                        Name(
-                          id='mermaid_diagram',
-                          ctx=Load(),
-                          lineno=61,
-                          col_offset=30,
-                          end_lineno=61,
-                          end_col_offset=45)],
+                    arg='in_file',
+                    value=Name(
+                      id='in_file',
                       ctx=Load(),
-                      lineno=61,
-                      col_offset=29,
-                      end_lineno=61,
-                      end_col_offset=46),
-                    lineno=61,
+                      lineno=37,
+                      col_offset=20,
+                      end_lineno=37,
+                      end_col_offset=27),
+                    lineno=37,
                     col_offset=12,
-                    end_lineno=61,
-                    end_col_offset=46),
-                  keyword(
-                    arg='debug_dump',
-                    value=Name(
-                      id='debug_dump',
-                      ctx=Load(),
-                      lineno=62,
-                      col_offset=23,
-                      end_lineno=62,
-                      end_col_offset=33),
-                    lineno=62,
-                    col_offset=12,
-                    end_lineno=62,
-                    end_col_offset=33)],
-                lineno=57,
-                col_offset=27,
-                end_lineno=63,
-                end_col_offset=9),
-              lineno=57,
-              col_offset=8,
-              end_lineno=63,
-              end_col_offset=9),
-            Expr(
-              value=Call(
-                func=Name(
-                  id='update_output_file',
-                  ctx=Load(),
-                  lineno=65,
-                  col_offset=8,
-                  end_lineno=65,
-                  end_col_offset=26),
-                args=[],
-                keywords=[
-                  keyword(
-                    arg='content',
-                    value=Name(
-                      id='markdown_content',
-                      ctx=Load(),
-                      lineno=65,
-                      col_offset=35,
-                      end_lineno=65,
-                      end_col_offset=51),
-                    lineno=65,
-                    col_offset=27,
-                    end_lineno=65,
-                    end_col_offset=51),
-                  keyword(
-                    arg='output_file',
-                    value=Name(
-                      id='out_file',
-                      ctx=Load(),
-                      lineno=65,
-                      col_offset=65,
-                      end_lineno=65,
-                      end_col_offset=73),
-                    lineno=65,
-                    col_offset=53,
-                    end_lineno=65,
-                    end_col_offset=73)],
-                lineno=65,
+                    end_lineno=37,
+                    end_col_offset=27)],
+                lineno=33,
                 col_offset=8,
-                end_lineno=65,
-                end_col_offset=74),
-              lineno=65,
+                end_lineno=38,
+                end_col_offset=9),
+              lineno=33,
               col_offset=8,
-              end_lineno=65,
-              end_col_offset=74)],
+              end_lineno=38,
+              end_col_offset=9)],
           orelse=[],
           lineno=32,
           col_offset=4,
-          end_lineno=65,
-          end_col_offset=74)],
+          end_lineno=38,
+          end_col_offset=9)],
       decorator_list=[],
+      returns=Constant(
+        value=None,
+        lineno=25,
+        col_offset=78,
+        end_lineno=25,
+        end_col_offset=82),
       lineno=25,
       col_offset=0,
-      end_lineno=65,
-      end_col_offset=74),
+      end_lineno=38,
+      end_col_offset=9),
+    FunctionDef(
+      name='create_new_mermaid_analysis_for_file',
+      args=arguments(
+        posonlyargs=[],
+        args=[
+          arg(
+            arg='input_path',
+            annotation=Name(
+              id='str',
+              ctx=Load(),
+              lineno=42,
+              col_offset=16,
+              end_lineno=42,
+              end_col_offset=19),
+            lineno=42,
+            col_offset=4,
+            end_lineno=42,
+            end_col_offset=19),
+          arg(
+            arg='output_path',
+            annotation=Name(
+              id='str',
+              ctx=Load(),
+              lineno=42,
+              col_offset=34,
+              end_lineno=42,
+              end_col_offset=37),
+            lineno=42,
+            col_offset=21,
+            end_lineno=42,
+            end_col_offset=37),
+          arg(
+            arg='global_import_table',
+            annotation=Subscript(
+              value=Name(
+                id='dict',
+                ctx=Load(),
+                lineno=42,
+                col_offset=60,
+                end_lineno=42,
+                end_col_offset=64),
+              slice=Tuple(
+                elts=[
+                  Name(
+                    id='str',
+                    ctx=Load(),
+                    lineno=42,
+                    col_offset=65,
+                    end_lineno=42,
+                    end_col_offset=68),
+                  Name(
+                    id='str',
+                    ctx=Load(),
+                    lineno=42,
+                    col_offset=70,
+                    end_lineno=42,
+                    end_col_offset=73)],
+                ctx=Load(),
+                lineno=42,
+                col_offset=65,
+                end_lineno=42,
+                end_col_offset=73),
+              ctx=Load(),
+              lineno=42,
+              col_offset=60,
+              end_lineno=42,
+              end_col_offset=74),
+            lineno=42,
+            col_offset=39,
+            end_lineno=42,
+            end_col_offset=74),
+          arg(
+            arg='in_file',
+            annotation=Name(
+              id='str',
+              ctx=Load(),
+              lineno=42,
+              col_offset=85,
+              end_lineno=42,
+              end_col_offset=88),
+            lineno=42,
+            col_offset=76,
+            end_lineno=42,
+            end_col_offset=88)],
+        kwonlyargs=[],
+        kw_defaults=[],
+        defaults=[]),
+      body=[
+        Assign(
+          targets=[
+            Name(
+              id='relative_in_file',
+              ctx=Store(),
+              lineno=44,
+              col_offset=4,
+              end_lineno=44,
+              end_col_offset=20)],
+          value=Call(
+            func=Attribute(
+              value=Name(
+                id='in_file',
+                ctx=Load(),
+                lineno=44,
+                col_offset=23,
+                end_lineno=44,
+                end_col_offset=30),
+              attr='replace',
+              ctx=Load(),
+              lineno=44,
+              col_offset=23,
+              end_lineno=44,
+              end_col_offset=38),
+            args=[
+              Name(
+                id='input_path',
+                ctx=Load(),
+                lineno=44,
+                col_offset=39,
+                end_lineno=44,
+                end_col_offset=49),
+              Constant(
+                value='',
+                lineno=44,
+                col_offset=51,
+                end_lineno=44,
+                end_col_offset=53)],
+            keywords=[],
+            lineno=44,
+            col_offset=23,
+            end_lineno=44,
+            end_col_offset=54),
+          lineno=44,
+          col_offset=4,
+          end_lineno=44,
+          end_col_offset=54),
+        Assign(
+          targets=[
+            Name(
+              id='out_file',
+              ctx=Store(),
+              lineno=45,
+              col_offset=4,
+              end_lineno=45,
+              end_col_offset=12)],
+          value=Call(
+            func=Name(
+              id='get_output_file_path_for_input_file',
+              ctx=Load(),
+              lineno=45,
+              col_offset=15,
+              end_lineno=45,
+              end_col_offset=50),
+            args=[],
+            keywords=[
+              keyword(
+                arg='input_path',
+                value=Name(
+                  id='relative_in_file',
+                  ctx=Load(),
+                  lineno=46,
+                  col_offset=19,
+                  end_lineno=46,
+                  end_col_offset=35),
+                lineno=46,
+                col_offset=8,
+                end_lineno=46,
+                end_col_offset=35),
+              keyword(
+                arg='output_root',
+                value=Name(
+                  id='output_path',
+                  ctx=Load(),
+                  lineno=46,
+                  col_offset=49,
+                  end_lineno=46,
+                  end_col_offset=60),
+                lineno=46,
+                col_offset=37,
+                end_lineno=46,
+                end_col_offset=60)],
+            lineno=45,
+            col_offset=15,
+            end_lineno=47,
+            end_col_offset=5),
+          lineno=45,
+          col_offset=4,
+          end_lineno=47,
+          end_col_offset=5),
+        Assign(
+          targets=[
+            Name(
+              id='debug_dump',
+              ctx=Store(),
+              lineno=49,
+              col_offset=4,
+              end_lineno=49,
+              end_col_offset=14)],
+          value=Constant(
+            value='',
+            lineno=49,
+            col_offset=17,
+            end_lineno=49,
+            end_col_offset=19),
+          lineno=49,
+          col_offset=4,
+          end_lineno=49,
+          end_col_offset=19),
+        Assign(
+          targets=[
+            Name(
+              id='import_list',
+              ctx=Store(),
+              lineno=50,
+              col_offset=4,
+              end_lineno=50,
+              end_col_offset=15)],
+          value=List(
+            elts=[],
+            ctx=Load(),
+            lineno=50,
+            col_offset=18,
+            end_lineno=50,
+            end_col_offset=20),
+          lineno=50,
+          col_offset=4,
+          end_lineno=50,
+          end_col_offset=20),
+        Assign(
+          targets=[
+            Name(
+              id='mermaid_diagrams',
+              ctx=Store(),
+              lineno=51,
+              col_offset=4,
+              end_lineno=51,
+              end_col_offset=20)],
+          value=List(
+            elts=[],
+            ctx=Load(),
+            lineno=51,
+            col_offset=23,
+            end_lineno=51,
+            end_col_offset=25),
+          lineno=51,
+          col_offset=4,
+          end_lineno=51,
+          end_col_offset=25),
+        If(
+          test=NamedExpr(
+            target=Name(
+              id='source_code',
+              ctx=Store(),
+              lineno=53,
+              col_offset=7,
+              end_lineno=53,
+              end_col_offset=18),
+            value=Call(
+              func=Name(
+                id='get_source_code_from_file',
+                ctx=Load(),
+                lineno=53,
+                col_offset=22,
+                end_lineno=53,
+                end_col_offset=47),
+              args=[],
+              keywords=[
+                keyword(
+                  arg='input_file',
+                  value=Name(
+                    id='in_file',
+                    ctx=Load(),
+                    lineno=53,
+                    col_offset=59,
+                    end_lineno=53,
+                    end_col_offset=66),
+                  lineno=53,
+                  col_offset=48,
+                  end_lineno=53,
+                  end_col_offset=66)],
+              lineno=53,
+              col_offset=22,
+              end_lineno=53,
+              end_col_offset=67),
+            lineno=53,
+            col_offset=7,
+            end_lineno=53,
+            end_col_offset=67),
+          body=[
+            If(
+              test=NamedExpr(
+                target=Name(
+                  id='ast_node',
+                  ctx=Store(),
+                  lineno=54,
+                  col_offset=11,
+                  end_lineno=54,
+                  end_col_offset=19),
+                value=Call(
+                  func=Name(
+                    id='get_ast_root_node_for_file',
+                    ctx=Load(),
+                    lineno=54,
+                    col_offset=23,
+                    end_lineno=54,
+                    end_col_offset=49),
+                  args=[],
+                  keywords=[
+                    keyword(
+                      arg='source_code',
+                      value=Name(
+                        id='source_code',
+                        ctx=Load(),
+                        lineno=55,
+                        col_offset=24,
+                        end_lineno=55,
+                        end_col_offset=35),
+                      lineno=55,
+                      col_offset=12,
+                      end_lineno=55,
+                      end_col_offset=35),
+                    keyword(
+                      arg='input_file',
+                      value=Name(
+                        id='in_file',
+                        ctx=Load(),
+                        lineno=56,
+                        col_offset=23,
+                        end_lineno=56,
+                        end_col_offset=30),
+                      lineno=56,
+                      col_offset=12,
+                      end_lineno=56,
+                      end_col_offset=30)],
+                  lineno=54,
+                  col_offset=23,
+                  end_lineno=57,
+                  end_col_offset=9),
+                lineno=54,
+                col_offset=11,
+                end_lineno=57,
+                end_col_offset=9),
+              body=[
+                Assign(
+                  targets=[
+                    Name(
+                      id='debug_dump',
+                      ctx=Store(),
+                      lineno=59,
+                      col_offset=12,
+                      end_lineno=59,
+                      end_col_offset=22)],
+                  value=Call(
+                    func=Name(
+                      id='get_markdown_dump_for_ast_node',
+                      ctx=Load(),
+                      lineno=59,
+                      col_offset=25,
+                      end_lineno=59,
+                      end_col_offset=55),
+                    args=[],
+                    keywords=[
+                      keyword(
+                        arg='ast_node',
+                        value=Name(
+                          id='ast_node',
+                          ctx=Load(),
+                          lineno=59,
+                          col_offset=65,
+                          end_lineno=59,
+                          end_col_offset=73),
+                        lineno=59,
+                        col_offset=56,
+                        end_lineno=59,
+                        end_col_offset=73)],
+                    lineno=59,
+                    col_offset=25,
+                    end_lineno=59,
+                    end_col_offset=74),
+                  lineno=59,
+                  col_offset=12,
+                  end_lineno=59,
+                  end_col_offset=74),
+                Assign(
+                  targets=[
+                    Name(
+                      id='import_list',
+                      ctx=Store(),
+                      lineno=61,
+                      col_offset=12,
+                      end_lineno=61,
+                      end_col_offset=23)],
+                  value=Call(
+                    func=Name(
+                      id='get_used_import_list',
+                      ctx=Load(),
+                      lineno=61,
+                      col_offset=26,
+                      end_lineno=61,
+                      end_col_offset=46),
+                    args=[],
+                    keywords=[
+                      keyword(
+                        arg='ast_node',
+                        value=Name(
+                          id='ast_node',
+                          ctx=Load(),
+                          lineno=61,
+                          col_offset=56,
+                          end_lineno=61,
+                          end_col_offset=64),
+                        lineno=61,
+                        col_offset=47,
+                        end_lineno=61,
+                        end_col_offset=64)],
+                    lineno=61,
+                    col_offset=26,
+                    end_lineno=61,
+                    end_col_offset=65),
+                  lineno=61,
+                  col_offset=12,
+                  end_lineno=61,
+                  end_col_offset=65),
+                AnnAssign(
+                  target=Name(
+                    id='link_info',
+                    ctx=Store(),
+                    lineno=63,
+                    col_offset=12,
+                    end_lineno=63,
+                    end_col_offset=21),
+                  annotation=Subscript(
+                    value=Name(
+                      id='list',
+                      ctx=Load(),
+                      lineno=63,
+                      col_offset=23,
+                      end_lineno=63,
+                      end_col_offset=27),
+                    slice=Name(
+                      id='MermaidElement',
+                      ctx=Load(),
+                      lineno=63,
+                      col_offset=28,
+                      end_lineno=63,
+                      end_col_offset=42),
+                    ctx=Load(),
+                    lineno=63,
+                    col_offset=23,
+                    end_lineno=63,
+                    end_col_offset=43),
+                  value=Call(
+                    func=Name(
+                      id='create_mermaid_model_from_ast_model',
+                      ctx=Load(),
+                      lineno=63,
+                      col_offset=46,
+                      end_lineno=63,
+                      end_col_offset=81),
+                    args=[],
+                    keywords=[
+                      keyword(
+                        arg='model',
+                        value=Name(
+                          id='ast_node',
+                          ctx=Load(),
+                          lineno=64,
+                          col_offset=22,
+                          end_lineno=64,
+                          end_col_offset=30),
+                        lineno=64,
+                        col_offset=16,
+                        end_lineno=64,
+                        end_col_offset=30)],
+                    lineno=63,
+                    col_offset=46,
+                    end_lineno=65,
+                    end_col_offset=13),
+                  simple=1,
+                  lineno=63,
+                  col_offset=12,
+                  end_lineno=65,
+                  end_col_offset=13),
+                Assign(
+                  targets=[
+                    Name(
+                      id='mermaid_diagram',
+                      ctx=Store(),
+                      lineno=67,
+                      col_offset=12,
+                      end_lineno=67,
+                      end_col_offset=27)],
+                  value=Call(
+                    func=Name(
+                      id='create_mermaid_flow_graph_from_links',
+                      ctx=Load(),
+                      lineno=67,
+                      col_offset=30,
+                      end_lineno=67,
+                      end_col_offset=66),
+                    args=[
+                      Name(
+                        id='link_info',
+                        ctx=Load(),
+                        lineno=67,
+                        col_offset=67,
+                        end_lineno=67,
+                        end_col_offset=76)],
+                    keywords=[],
+                    lineno=67,
+                    col_offset=30,
+                    end_lineno=67,
+                    end_col_offset=77),
+                  lineno=67,
+                  col_offset=12,
+                  end_lineno=67,
+                  end_col_offset=77),
+                Assign(
+                  targets=[
+                    Name(
+                      id='mermaid_diagrams',
+                      ctx=Store(),
+                      lineno=68,
+                      col_offset=12,
+                      end_lineno=68,
+                      end_col_offset=28)],
+                  value=List(
+                    elts=[
+                      Name(
+                        id='mermaid_diagram',
+                        ctx=Load(),
+                        lineno=68,
+                        col_offset=32,
+                        end_lineno=68,
+                        end_col_offset=47)],
+                    ctx=Load(),
+                    lineno=68,
+                    col_offset=31,
+                    end_lineno=68,
+                    end_col_offset=48),
+                  lineno=68,
+                  col_offset=12,
+                  end_lineno=68,
+                  end_col_offset=48)],
+              orelse=[],
+              lineno=54,
+              col_offset=8,
+              end_lineno=68,
+              end_col_offset=48)],
+          orelse=[],
+          lineno=53,
+          col_offset=4,
+          end_lineno=68,
+          end_col_offset=48),
+        Assign(
+          targets=[
+            Name(
+              id='markdown_content',
+              ctx=Store(),
+              lineno=70,
+              col_offset=4,
+              end_lineno=70,
+              end_col_offset=20)],
+          value=Call(
+            func=Name(
+              id='create_markdown_content',
+              ctx=Load(),
+              lineno=70,
+              col_offset=23,
+              end_lineno=70,
+              end_col_offset=46),
+            args=[],
+            keywords=[
+              keyword(
+                arg='input_file',
+                value=Name(
+                  id='in_file',
+                  ctx=Load(),
+                  lineno=71,
+                  col_offset=19,
+                  end_lineno=71,
+                  end_col_offset=26),
+                lineno=71,
+                col_offset=8,
+                end_lineno=71,
+                end_col_offset=26),
+              keyword(
+                arg='import_list',
+                value=Name(
+                  id='import_list',
+                  ctx=Load(),
+                  lineno=72,
+                  col_offset=20,
+                  end_lineno=72,
+                  end_col_offset=31),
+                lineno=72,
+                col_offset=8,
+                end_lineno=72,
+                end_col_offset=31),
+              keyword(
+                arg='global_import_table',
+                value=Name(
+                  id='global_import_table',
+                  ctx=Load(),
+                  lineno=73,
+                  col_offset=28,
+                  end_lineno=73,
+                  end_col_offset=47),
+                lineno=73,
+                col_offset=8,
+                end_lineno=73,
+                end_col_offset=47),
+              keyword(
+                arg='mermaid_diagrams',
+                value=Name(
+                  id='mermaid_diagrams',
+                  ctx=Load(),
+                  lineno=74,
+                  col_offset=25,
+                  end_lineno=74,
+                  end_col_offset=41),
+                lineno=74,
+                col_offset=8,
+                end_lineno=74,
+                end_col_offset=41),
+              keyword(
+                arg='debug_dump',
+                value=Name(
+                  id='debug_dump',
+                  ctx=Load(),
+                  lineno=75,
+                  col_offset=19,
+                  end_lineno=75,
+                  end_col_offset=29),
+                lineno=75,
+                col_offset=8,
+                end_lineno=75,
+                end_col_offset=29)],
+            lineno=70,
+            col_offset=23,
+            end_lineno=76,
+            end_col_offset=5),
+          lineno=70,
+          col_offset=4,
+          end_lineno=76,
+          end_col_offset=5),
+        Expr(
+          value=Call(
+            func=Name(
+              id='update_output_file',
+              ctx=Load(),
+              lineno=78,
+              col_offset=4,
+              end_lineno=78,
+              end_col_offset=22),
+            args=[],
+            keywords=[
+              keyword(
+                arg='content',
+                value=Name(
+                  id='markdown_content',
+                  ctx=Load(),
+                  lineno=78,
+                  col_offset=31,
+                  end_lineno=78,
+                  end_col_offset=47),
+                lineno=78,
+                col_offset=23,
+                end_lineno=78,
+                end_col_offset=47),
+              keyword(
+                arg='output_file',
+                value=Name(
+                  id='out_file',
+                  ctx=Load(),
+                  lineno=78,
+                  col_offset=61,
+                  end_lineno=78,
+                  end_col_offset=69),
+                lineno=78,
+                col_offset=49,
+                end_lineno=78,
+                end_col_offset=69)],
+            lineno=78,
+            col_offset=4,
+            end_lineno=78,
+            end_col_offset=70),
+          lineno=78,
+          col_offset=4,
+          end_lineno=78,
+          end_col_offset=70)],
+      decorator_list=[],
+      lineno=41,
+      col_offset=0,
+      end_lineno=78,
+      end_col_offset=70),
     FunctionDef(
       name='get_global_input_table',
       args=arguments(
@@ -1019,13 +1239,13 @@ Module(
             annotation=Name(
               id='str',
               ctx=Load(),
-              lineno=69,
+              lineno=82,
               col_offset=16,
-              end_lineno=69,
+              end_lineno=82,
               end_col_offset=19),
-            lineno=69,
+            lineno=82,
             col_offset=4,
-            end_lineno=69,
+            end_lineno=82,
             end_col_offset=19),
           arg(
             arg='python_files',
@@ -1033,38 +1253,38 @@ Module(
               value=Name(
                 id='list',
                 ctx=Load(),
-                lineno=69,
+                lineno=82,
                 col_offset=35,
-                end_lineno=69,
+                end_lineno=82,
                 end_col_offset=39),
               slice=Name(
                 id='str',
                 ctx=Load(),
-                lineno=69,
+                lineno=82,
                 col_offset=40,
-                end_lineno=69,
+                end_lineno=82,
                 end_col_offset=43),
               ctx=Load(),
-              lineno=69,
+              lineno=82,
               col_offset=35,
-              end_lineno=69,
+              end_lineno=82,
               end_col_offset=44),
-            lineno=69,
+            lineno=82,
             col_offset=21,
-            end_lineno=69,
+            end_lineno=82,
             end_col_offset=44),
           arg(
             arg='output_root',
             annotation=Name(
               id='str',
               ctx=Load(),
-              lineno=69,
+              lineno=82,
               col_offset=59,
-              end_lineno=69,
+              end_lineno=82,
               end_col_offset=62),
-            lineno=69,
+            lineno=82,
             col_offset=46,
-            end_lineno=69,
+            end_lineno=82,
             end_col_offset=62)],
         kwonlyargs=[],
         kw_defaults=[],
@@ -1075,17 +1295,17 @@ Module(
             Name(
               id='global_import_table',
               ctx=Store(),
-              lineno=71,
+              lineno=84,
               col_offset=4,
-              end_lineno=71,
+              end_lineno=84,
               end_col_offset=23)],
           value=Call(
             func=Name(
               id='get_all_imports_from_files',
               ctx=Load(),
-              lineno=71,
+              lineno=84,
               col_offset=26,
-              end_lineno=71,
+              end_lineno=84,
               end_col_offset=52),
             args=[],
             keywords=[
@@ -1094,49 +1314,49 @@ Module(
                 value=Name(
                   id='input_path',
                   ctx=Load(),
-                  lineno=72,
+                  lineno=85,
                   col_offset=19,
-                  end_lineno=72,
+                  end_lineno=85,
                   end_col_offset=29),
-                lineno=72,
+                lineno=85,
                 col_offset=8,
-                end_lineno=72,
+                end_lineno=85,
                 end_col_offset=29),
               keyword(
                 arg='python_files',
                 value=Name(
                   id='python_files',
                   ctx=Load(),
-                  lineno=72,
+                  lineno=85,
                   col_offset=44,
-                  end_lineno=72,
+                  end_lineno=85,
                   end_col_offset=56),
-                lineno=72,
+                lineno=85,
                 col_offset=31,
-                end_lineno=72,
+                end_lineno=85,
                 end_col_offset=56)],
-            lineno=71,
+            lineno=84,
             col_offset=26,
-            end_lineno=73,
+            end_lineno=86,
             end_col_offset=5),
-          lineno=71,
+          lineno=84,
           col_offset=4,
-          end_lineno=73,
+          end_lineno=86,
           end_col_offset=5),
         For(
           target=Name(
             id='global_import',
             ctx=Store(),
-            lineno=74,
+            lineno=87,
             col_offset=8,
-            end_lineno=74,
+            end_lineno=87,
             end_col_offset=21),
           iter=Name(
             id='global_import_table',
             ctx=Load(),
-            lineno=74,
+            lineno=87,
             col_offset=25,
-            end_lineno=74,
+            end_lineno=87,
             end_col_offset=44),
           body=[
             Assign(
@@ -1144,9 +1364,9 @@ Module(
                 Name(
                   id='relative_in_file',
                   ctx=Store(),
-                  lineno=75,
+                  lineno=88,
                   col_offset=8,
-                  end_lineno=75,
+                  end_lineno=88,
                   end_col_offset=24)],
               value=Call(
                 func=Attribute(
@@ -1154,58 +1374,58 @@ Module(
                     value=Name(
                       id='global_import_table',
                       ctx=Load(),
-                      lineno=75,
+                      lineno=88,
                       col_offset=27,
-                      end_lineno=75,
+                      end_lineno=88,
                       end_col_offset=46),
                     slice=Name(
                       id='global_import',
                       ctx=Load(),
-                      lineno=75,
+                      lineno=88,
                       col_offset=47,
-                      end_lineno=75,
+                      end_lineno=88,
                       end_col_offset=60),
                     ctx=Load(),
-                    lineno=75,
+                    lineno=88,
                     col_offset=27,
-                    end_lineno=75,
+                    end_lineno=88,
                     end_col_offset=61),
                   attr='replace',
                   ctx=Load(),
-                  lineno=75,
+                  lineno=88,
                   col_offset=27,
-                  end_lineno=75,
+                  end_lineno=88,
                   end_col_offset=69),
                 args=[
                   Name(
                     id='input_path',
                     ctx=Load(),
-                    lineno=75,
+                    lineno=88,
                     col_offset=70,
-                    end_lineno=75,
+                    end_lineno=88,
                     end_col_offset=80),
                   Constant(
                     value='',
-                    lineno=75,
+                    lineno=88,
                     col_offset=82,
-                    end_lineno=75,
+                    end_lineno=88,
                     end_col_offset=84)],
                 keywords=[],
-                lineno=75,
+                lineno=88,
                 col_offset=27,
-                end_lineno=75,
+                end_lineno=88,
                 end_col_offset=85),
-              lineno=75,
+              lineno=88,
               col_offset=8,
-              end_lineno=75,
+              end_lineno=88,
               end_col_offset=85),
             If(
               test=Name(
                 id='relative_in_file',
                 ctx=Load(),
-                lineno=76,
+                lineno=89,
                 col_offset=11,
-                end_lineno=76,
+                end_lineno=89,
                 end_col_offset=27),
               body=[
                 Assign(
@@ -1214,21 +1434,21 @@ Module(
                       value=Name(
                         id='global_import_table',
                         ctx=Load(),
-                        lineno=77,
+                        lineno=90,
                         col_offset=12,
-                        end_lineno=77,
+                        end_lineno=90,
                         end_col_offset=31),
                       slice=Name(
                         id='global_import',
                         ctx=Load(),
-                        lineno=77,
+                        lineno=90,
                         col_offset=32,
-                        end_lineno=77,
+                        end_lineno=90,
                         end_col_offset=45),
                       ctx=Store(),
-                      lineno=77,
+                      lineno=90,
                       col_offset=12,
-                      end_lineno=77,
+                      end_lineno=90,
                       end_col_offset=46)],
                   value=Call(
                     func=Attribute(
@@ -1236,9 +1456,9 @@ Module(
                         func=Name(
                           id='get_output_file_path_for_input_file',
                           ctx=Load(),
-                          lineno=77,
+                          lineno=90,
                           col_offset=49,
-                          end_lineno=77,
+                          end_lineno=90,
                           end_col_offset=84),
                         args=[],
                         keywords=[
@@ -1247,86 +1467,86 @@ Module(
                             value=Name(
                               id='relative_in_file',
                               ctx=Load(),
-                              lineno=78,
+                              lineno=91,
                               col_offset=27,
-                              end_lineno=78,
+                              end_lineno=91,
                               end_col_offset=43),
-                            lineno=78,
+                            lineno=91,
                             col_offset=16,
-                            end_lineno=78,
+                            end_lineno=91,
                             end_col_offset=43),
                           keyword(
                             arg='output_root',
                             value=Name(
                               id='output_root',
                               ctx=Load(),
-                              lineno=78,
+                              lineno=91,
                               col_offset=57,
-                              end_lineno=78,
+                              end_lineno=91,
                               end_col_offset=68),
-                            lineno=78,
+                            lineno=91,
                             col_offset=45,
-                            end_lineno=78,
+                            end_lineno=91,
                             end_col_offset=68)],
-                        lineno=77,
+                        lineno=90,
                         col_offset=49,
-                        end_lineno=79,
+                        end_lineno=92,
                         end_col_offset=13),
                       attr='lstrip',
                       ctx=Load(),
-                      lineno=77,
+                      lineno=90,
                       col_offset=49,
-                      end_lineno=79,
+                      end_lineno=92,
                       end_col_offset=20),
                     args=[
                       Constant(
                         value='.',
-                        lineno=79,
+                        lineno=92,
                         col_offset=21,
-                        end_lineno=79,
+                        end_lineno=92,
                         end_col_offset=24)],
                     keywords=[],
-                    lineno=77,
+                    lineno=90,
                     col_offset=49,
-                    end_lineno=79,
+                    end_lineno=92,
                     end_col_offset=25),
-                  lineno=77,
+                  lineno=90,
                   col_offset=12,
-                  end_lineno=79,
+                  end_lineno=92,
                   end_col_offset=25)],
               orelse=[],
-              lineno=76,
+              lineno=89,
               col_offset=8,
-              end_lineno=79,
+              end_lineno=92,
               end_col_offset=25)],
           orelse=[],
-          lineno=74,
+          lineno=87,
           col_offset=4,
-          end_lineno=79,
+          end_lineno=92,
           end_col_offset=25),
         Expr(
           value=Call(
             func=Name(
               id='print',
               ctx=Load(),
-              lineno=80,
+              lineno=93,
               col_offset=4,
-              end_lineno=80,
+              end_lineno=93,
               end_col_offset=9),
             args=[
               Call(
                 func=Attribute(
                   value=Constant(
                     value='\n',
-                    lineno=80,
+                    lineno=93,
                     col_offset=10,
-                    end_lineno=80,
+                    end_lineno=93,
                     end_col_offset=14),
                   attr='join',
                   ctx=Load(),
-                  lineno=80,
+                  lineno=93,
                   col_offset=10,
-                  end_lineno=80,
+                  end_lineno=93,
                   end_col_offset=19),
                 args=[
                   ListComp(
@@ -1336,37 +1556,37 @@ Module(
                           value=Name(
                             id='k',
                             ctx=Load(),
-                            lineno=80,
+                            lineno=93,
                             col_offset=24,
-                            end_lineno=80,
+                            end_lineno=93,
                             end_col_offset=25),
                           conversion=-1,
-                          lineno=80,
+                          lineno=93,
                           col_offset=21,
-                          end_lineno=80,
+                          end_lineno=93,
                           end_col_offset=32),
                         Constant(
                           value=': ',
-                          lineno=80,
+                          lineno=93,
                           col_offset=21,
-                          end_lineno=80,
+                          end_lineno=93,
                           end_col_offset=32),
                         FormattedValue(
                           value=Name(
                             id='v',
                             ctx=Load(),
-                            lineno=80,
+                            lineno=93,
                             col_offset=29,
-                            end_lineno=80,
+                            end_lineno=93,
                             end_col_offset=30),
                           conversion=-1,
-                          lineno=80,
+                          lineno=93,
                           col_offset=21,
-                          end_lineno=80,
+                          end_lineno=93,
                           end_col_offset=32)],
-                      lineno=80,
+                      lineno=93,
                       col_offset=21,
-                      end_lineno=80,
+                      end_lineno=93,
                       end_col_offset=32),
                     generators=[
                       comprehension(
@@ -1375,135 +1595,135 @@ Module(
                             Name(
                               id='k',
                               ctx=Store(),
-                              lineno=80,
+                              lineno=93,
                               col_offset=37,
-                              end_lineno=80,
+                              end_lineno=93,
                               end_col_offset=38),
                             Name(
                               id='v',
                               ctx=Store(),
-                              lineno=80,
+                              lineno=93,
                               col_offset=40,
-                              end_lineno=80,
+                              end_lineno=93,
                               end_col_offset=41)],
                           ctx=Store(),
-                          lineno=80,
+                          lineno=93,
                           col_offset=37,
-                          end_lineno=80,
+                          end_lineno=93,
                           end_col_offset=41),
                         iter=Call(
                           func=Attribute(
                             value=Name(
                               id='global_import_table',
                               ctx=Load(),
-                              lineno=80,
+                              lineno=93,
                               col_offset=45,
-                              end_lineno=80,
+                              end_lineno=93,
                               end_col_offset=64),
                             attr='items',
                             ctx=Load(),
-                            lineno=80,
+                            lineno=93,
                             col_offset=45,
-                            end_lineno=80,
+                            end_lineno=93,
                             end_col_offset=70),
                           args=[],
                           keywords=[],
-                          lineno=80,
+                          lineno=93,
                           col_offset=45,
-                          end_lineno=80,
+                          end_lineno=93,
                           end_col_offset=72),
                         ifs=[],
                         is_async=0)],
-                    lineno=80,
+                    lineno=93,
                     col_offset=20,
-                    end_lineno=80,
+                    end_lineno=93,
                     end_col_offset=73)],
                 keywords=[],
-                lineno=80,
+                lineno=93,
                 col_offset=10,
-                end_lineno=80,
+                end_lineno=93,
                 end_col_offset=74)],
             keywords=[],
-            lineno=80,
+            lineno=93,
             col_offset=4,
-            end_lineno=80,
+            end_lineno=93,
             end_col_offset=75),
-          lineno=80,
+          lineno=93,
           col_offset=4,
-          end_lineno=80,
+          end_lineno=93,
           end_col_offset=75),
         Return(
           value=Name(
             id='global_import_table',
             ctx=Load(),
-            lineno=81,
+            lineno=94,
             col_offset=11,
-            end_lineno=81,
+            end_lineno=94,
             end_col_offset=30),
-          lineno=81,
+          lineno=94,
           col_offset=4,
-          end_lineno=81,
+          end_lineno=94,
           end_col_offset=30)],
       decorator_list=[],
       returns=Subscript(
         value=Name(
           id='dict',
           ctx=Load(),
-          lineno=70,
+          lineno=83,
           col_offset=5,
-          end_lineno=70,
+          end_lineno=83,
           end_col_offset=9),
         slice=Tuple(
           elts=[
             Name(
               id='str',
               ctx=Load(),
-              lineno=70,
+              lineno=83,
               col_offset=10,
-              end_lineno=70,
+              end_lineno=83,
               end_col_offset=13),
             Name(
               id='str',
               ctx=Load(),
-              lineno=70,
+              lineno=83,
               col_offset=15,
-              end_lineno=70,
+              end_lineno=83,
               end_col_offset=18)],
           ctx=Load(),
-          lineno=70,
+          lineno=83,
           col_offset=10,
-          end_lineno=70,
+          end_lineno=83,
           end_col_offset=18),
         ctx=Load(),
-        lineno=70,
+        lineno=83,
         col_offset=5,
-        end_lineno=70,
+        end_lineno=83,
         end_col_offset=19),
-      lineno=68,
+      lineno=81,
       col_offset=0,
-      end_lineno=81,
+      end_lineno=94,
       end_col_offset=30),
     If(
       test=Compare(
         left=Name(
           id='__name__',
           ctx=Load(),
-          lineno=84,
+          lineno=97,
           col_offset=3,
-          end_lineno=84,
+          end_lineno=97,
           end_col_offset=11),
         ops=[
           Eq()],
         comparators=[
           Constant(
             value='__main__',
-            lineno=84,
+            lineno=97,
             col_offset=15,
-            end_lineno=84,
+            end_lineno=97,
             end_col_offset=25)],
-        lineno=84,
+        lineno=97,
         col_offset=3,
-        end_lineno=84,
+        end_lineno=97,
         end_col_offset=25),
       body=[
         Assign(
@@ -1511,47 +1731,47 @@ Module(
             Name(
               id='input_path',
               ctx=Store(),
-              lineno=87,
+              lineno=100,
               col_offset=4,
-              end_lineno=87,
+              end_lineno=100,
               end_col_offset=14)],
           value=Constant(
             value='./src/pyremaid/',
-            lineno=87,
+            lineno=100,
             col_offset=17,
-            end_lineno=87,
+            end_lineno=100,
             end_col_offset=34),
-          lineno=87,
+          lineno=100,
           col_offset=4,
-          end_lineno=87,
+          end_lineno=100,
           end_col_offset=34),
         Assign(
           targets=[
             Name(
               id='output_path',
               ctx=Store(),
-              lineno=88,
+              lineno=101,
               col_offset=4,
-              end_lineno=88,
+              end_lineno=101,
               end_col_offset=15)],
           value=Constant(
             value='./docs/pyremaid/',
-            lineno=88,
+            lineno=101,
             col_offset=18,
-            end_lineno=88,
+            end_lineno=101,
             end_col_offset=36),
-          lineno=88,
+          lineno=101,
           col_offset=4,
-          end_lineno=88,
+          end_lineno=101,
           end_col_offset=36),
         Expr(
           value=Call(
             func=Name(
               id='create_mermaid_analysis_from_python',
               ctx=Load(),
-              lineno=89,
+              lineno=102,
               col_offset=4,
-              end_lineno=89,
+              end_lineno=102,
               end_col_offset=39),
             args=[],
             keywords=[
@@ -1560,39 +1780,39 @@ Module(
                 value=Name(
                   id='input_path',
                   ctx=Load(),
-                  lineno=89,
+                  lineno=102,
                   col_offset=51,
-                  end_lineno=89,
+                  end_lineno=102,
                   end_col_offset=61),
-                lineno=89,
+                lineno=102,
                 col_offset=40,
-                end_lineno=89,
+                end_lineno=102,
                 end_col_offset=61),
               keyword(
                 arg='output_path',
                 value=Name(
                   id='output_path',
                   ctx=Load(),
-                  lineno=89,
+                  lineno=102,
                   col_offset=75,
-                  end_lineno=89,
+                  end_lineno=102,
                   end_col_offset=86),
-                lineno=89,
+                lineno=102,
                 col_offset=63,
-                end_lineno=89,
+                end_lineno=102,
                 end_col_offset=86)],
-            lineno=89,
+            lineno=102,
             col_offset=4,
-            end_lineno=89,
+            end_lineno=102,
             end_col_offset=87),
-          lineno=89,
+          lineno=102,
           col_offset=4,
-          end_lineno=89,
+          end_lineno=102,
           end_col_offset=87)],
       orelse=[],
-      lineno=84,
+      lineno=97,
       col_offset=0,
-      end_lineno=89,
+      end_lineno=102,
       end_col_offset=87)],
   type_ignores=[])
 ```

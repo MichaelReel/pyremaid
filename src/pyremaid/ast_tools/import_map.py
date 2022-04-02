@@ -1,5 +1,5 @@
-from ast_tools import get_ast_root_node_for_file, get_used_import_list
-from files.source import get_source_code_from_file, get_import_name_from_path
+from pyremaid.ast_tools import get_ast_root_node_for_file, get_used_import_list
+from pyremaid.files.source import get_source_code_from_file, get_import_name_from_path
 
 
 class ImportMap:

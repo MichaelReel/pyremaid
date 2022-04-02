@@ -1,1 +1,1 @@
-from mermaid_tools.mermaid_tools import create_mermaid_flow_graph_from_links
+from pyremaid.mermaid_tools.mermaid_tools import create_mermaid_flow_graph_from_links

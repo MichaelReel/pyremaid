@@ -2,10 +2,10 @@
 
 ### Imports
 
-  - [ast_tools.ast_tools.create_mermaid_model_from_ast_model](/docs/pyremaid/ast_tools/ast_tools.py.md)
-  - [ast_tools.ast_tools.get_ast_root_node_for_file](/docs/pyremaid/ast_tools/ast_tools.py.md)
-  - [ast_tools.ast_tools.get_used_import_list](/docs/pyremaid/ast_tools/ast_tools.py.md)
-  - [ast_tools.ast_tools.get_markdown_dump_for_ast_node](/docs/pyremaid/ast_tools/ast_tools.py.md)
+  - pyremaid.ast_tools.ast_tools.create_mermaid_model_from_ast_model
+  - pyremaid.ast_tools.ast_tools.get_ast_root_node_for_file
+  - pyremaid.ast_tools.ast_tools.get_used_import_list
+  - pyremaid.ast_tools.ast_tools.get_markdown_dump_for_ast_node
 
 ---
 ```mermaid
@@ -22,7 +22,7 @@ flowchart TB
 Module(
   body=[
     ImportFrom(
-      module='ast_tools.ast_tools',
+      module='pyremaid.ast_tools.ast_tools',
       names=[
         alias(
           name='create_mermaid_model_from_ast_model',

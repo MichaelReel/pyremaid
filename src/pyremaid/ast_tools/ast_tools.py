@@ -1,8 +1,8 @@
 from ast import AST, dump, parse
 from typing import Optional
 
-from ast_tools.visitors import BlockGenerator, ImportNodeFinder
-from models import MermaidElement
+from pyremaid.ast_tools.visitors import BlockGenerator, ImportNodeFinder
+from pyremaid.models import MermaidElement
 
 
 def get_ast_root_node_for_file(source_code: str, input_file: str) -> Optional[AST]:

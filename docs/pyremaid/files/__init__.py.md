@@ -4,11 +4,6 @@
 
 
 ---
-```mermaid
-flowchart TB
-
-
-```
 ---
 
 <details>

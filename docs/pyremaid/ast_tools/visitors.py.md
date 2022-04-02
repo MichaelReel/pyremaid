@@ -11,386 +11,386 @@
   - ast.Module
   - ast.NodeVisitor
   - ast.unparse
-  - [models.MermaidClass](/docs/pyremaid/models.py.md)
-  - [models.MermaidElement](/docs/pyremaid/models.py.md)
-  - [models.MermaidFor](/docs/pyremaid/models.py.md)
-  - [models.MermaidFunction](/docs/pyremaid/models.py.md)
-  - [models.MermaidLink](/docs/pyremaid/models.py.md)
-  - [models.MermaidModule](/docs/pyremaid/models.py.md)
-  - [models.MermaidNode](/docs/pyremaid/models.py.md)
   - typing.Any
   - typing.Optional
+  - pyremaid.models.MermaidClass
+  - pyremaid.models.MermaidElement
+  - pyremaid.models.MermaidFor
+  - pyremaid.models.MermaidFunction
+  - pyremaid.models.MermaidLink
+  - pyremaid.models.MermaidModule
+  - pyremaid.models.MermaidNode
 
 ---
 ```mermaid
 flowchart TB
-  _c51_f53_l54_n166["Expr"]
-  _c51_f53_l54_n167["self.found_imports.append(f'{i.name}.*')"]
-  _c51_f55_n168["module = node.module"]
-  _c51_f55_l56["i"]
-  _c51_f55_l56_n169["Expr"]
-  _c51_f55_l56_n170["self.found_imports.append(f'{module}.{i.name}')"]
-  _c58_f59_n173["self.elements: list[MermaidElement] = []"]
-  _c58_f59_n174["self.prev_node: Optional[AST] = None"]
-  _c58_f59_n175["self.prefix = prefix"]
-  _c58_f60_n176["value = cls.count"]
-  _c58_f60_n177["cls.count += 1"]
-  _c58_f60_n178["return value"]
-  _c58_f63_n181["block_generator = BlockGenerator(prefix=self.prefix)"]
-  _c58_f63_n182["Expr"]
-  _c58_f63_n183["block_generator.visit(node)"]
-  _c58_f63_n184["Expr"]
-  _c58_f63_n185["self.elements.extend(block_generator.get_list_of_elements())"]
-  _c58_f64_n186["block_generator = BlockGenerator(prefix=self.prefix)"]
-  _c58_f64_n187["Expr"]
-  _c58_f64_n188["block_generator.visit(node)"]
-  _c58_f64_n189["Expr"]
-  _c58_f64_n190["self.elements.extend(block_generator.get_list_of_elements())"]
-  _c58_f65_n191["block_generator = BlockGenerator(prefix=self.prefix)"]
-  _c58_f65_n192["Expr"]
-  _c58_f65_n193["block_generator.visit(node)"]
-  _c58_f65_n194["for_loop_elements = block_generator.get_list_of_elements()"]
-  _c58_f65_n195["loop_start = for_loop_elements[0]"]
-  _c58_f65_n196["If"]
-  _c58_f65_n197["isinstance(loop_start, MermaidLink)"]
-  _c58_f65_n198["loop_start = loop_start.from_"]
-  _c58_f65_n199["loop_end = for_loop_elements[-1]"]
-  _c58_f65_n200["If"]
-  _c58_f65_n201["isinstance(loop_end, MermaidLink)"]
-  _c58_f65_n202["loop_end = loop_end.to"]
-  _c58_f65_n203["If"]
-  _c58_f65_n204["self.prev_node"]
-  _c58_f65_n205["Expr"]
-  _c58_f65_n206["self.elements.append(MermaidLink(from_=self.prev_node, to=loop_start))"]
-  _c58_f65_n207["Expr"]
-  _c58_f65_n208["self.elements.extend(for_loop_elements)"]
-  _c58_f65_n209["self.prev_node = loop_end"]
-  _c58_f66_n210["mermaid_data = MermaidNode(ast_node=node, mermaid_safe_name=f'{self.prefix}_n{LinkGenerator._count()}', display_name=_sanitize(unparse(node)))"]
-  _c58_f66_n211["If"]
-  _c58_f66_n212["self.prev_node"]
-  _c58_f66_n213["Expr"]
-  _c58_f66_n214["self.elements.append(MermaidLink(from_=self.prev_node, to=mermaid_data))"]
-  _c58_f66_n215["self.prev_node = mermaid_data"]
-  _c58_n172["count: int = 0"]
-  _c58_n216["visit_Await = _generic_expression_expand"]
-  _c58_n217["visit_AnnAssign = _generic_expression_expand"]
-  _c58_n218["visit_Assign = _generic_expression_expand"]
-  _c58_n219["visit_Attribute = _generic_expression_expand"]
-  _c58_n220["visit_AugAssign = _generic_expression_expand"]
-  _c58_n221["visit_BinOp = _generic_expression_expand"]
-  _c58_n222["visit_BoolOp = _generic_expression_expand"]
-  _c58_n223["visit_Call = _generic_expression_expand"]
-  _c58_n224["visit_Compare = _generic_expression_expand"]
-  _c58_n225["visit_Constant = _generic_expression_expand"]
-  _c58_n226["visit_Delete = _generic_expression_expand"]
-  _c58_n227["visit_Dict = _generic_expression_expand"]
-  _c58_n228["visit_DictComp = _generic_expression_expand"]
-  _c58_n229["visit_FormattedValue = _generic_expression_expand"]
-  _c58_n230["visit_GeneratorExp = _generic_expression_expand"]
-  _c58_n231["visit_JoinedStr = _generic_expression_expand"]
-  _c58_n232["visit_Lambda = _generic_expression_expand"]
-  _c58_n233["visit_List = _generic_expression_expand"]
-  _c58_n234["visit_ListComp = _generic_expression_expand"]
-  _c58_n235["visit_Name = _generic_expression_expand"]
-  _c58_n236["visit_NamedExpr = _generic_expression_expand"]
-  _c58_n237["visit_Return = _generic_expression_expand"]
-  _c58_n238["visit_Set = _generic_expression_expand"]
-  _c58_n239["visit_SetComp = _generic_expression_expand"]
-  _c58_n240["visit_Slice = _generic_expression_expand"]
-  _c58_n241["visit_Starred = _generic_expression_expand"]
-  _c58_n242["visit_Subscript = _generic_expression_expand"]
-  _c58_n243["visit_Tuple = _generic_expression_expand"]
-  _c58_n244["visit_UnaryOp = _generic_expression_expand"]
-  _c58_n245["visit_Yield = _generic_expression_expand"]
-  _c58_n246["visit_YieldFrom = _generic_expression_expand"]
-  _c58_f67_n247["mermaid_data = MermaidNode(ast_node=node, mermaid_safe_name=f'{self.prefix}_n{LinkGenerator._count()}', display_name=type(node).__name__)"]
-  _c58_f67_n248["If"]
-  _c58_f67_n249["self.prev_node"]
-  _c58_f67_n250["Expr"]
-  _c58_f67_n251["self.elements.append(MermaidLink(from_=self.prev_node, to=mermaid_data))"]
-  _c58_f67_n252["self.prev_node = mermaid_data"]
-  _c58_f67_n253["return super().generic_visit(node)"]
-  _c58_f68_n254["If"]
-  _c58_f68_n255["self.elements"]
-  _c58_f68_n256["return self.elements"]
-  _c58_f68_n257["return [self.prev_node]"]
-  _c69_f70_n259["self.elements: list[MermaidElement] = []"]
-  _c69_f70_n260["self.prefix = prefix"]
-  _c69_f71_n261["value = cls.count"]
-  _c69_f71_n262["cls.count += 1"]
-  _c69_f71_n263["return value"]
-  _c69_f72_n264["Expr"]
-  _c69_f72_n265["'This is a block, we might want a subgraph, so parse content'"]
-  _c69_f72_n266["link_generator = LinkGenerator()"]
-  _c69_f72_l73["sub_element"]
-  _c69_f72_l73_n267["Expr"]
-  _c69_f72_l73_n268["link_generator.visit(node=sub_element)"]
-  _c69_f72_n269["mermaid_block = MermaidModule(ast_node=block_node, mermaid_safe_name=f'{self.prefix}_m{BlockGenerator._count()}', block_contents=link_generator.get_list_of_elements(), display_name='module')"]
-  _c69_f72_n270["Expr"]
-  _c69_f72_n271["self.elements.append(mermaid_block)"]
-  _c69_f74_n272["Expr"]
-  _c69_f74_n273["'This is a block, we want a subgraph, so parse content'"]
-  _c69_f74_n274["mermaid_safe_name = f'{self.prefix}_f{BlockGenerator._count()}'"]
-  _c69_f74_n275["link_generator = LinkGenerator(prefix=mermaid_safe_name)"]
-  _c69_f74_l75["sub_element"]
-  _c69_f74_l75_n276["Expr"]
-  _c69_f74_l75_n277["link_generator.visit(node=sub_element)"]
-  _c69_f74_n278["mermaid_block = MermaidFunction(ast_node=block_node, mermaid_safe_name=mermaid_safe_name, block_contents=link_generator.get_list_of_elements(), display_name=f'{self.prefix}_{block_node.name}')"]
-  _c69_f74_n279["Expr"]
-  _c69_f74_n280["self.elements.append(mermaid_block)"]
-  _c69_f76_n281["Expr"]
-  _c69_f76_n282["'This is a block, we want a subgraph, so parse content'"]
-  _c69_f76_n283["mermaid_safe_name = f'{self.prefix}_c{BlockGenerator._count()}'"]
-  _c69_f76_n284["link_generator = LinkGenerator(prefix=mermaid_safe_name)"]
-  _c69_f76_l77["sub_element"]
-  _c69_f76_l77_n285["Expr"]
-  _c69_f76_l77_n286["link_generator.visit(node=sub_element)"]
-  _c69_f76_n287["mermaid_block = MermaidClass(ast_node=block_node, mermaid_safe_name=mermaid_safe_name, block_contents=link_generator.get_list_of_elements(), display_name=block_node.name)"]
-  _c69_f76_n288["Expr"]
-  _c69_f76_n289["self.elements.append(mermaid_block)"]
-  _c69_f78_n290["Expr"]
-  _c69_f78_n291["'This is a block, we want a subgraph, so parse content'"]
-  _c69_f78_n292["mermaid_safe_name = f'{self.prefix}_l{BlockGenerator._count()}'"]
-  _c69_f78_n293["link_generator = LinkGenerator(prefix=mermaid_safe_name)"]
-  _c69_f78_l79["sub_element"]
-  _c69_f78_l79_n294["Expr"]
-  _c69_f78_l79_n295["link_generator.visit(node=sub_element)"]
-  _c69_f78_n296["for_loop_elements = link_generator.get_list_of_elements()"]
-  _c69_f78_n297["loop_start = for_loop_elements[0]"]
-  _c69_f78_n298["If"]
-  _c69_f78_n299["isinstance(loop_start, MermaidLink)"]
-  _c69_f78_n300["loop_start = loop_start.from_"]
-  _c69_f78_n301["loop_end = for_loop_elements[-1]"]
-  _c69_f78_n302["If"]
-  _c69_f78_n303["isinstance(loop_end, MermaidLink)"]
-  _c69_f78_n304["loop_end = loop_end.to"]
-  _c69_f78_n305["mermaid_block = MermaidFor(ast_node=block_node, mermaid_safe_name=mermaid_safe_name, block_contents=for_loop_elements, display_name=unparse(block_node.target), target=unparse(block_node.target), iterator=unparse(block_node.iter))"]
-  _c69_f78_n306["Expr"]
-  _c69_f78_n307["self.elements.append(mermaid_block)"]
-  _c69_f78_n308["Expr"]
-  _c69_f78_n309["self.elements.append(MermaidLink(from_=loop_end, to=loop_start))"]
-  _c69_f80_n310["Expr"]
-  _c69_f80_n311["'Non block nodes are not interesting here'"]
-  _c69_f80_n312["Pass"]
+  _c53_f55_l56_n172["Expr"]
+  _c53_f55_l56_n173["self.found_imports.append(f'{i.name}.*')"]
+  _c53_f57_n174["module = node.module"]
+  _c53_f57_l58["i"]
+  _c53_f57_l58_n175["Expr"]
+  _c53_f57_l58_n176["self.found_imports.append(f'{module}.{i.name}')"]
+  _c60_f61_n179["self.elements: list[MermaidElement] = []"]
+  _c60_f61_n180["self.prev_node: Optional[AST] = None"]
+  _c60_f61_n181["self.prefix = prefix"]
+  _c60_f62_n182["value = cls.count"]
+  _c60_f62_n183["cls.count += 1"]
+  _c60_f62_n184["return value"]
+  _c60_f65_n187["block_generator = BlockGenerator(prefix=self.prefix)"]
+  _c60_f65_n188["Expr"]
+  _c60_f65_n189["block_generator.visit(node)"]
+  _c60_f65_n190["Expr"]
+  _c60_f65_n191["self.elements.extend(block_generator.get_list_of_elements())"]
+  _c60_f66_n192["block_generator = BlockGenerator(prefix=self.prefix)"]
+  _c60_f66_n193["Expr"]
+  _c60_f66_n194["block_generator.visit(node)"]
+  _c60_f66_n195["Expr"]
+  _c60_f66_n196["self.elements.extend(block_generator.get_list_of_elements())"]
+  _c60_f67_n197["block_generator = BlockGenerator(prefix=self.prefix)"]
+  _c60_f67_n198["Expr"]
+  _c60_f67_n199["block_generator.visit(node)"]
+  _c60_f67_n200["for_loop_elements = block_generator.get_list_of_elements()"]
+  _c60_f67_n201["loop_start = for_loop_elements[0]"]
+  _c60_f67_n202["If"]
+  _c60_f67_n203["isinstance(loop_start, MermaidLink)"]
+  _c60_f67_n204["loop_start = loop_start.from_"]
+  _c60_f67_n205["loop_end = for_loop_elements[-1]"]
+  _c60_f67_n206["If"]
+  _c60_f67_n207["isinstance(loop_end, MermaidLink)"]
+  _c60_f67_n208["loop_end = loop_end.to"]
+  _c60_f67_n209["If"]
+  _c60_f67_n210["self.prev_node"]
+  _c60_f67_n211["Expr"]
+  _c60_f67_n212["self.elements.append(MermaidLink(from_=self.prev_node, to=loop_start))"]
+  _c60_f67_n213["Expr"]
+  _c60_f67_n214["self.elements.extend(for_loop_elements)"]
+  _c60_f67_n215["self.prev_node = loop_end"]
+  _c60_f68_n216["mermaid_data = MermaidNode(ast_node=node, mermaid_safe_name=f'{self.prefix}_n{LinkGenerator._count()}', display_name=_sanitize(unparse(node)))"]
+  _c60_f68_n217["If"]
+  _c60_f68_n218["self.prev_node"]
+  _c60_f68_n219["Expr"]
+  _c60_f68_n220["self.elements.append(MermaidLink(from_=self.prev_node, to=mermaid_data))"]
+  _c60_f68_n221["self.prev_node = mermaid_data"]
+  _c60_n178["count: int = 0"]
+  _c60_n222["visit_Await = _generic_expression_expand"]
+  _c60_n223["visit_AnnAssign = _generic_expression_expand"]
+  _c60_n224["visit_Assign = _generic_expression_expand"]
+  _c60_n225["visit_Attribute = _generic_expression_expand"]
+  _c60_n226["visit_AugAssign = _generic_expression_expand"]
+  _c60_n227["visit_BinOp = _generic_expression_expand"]
+  _c60_n228["visit_BoolOp = _generic_expression_expand"]
+  _c60_n229["visit_Call = _generic_expression_expand"]
+  _c60_n230["visit_Compare = _generic_expression_expand"]
+  _c60_n231["visit_Constant = _generic_expression_expand"]
+  _c60_n232["visit_Delete = _generic_expression_expand"]
+  _c60_n233["visit_Dict = _generic_expression_expand"]
+  _c60_n234["visit_DictComp = _generic_expression_expand"]
+  _c60_n235["visit_FormattedValue = _generic_expression_expand"]
+  _c60_n236["visit_GeneratorExp = _generic_expression_expand"]
+  _c60_n237["visit_JoinedStr = _generic_expression_expand"]
+  _c60_n238["visit_Lambda = _generic_expression_expand"]
+  _c60_n239["visit_List = _generic_expression_expand"]
+  _c60_n240["visit_ListComp = _generic_expression_expand"]
+  _c60_n241["visit_Name = _generic_expression_expand"]
+  _c60_n242["visit_NamedExpr = _generic_expression_expand"]
+  _c60_n243["visit_Return = _generic_expression_expand"]
+  _c60_n244["visit_Set = _generic_expression_expand"]
+  _c60_n245["visit_SetComp = _generic_expression_expand"]
+  _c60_n246["visit_Slice = _generic_expression_expand"]
+  _c60_n247["visit_Starred = _generic_expression_expand"]
+  _c60_n248["visit_Subscript = _generic_expression_expand"]
+  _c60_n249["visit_Tuple = _generic_expression_expand"]
+  _c60_n250["visit_UnaryOp = _generic_expression_expand"]
+  _c60_n251["visit_Yield = _generic_expression_expand"]
+  _c60_n252["visit_YieldFrom = _generic_expression_expand"]
+  _c60_f69_n253["mermaid_data = MermaidNode(ast_node=node, mermaid_safe_name=f'{self.prefix}_n{LinkGenerator._count()}', display_name=type(node).__name__)"]
+  _c60_f69_n254["If"]
+  _c60_f69_n255["self.prev_node"]
+  _c60_f69_n256["Expr"]
+  _c60_f69_n257["self.elements.append(MermaidLink(from_=self.prev_node, to=mermaid_data))"]
+  _c60_f69_n258["self.prev_node = mermaid_data"]
+  _c60_f69_n259["return super().generic_visit(node)"]
+  _c60_f70_n260["If"]
+  _c60_f70_n261["self.elements"]
+  _c60_f70_n262["return self.elements"]
+  _c60_f70_n263["return [self.prev_node]"]
+  _c71_f72_n265["self.elements: list[MermaidElement] = []"]
+  _c71_f72_n266["self.prefix = prefix"]
+  _c71_f73_n267["value = cls.count"]
+  _c71_f73_n268["cls.count += 1"]
+  _c71_f73_n269["return value"]
+  _c71_f74_n270["Expr"]
+  _c71_f74_n271["'This is a block, we might want a subgraph, so parse content'"]
+  _c71_f74_n272["link_generator = LinkGenerator()"]
+  _c71_f74_l75["sub_element"]
+  _c71_f74_l75_n273["Expr"]
+  _c71_f74_l75_n274["link_generator.visit(node=sub_element)"]
+  _c71_f74_n275["mermaid_block = MermaidModule(ast_node=block_node, mermaid_safe_name=f'{self.prefix}_m{BlockGenerator._count()}', block_contents=link_generator.get_list_of_elements(), display_name='module')"]
+  _c71_f74_n276["Expr"]
+  _c71_f74_n277["self.elements.append(mermaid_block)"]
+  _c71_f76_n278["Expr"]
+  _c71_f76_n279["'This is a block, we want a subgraph, so parse content'"]
+  _c71_f76_n280["mermaid_safe_name = f'{self.prefix}_f{BlockGenerator._count()}'"]
+  _c71_f76_n281["link_generator = LinkGenerator(prefix=mermaid_safe_name)"]
+  _c71_f76_l77["sub_element"]
+  _c71_f76_l77_n282["Expr"]
+  _c71_f76_l77_n283["link_generator.visit(node=sub_element)"]
+  _c71_f76_n284["mermaid_block = MermaidFunction(ast_node=block_node, mermaid_safe_name=mermaid_safe_name, block_contents=link_generator.get_list_of_elements(), display_name=f'{self.prefix}_{block_node.name}')"]
+  _c71_f76_n285["Expr"]
+  _c71_f76_n286["self.elements.append(mermaid_block)"]
+  _c71_f78_n287["Expr"]
+  _c71_f78_n288["'This is a block, we want a subgraph, so parse content'"]
+  _c71_f78_n289["mermaid_safe_name = f'{self.prefix}_c{BlockGenerator._count()}'"]
+  _c71_f78_n290["link_generator = LinkGenerator(prefix=mermaid_safe_name)"]
+  _c71_f78_l79["sub_element"]
+  _c71_f78_l79_n291["Expr"]
+  _c71_f78_l79_n292["link_generator.visit(node=sub_element)"]
+  _c71_f78_n293["mermaid_block = MermaidClass(ast_node=block_node, mermaid_safe_name=mermaid_safe_name, block_contents=link_generator.get_list_of_elements(), display_name=block_node.name)"]
+  _c71_f78_n294["Expr"]
+  _c71_f78_n295["self.elements.append(mermaid_block)"]
+  _c71_f80_n296["Expr"]
+  _c71_f80_n297["'This is a block, we want a subgraph, so parse content'"]
+  _c71_f80_n298["mermaid_safe_name = f'{self.prefix}_l{BlockGenerator._count()}'"]
+  _c71_f80_n299["link_generator = LinkGenerator(prefix=mermaid_safe_name)"]
+  _c71_f80_l81["sub_element"]
+  _c71_f80_l81_n300["Expr"]
+  _c71_f80_l81_n301["link_generator.visit(node=sub_element)"]
+  _c71_f80_n302["for_loop_elements = link_generator.get_list_of_elements()"]
+  _c71_f80_n303["loop_start = for_loop_elements[0]"]
+  _c71_f80_n304["If"]
+  _c71_f80_n305["isinstance(loop_start, MermaidLink)"]
+  _c71_f80_n306["loop_start = loop_start.from_"]
+  _c71_f80_n307["loop_end = for_loop_elements[-1]"]
+  _c71_f80_n308["If"]
+  _c71_f80_n309["isinstance(loop_end, MermaidLink)"]
+  _c71_f80_n310["loop_end = loop_end.to"]
+  _c71_f80_n311["mermaid_block = MermaidFor(ast_node=block_node, mermaid_safe_name=mermaid_safe_name, block_contents=for_loop_elements, display_name=unparse(block_node.target), target=unparse(block_node.target), iterator=unparse(block_node.iter))"]
+  _c71_f80_n312["Expr"]
+  _c71_f80_n313["self.elements.append(mermaid_block)"]
+  _c71_f80_n314["Expr"]
+  _c71_f80_n315["self.elements.append(MermaidLink(from_=loop_end, to=loop_start))"]
+  _c71_f82_n316["Expr"]
+  _c71_f82_n317["'Non block nodes are not interesting here'"]
+  _c71_f82_n318["Pass"]
 
   subgraph __sanitize
     direction TB
   end
   subgraph ImportNodeFinder
     direction TB
-    subgraph _c51___init__
+    subgraph _c53___init__
       direction TB
     end
-    subgraph _c51_visit_Import
+    subgraph _c53_visit_Import
       direction TB
       %% loop i
-        _c51_f53_l54_n166 --> _c51_f53_l54_n167
+        _c53_f55_l56_n172 --> _c53_f55_l56_n173
       %% end i
-      _c51_f53_l54_n167 --> _c51_f53_l54_n166
+      _c53_f55_l56_n173 --> _c53_f55_l56_n172
     end
-    subgraph _c51_visit_ImportFrom
+    subgraph _c53_visit_ImportFrom
       direction TB
-      _c51_f55_n168 --> _c51_f55_l56
+      _c53_f57_n174 --> _c53_f57_l58
       %% loop i
-        _c51_f55_l56_n169 --> _c51_f55_l56_n170
+        _c53_f57_l58_n175 --> _c53_f57_l58_n176
       %% end i
-      _c51_f55_l56_n170 --> _c51_f55_l56_n169
+      _c53_f57_l58_n176 --> _c53_f57_l58_n175
     end
-    subgraph _c51_get_found_imports
+    subgraph _c53_get_found_imports
       direction TB
     end
   end
   subgraph LinkGenerator
     direction TB
-    subgraph _c58___init__
+    subgraph _c60___init__
       direction TB
-      _c58_f59_n173 --> _c58_f59_n174
-      _c58_f59_n174 --> _c58_f59_n175
+      _c60_f61_n179 --> _c60_f61_n180
+      _c60_f61_n180 --> _c60_f61_n181
     end
-    subgraph _c58__count
+    subgraph _c60__count
       direction TB
-      _c58_f60_n176 --> _c58_f60_n177
-      _c58_f60_n177 --> _c58_f60_n178
+      _c60_f62_n182 --> _c60_f62_n183
+      _c60_f62_n183 --> _c60_f62_n184
     end
-    subgraph _c58_visit_Import
-      direction TB
-    end
-    subgraph _c58_visit_ImportFrom
+    subgraph _c60_visit_Import
       direction TB
     end
-    subgraph _c58_visit_FunctionDef
+    subgraph _c60_visit_ImportFrom
       direction TB
-      _c58_f63_n181 --> _c58_f63_n182
-      _c58_f63_n182 --> _c58_f63_n183
-      _c58_f63_n183 --> _c58_f63_n184
-      _c58_f63_n184 --> _c58_f63_n185
     end
-    subgraph _c58_visit_ClassDef
+    subgraph _c60_visit_FunctionDef
       direction TB
-      _c58_f64_n186 --> _c58_f64_n187
-      _c58_f64_n187 --> _c58_f64_n188
-      _c58_f64_n188 --> _c58_f64_n189
-      _c58_f64_n189 --> _c58_f64_n190
+      _c60_f65_n187 --> _c60_f65_n188
+      _c60_f65_n188 --> _c60_f65_n189
+      _c60_f65_n189 --> _c60_f65_n190
+      _c60_f65_n190 --> _c60_f65_n191
     end
-    subgraph _c58_visit_For
+    subgraph _c60_visit_ClassDef
       direction TB
-      _c58_f65_n191 --> _c58_f65_n192
-      _c58_f65_n192 --> _c58_f65_n193
-      _c58_f65_n193 --> _c58_f65_n194
-      _c58_f65_n194 --> _c58_f65_n195
-      _c58_f65_n195 --> _c58_f65_n196
-      _c58_f65_n196 --> _c58_f65_n197
-      _c58_f65_n197 --> _c58_f65_n198
-      _c58_f65_n198 --> _c58_f65_n199
-      _c58_f65_n199 --> _c58_f65_n200
-      _c58_f65_n200 --> _c58_f65_n201
-      _c58_f65_n201 --> _c58_f65_n202
-      _c58_f65_n202 --> _c58_f65_n203
-      _c58_f65_n203 --> _c58_f65_n204
-      _c58_f65_n204 --> _c58_f65_n205
-      _c58_f65_n205 --> _c58_f65_n206
-      _c58_f65_n206 --> _c58_f65_n207
-      _c58_f65_n207 --> _c58_f65_n208
-      _c58_f65_n208 --> _c58_f65_n209
+      _c60_f66_n192 --> _c60_f66_n193
+      _c60_f66_n193 --> _c60_f66_n194
+      _c60_f66_n194 --> _c60_f66_n195
+      _c60_f66_n195 --> _c60_f66_n196
     end
-    subgraph _c58__generic_expression_expand
+    subgraph _c60_visit_For
       direction TB
-      _c58_f66_n210 --> _c58_f66_n211
-      _c58_f66_n211 --> _c58_f66_n212
-      _c58_f66_n212 --> _c58_f66_n213
-      _c58_f66_n213 --> _c58_f66_n214
-      _c58_f66_n214 --> _c58_f66_n215
+      _c60_f67_n197 --> _c60_f67_n198
+      _c60_f67_n198 --> _c60_f67_n199
+      _c60_f67_n199 --> _c60_f67_n200
+      _c60_f67_n200 --> _c60_f67_n201
+      _c60_f67_n201 --> _c60_f67_n202
+      _c60_f67_n202 --> _c60_f67_n203
+      _c60_f67_n203 --> _c60_f67_n204
+      _c60_f67_n204 --> _c60_f67_n205
+      _c60_f67_n205 --> _c60_f67_n206
+      _c60_f67_n206 --> _c60_f67_n207
+      _c60_f67_n207 --> _c60_f67_n208
+      _c60_f67_n208 --> _c60_f67_n209
+      _c60_f67_n209 --> _c60_f67_n210
+      _c60_f67_n210 --> _c60_f67_n211
+      _c60_f67_n211 --> _c60_f67_n212
+      _c60_f67_n212 --> _c60_f67_n213
+      _c60_f67_n213 --> _c60_f67_n214
+      _c60_f67_n214 --> _c60_f67_n215
     end
-    _c58_n172 --> _c58_n216
-    _c58_n216 --> _c58_n217
-    _c58_n217 --> _c58_n218
-    _c58_n218 --> _c58_n219
-    _c58_n219 --> _c58_n220
-    _c58_n220 --> _c58_n221
-    _c58_n221 --> _c58_n222
-    _c58_n222 --> _c58_n223
-    _c58_n223 --> _c58_n224
-    _c58_n224 --> _c58_n225
-    _c58_n225 --> _c58_n226
-    _c58_n226 --> _c58_n227
-    _c58_n227 --> _c58_n228
-    _c58_n228 --> _c58_n229
-    _c58_n229 --> _c58_n230
-    _c58_n230 --> _c58_n231
-    _c58_n231 --> _c58_n232
-    _c58_n232 --> _c58_n233
-    _c58_n233 --> _c58_n234
-    _c58_n234 --> _c58_n235
-    _c58_n235 --> _c58_n236
-    _c58_n236 --> _c58_n237
-    _c58_n237 --> _c58_n238
-    _c58_n238 --> _c58_n239
-    _c58_n239 --> _c58_n240
-    _c58_n240 --> _c58_n241
-    _c58_n241 --> _c58_n242
-    _c58_n242 --> _c58_n243
-    _c58_n243 --> _c58_n244
-    _c58_n244 --> _c58_n245
-    _c58_n245 --> _c58_n246
-    subgraph _c58_generic_visit
+    subgraph _c60__generic_expression_expand
       direction TB
-      _c58_f67_n247 --> _c58_f67_n248
-      _c58_f67_n248 --> _c58_f67_n249
-      _c58_f67_n249 --> _c58_f67_n250
-      _c58_f67_n250 --> _c58_f67_n251
-      _c58_f67_n251 --> _c58_f67_n252
-      _c58_f67_n252 --> _c58_f67_n253
+      _c60_f68_n216 --> _c60_f68_n217
+      _c60_f68_n217 --> _c60_f68_n218
+      _c60_f68_n218 --> _c60_f68_n219
+      _c60_f68_n219 --> _c60_f68_n220
+      _c60_f68_n220 --> _c60_f68_n221
     end
-    subgraph _c58_get_list_of_elements
+    _c60_n178 --> _c60_n222
+    _c60_n222 --> _c60_n223
+    _c60_n223 --> _c60_n224
+    _c60_n224 --> _c60_n225
+    _c60_n225 --> _c60_n226
+    _c60_n226 --> _c60_n227
+    _c60_n227 --> _c60_n228
+    _c60_n228 --> _c60_n229
+    _c60_n229 --> _c60_n230
+    _c60_n230 --> _c60_n231
+    _c60_n231 --> _c60_n232
+    _c60_n232 --> _c60_n233
+    _c60_n233 --> _c60_n234
+    _c60_n234 --> _c60_n235
+    _c60_n235 --> _c60_n236
+    _c60_n236 --> _c60_n237
+    _c60_n237 --> _c60_n238
+    _c60_n238 --> _c60_n239
+    _c60_n239 --> _c60_n240
+    _c60_n240 --> _c60_n241
+    _c60_n241 --> _c60_n242
+    _c60_n242 --> _c60_n243
+    _c60_n243 --> _c60_n244
+    _c60_n244 --> _c60_n245
+    _c60_n245 --> _c60_n246
+    _c60_n246 --> _c60_n247
+    _c60_n247 --> _c60_n248
+    _c60_n248 --> _c60_n249
+    _c60_n249 --> _c60_n250
+    _c60_n250 --> _c60_n251
+    _c60_n251 --> _c60_n252
+    subgraph _c60_generic_visit
       direction TB
-      _c58_f68_n254 --> _c58_f68_n255
-      _c58_f68_n255 --> _c58_f68_n256
-      _c58_f68_n256 --> _c58_f68_n257
+      _c60_f69_n253 --> _c60_f69_n254
+      _c60_f69_n254 --> _c60_f69_n255
+      _c60_f69_n255 --> _c60_f69_n256
+      _c60_f69_n256 --> _c60_f69_n257
+      _c60_f69_n257 --> _c60_f69_n258
+      _c60_f69_n258 --> _c60_f69_n259
+    end
+    subgraph _c60_get_list_of_elements
+      direction TB
+      _c60_f70_n260 --> _c60_f70_n261
+      _c60_f70_n261 --> _c60_f70_n262
+      _c60_f70_n262 --> _c60_f70_n263
     end
   end
   subgraph BlockGenerator
     direction TB
-    subgraph _c69___init__
+    subgraph _c71___init__
       direction TB
-      _c69_f70_n259 --> _c69_f70_n260
+      _c71_f72_n265 --> _c71_f72_n266
     end
-    subgraph _c69__count
+    subgraph _c71__count
       direction TB
-      _c69_f71_n261 --> _c69_f71_n262
-      _c69_f71_n262 --> _c69_f71_n263
+      _c71_f73_n267 --> _c71_f73_n268
+      _c71_f73_n268 --> _c71_f73_n269
     end
-    subgraph _c69_visit_Module
+    subgraph _c71_visit_Module
       direction TB
-      _c69_f72_n264 --> _c69_f72_n265
-      _c69_f72_n265 --> _c69_f72_n266
-      _c69_f72_n266 --> _c69_f72_l73
+      _c71_f74_n270 --> _c71_f74_n271
+      _c71_f74_n271 --> _c71_f74_n272
+      _c71_f74_n272 --> _c71_f74_l75
       %% loop sub_element
-        _c69_f72_l73_n267 --> _c69_f72_l73_n268
+        _c71_f74_l75_n273 --> _c71_f74_l75_n274
       %% end sub_element
-      _c69_f72_l73_n268 --> _c69_f72_l73_n267
-      _c69_f72_l73_n267 --> _c69_f72_n269
-      _c69_f72_n269 --> _c69_f72_n270
-      _c69_f72_n270 --> _c69_f72_n271
+      _c71_f74_l75_n274 --> _c71_f74_l75_n273
+      _c71_f74_l75_n273 --> _c71_f74_n275
+      _c71_f74_n275 --> _c71_f74_n276
+      _c71_f74_n276 --> _c71_f74_n277
     end
-    subgraph _c69_visit_FunctionDef
+    subgraph _c71_visit_FunctionDef
       direction TB
-      _c69_f74_n272 --> _c69_f74_n273
-      _c69_f74_n273 --> _c69_f74_n274
-      _c69_f74_n274 --> _c69_f74_n275
-      _c69_f74_n275 --> _c69_f74_l75
+      _c71_f76_n278 --> _c71_f76_n279
+      _c71_f76_n279 --> _c71_f76_n280
+      _c71_f76_n280 --> _c71_f76_n281
+      _c71_f76_n281 --> _c71_f76_l77
       %% loop sub_element
-        _c69_f74_l75_n276 --> _c69_f74_l75_n277
+        _c71_f76_l77_n282 --> _c71_f76_l77_n283
       %% end sub_element
-      _c69_f74_l75_n277 --> _c69_f74_l75_n276
-      _c69_f74_l75_n276 --> _c69_f74_n278
-      _c69_f74_n278 --> _c69_f74_n279
-      _c69_f74_n279 --> _c69_f74_n280
+      _c71_f76_l77_n283 --> _c71_f76_l77_n282
+      _c71_f76_l77_n282 --> _c71_f76_n284
+      _c71_f76_n284 --> _c71_f76_n285
+      _c71_f76_n285 --> _c71_f76_n286
     end
-    subgraph _c69_visit_ClassDef
+    subgraph _c71_visit_ClassDef
       direction TB
-      _c69_f76_n281 --> _c69_f76_n282
-      _c69_f76_n282 --> _c69_f76_n283
-      _c69_f76_n283 --> _c69_f76_n284
-      _c69_f76_n284 --> _c69_f76_l77
+      _c71_f78_n287 --> _c71_f78_n288
+      _c71_f78_n288 --> _c71_f78_n289
+      _c71_f78_n289 --> _c71_f78_n290
+      _c71_f78_n290 --> _c71_f78_l79
       %% loop sub_element
-        _c69_f76_l77_n285 --> _c69_f76_l77_n286
+        _c71_f78_l79_n291 --> _c71_f78_l79_n292
       %% end sub_element
-      _c69_f76_l77_n286 --> _c69_f76_l77_n285
-      _c69_f76_l77_n285 --> _c69_f76_n287
-      _c69_f76_n287 --> _c69_f76_n288
-      _c69_f76_n288 --> _c69_f76_n289
+      _c71_f78_l79_n292 --> _c71_f78_l79_n291
+      _c71_f78_l79_n291 --> _c71_f78_n293
+      _c71_f78_n293 --> _c71_f78_n294
+      _c71_f78_n294 --> _c71_f78_n295
     end
-    subgraph _c69_visit_For
+    subgraph _c71_visit_For
       direction TB
-      _c69_f78_n290 --> _c69_f78_n291
-      _c69_f78_n291 --> _c69_f78_n292
-      _c69_f78_n292 --> _c69_f78_n293
-      _c69_f78_n293 --> _c69_f78_l79
+      _c71_f80_n296 --> _c71_f80_n297
+      _c71_f80_n297 --> _c71_f80_n298
+      _c71_f80_n298 --> _c71_f80_n299
+      _c71_f80_n299 --> _c71_f80_l81
       %% loop sub_element
-        _c69_f78_l79_n294 --> _c69_f78_l79_n295
+        _c71_f80_l81_n300 --> _c71_f80_l81_n301
       %% end sub_element
-      _c69_f78_l79_n295 --> _c69_f78_l79_n294
-      _c69_f78_l79_n294 --> _c69_f78_n296
-      _c69_f78_n296 --> _c69_f78_n297
-      _c69_f78_n297 --> _c69_f78_n298
-      _c69_f78_n298 --> _c69_f78_n299
-      _c69_f78_n299 --> _c69_f78_n300
-      _c69_f78_n300 --> _c69_f78_n301
-      _c69_f78_n301 --> _c69_f78_n302
-      _c69_f78_n302 --> _c69_f78_n303
-      _c69_f78_n303 --> _c69_f78_n304
-      _c69_f78_n304 --> _c69_f78_n305
-      _c69_f78_n305 --> _c69_f78_n306
-      _c69_f78_n306 --> _c69_f78_n307
-      _c69_f78_n307 --> _c69_f78_n308
-      _c69_f78_n308 --> _c69_f78_n309
+      _c71_f80_l81_n301 --> _c71_f80_l81_n300
+      _c71_f80_l81_n300 --> _c71_f80_n302
+      _c71_f80_n302 --> _c71_f80_n303
+      _c71_f80_n303 --> _c71_f80_n304
+      _c71_f80_n304 --> _c71_f80_n305
+      _c71_f80_n305 --> _c71_f80_n306
+      _c71_f80_n306 --> _c71_f80_n307
+      _c71_f80_n307 --> _c71_f80_n308
+      _c71_f80_n308 --> _c71_f80_n309
+      _c71_f80_n309 --> _c71_f80_n310
+      _c71_f80_n310 --> _c71_f80_n311
+      _c71_f80_n311 --> _c71_f80_n312
+      _c71_f80_n312 --> _c71_f80_n313
+      _c71_f80_n313 --> _c71_f80_n314
+      _c71_f80_n314 --> _c71_f80_n315
     end
-    subgraph _c69_generic_visit
+    subgraph _c71_generic_visit
       direction TB
-      _c69_f80_n310 --> _c69_f80_n311
-      _c69_f80_n311 --> _c69_f80_n312
+      _c71_f82_n316 --> _c71_f82_n317
+      _c71_f82_n317 --> _c71_f82_n318
     end
-    subgraph _c69_get_list_of_elements
+    subgraph _c71_get_list_of_elements
       direction TB
     end
   end
@@ -467,75 +467,75 @@ Module(
       end_lineno=11,
       end_col_offset=1),
     ImportFrom(
-      module='models',
-      names=[
-        alias(
-          name='MermaidClass',
-          lineno=13,
-          col_offset=4,
-          end_lineno=13,
-          end_col_offset=16),
-        alias(
-          name='MermaidElement',
-          lineno=14,
-          col_offset=4,
-          end_lineno=14,
-          end_col_offset=18),
-        alias(
-          name='MermaidFor',
-          lineno=15,
-          col_offset=4,
-          end_lineno=15,
-          end_col_offset=14),
-        alias(
-          name='MermaidFunction',
-          lineno=16,
-          col_offset=4,
-          end_lineno=16,
-          end_col_offset=19),
-        alias(
-          name='MermaidLink',
-          lineno=17,
-          col_offset=4,
-          end_lineno=17,
-          end_col_offset=15),
-        alias(
-          name='MermaidModule',
-          lineno=18,
-          col_offset=4,
-          end_lineno=18,
-          end_col_offset=17),
-        alias(
-          name='MermaidNode',
-          lineno=19,
-          col_offset=4,
-          end_lineno=19,
-          end_col_offset=15)],
-      level=0,
-      lineno=12,
-      col_offset=0,
-      end_lineno=20,
-      end_col_offset=1),
-    ImportFrom(
       module='typing',
       names=[
         alias(
           name='Any',
-          lineno=22,
+          lineno=12,
           col_offset=19,
-          end_lineno=22,
+          end_lineno=12,
           end_col_offset=22),
         alias(
           name='Optional',
-          lineno=22,
+          lineno=12,
           col_offset=24,
-          end_lineno=22,
+          end_lineno=12,
           end_col_offset=32)],
       level=0,
-      lineno=22,
+      lineno=12,
+      col_offset=0,
+      end_lineno=12,
+      end_col_offset=32),
+    ImportFrom(
+      module='pyremaid.models',
+      names=[
+        alias(
+          name='MermaidClass',
+          lineno=15,
+          col_offset=4,
+          end_lineno=15,
+          end_col_offset=16),
+        alias(
+          name='MermaidElement',
+          lineno=16,
+          col_offset=4,
+          end_lineno=16,
+          end_col_offset=18),
+        alias(
+          name='MermaidFor',
+          lineno=17,
+          col_offset=4,
+          end_lineno=17,
+          end_col_offset=14),
+        alias(
+          name='MermaidFunction',
+          lineno=18,
+          col_offset=4,
+          end_lineno=18,
+          end_col_offset=19),
+        alias(
+          name='MermaidLink',
+          lineno=19,
+          col_offset=4,
+          end_lineno=19,
+          end_col_offset=15),
+        alias(
+          name='MermaidModule',
+          lineno=20,
+          col_offset=4,
+          end_lineno=20,
+          end_col_offset=17),
+        alias(
+          name='MermaidNode',
+          lineno=21,
+          col_offset=4,
+          end_lineno=21,
+          end_col_offset=15)],
+      level=0,
+      lineno=14,
       col_offset=0,
       end_lineno=22,
-      end_col_offset=32),
+      end_col_offset=1),
     FunctionDef(
       name='_sanitize',
       args=arguments(

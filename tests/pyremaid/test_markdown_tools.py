@@ -1,5 +1,5 @@
 from pytest import fixture
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from pyremaid.markdown_tools import (
     create_markdown_content,
@@ -16,11 +16,6 @@ def input_file() -> str:
 @fixture
 def import_list() -> list[str]:
     return ["import 1", "import 2"]
-
-
-@fixture
-def global_import_table() -> dict[str, str]:
-    return {"import 1": "mapped import 1", "import 2": None}
 
 
 @fixture
@@ -76,8 +71,8 @@ def expected_markdown(
 @patch("pyremaid.markdown_tools.create_markdown_debug_dump_block")
 @patch("pyremaid.markdown_tools.turn_out_the_import_list")
 def test_create_markdown_content(
-    mock_turn_out_the_import_list,
-    mock_create_markdown_debug_dump_block,
+    mock_turn_out_the_import_list: MagicMock,
+    mock_create_markdown_debug_dump_block: MagicMock,
     import_list_block: str,
     debug_dump_block: str,
     input_file: str,
@@ -87,7 +82,6 @@ def test_create_markdown_content(
     debug_dump: str,
     expected_markdown: str,
 ) -> None:
-
     mock_turn_out_the_import_list.return_value = import_list_block
     mock_create_markdown_debug_dump_block.return_value = debug_dump_block
 

@@ -6,21 +6,21 @@
   - ast.dump
   - ast.parse
   - typing.Optional
-  - [ast_tools.visitors.BlockGenerator](/docs/pyremaid/ast_tools/visitors.py.md)
-  - [ast_tools.visitors.ImportNodeFinder](/docs/pyremaid/ast_tools/visitors.py.md)
-  - [models.MermaidElement](/docs/pyremaid/models.py.md)
+  - pyremaid.ast_tools.visitors.BlockGenerator
+  - pyremaid.ast_tools.visitors.ImportNodeFinder
+  - pyremaid.models.MermaidElement
 
 ---
 ```mermaid
 flowchart TB
-  _f47_n156["finder = ImportNodeFinder()"]
-  _f47_n157["Expr"]
-  _f47_n158["finder.visit(ast_node)"]
-  _f47_n159["return finder.get_found_imports()"]
-  _f48_n160["generator = BlockGenerator()"]
-  _f48_n161["Expr"]
-  _f48_n162["generator.visit(node=model)"]
-  _f48_n163["return generator.get_list_of_elements()"]
+  _f49_n162["finder = ImportNodeFinder()"]
+  _f49_n163["Expr"]
+  _f49_n164["finder.visit(ast_node)"]
+  _f49_n165["return finder.get_found_imports()"]
+  _f50_n166["generator = BlockGenerator()"]
+  _f50_n167["Expr"]
+  _f50_n168["generator.visit(node=model)"]
+  _f50_n169["return generator.get_list_of_elements()"]
 
   subgraph _get_ast_root_node_for_file
     direction TB
@@ -30,15 +30,15 @@ flowchart TB
   end
   subgraph _get_used_import_list
     direction TB
-    _f47_n156 --> _f47_n157
-    _f47_n157 --> _f47_n158
-    _f47_n158 --> _f47_n159
+    _f49_n162 --> _f49_n163
+    _f49_n163 --> _f49_n164
+    _f49_n164 --> _f49_n165
   end
   subgraph _create_mermaid_model_from_ast_model
     direction TB
-    _f48_n160 --> _f48_n161
-    _f48_n161 --> _f48_n162
-    _f48_n162 --> _f48_n163
+    _f50_n166 --> _f50_n167
+    _f50_n167 --> _f50_n168
+    _f50_n168 --> _f50_n169
   end
 
 ```
@@ -91,39 +91,39 @@ Module(
       end_lineno=2,
       end_col_offset=27),
     ImportFrom(
-      module='ast_tools.visitors',
+      module='pyremaid.ast_tools.visitors',
       names=[
         alias(
           name='BlockGenerator',
           lineno=4,
-          col_offset=31,
+          col_offset=40,
           end_lineno=4,
-          end_col_offset=45),
+          end_col_offset=54),
         alias(
           name='ImportNodeFinder',
           lineno=4,
-          col_offset=47,
+          col_offset=56,
           end_lineno=4,
-          end_col_offset=63)],
+          end_col_offset=72)],
       level=0,
       lineno=4,
       col_offset=0,
       end_lineno=4,
-      end_col_offset=63),
+      end_col_offset=72),
     ImportFrom(
-      module='models',
+      module='pyremaid.models',
       names=[
         alias(
           name='MermaidElement',
           lineno=5,
-          col_offset=19,
+          col_offset=28,
           end_lineno=5,
-          end_col_offset=33)],
+          end_col_offset=42)],
       level=0,
       lineno=5,
       col_offset=0,
       end_lineno=5,
-      end_col_offset=33),
+      end_col_offset=42),
     FunctionDef(
       name='get_ast_root_node_for_file',
       args=arguments(
