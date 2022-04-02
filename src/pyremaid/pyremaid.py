@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from pyremaid.files.destination import (
     create_cleared_output_folder,
     get_output_file_path_for_input_file,
@@ -92,11 +90,3 @@ def get_global_input_table(
             ).lstrip(".")
     print("\n".join([f"{k}: {v}" for k, v in global_import_table.items()]))
     return global_import_table
-
-
-if __name__ == "__main__":
-    # "Assume" we want to run against the current project
-    # Need to make this configurable (of course)
-    input_path = "./src/pyremaid/"
-    output_path = "./docs/pyremaid/"
-    create_mermaid_analysis_from_python(input_path=input_path, output_path=output_path)

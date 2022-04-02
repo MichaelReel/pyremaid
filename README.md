@@ -27,5 +27,6 @@ pip install -r requirements.txt
 
 ## Executing
 ```sh
-python src/pyremaid/pyremaid.py
+source ./.env/bin/activate
+python src/main.py
 ```
