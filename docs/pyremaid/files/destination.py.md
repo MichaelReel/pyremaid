@@ -7,67 +7,67 @@
 ---
 ```mermaid
 flowchart TB
-  _f39_n133["If"]
-  _f39_n134["not os.path.isdir(output_path)"]
-  _f39_n135["Expr"]
-  _f39_n136["os.makedirs(output_path)"]
-  _f40_n137["Expr"]
-  _f40_n138["create_output_folder(output_path=output_path)"]
-  _f40_l41["(root, dirs, files)"]
-  _f40_l41_l42_n139["Expr"]
-  _f40_l41_l42_n140["os.remove(os.path.join(root, name))"]
-  _f40_l41_l43["name"]
-  _f40_l41_l43_n141["Expr"]
-  _f40_l41_l43_n142["os.rmdir(os.path.join(root, name))"]
-  _f40_l41_l42["name"]
-  _f45_n144["If"]
-  _f45_n145["not os.path.isdir(os.path.dirname(output_file))"]
-  _f45_n146["Expr"]
-  _f45_n147["os.makedirs(os.path.dirname(output_file))"]
-  _f45_n148["With"]
-  _f45_n149["withitem"]
-  _f45_n150["open(output_file, 'w')"]
-  _f45_n151["md_file"]
-  _f45_n152["Expr"]
-  _f45_n153["md_file.write(content)"]
+  _f40_n139["If"]
+  _f40_n140["not os.path.isdir(output_path)"]
+  _f40_n141["Expr"]
+  _f40_n142["os.makedirs(output_path)"]
+  _f41_n143["Expr"]
+  _f41_n144["create_output_folder(output_path=output_path)"]
+  _f41_l42["(root, dirs, files)"]
+  _f41_l42_l43_n145["Expr"]
+  _f41_l42_l43_n146["os.remove(os.path.join(root, name))"]
+  _f41_l42_l44["name"]
+  _f41_l42_l44_n147["Expr"]
+  _f41_l42_l44_n148["os.rmdir(os.path.join(root, name))"]
+  _f41_l42_l43["name"]
+  _f46_n150["If"]
+  _f46_n151["not os.path.isdir(os.path.dirname(output_file))"]
+  _f46_n152["Expr"]
+  _f46_n153["os.makedirs(os.path.dirname(output_file))"]
+  _f46_n154["With"]
+  _f46_n155["withitem"]
+  _f46_n156["open(output_file, 'w')"]
+  _f46_n157["md_file"]
+  _f46_n158["Expr"]
+  _f46_n159["md_file.write(content)"]
 
   subgraph _create_output_folder
     direction TB
-    _f39_n133 --> _f39_n134
-    _f39_n134 --> _f39_n135
-    _f39_n135 --> _f39_n136
+    _f40_n139 --> _f40_n140
+    _f40_n140 --> _f40_n141
+    _f40_n141 --> _f40_n142
   end
   subgraph _create_cleared_output_folder
     direction TB
-    _f40_n137 --> _f40_n138
-    _f40_n138 --> _f40_l41
+    _f41_n143 --> _f41_n144
+    _f41_n144 --> _f41_l42
     %% loop (root, dirs, files)
       %% loop name
-        _f40_l41_l42_n139 --> _f40_l41_l42_n140
+        _f41_l42_l43_n145 --> _f41_l42_l43_n146
       %% end name
-      _f40_l41_l42_n140 --> _f40_l41_l42_n139
-      _f40_l41_l42_n139 --> _f40_l41_l43
+      _f41_l42_l43_n146 --> _f41_l42_l43_n145
+      _f41_l42_l43_n145 --> _f41_l42_l44
       %% loop name
-        _f40_l41_l43_n141 --> _f40_l41_l43_n142
+        _f41_l42_l44_n147 --> _f41_l42_l44_n148
       %% end name
-      _f40_l41_l43_n142 --> _f40_l41_l43_n141
+      _f41_l42_l44_n148 --> _f41_l42_l44_n147
     %% end (root, dirs, files)
-    _f40_l41_l43_n141 --> _f40_l41_l42
+    _f41_l42_l44_n147 --> _f41_l42_l43
   end
   subgraph _get_output_file_path_for_input_file
     direction TB
   end
   subgraph _update_output_file
     direction TB
-    _f45_n144 --> _f45_n145
-    _f45_n145 --> _f45_n146
-    _f45_n146 --> _f45_n147
-    _f45_n147 --> _f45_n148
-    _f45_n148 --> _f45_n149
-    _f45_n149 --> _f45_n150
-    _f45_n150 --> _f45_n151
-    _f45_n151 --> _f45_n152
-    _f45_n152 --> _f45_n153
+    _f46_n150 --> _f46_n151
+    _f46_n151 --> _f46_n152
+    _f46_n152 --> _f46_n153
+    _f46_n153 --> _f46_n154
+    _f46_n154 --> _f46_n155
+    _f46_n155 --> _f46_n156
+    _f46_n156 --> _f46_n157
+    _f46_n157 --> _f46_n158
+    _f46_n158 --> _f46_n159
   end
 
 ```

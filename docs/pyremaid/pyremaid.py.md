@@ -2,100 +2,100 @@
 
 ### Imports
 
-  - pyremaid.files.destination.create_cleared_output_folder
-  - pyremaid.files.destination.get_output_file_path_for_input_file
-  - pyremaid.files.destination.update_output_file
-  - pyremaid.files.source.find_all_python_files
-  - pyremaid.files.source.get_source_code_from_file
-  - pyremaid.files.source.get_import_name_from_path
-  - pyremaid.ast_tools.create_mermaid_model_from_ast_model
-  - pyremaid.ast_tools.get_ast_root_node_for_file
-  - pyremaid.ast_tools.get_markdown_dump_for_ast_node
-  - pyremaid.ast_tools.get_used_import_list
-  - pyremaid.ast_tools.import_map.get_all_imports_from_files
-  - pyremaid.markdown_tools.create_markdown_content
-  - pyremaid.mermaid_tools.create_mermaid_flow_graph_from_links
-  - pyremaid.models.MermaidElement
+  - [pyremaid.files.destination.create_cleared_output_folder](/docs/pyremaid/files/destination.py.md)
+  - [pyremaid.files.destination.get_output_file_path_for_input_file](/docs/pyremaid/files/destination.py.md)
+  - [pyremaid.files.destination.update_output_file](/docs/pyremaid/files/destination.py.md)
+  - [pyremaid.files.source.find_all_python_files](/docs/pyremaid/files/source.py.md)
+  - [pyremaid.files.source.get_source_code_from_file](/docs/pyremaid/files/source.py.md)
+  - [pyremaid.files.source.get_import_name_from_path](/docs/pyremaid/files/source.py.md)
+  - [pyremaid.ast_tools.create_mermaid_model_from_ast_model](/docs/pyremaid/ast_tools/__init__.py.md)
+  - [pyremaid.ast_tools.get_ast_root_node_for_file](/docs/pyremaid/ast_tools/__init__.py.md)
+  - [pyremaid.ast_tools.get_markdown_dump_for_ast_node](/docs/pyremaid/ast_tools/__init__.py.md)
+  - [pyremaid.ast_tools.get_used_import_list](/docs/pyremaid/ast_tools/__init__.py.md)
+  - [pyremaid.ast_tools.import_map.get_all_imports_from_files](/docs/pyremaid/ast_tools/import_map.py.md)
+  - [pyremaid.markdown_tools.create_markdown_content](/docs/pyremaid/markdown_tools.py.md)
+  - [pyremaid.mermaid_tools.create_mermaid_flow_graph_from_links](/docs/pyremaid/mermaid_tools/__init__.py.md)
+  - [pyremaid.models.MermaidElement](/docs/pyremaid/models.py.md)
 
 ---
 ```mermaid
 flowchart TB
-  _f9_n12["Expr"]
-  _f9_n13["create_cleared_output_folder(output_path=output_path)"]
-  _f9_n14["python_files = find_all_python_files(input_path=input_path)"]
-  _f9_n15["global_import_table = get_global_input_table(input_path=input_path, python_files=python_files, output_root=output_path)"]
-  _f9_l10["in_file"]
-  _f9_l10_n16["Expr"]
-  _f9_l10_n17["create_new_mermaid_analysis_for_file(input_path=input_path, output_path=output_path, global_import_table=global_import_table, in_file=in_file)"]
-  _f11_n18["relative_in_file = in_file.replace(input_path, '')"]
-  _f11_n19["out_file = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_path)"]
-  _f11_n20["debug_dump = ''"]
-  _f11_n21["import_list = []"]
-  _f11_n22["mermaid_diagrams = []"]
-  _f11_n23["If"]
-  _f11_n24["(source_code := get_source_code_from_file(input_file=in_file))"]
-  _f11_n25["If"]
-  _f11_n26["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
-  _f11_n27["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
-  _f11_n28["import_list = get_used_import_list(ast_node=ast_node)"]
-  _f11_n29["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
-  _f11_n30["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
-  _f11_n31["mermaid_diagrams = [mermaid_diagram]"]
-  _f11_n32["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=mermaid_diagrams, debug_dump=debug_dump)"]
-  _f11_n33["Expr"]
-  _f11_n34["update_output_file(content=markdown_content, output_file=out_file)"]
-  _f12_n35["global_import_table = get_all_imports_from_files(input_path=input_path, python_files=python_files)"]
-  _f12_l13["global_import"]
-  _f12_l13_n36["relative_in_file = global_import_table[global_import].replace(input_path, '')"]
-  _f12_l13_n37["If"]
-  _f12_l13_n38["relative_in_file"]
-  _f12_l13_n39["global_import_table[global_import] = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_root).lstrip('.')"]
-  _f12_n40["Expr"]
-  _f12_n41["print('\n'.join([f'{k}: {v}' for (k, v) in global_import_table.items()]))"]
-  _f12_n42["return global_import_table"]
+  _f10_n18["Expr"]
+  _f10_n19["create_cleared_output_folder(output_path=output_path)"]
+  _f10_n20["python_files = find_all_python_files(input_path=input_path)"]
+  _f10_n21["global_import_table = get_global_input_table(input_path=input_path, python_files=python_files, output_root=output_path)"]
+  _f10_l11["in_file"]
+  _f10_l11_n22["Expr"]
+  _f10_l11_n23["create_new_mermaid_analysis_for_file(input_path=input_path, output_path=output_path, global_import_table=global_import_table, in_file=in_file)"]
+  _f12_n24["relative_in_file = in_file.replace(input_path, '')"]
+  _f12_n25["out_file = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_path)"]
+  _f12_n26["debug_dump = ''"]
+  _f12_n27["import_list = []"]
+  _f12_n28["mermaid_diagrams = []"]
+  _f12_n29["If"]
+  _f12_n30["(source_code := get_source_code_from_file(input_file=in_file))"]
+  _f12_n31["If"]
+  _f12_n32["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
+  _f12_n33["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
+  _f12_n34["import_list = get_used_import_list(ast_node=ast_node)"]
+  _f12_n35["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
+  _f12_n36["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
+  _f12_n37["mermaid_diagrams = [mermaid_diagram]"]
+  _f12_n38["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=mermaid_diagrams, debug_dump=debug_dump)"]
+  _f12_n39["Expr"]
+  _f12_n40["update_output_file(content=markdown_content, output_file=out_file)"]
+  _f13_n41["global_import_table = get_all_imports_from_files(input_path=input_path, python_files=python_files)"]
+  _f13_l14["global_import"]
+  _f13_l14_n42["relative_in_file = global_import_table[global_import].replace(input_path, '')"]
+  _f13_l14_n43["If"]
+  _f13_l14_n44["relative_in_file"]
+  _f13_l14_n45["global_import_table[global_import] = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_root).lstrip('.')"]
+  _f13_n46["Expr"]
+  _f13_n47["print('\n'.join([f'{k}: {v}' for (k, v) in global_import_table.items()]))"]
+  _f13_n48["return global_import_table"]
 
   subgraph _create_mermaid_analysis_from_python
     direction TB
-    _f9_n12 --> _f9_n13
-    _f9_n13 --> _f9_n14
-    _f9_n14 --> _f9_n15
-    _f9_n15 --> _f9_l10
+    _f10_n18 --> _f10_n19
+    _f10_n19 --> _f10_n20
+    _f10_n20 --> _f10_n21
+    _f10_n21 --> _f10_l11
     %% loop in_file
-      _f9_l10_n16 --> _f9_l10_n17
+      _f10_l11_n22 --> _f10_l11_n23
     %% end in_file
-    _f9_l10_n17 --> _f9_l10_n16
+    _f10_l11_n23 --> _f10_l11_n22
   end
   subgraph _create_new_mermaid_analysis_for_file
     direction TB
-    _f11_n18 --> _f11_n19
-    _f11_n19 --> _f11_n20
-    _f11_n20 --> _f11_n21
-    _f11_n21 --> _f11_n22
-    _f11_n22 --> _f11_n23
-    _f11_n23 --> _f11_n24
-    _f11_n24 --> _f11_n25
-    _f11_n25 --> _f11_n26
-    _f11_n26 --> _f11_n27
-    _f11_n27 --> _f11_n28
-    _f11_n28 --> _f11_n29
-    _f11_n29 --> _f11_n30
-    _f11_n30 --> _f11_n31
-    _f11_n31 --> _f11_n32
-    _f11_n32 --> _f11_n33
-    _f11_n33 --> _f11_n34
+    _f12_n24 --> _f12_n25
+    _f12_n25 --> _f12_n26
+    _f12_n26 --> _f12_n27
+    _f12_n27 --> _f12_n28
+    _f12_n28 --> _f12_n29
+    _f12_n29 --> _f12_n30
+    _f12_n30 --> _f12_n31
+    _f12_n31 --> _f12_n32
+    _f12_n32 --> _f12_n33
+    _f12_n33 --> _f12_n34
+    _f12_n34 --> _f12_n35
+    _f12_n35 --> _f12_n36
+    _f12_n36 --> _f12_n37
+    _f12_n37 --> _f12_n38
+    _f12_n38 --> _f12_n39
+    _f12_n39 --> _f12_n40
   end
   subgraph _get_global_input_table
     direction TB
-    _f12_n35 --> _f12_l13
+    _f13_n41 --> _f13_l14
     %% loop global_import
-      _f12_l13_n36 --> _f12_l13_n37
-      _f12_l13_n37 --> _f12_l13_n38
-      _f12_l13_n38 --> _f12_l13_n39
+      _f13_l14_n42 --> _f13_l14_n43
+      _f13_l14_n43 --> _f13_l14_n44
+      _f13_l14_n44 --> _f13_l14_n45
     %% end global_import
-    _f12_l13_n39 --> _f12_l13_n36
-    _f12_l13_n36 --> _f12_n40
-    _f12_n40 --> _f12_n41
-    _f12_n41 --> _f12_n42
+    _f13_l14_n45 --> _f13_l14_n42
+    _f13_l14_n42 --> _f13_n46
+    _f13_n46 --> _f13_n47
+    _f13_n47 --> _f13_n48
   end
 
 ```

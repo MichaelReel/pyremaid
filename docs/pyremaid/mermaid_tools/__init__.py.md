@@ -2,7 +2,7 @@
 
 ### Imports
 
-  - pyremaid.mermaid_tools.mermaid_tools.create_mermaid_flow_graph_from_links
+  - [pyremaid.mermaid_tools.mermaid_tools.create_mermaid_flow_graph_from_links](/docs/pyremaid/mermaid_tools/mermaid_tools.py.md)
 
 ---
 ```mermaid
