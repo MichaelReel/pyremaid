@@ -8,7 +8,7 @@ def find_all_python_files(input_path: str) -> list[str]:
         for filename in filenames:
             if match(r".*\.py$", filename):
                 python_files.append(os.path.join(dirpath, filename))
-    
+
     return python_files
 
 
@@ -21,8 +21,7 @@ def get_source_code_from_file(input_file: str) -> str:
 
 def get_import_name_from_path(input_path: str, input_file: str) -> str:
     return (
-        input_file
-        .replace(input_path, "")
+        input_file.replace(input_path, "")
         .replace(".py", "")
         .replace(".", "")
         .replace(os.sep, ".")

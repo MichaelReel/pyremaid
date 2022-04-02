@@ -45,4 +45,3 @@ class MermaidClass(MermaidBlock):
 class MermaidFor(MermaidBlock):
     target: Optional[str] = None
     iterator: Optional[str] = None
-

@@ -9,7 +9,7 @@ def get_ast_root_node_for_file(source_code: str, input_file: str) -> Optional[AS
     return parse(
         source=source_code,
         filename=input_file,
-        mode='exec',
+        mode="exec",
         type_comments=True,
     )
 

@@ -1,7 +1,7 @@
 import os
 
 
-def create_output_folder(output_path : str) -> None:
+def create_output_folder(output_path: str) -> None:
     if not os.path.isdir(output_path):
         os.makedirs(output_path)
 
@@ -25,4 +25,3 @@ def update_output_file(content: str, output_file: str):
 
     with open(output_file, "w") as md_file:
         md_file.write(content)
-

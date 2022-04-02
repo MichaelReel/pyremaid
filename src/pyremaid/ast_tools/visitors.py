@@ -23,17 +23,12 @@ from typing import Any, Optional
 
 
 def _sanitize(markdown: str) -> str:
-    return (
-        markdown
-        .replace("<","")
-        .replace(">","")
-        .replace("\"","''")
-    )
+    return markdown.replace("<", "").replace(">", "").replace('"', "''")
 
 
 class ImportNodeFinder(NodeVisitor):
     def __init__(self) -> None:
-        self.found_imports : list[str] = []
+        self.found_imports: list[str] = []
 
     def visit_Import(self, node: Import) -> None:
         for i in node.names:
@@ -49,17 +44,17 @@ class ImportNodeFinder(NodeVisitor):
 
 
 class LinkGenerator(NodeVisitor):
-    count : int = 0
+    count: int = 0
 
-    def __init__(self, prefix : str = "") -> None:
-        self.elements : list[MermaidElement] = []
-        self.prev_node : Optional[AST] = None
+    def __init__(self, prefix: str = "") -> None:
+        self.elements: list[MermaidElement] = []
+        self.prev_node: Optional[AST] = None
         self.prefix = prefix
 
     @classmethod
     def _count(cls) -> int:
         value = cls.count
-        cls.count +=1
+        cls.count += 1
         return value
 
     def visit_Import(self, node: Import) -> None:
@@ -72,7 +67,7 @@ class LinkGenerator(NodeVisitor):
         block_generator = BlockGenerator(prefix=self.prefix)
         block_generator.visit(node)
         self.elements.extend(block_generator.get_list_of_elements())
-    
+
     def visit_ClassDef(self, node: ClassDef) -> Any:
         block_generator = BlockGenerator(prefix=self.prefix)
         block_generator.visit(node)
@@ -160,16 +155,16 @@ class LinkGenerator(NodeVisitor):
 
 
 class BlockGenerator(NodeVisitor):
-    count : int = 0
+    count: int = 0
 
-    def __init__(self, prefix : str = "") -> None:
-        self.elements : list[MermaidElement] = []
+    def __init__(self, prefix: str = "") -> None:
+        self.elements: list[MermaidElement] = []
         self.prefix = prefix
 
     @classmethod
     def _count(cls) -> int:
         value = cls.count
-        cls.count +=1
+        cls.count += 1
         return value
 
     def visit_Module(self, block_node: Module) -> Any:
@@ -179,14 +174,14 @@ class BlockGenerator(NodeVisitor):
             link_generator.visit(node=sub_element)
 
         mermaid_block = MermaidModule(
-            ast_node = block_node,
-            mermaid_safe_name = f"{self.prefix}_m{BlockGenerator._count()}",
-            block_contents = link_generator.get_list_of_elements(),
+            ast_node=block_node,
+            mermaid_safe_name=f"{self.prefix}_m{BlockGenerator._count()}",
+            block_contents=link_generator.get_list_of_elements(),
             display_name="module",
         )
 
         self.elements.append(mermaid_block)
-    
+
     def visit_FunctionDef(self, block_node: FunctionDef) -> Any:
         """This is a block, we want a subgraph, so parse content"""
         mermaid_safe_name = f"{self.prefix}_f{BlockGenerator._count()}"
@@ -195,9 +190,9 @@ class BlockGenerator(NodeVisitor):
             link_generator.visit(node=sub_element)
 
         mermaid_block = MermaidFunction(
-            ast_node = block_node,
-            mermaid_safe_name = mermaid_safe_name,
-            block_contents = link_generator.get_list_of_elements(),
+            ast_node=block_node,
+            mermaid_safe_name=mermaid_safe_name,
+            block_contents=link_generator.get_list_of_elements(),
             display_name=f"{self.prefix}_{block_node.name}",
         )
 
@@ -211,9 +206,9 @@ class BlockGenerator(NodeVisitor):
             link_generator.visit(node=sub_element)
 
         mermaid_block = MermaidClass(
-            ast_node = block_node,
-            mermaid_safe_name = mermaid_safe_name,
-            block_contents = link_generator.get_list_of_elements(),
+            ast_node=block_node,
+            mermaid_safe_name=mermaid_safe_name,
+            block_contents=link_generator.get_list_of_elements(),
             display_name=block_node.name,
         )
 
@@ -237,12 +232,12 @@ class BlockGenerator(NodeVisitor):
             loop_end = loop_end.to
 
         mermaid_block = MermaidFor(
-            ast_node = block_node,
-            mermaid_safe_name = mermaid_safe_name,
-            block_contents = for_loop_elements,
+            ast_node=block_node,
+            mermaid_safe_name=mermaid_safe_name,
+            block_contents=for_loop_elements,
             display_name=unparse(block_node.target),
-            target = unparse(block_node.target),
-            iterator = unparse(block_node.iter),
+            target=unparse(block_node.target),
+            iterator=unparse(block_node.iter),
         )
         self.elements.append(mermaid_block)
 

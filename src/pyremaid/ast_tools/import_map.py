@@ -3,11 +3,9 @@ from files.source import get_source_code_from_file, get_import_name_from_path
 
 
 class ImportMap:
-
     def __init__(self) -> None:
-        self.import_to : dict[str, list[str]] = {}
-        self.import_from : dict[str, list[str]] = {}
-
+        self.import_to: dict[str, list[str]] = {}
+        self.import_from: dict[str, list[str]] = {}
 
     def add_import(self, from_: str, to: str) -> None:
         if from_ not in self.import_to:
@@ -20,7 +18,7 @@ class ImportMap:
 
 
 def _get_import_to_file_map(input_path: str, python_files: list[str]) -> dict[str, str]:
-    """ Create a mapping of import paths to filenames first """
+    """Create a mapping of import paths to filenames first"""
     import_to_file_map = {}
 
     for in_file in python_files:
@@ -33,12 +31,11 @@ def _get_import_to_file_map(input_path: str, python_files: list[str]) -> dict[st
 
 
 def _get_parent_import(import_name: str) -> str:
-    return import_name[0: import_name.rfind('.')]
+    return import_name[0 : import_name.rfind(".")]
 
 
 def _create_import_table(
-    python_files: list[str],
-    import_to_file_map: dict[str, str]
+    python_files: list[str], import_to_file_map: dict[str, str]
 ) -> dict[str, str]:
 
     all_imports_list = {}

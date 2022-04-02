@@ -1,8 +1,7 @@
-
 def create_markdown_content(
     input_file: str,
     import_list: list[str],
-    global_import_table: dict[str,str],
+    global_import_table: dict[str, str],
     mermaid_diagrams: list[str],
     debug_dump: str,
 ) -> str:
@@ -23,7 +22,7 @@ def create_markdown_content(
 
 
 def turn_out_the_import_list(
-    import_list: list[str], global_import_table: dict[str,str]
+    import_list: list[str], global_import_table: dict[str, str]
 ) -> str:
     list_str = "### Imports\n\n"
     for import_item in import_list:
@@ -33,7 +32,6 @@ def turn_out_the_import_list(
         else:
             list_str += f"  - {import_item}\n"
     return list_str
-
 
 
 def create_markdown_debug_dump_block(debug_content: str) -> str:
