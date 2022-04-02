@@ -10,180 +10,104 @@
 ---
 ```mermaid
 flowchart TB
-  _c70_f71_n299["self.import_to: dict[str, list[str]] = {}"]
-  _c70_f71_n300["self.import_from: dict[str, list[str]] = {}"]
-  _c70_f72_n301["If"]
-  _c70_f72_n302["Compare"]
-  _c70_f72_n303["Name"]
-  _c70_f72_n304["Load"]
-  _c70_f72_n305["NotIn"]
-  _c70_f72_n306["Attribute"]
-  _c70_f72_n307["Name"]
-  _c70_f72_n308["Load"]
-  _c70_f72_n309["Load"]
-  _c70_f72_n310["self.import_to[from_] = []"]
-  _c70_f72_n311["Expr"]
-  _c70_f72_n312["self.import_to[from_].append(to)"]
-  _c70_f72_n313["If"]
-  _c70_f72_n314["Compare"]
-  _c70_f72_n315["Name"]
-  _c70_f72_n316["Load"]
-  _c70_f72_n317["NotIn"]
-  _c70_f72_n318["Attribute"]
-  _c70_f72_n319["Name"]
-  _c70_f72_n320["Load"]
-  _c70_f72_n321["Load"]
-  _c70_f72_n322["self.import_from[to] = []"]
-  _c70_f72_n323["Expr"]
-  _c70_f72_n324["Subscript"]
-  _c70_f72_n325["Attribute"]
-  _c70_f72_n326["Subscript"]
-  _c70_f72_n327["Attribute"]
-  _c70_f72_n328["Name"]
-  _c70_f72_n329["Load"]
-  _c70_f72_n330["Load"]
-  _c70_f72_n331["Name"]
-  _c70_f72_n332["Load"]
-  _c70_f72_n333["Load"]
-  _c70_f72_n334["Load"]
-  _c70_f72_n335["Name"]
-  _c70_f72_n336["Load"]
-  _c70_f72_n337["Load"]
-  _f73_n338["Expr"]
-  _f73_n339["' Create a mapping of import paths to filenames first '"]
-  _f73_n340["import_to_file_map = {}"]
-  _f73_l74["in_file"]
-  _f73_l74_n341["import_name = get_import_name_from_path(input_path=input_path, input_file=in_file)"]
-  _f73_l74_n342["import_to_file_map[import_name] = in_file"]
-  _f73_n343["return import_to_file_map"]
-  _f76_n345["all_imports_list = {}"]
-  _f76_l77["in_file"]
-  _f76_l77_n346["If"]
-  _f76_l77_n347["NamedExpr"]
-  _f76_l77_n348["Name"]
-  _f76_l77_n349["Store"]
-  _f76_l77_n350["get_source_code_from_file(input_file=in_file)"]
-  _f76_l77_n351["If"]
-  _f76_l77_n352["NamedExpr"]
-  _f76_l77_n353["Name"]
-  _f76_l77_n354["Store"]
-  _f76_l77_n355["get_ast_root_node_for_file(source_code=source_code, input_file=in_file)"]
-  _f76_l77_l78["used_import"]
-  _f76_l77_l78_n356["known_file = ''"]
-  _f76_l77_l78_n357["parent_import = _get_parent_import(used_import)"]
-  _f76_l77_l78_n358["If"]
-  _f76_l77_l78_n359["Compare"]
-  _f76_l77_l78_n360["Name"]
-  _f76_l77_l78_n361["Load"]
-  _f76_l77_l78_n362["In"]
-  _f76_l77_l78_n363["Name"]
-  _f76_l77_l78_n364["Load"]
-  _f76_l77_l78_n365["known_file = import_to_file_map[parent_import]"]
-  _f76_l77_l78_n366["all_imports_list[used_import] = known_file"]
-  _f76_n367["return all_imports_list"]
-  _f79_n368["Expr"]
-  _f79_n369["''\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ''"]
-  _f79_n370["import_to_file_map = _get_import_to_file_map(input_path=input_path, python_files=python_files)"]
-  _f79_n371["all_imports_list = _create_import_table(python_files=python_files, import_to_file_map=import_to_file_map)"]
-  _f79_n372["return all_imports_list"]
+  _c84_f85_n314["self.import_to: dict[str, list[str]] = {}"]
+  _c84_f85_n315["self.import_from: dict[str, list[str]] = {}"]
+  _c84_f86_n316["If"]
+  _c84_f86_n317["from_ not in self.import_to"]
+  _c84_f86_n318["self.import_to[from_] = []"]
+  _c84_f86_n319["Expr"]
+  _c84_f86_n320["self.import_to[from_].append(to)"]
+  _c84_f86_n321["If"]
+  _c84_f86_n322["to not in self.import_from"]
+  _c84_f86_n323["self.import_from[to] = []"]
+  _c84_f86_n324["Expr"]
+  _c84_f86_n325["self.import_from[to].append[from_]"]
+  _f87_n326["Expr"]
+  _f87_n327["' Create a mapping of import paths to filenames first '"]
+  _f87_n328["import_to_file_map = {}"]
+  _f87_l88["in_file"]
+  _f87_l88_n329["import_name = get_import_name_from_path(input_path=input_path, input_file=in_file)"]
+  _f87_l88_n330["import_to_file_map[import_name] = in_file"]
+  _f87_n331["return import_to_file_map"]
+  _f90_n333["all_imports_list = {}"]
+  _f90_l91["in_file"]
+  _f90_l91_n334["If"]
+  _f90_l91_n335["(source_code := get_source_code_from_file(input_file=in_file))"]
+  _f90_l91_n336["If"]
+  _f90_l91_n337["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
+  _f90_l91_l92["used_import"]
+  _f90_l91_l92_n338["known_file = ''"]
+  _f90_l91_l92_n339["parent_import = _get_parent_import(used_import)"]
+  _f90_l91_l92_n340["If"]
+  _f90_l91_l92_n341["parent_import in import_to_file_map"]
+  _f90_l91_l92_n342["known_file = import_to_file_map[parent_import]"]
+  _f90_l91_l92_n343["all_imports_list[used_import] = known_file"]
+  _f90_n344["return all_imports_list"]
+  _f93_n345["Expr"]
+  _f93_n346["''\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ''"]
+  _f93_n347["import_to_file_map = _get_import_to_file_map(input_path=input_path, python_files=python_files)"]
+  _f93_n348["all_imports_list = _create_import_table(python_files=python_files, import_to_file_map=import_to_file_map)"]
+  _f93_n349["return all_imports_list"]
 
   subgraph ImportMap
     direction TB
-    subgraph _c70___init__
+    subgraph _c84___init__
       direction TB
-      _c70_f71_n299 --> _c70_f71_n300
+      _c84_f85_n314 --> _c84_f85_n315
     end
-    subgraph _c70_add_import
+    subgraph _c84_add_import
       direction TB
-      _c70_f72_n301 --> _c70_f72_n302
-      _c70_f72_n302 --> _c70_f72_n303
-      _c70_f72_n303 --> _c70_f72_n304
-      _c70_f72_n304 --> _c70_f72_n305
-      _c70_f72_n305 --> _c70_f72_n306
-      _c70_f72_n306 --> _c70_f72_n307
-      _c70_f72_n307 --> _c70_f72_n308
-      _c70_f72_n308 --> _c70_f72_n309
-      _c70_f72_n309 --> _c70_f72_n310
-      _c70_f72_n310 --> _c70_f72_n311
-      _c70_f72_n311 --> _c70_f72_n312
-      _c70_f72_n312 --> _c70_f72_n313
-      _c70_f72_n313 --> _c70_f72_n314
-      _c70_f72_n314 --> _c70_f72_n315
-      _c70_f72_n315 --> _c70_f72_n316
-      _c70_f72_n316 --> _c70_f72_n317
-      _c70_f72_n317 --> _c70_f72_n318
-      _c70_f72_n318 --> _c70_f72_n319
-      _c70_f72_n319 --> _c70_f72_n320
-      _c70_f72_n320 --> _c70_f72_n321
-      _c70_f72_n321 --> _c70_f72_n322
-      _c70_f72_n322 --> _c70_f72_n323
-      _c70_f72_n323 --> _c70_f72_n324
-      _c70_f72_n324 --> _c70_f72_n325
-      _c70_f72_n325 --> _c70_f72_n326
-      _c70_f72_n326 --> _c70_f72_n327
-      _c70_f72_n327 --> _c70_f72_n328
-      _c70_f72_n328 --> _c70_f72_n329
-      _c70_f72_n329 --> _c70_f72_n330
-      _c70_f72_n330 --> _c70_f72_n331
-      _c70_f72_n331 --> _c70_f72_n332
-      _c70_f72_n332 --> _c70_f72_n333
-      _c70_f72_n333 --> _c70_f72_n334
-      _c70_f72_n334 --> _c70_f72_n335
-      _c70_f72_n335 --> _c70_f72_n336
-      _c70_f72_n336 --> _c70_f72_n337
+      _c84_f86_n316 --> _c84_f86_n317
+      _c84_f86_n317 --> _c84_f86_n318
+      _c84_f86_n318 --> _c84_f86_n319
+      _c84_f86_n319 --> _c84_f86_n320
+      _c84_f86_n320 --> _c84_f86_n321
+      _c84_f86_n321 --> _c84_f86_n322
+      _c84_f86_n322 --> _c84_f86_n323
+      _c84_f86_n323 --> _c84_f86_n324
+      _c84_f86_n324 --> _c84_f86_n325
     end
   end
   subgraph __get_import_to_file_map
     direction TB
-    _f73_n338 --> _f73_n339
-    _f73_n339 --> _f73_n340
-    _f73_n340 --> _f73_l74
+    _f87_n326 --> _f87_n327
+    _f87_n327 --> _f87_n328
+    _f87_n328 --> _f87_l88
     %% loop in_file
-      _f73_l74_n341 --> _f73_l74_n342
+      _f87_l88_n329 --> _f87_l88_n330
     %% end in_file
-    _f73_l74_n342 --> _f73_l74_n341
-    _f73_l74_n341 --> _f73_n343
+    _f87_l88_n330 --> _f87_l88_n329
+    _f87_l88_n329 --> _f87_n331
   end
   subgraph __get_parent_import
     direction TB
   end
   subgraph __create_import_table
     direction TB
-    _f76_n345 --> _f76_l77
+    _f90_n333 --> _f90_l91
     %% loop in_file
-      _f76_l77_n346 --> _f76_l77_n347
-      _f76_l77_n347 --> _f76_l77_n348
-      _f76_l77_n348 --> _f76_l77_n349
-      _f76_l77_n349 --> _f76_l77_n350
-      _f76_l77_n350 --> _f76_l77_n351
-      _f76_l77_n351 --> _f76_l77_n352
-      _f76_l77_n352 --> _f76_l77_n353
-      _f76_l77_n353 --> _f76_l77_n354
-      _f76_l77_n354 --> _f76_l77_n355
-      _f76_l77_n355 --> _f76_l77_l78
+      _f90_l91_n334 --> _f90_l91_n335
+      _f90_l91_n335 --> _f90_l91_n336
+      _f90_l91_n336 --> _f90_l91_n337
+      _f90_l91_n337 --> _f90_l91_l92
       %% loop used_import
-        _f76_l77_l78_n356 --> _f76_l77_l78_n357
-        _f76_l77_l78_n357 --> _f76_l77_l78_n358
-        _f76_l77_l78_n358 --> _f76_l77_l78_n359
-        _f76_l77_l78_n359 --> _f76_l77_l78_n360
-        _f76_l77_l78_n360 --> _f76_l77_l78_n361
-        _f76_l77_l78_n361 --> _f76_l77_l78_n362
-        _f76_l77_l78_n362 --> _f76_l77_l78_n363
-        _f76_l77_l78_n363 --> _f76_l77_l78_n364
-        _f76_l77_l78_n364 --> _f76_l77_l78_n365
-        _f76_l77_l78_n365 --> _f76_l77_l78_n366
+        _f90_l91_l92_n338 --> _f90_l91_l92_n339
+        _f90_l91_l92_n339 --> _f90_l91_l92_n340
+        _f90_l91_l92_n340 --> _f90_l91_l92_n341
+        _f90_l91_l92_n341 --> _f90_l91_l92_n342
+        _f90_l91_l92_n342 --> _f90_l91_l92_n343
       %% end used_import
-      _f76_l77_l78_n366 --> _f76_l77_l78_n356
+      _f90_l91_l92_n343 --> _f90_l91_l92_n338
     %% end in_file
-    _f76_l77_l78_n356 --> _f76_l77_n346
-    _f76_l77_n346 --> _f76_n367
+    _f90_l91_l92_n338 --> _f90_l91_n334
+    _f90_l91_n334 --> _f90_n344
   end
   subgraph _get_all_imports_from_files
     direction TB
-    _f79_n368 --> _f79_n369
-    _f79_n369 --> _f79_n370
-    _f79_n370 --> _f79_n371
-    _f79_n371 --> _f79_n372
+    _f93_n345 --> _f93_n346
+    _f93_n346 --> _f93_n347
+    _f93_n347 --> _f93_n348
+    _f93_n348 --> _f93_n349
   end
 
 ```
@@ -198,8 +122,18 @@ Module(
     ImportFrom(
       module='ast_tools',
       names=[
-        alias(name='get_ast_root_node_for_file'),
-        alias(name='get_used_import_list')],
+        alias(
+          name='get_ast_root_node_for_file',
+          lineno=1,
+          col_offset=22,
+          end_lineno=1,
+          end_col_offset=48),
+        alias(
+          name='get_used_import_list',
+          lineno=1,
+          col_offset=50,
+          end_lineno=1,
+          end_col_offset=70)],
       level=0,
       lineno=1,
       col_offset=0,
@@ -208,8 +142,18 @@ Module(
     ImportFrom(
       module='files.source',
       names=[
-        alias(name='get_source_code_from_file'),
-        alias(name='get_import_name_from_path')],
+        alias(
+          name='get_source_code_from_file',
+          lineno=2,
+          col_offset=25,
+          end_lineno=2,
+          end_col_offset=50),
+        alias(
+          name='get_import_name_from_path',
+          lineno=2,
+          col_offset=52,
+          end_lineno=2,
+          end_col_offset=77)],
       level=0,
       lineno=2,
       col_offset=0,

@@ -24,10 +24,30 @@ Module(
     ImportFrom(
       module='ast_tools.ast_tools',
       names=[
-        alias(name='create_mermaid_model_from_ast_model'),
-        alias(name='get_ast_root_node_for_file'),
-        alias(name='get_used_import_list'),
-        alias(name='get_markdown_dump_for_ast_node')],
+        alias(
+          name='create_mermaid_model_from_ast_model',
+          lineno=2,
+          col_offset=4,
+          end_lineno=2,
+          end_col_offset=39),
+        alias(
+          name='get_ast_root_node_for_file',
+          lineno=3,
+          col_offset=4,
+          end_lineno=3,
+          end_col_offset=30),
+        alias(
+          name='get_used_import_list',
+          lineno=4,
+          col_offset=4,
+          end_lineno=4,
+          end_col_offset=24),
+        alias(
+          name='get_markdown_dump_for_ast_node',
+          lineno=5,
+          col_offset=4,
+          end_lineno=5,
+          end_col_offset=34)],
       level=0,
       lineno=1,
       col_offset=0,

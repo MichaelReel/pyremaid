@@ -8,46 +8,44 @@
 ---
 ```mermaid
 flowchart TB
-  _f89_n395["python_files = []"]
-  _f89_l90["(dirpath, _dirnames, filenames)"]
-  _f89_l90_l91_n396["If"]
-  _f89_l90_l91_n397["match('.*\\.py$', filename)"]
-  _f89_l90_l91_n398["Expr"]
-  _f89_l90_l91_n399["python_files.append(os.path.join(dirpath, filename))"]
-  _f89_l90_l91["filename"]
-  _f89_n400["return python_files"]
-  _f92_n401["content = ''"]
-  _f92_n402["With"]
-  _f92_n403["withitem"]
-  _f92_n404["open(input_file, 'r')"]
-  _f92_n405["Name"]
-  _f92_n406["Store"]
-  _f92_n407["content = md_file.read()"]
-  _f92_n408["return content"]
+  _f31_n119["python_files = []"]
+  _f31_l32["(dirpath, _dirnames, filenames)"]
+  _f31_l32_l33_n120["If"]
+  _f31_l32_l33_n121["match('.*\\.py$', filename)"]
+  _f31_l32_l33_n122["Expr"]
+  _f31_l32_l33_n123["python_files.append(os.path.join(dirpath, filename))"]
+  _f31_l32_l33["filename"]
+  _f31_n124["return python_files"]
+  _f34_n125["content = ''"]
+  _f34_n126["With"]
+  _f34_n127["withitem"]
+  _f34_n128["open(input_file, 'r')"]
+  _f34_n129["md_file"]
+  _f34_n130["content = md_file.read()"]
+  _f34_n131["return content"]
 
   subgraph _find_all_python_files
     direction TB
-    _f89_n395 --> _f89_l90
+    _f31_n119 --> _f31_l32
     %% loop (dirpath, _dirnames, filenames)
       %% loop filename
-        _f89_l90_l91_n396 --> _f89_l90_l91_n397
-        _f89_l90_l91_n397 --> _f89_l90_l91_n398
-        _f89_l90_l91_n398 --> _f89_l90_l91_n399
+        _f31_l32_l33_n120 --> _f31_l32_l33_n121
+        _f31_l32_l33_n121 --> _f31_l32_l33_n122
+        _f31_l32_l33_n122 --> _f31_l32_l33_n123
       %% end filename
-      _f89_l90_l91_n399 --> _f89_l90_l91_n396
+      _f31_l32_l33_n123 --> _f31_l32_l33_n120
     %% end (dirpath, _dirnames, filenames)
-    _f89_l90_l91_n396 --> _f89_l90_l91
-    _f89_l90_l91 --> _f89_n400
+    _f31_l32_l33_n120 --> _f31_l32_l33
+    _f31_l32_l33 --> _f31_n124
   end
   subgraph _get_source_code_from_file
     direction TB
-    _f92_n401 --> _f92_n402
-    _f92_n402 --> _f92_n403
-    _f92_n403 --> _f92_n404
-    _f92_n404 --> _f92_n405
-    _f92_n405 --> _f92_n406
-    _f92_n406 --> _f92_n407
-    _f92_n407 --> _f92_n408
+    _f34_n125 --> _f34_n126
+    _f34_n126 --> _f34_n127
+    _f34_n127 --> _f34_n128
+    _f34_n128 --> _f34_n129
+    _f34_n129 --> _f34_n130
+    _f34_n130 --> _f34_n131
   end
   subgraph _get_import_name_from_path
     direction TB
@@ -64,7 +62,12 @@ Module(
   body=[
     Import(
       names=[
-        alias(name='os')],
+        alias(
+          name='os',
+          lineno=1,
+          col_offset=7,
+          end_lineno=1,
+          end_col_offset=9)],
       lineno=1,
       col_offset=0,
       end_lineno=1,
@@ -72,7 +75,12 @@ Module(
     ImportFrom(
       module='re',
       names=[
-        alias(name='match')],
+        alias(
+          name='match',
+          lineno=2,
+          col_offset=15,
+          end_lineno=2,
+          end_col_offset=20)],
       level=0,
       lineno=2,
       col_offset=0,

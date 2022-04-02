@@ -13,14 +13,14 @@
 ---
 ```mermaid
 flowchart TB
-  _f67_n291["finder = ImportNodeFinder()"]
-  _f67_n292["Expr"]
-  _f67_n293["finder.visit(ast_node)"]
-  _f67_n294["return finder.get_found_imports()"]
-  _f68_n295["generator = BlockGenerator()"]
-  _f68_n296["Expr"]
-  _f68_n297["generator.visit(node=model)"]
-  _f68_n298["return generator.get_list_of_elements()"]
+  _f47_n156["finder = ImportNodeFinder()"]
+  _f47_n157["Expr"]
+  _f47_n158["finder.visit(ast_node)"]
+  _f47_n159["return finder.get_found_imports()"]
+  _f48_n160["generator = BlockGenerator()"]
+  _f48_n161["Expr"]
+  _f48_n162["generator.visit(node=model)"]
+  _f48_n163["return generator.get_list_of_elements()"]
 
   subgraph _get_ast_root_node_for_file
     direction TB
@@ -30,15 +30,15 @@ flowchart TB
   end
   subgraph _get_used_import_list
     direction TB
-    _f67_n291 --> _f67_n292
-    _f67_n292 --> _f67_n293
-    _f67_n293 --> _f67_n294
+    _f47_n156 --> _f47_n157
+    _f47_n157 --> _f47_n158
+    _f47_n158 --> _f47_n159
   end
   subgraph _create_mermaid_model_from_ast_model
     direction TB
-    _f68_n295 --> _f68_n296
-    _f68_n296 --> _f68_n297
-    _f68_n297 --> _f68_n298
+    _f48_n160 --> _f48_n161
+    _f48_n161 --> _f48_n162
+    _f48_n162 --> _f48_n163
   end
 
 ```
@@ -53,9 +53,24 @@ Module(
     ImportFrom(
       module='ast',
       names=[
-        alias(name='AST'),
-        alias(name='dump'),
-        alias(name='parse')],
+        alias(
+          name='AST',
+          lineno=1,
+          col_offset=16,
+          end_lineno=1,
+          end_col_offset=19),
+        alias(
+          name='dump',
+          lineno=1,
+          col_offset=21,
+          end_lineno=1,
+          end_col_offset=25),
+        alias(
+          name='parse',
+          lineno=1,
+          col_offset=27,
+          end_lineno=1,
+          end_col_offset=32)],
       level=0,
       lineno=1,
       col_offset=0,
@@ -64,7 +79,12 @@ Module(
     ImportFrom(
       module='typing',
       names=[
-        alias(name='Optional')],
+        alias(
+          name='Optional',
+          lineno=2,
+          col_offset=19,
+          end_lineno=2,
+          end_col_offset=27)],
       level=0,
       lineno=2,
       col_offset=0,
@@ -73,8 +93,18 @@ Module(
     ImportFrom(
       module='ast_tools.visitors',
       names=[
-        alias(name='BlockGenerator'),
-        alias(name='ImportNodeFinder')],
+        alias(
+          name='BlockGenerator',
+          lineno=4,
+          col_offset=31,
+          end_lineno=4,
+          end_col_offset=45),
+        alias(
+          name='ImportNodeFinder',
+          lineno=4,
+          col_offset=47,
+          end_lineno=4,
+          end_col_offset=63)],
       level=0,
       lineno=4,
       col_offset=0,
@@ -83,7 +113,12 @@ Module(
     ImportFrom(
       module='models',
       names=[
-        alias(name='MermaidElement')],
+        alias(
+          name='MermaidElement',
+          lineno=5,
+          col_offset=19,
+          end_lineno=5,
+          end_col_offset=33)],
       level=0,
       lineno=5,
       col_offset=0,

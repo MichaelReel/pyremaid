@@ -20,106 +20,84 @@
 ---
 ```mermaid
 flowchart TB
-  _f14_n25["Expr"]
-  _f14_n26["create_cleared_output_folder(output_path=output_path)"]
-  _f14_n27["python_files = find_all_python_files(input_path=input_path)"]
-  _f14_n28["global_import_table = get_global_input_table(input_path=input_path, python_files=python_files, output_root=output_path)"]
-  _f14_l15["in_file"]
-  _f14_l15_n29["relative_in_file = in_file.replace(input_path, '')"]
-  _f14_l15_n30["out_file = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_path)"]
-  _f14_l15_n31["debug_dump = ''"]
-  _f14_l15_n32["import_list = []"]
-  _f14_l15_n33["If"]
-  _f14_l15_n34["NamedExpr"]
-  _f14_l15_n35["Name"]
-  _f14_l15_n36["Store"]
-  _f14_l15_n37["get_source_code_from_file(input_file=in_file)"]
-  _f14_l15_n38["If"]
-  _f14_l15_n39["NamedExpr"]
-  _f14_l15_n40["Name"]
-  _f14_l15_n41["Store"]
-  _f14_l15_n42["get_ast_root_node_for_file(source_code=source_code, input_file=in_file)"]
-  _f14_l15_n43["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
-  _f14_l15_n44["import_list = get_used_import_list(ast_node=ast_node)"]
-  _f14_l15_n45["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
-  _f14_l15_n46["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
-  _f14_l15_n47["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=[mermaid_diagram], debug_dump=debug_dump)"]
-  _f14_l15_n48["Expr"]
-  _f14_l15_n49["update_output_file(content=markdown_content, output_file=out_file)"]
-  _f16_n50["global_import_table = get_all_imports_from_files(input_path=input_path, python_files=python_files)"]
-  _f16_l17["global_import"]
-  _f16_l17_n51["relative_in_file = global_import_table[global_import].replace(input_path, '')"]
-  _f16_l17_n52["If"]
-  _f16_l17_n53["Name"]
-  _f16_l17_n54["Load"]
-  _f16_l17_n55["global_import_table[global_import] = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_root).lstrip('.')"]
-  _f16_n56["Expr"]
-  _f16_n57["print('\n'.join([f'{k}: {v}' for (k, v) in global_import_table.items()]))"]
-  _f16_n58["return global_import_table"]
-  _n59["If"]
-  _n60["Compare"]
-  _n61["Name"]
-  _n62["Load"]
-  _n63["Eq"]
-  _n64["'__main__'"]
-  _n65["input_path = './src/pyremaid/'"]
-  _n66["output_path = './docs/pyremaid/'"]
-  _n67["Expr"]
-  _n68["create_mermaid_analysis_from_python(input_path=input_path, output_path=output_path)"]
+  _f9_n12["Expr"]
+  _f9_n13["create_cleared_output_folder(output_path=output_path)"]
+  _f9_n14["python_files = find_all_python_files(input_path=input_path)"]
+  _f9_n15["global_import_table = get_global_input_table(input_path=input_path, python_files=python_files, output_root=output_path)"]
+  _f9_l10["in_file"]
+  _f9_l10_n16["relative_in_file = in_file.replace(input_path, '')"]
+  _f9_l10_n17["out_file = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_path)"]
+  _f9_l10_n18["debug_dump = ''"]
+  _f9_l10_n19["import_list = []"]
+  _f9_l10_n20["If"]
+  _f9_l10_n21["(source_code := get_source_code_from_file(input_file=in_file))"]
+  _f9_l10_n22["If"]
+  _f9_l10_n23["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
+  _f9_l10_n24["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
+  _f9_l10_n25["import_list = get_used_import_list(ast_node=ast_node)"]
+  _f9_l10_n26["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
+  _f9_l10_n27["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
+  _f9_l10_n28["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=[mermaid_diagram], debug_dump=debug_dump)"]
+  _f9_l10_n29["Expr"]
+  _f9_l10_n30["update_output_file(content=markdown_content, output_file=out_file)"]
+  _f11_n31["global_import_table = get_all_imports_from_files(input_path=input_path, python_files=python_files)"]
+  _f11_l12["global_import"]
+  _f11_l12_n32["relative_in_file = global_import_table[global_import].replace(input_path, '')"]
+  _f11_l12_n33["If"]
+  _f11_l12_n34["relative_in_file"]
+  _f11_l12_n35["global_import_table[global_import] = get_output_file_path_for_input_file(input_path=relative_in_file, output_root=output_root).lstrip('.')"]
+  _f11_n36["Expr"]
+  _f11_n37["print('\n'.join([f'{k}: {v}' for (k, v) in global_import_table.items()]))"]
+  _f11_n38["return global_import_table"]
+  _n39["If"]
+  _n40["__name__ == '__main__'"]
+  _n41["input_path = './src/pyremaid/'"]
+  _n42["output_path = './docs/pyremaid/'"]
+  _n43["Expr"]
+  _n44["create_mermaid_analysis_from_python(input_path=input_path, output_path=output_path)"]
 
   subgraph _create_mermaid_analysis_from_python
     direction TB
-    _f14_n25 --> _f14_n26
-    _f14_n26 --> _f14_n27
-    _f14_n27 --> _f14_n28
-    _f14_n28 --> _f14_l15
+    _f9_n12 --> _f9_n13
+    _f9_n13 --> _f9_n14
+    _f9_n14 --> _f9_n15
+    _f9_n15 --> _f9_l10
     %% loop in_file
-      _f14_l15_n29 --> _f14_l15_n30
-      _f14_l15_n30 --> _f14_l15_n31
-      _f14_l15_n31 --> _f14_l15_n32
-      _f14_l15_n32 --> _f14_l15_n33
-      _f14_l15_n33 --> _f14_l15_n34
-      _f14_l15_n34 --> _f14_l15_n35
-      _f14_l15_n35 --> _f14_l15_n36
-      _f14_l15_n36 --> _f14_l15_n37
-      _f14_l15_n37 --> _f14_l15_n38
-      _f14_l15_n38 --> _f14_l15_n39
-      _f14_l15_n39 --> _f14_l15_n40
-      _f14_l15_n40 --> _f14_l15_n41
-      _f14_l15_n41 --> _f14_l15_n42
-      _f14_l15_n42 --> _f14_l15_n43
-      _f14_l15_n43 --> _f14_l15_n44
-      _f14_l15_n44 --> _f14_l15_n45
-      _f14_l15_n45 --> _f14_l15_n46
-      _f14_l15_n46 --> _f14_l15_n47
-      _f14_l15_n47 --> _f14_l15_n48
-      _f14_l15_n48 --> _f14_l15_n49
+      _f9_l10_n16 --> _f9_l10_n17
+      _f9_l10_n17 --> _f9_l10_n18
+      _f9_l10_n18 --> _f9_l10_n19
+      _f9_l10_n19 --> _f9_l10_n20
+      _f9_l10_n20 --> _f9_l10_n21
+      _f9_l10_n21 --> _f9_l10_n22
+      _f9_l10_n22 --> _f9_l10_n23
+      _f9_l10_n23 --> _f9_l10_n24
+      _f9_l10_n24 --> _f9_l10_n25
+      _f9_l10_n25 --> _f9_l10_n26
+      _f9_l10_n26 --> _f9_l10_n27
+      _f9_l10_n27 --> _f9_l10_n28
+      _f9_l10_n28 --> _f9_l10_n29
+      _f9_l10_n29 --> _f9_l10_n30
     %% end in_file
-    _f14_l15_n49 --> _f14_l15_n29
+    _f9_l10_n30 --> _f9_l10_n16
   end
   subgraph _get_global_input_table
     direction TB
-    _f16_n50 --> _f16_l17
+    _f11_n31 --> _f11_l12
     %% loop global_import
-      _f16_l17_n51 --> _f16_l17_n52
-      _f16_l17_n52 --> _f16_l17_n53
-      _f16_l17_n53 --> _f16_l17_n54
-      _f16_l17_n54 --> _f16_l17_n55
+      _f11_l12_n32 --> _f11_l12_n33
+      _f11_l12_n33 --> _f11_l12_n34
+      _f11_l12_n34 --> _f11_l12_n35
     %% end global_import
-    _f16_l17_n55 --> _f16_l17_n51
-    _f16_l17_n51 --> _f16_n56
-    _f16_n56 --> _f16_n57
-    _f16_n57 --> _f16_n58
+    _f11_l12_n35 --> _f11_l12_n32
+    _f11_l12_n32 --> _f11_n36
+    _f11_n36 --> _f11_n37
+    _f11_n37 --> _f11_n38
   end
-  _n59 --> _n60
-  _n60 --> _n61
-  _n61 --> _n62
-  _n62 --> _n63
-  _n63 --> _n64
-  _n64 --> _n65
-  _n65 --> _n66
-  _n66 --> _n67
-  _n67 --> _n68
+  _n39 --> _n40
+  _n40 --> _n41
+  _n41 --> _n42
+  _n42 --> _n43
+  _n43 --> _n44
 
 ```
 ---
@@ -133,9 +111,24 @@ Module(
     ImportFrom(
       module='files.destination',
       names=[
-        alias(name='create_cleared_output_folder'),
-        alias(name='get_output_file_path_for_input_file'),
-        alias(name='update_output_file')],
+        alias(
+          name='create_cleared_output_folder',
+          lineno=4,
+          col_offset=4,
+          end_lineno=4,
+          end_col_offset=32),
+        alias(
+          name='get_output_file_path_for_input_file',
+          lineno=5,
+          col_offset=4,
+          end_lineno=5,
+          end_col_offset=39),
+        alias(
+          name='update_output_file',
+          lineno=6,
+          col_offset=4,
+          end_lineno=6,
+          end_col_offset=22)],
       level=0,
       lineno=3,
       col_offset=0,
@@ -144,9 +137,24 @@ Module(
     ImportFrom(
       module='files.source',
       names=[
-        alias(name='find_all_python_files'),
-        alias(name='get_source_code_from_file'),
-        alias(name='get_import_name_from_path')],
+        alias(
+          name='find_all_python_files',
+          lineno=8,
+          col_offset=25,
+          end_lineno=8,
+          end_col_offset=46),
+        alias(
+          name='get_source_code_from_file',
+          lineno=8,
+          col_offset=48,
+          end_lineno=8,
+          end_col_offset=73),
+        alias(
+          name='get_import_name_from_path',
+          lineno=8,
+          col_offset=75,
+          end_lineno=8,
+          end_col_offset=100)],
       level=0,
       lineno=8,
       col_offset=0,
@@ -155,10 +163,30 @@ Module(
     ImportFrom(
       module='ast_tools',
       names=[
-        alias(name='create_mermaid_model_from_ast_model'),
-        alias(name='get_ast_root_node_for_file'),
-        alias(name='get_markdown_dump_for_ast_node'),
-        alias(name='get_used_import_list')],
+        alias(
+          name='create_mermaid_model_from_ast_model',
+          lineno=10,
+          col_offset=4,
+          end_lineno=10,
+          end_col_offset=39),
+        alias(
+          name='get_ast_root_node_for_file',
+          lineno=11,
+          col_offset=4,
+          end_lineno=11,
+          end_col_offset=30),
+        alias(
+          name='get_markdown_dump_for_ast_node',
+          lineno=12,
+          col_offset=4,
+          end_lineno=12,
+          end_col_offset=34),
+        alias(
+          name='get_used_import_list',
+          lineno=13,
+          col_offset=4,
+          end_lineno=13,
+          end_col_offset=24)],
       level=0,
       lineno=9,
       col_offset=0,
@@ -167,7 +195,12 @@ Module(
     ImportFrom(
       module='ast_tools.import_map',
       names=[
-        alias(name='get_all_imports_from_files')],
+        alias(
+          name='get_all_imports_from_files',
+          lineno=15,
+          col_offset=33,
+          end_lineno=15,
+          end_col_offset=59)],
       level=0,
       lineno=15,
       col_offset=0,
@@ -176,7 +209,12 @@ Module(
     ImportFrom(
       module='markdown_tools',
       names=[
-        alias(name='create_markdown_content')],
+        alias(
+          name='create_markdown_content',
+          lineno=16,
+          col_offset=27,
+          end_lineno=16,
+          end_col_offset=50)],
       level=0,
       lineno=16,
       col_offset=0,
@@ -185,7 +223,12 @@ Module(
     ImportFrom(
       module='mermaid_tools',
       names=[
-        alias(name='create_mermaid_flow_graph_from_links')],
+        alias(
+          name='create_mermaid_flow_graph_from_links',
+          lineno=17,
+          col_offset=26,
+          end_lineno=17,
+          end_col_offset=62)],
       level=0,
       lineno=17,
       col_offset=0,
@@ -194,7 +237,12 @@ Module(
     ImportFrom(
       module='models',
       names=[
-        alias(name='MermaidElement')],
+        alias(
+          name='MermaidElement',
+          lineno=18,
+          col_offset=19,
+          end_lineno=18,
+          end_col_offset=33)],
       level=0,
       lineno=18,
       col_offset=0,

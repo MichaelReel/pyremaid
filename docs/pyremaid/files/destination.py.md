@@ -7,69 +7,67 @@
 ---
 ```mermaid
 flowchart TB
-  _f81_n373["If"]
-  _f81_n374["not os.path.isdir(output_path)"]
-  _f81_n375["Expr"]
-  _f81_n376["os.makedirs(output_path)"]
-  _f82_n377["Expr"]
-  _f82_n378["create_output_folder(output_path=output_path)"]
-  _f82_l83["(root, dirs, files)"]
-  _f82_l83_l84_n379["Expr"]
-  _f82_l83_l84_n380["os.remove(os.path.join(root, name))"]
-  _f82_l83_l85["name"]
-  _f82_l83_l85_n381["Expr"]
-  _f82_l83_l85_n382["os.rmdir(os.path.join(root, name))"]
-  _f82_l83_l84["name"]
-  _f87_n384["If"]
-  _f87_n385["not os.path.isdir(os.path.dirname(output_file))"]
-  _f87_n386["Expr"]
-  _f87_n387["os.makedirs(os.path.dirname(output_file))"]
-  _f87_n388["With"]
-  _f87_n389["withitem"]
-  _f87_n390["open(output_file, 'w')"]
-  _f87_n391["Name"]
-  _f87_n392["Store"]
-  _f87_n393["Expr"]
-  _f87_n394["md_file.write(content)"]
+  _f37_n133["If"]
+  _f37_n134["not os.path.isdir(output_path)"]
+  _f37_n135["Expr"]
+  _f37_n136["os.makedirs(output_path)"]
+  _f38_n137["Expr"]
+  _f38_n138["create_output_folder(output_path=output_path)"]
+  _f38_l39["(root, dirs, files)"]
+  _f38_l39_l40_n139["Expr"]
+  _f38_l39_l40_n140["os.remove(os.path.join(root, name))"]
+  _f38_l39_l41["name"]
+  _f38_l39_l41_n141["Expr"]
+  _f38_l39_l41_n142["os.rmdir(os.path.join(root, name))"]
+  _f38_l39_l40["name"]
+  _f43_n144["If"]
+  _f43_n145["not os.path.isdir(os.path.dirname(output_file))"]
+  _f43_n146["Expr"]
+  _f43_n147["os.makedirs(os.path.dirname(output_file))"]
+  _f43_n148["With"]
+  _f43_n149["withitem"]
+  _f43_n150["open(output_file, 'w')"]
+  _f43_n151["md_file"]
+  _f43_n152["Expr"]
+  _f43_n153["md_file.write(content)"]
 
   subgraph _create_output_folder
     direction TB
-    _f81_n373 --> _f81_n374
-    _f81_n374 --> _f81_n375
-    _f81_n375 --> _f81_n376
+    _f37_n133 --> _f37_n134
+    _f37_n134 --> _f37_n135
+    _f37_n135 --> _f37_n136
   end
   subgraph _create_cleared_output_folder
     direction TB
-    _f82_n377 --> _f82_n378
-    _f82_n378 --> _f82_l83
+    _f38_n137 --> _f38_n138
+    _f38_n138 --> _f38_l39
     %% loop (root, dirs, files)
       %% loop name
-        _f82_l83_l84_n379 --> _f82_l83_l84_n380
+        _f38_l39_l40_n139 --> _f38_l39_l40_n140
       %% end name
-      _f82_l83_l84_n380 --> _f82_l83_l84_n379
-      _f82_l83_l84_n379 --> _f82_l83_l85
+      _f38_l39_l40_n140 --> _f38_l39_l40_n139
+      _f38_l39_l40_n139 --> _f38_l39_l41
       %% loop name
-        _f82_l83_l85_n381 --> _f82_l83_l85_n382
+        _f38_l39_l41_n141 --> _f38_l39_l41_n142
       %% end name
-      _f82_l83_l85_n382 --> _f82_l83_l85_n381
+      _f38_l39_l41_n142 --> _f38_l39_l41_n141
     %% end (root, dirs, files)
-    _f82_l83_l85_n381 --> _f82_l83_l84
+    _f38_l39_l41_n141 --> _f38_l39_l40
   end
   subgraph _get_output_file_path_for_input_file
     direction TB
   end
   subgraph _update_output_file
     direction TB
-    _f87_n384 --> _f87_n385
-    _f87_n385 --> _f87_n386
-    _f87_n386 --> _f87_n387
-    _f87_n387 --> _f87_n388
-    _f87_n388 --> _f87_n389
-    _f87_n389 --> _f87_n390
-    _f87_n390 --> _f87_n391
-    _f87_n391 --> _f87_n392
-    _f87_n392 --> _f87_n393
-    _f87_n393 --> _f87_n394
+    _f43_n144 --> _f43_n145
+    _f43_n145 --> _f43_n146
+    _f43_n146 --> _f43_n147
+    _f43_n147 --> _f43_n148
+    _f43_n148 --> _f43_n149
+    _f43_n149 --> _f43_n150
+    _f43_n150 --> _f43_n151
+    _f43_n151 --> _f43_n152
+    _f43_n152 --> _f43_n153
   end
 
 ```
@@ -83,7 +81,12 @@ Module(
   body=[
     Import(
       names=[
-        alias(name='os')],
+        alias(
+          name='os',
+          lineno=1,
+          col_offset=7,
+          end_lineno=1,
+          end_col_offset=9)],
       lineno=1,
       col_offset=0,
       end_lineno=1,

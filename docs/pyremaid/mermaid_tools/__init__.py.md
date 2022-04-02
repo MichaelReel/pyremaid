@@ -21,7 +21,12 @@ Module(
     ImportFrom(
       module='mermaid_tools.mermaid_tools',
       names=[
-        alias(name='create_mermaid_flow_graph_from_links')],
+        alias(
+          name='create_mermaid_flow_graph_from_links',
+          lineno=1,
+          col_offset=40,
+          end_lineno=1,
+          end_col_offset=76)],
       level=0,
       lineno=1,
       col_offset=0,

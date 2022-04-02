@@ -59,7 +59,12 @@ Module(
     ImportFrom(
       module='ast',
       names=[
-        alias(name='AST')],
+        alias(
+          name='AST',
+          lineno=1,
+          col_offset=16,
+          end_lineno=1,
+          end_col_offset=19)],
       level=0,
       lineno=1,
       col_offset=0,
@@ -68,8 +73,18 @@ Module(
     ImportFrom(
       module='dataclasses',
       names=[
-        alias(name='dataclass'),
-        alias(name='field')],
+        alias(
+          name='dataclass',
+          lineno=2,
+          col_offset=24,
+          end_lineno=2,
+          end_col_offset=33),
+        alias(
+          name='field',
+          lineno=2,
+          col_offset=35,
+          end_lineno=2,
+          end_col_offset=40)],
       level=0,
       lineno=2,
       col_offset=0,
@@ -78,7 +93,12 @@ Module(
     ImportFrom(
       module='typing',
       names=[
-        alias(name='Optional')],
+        alias(
+          name='Optional',
+          lineno=3,
+          col_offset=19,
+          end_lineno=3,
+          end_col_offset=27)],
       level=0,
       lineno=3,
       col_offset=0,
