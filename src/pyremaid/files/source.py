@@ -20,6 +20,17 @@ def get_source_code_from_file(input_file: str) -> str:
 
 
 def get_import_name_from_path(input_path: str, input_file: str) -> str:
+    """
+    Attempt to figure out the module path from the python file name
+    Input_path is the root path and input_file is the full python file path
+
+    This _relies_ on the sanity of the input parameters
+
+    String input_path off the input_file, remove `.py`, remove `.`,
+    change file separator to `.`, remove `.__init__`,
+    replace `__init__` with `.`
+    """
+    # Might be someway to use importlib to do this
     return (
         input_file.replace(input_path, "")
         .replace(".py", "")
