@@ -6,16 +6,6 @@ from pyremaid.pyremaid import create_mermaid_analysis_from_python
 
 
 @fixture
-def input_path() -> str:
-    return "input path"
-
-
-@fixture
-def output_path() -> str:
-    return "output path"
-
-
-@fixture
 def python_files() -> list[str]:
     return ["python file 1", "python file 2"]
 

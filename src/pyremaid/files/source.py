@@ -1,13 +1,13 @@
-import os
+from os import walk, path, sep
 from re import match
 
 
 def find_all_python_files(input_path: str) -> list[str]:
     python_files = []
-    for dirpath, _dirnames, filenames in os.walk(input_path):
+    for dirpath, _dirnames, filenames in walk(input_path):
         for filename in filenames:
             if match(r".*\.py$", filename):
-                python_files.append(os.path.join(dirpath, filename))
+                python_files.append(path.join(dirpath, filename))
 
     return python_files
 
@@ -24,7 +24,7 @@ def get_import_name_from_path(input_path: str, input_file: str) -> str:
         input_file.replace(input_path, "")
         .replace(".py", "")
         .replace(".", "")
-        .replace(os.sep, ".")
+        .replace(sep, ".")
         .replace(".__init__", "")
         .replace("__init__", ".")
     )
