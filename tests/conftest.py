@@ -1,3 +1,4 @@
+from os import path
 from pytest import fixture
 
 
@@ -12,10 +13,56 @@ def input_path() -> str:
 
 
 @fixture
-def input_file() -> str:
-    return "input file name"
+def input_file(input_path: str) -> str:
+    return path.join(input_path, "input file name")
 
 
 @fixture
 def output_path() -> str:
     return "output path"
+
+
+@fixture
+def output_file(output_path: str) -> str:
+    return path.join(output_path, "output file name")
+
+
+@fixture
+def root_path() -> str:
+    # TODO: Need to get clear on how this is used compared to output_path
+    #       and probably consider how path variables are named across the project
+    return "root"
+
+
+file_content_data = (  # Appeasing the mock_open (I don't like this)
+    "mocked up file content"
+)
+
+
+@fixture
+def file_content() -> str:
+    return file_content_data
+
+
+@fixture
+def walked_directory_names() -> list[str]:
+    return ["dirnames"]
+
+
+@fixture
+def walked_file_names() -> list[str]:
+    return [
+        "python_file.py",
+        "non_python_file.txt",
+        "more_python.py",
+        "py.but_not.py.pyc",
+    ]
+
+
+@fixture
+def walked_files(
+    root_path: str,
+    walked_directory_names: list[str],
+    walked_file_names: list[str],
+) -> list[tuple[str, list[str], list[str]]]:
+    return [(root_path, walked_directory_names, walked_file_names)]

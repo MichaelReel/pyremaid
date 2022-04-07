@@ -7,40 +7,15 @@ from pyremaid.files.source import (
     get_source_code_from_file,
     get_import_name_from_path,
 )
+from tests.conftest import file_content_data
 
 
 @fixture
-def walked_files() -> list[tuple[str, list[str], list[str]]]:
+def python_files(root_path: str) -> list[str]:
     return [
-        (
-            "dirpath",
-            ["dirnames"],
-            [
-                "python_file.py",
-                "non_python_file.txt",
-                "more_python.py",
-                "py.but_not.py.pyc",
-            ],
-        )
+        path.join(root_path, "python_file.py"),
+        path.join(root_path, "more_python.py"),
     ]
-
-
-@fixture
-def python_files() -> list[str]:
-    return [
-        path.join("dirpath", "python_file.py"),
-        path.join("dirpath", "more_python.py"),
-    ]
-
-
-file_content_data = (  # Appeasing the mock_open (I don't like this)
-    "mocked up file content"
-)
-
-
-@fixture
-def file_content() -> str:
-    return file_content_data
 
 
 @patch("pyremaid.files.source.walk")

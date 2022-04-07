@@ -9,11 +9,6 @@ from pyremaid.markdown_tools import (
 
 
 @fixture
-def input_file() -> str:
-    return "input file name"
-
-
-@fixture
 def import_list() -> list[str]:
     return ["import 1", "import 2"]
 
