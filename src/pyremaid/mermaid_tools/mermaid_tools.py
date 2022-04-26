@@ -85,8 +85,8 @@ def _get_block_text(block: MermaidBlock, indent: int) -> str:
 
 
 def create_mermaid_flow_graph_from_links(elements: list[MermaidElement]) -> str:
-    alaises = _get_aliases_for_safe_names(elements=elements)
+    aliases = _get_aliases_for_safe_names(elements=elements)
     flow_connections = _get_flow_connections(elements=elements)
     return (
-        "```mermaid\n" "flowchart TB\n" f"{alaises}\n" f"{flow_connections}\n" "```\n"
+        "```mermaid\n" "flowchart TB\n" f"{aliases}\n" f"{flow_connections}\n" "```\n"
     )

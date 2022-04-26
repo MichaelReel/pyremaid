@@ -30,3 +30,11 @@ pip install -r requirements.txt
 source ./.env/bin/activate
 python src/main.py
 ```
+
+## Testing with coverage
+```sh
+coverage run --branch -m pytest
+coverage html --omit "tests/*"
+```
+
+View `htmlcov/index.html` with a browser to view the coverage.

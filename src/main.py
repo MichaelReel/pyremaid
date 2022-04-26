@@ -11,5 +11,5 @@ def main():
     create_mermaid_analysis_from_python(input_path=input_path, output_path=output_path)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

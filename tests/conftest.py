@@ -1,6 +1,8 @@
 from os import path
 from pytest import fixture
 
+from pyremaid.models import MermaidElement
+
 
 @fixture
 def global_import_table() -> dict[str, str]:
@@ -66,3 +68,13 @@ def walked_files(
     walked_file_names: list[str],
 ) -> list[tuple[str, list[str], list[str]]]:
     return [(root_path, walked_directory_names, walked_file_names)]
+
+
+@fixture
+def no_mermaid_elements() -> list[MermaidElement]:
+    return []
+
+
+@fixture
+def no_elements_graph() -> str:
+    return "```mermaid\n" "flowchart TB\n" "\n" "\n" "```\n"
