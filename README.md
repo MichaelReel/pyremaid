@@ -4,6 +4,20 @@ Python to Mermaid Diagram (exploration)
 
 No root description quite yet, worth having a look [here](docs/pyremaid/pyremaid.py.md)
 
+Generate markdown documentation with mermaid diagrams for a python project.
+
+## Make commands
+For convenience a make file has been provided. Some useful commands are:
+
+| command         | |
+| --------------- |-|
+| `make run`      | Run the project against the code in the current project
+| `make test`     | Run the unittests and display coverage
+| `make lint`     | Run the linter against the source files
+| `make coverage` | Run unittests and attempt to display coverage in a browser
+| `make clean`    | Clear compiled python files and coverage files
+
+If the make commands cannot be used then the following sections will be required:
 
 
 ## Preparation
@@ -25,16 +39,17 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Executing
+### Executing
 ```sh
 source ./.env/bin/activate
 python src/main.py
 ```
 
-## Testing with coverage
+### Testing with coverage
 ```sh
 coverage run --branch -m pytest
 coverage html --omit "tests/*"
 ```
 
 View `htmlcov/index.html` with a browser to view the coverage.
+

@@ -31,7 +31,7 @@ def _get_import_to_file_map(input_path: str, python_files: list[str]) -> dict[st
 
 
 def _get_parent_import(import_name: str) -> str:
-    return import_name[0 : import_name.rfind(".")]
+    return import_name[: import_name.rfind(".")]
 
 
 def _create_import_table(

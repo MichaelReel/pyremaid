@@ -1,4 +1,4 @@
-.PHONY: run test
+.PHONY: run test lint coverage clean
 
 VENV = .env
 PYTHON = $(VENV)/bin/python3
@@ -19,6 +19,10 @@ test: init
 	$(COVERAGE) run --branch -m pytest
 	$(COVERAGE) report --omit "tests/*"
 
+lint: init
+	$(VENV)/bin/black .
+	$(VENV)/bin/flake8 --ignore=E501 --exclude=$(VENV) .
+
 coverage: init
 	$(COVERAGE) run --branch -m pytest
 	$(COVERAGE) html --omit "tests/*"
@@ -30,8 +34,5 @@ clean:
 	rm -rf .pytest_cache
 	find . -type d -name __pycache__ -exec rm -r {} \+
 	rm -rf $(VENV)
-
-lint: init
-	$(VENV)/bin/black .
 
  
