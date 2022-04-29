@@ -10,104 +10,104 @@
 ---
 ```mermaid
 flowchart TB
-  _c87_f88_n320["self.import_to: dict[str, list[str]] = {}"]
-  _c87_f88_n321["self.import_from: dict[str, list[str]] = {}"]
-  _c87_f89_n322["If"]
-  _c87_f89_n323["from_ not in self.import_to"]
-  _c87_f89_n324["self.import_to[from_] = []"]
-  _c87_f89_n325["Expr"]
-  _c87_f89_n326["self.import_to[from_].append(to)"]
-  _c87_f89_n327["If"]
-  _c87_f89_n328["to not in self.import_from"]
-  _c87_f89_n329["self.import_from[to] = []"]
-  _c87_f89_n330["Expr"]
-  _c87_f89_n331["self.import_from[to].append[from_]"]
-  _f90_n332["Expr"]
-  _f90_n333["'Create a mapping of import paths to filenames first'"]
-  _f90_n334["import_to_file_map = {}"]
-  _f90_l91["in_file"]
-  _f90_l91_n335["import_name = get_import_name_from_path(input_path=input_path, input_file=in_file)"]
-  _f90_l91_n336["import_to_file_map[import_name] = in_file"]
-  _f90_n337["return import_to_file_map"]
-  _f93_n339["all_imports_list = {}"]
-  _f93_l94["in_file"]
-  _f93_l94_n340["If"]
-  _f93_l94_n341["(source_code := get_source_code_from_file(input_file=in_file))"]
-  _f93_l94_n342["If"]
-  _f93_l94_n343["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
-  _f93_l94_l95["used_import"]
-  _f93_l94_l95_n344["known_file = ''"]
-  _f93_l94_l95_n345["parent_import = _get_parent_import(used_import)"]
-  _f93_l94_l95_n346["If"]
-  _f93_l94_l95_n347["parent_import in import_to_file_map"]
-  _f93_l94_l95_n348["known_file = import_to_file_map[parent_import]"]
-  _f93_l94_l95_n349["all_imports_list[used_import] = known_file"]
-  _f93_n350["return all_imports_list"]
-  _f96_n351["Expr"]
-  _f96_n352["''\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ''"]
-  _f96_n353["import_to_file_map = _get_import_to_file_map(input_path=input_path, python_files=python_files)"]
-  _f96_n354["all_imports_list = _create_import_table(python_files=python_files, import_to_file_map=import_to_file_map)"]
-  _f96_n355["return all_imports_list"]
+  _c88_f89_n324["self.import_to: dict[str, list[str]] = {}"]
+  _c88_f89_n325["self.import_from: dict[str, list[str]] = {}"]
+  _c88_f90_n326["If"]
+  _c88_f90_n327["from_ not in self.import_to"]
+  _c88_f90_n328["self.import_to[from_] = []"]
+  _c88_f90_n329["Expr"]
+  _c88_f90_n330["self.import_to[from_].append(to)"]
+  _c88_f90_n331["If"]
+  _c88_f90_n332["to not in self.import_from"]
+  _c88_f90_n333["self.import_from[to] = []"]
+  _c88_f90_n334["Expr"]
+  _c88_f90_n335["self.import_from[to].append[from_]"]
+  _f91_n336["Expr"]
+  _f91_n337["'Create a mapping of import paths to filenames first'"]
+  _f91_n338["import_to_file_map = {}"]
+  _f91_l92["in_file"]
+  _f91_l92_n339["import_name = get_import_name_from_path(input_path=input_path, input_file=in_file)"]
+  _f91_l92_n340["import_to_file_map[import_name] = in_file"]
+  _f91_n341["return import_to_file_map"]
+  _f94_n343["all_imports_list = {}"]
+  _f94_l95["in_file"]
+  _f94_l95_n344["If"]
+  _f94_l95_n345["(source_code := get_source_code_from_file(input_file=in_file))"]
+  _f94_l95_n346["If"]
+  _f94_l95_n347["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
+  _f94_l95_l96["used_import"]
+  _f94_l95_l96_n348["known_file = ''"]
+  _f94_l95_l96_n349["parent_import = _get_parent_import(used_import)"]
+  _f94_l95_l96_n350["If"]
+  _f94_l95_l96_n351["parent_import in import_to_file_map"]
+  _f94_l95_l96_n352["known_file = import_to_file_map[parent_import]"]
+  _f94_l95_l96_n353["all_imports_list[used_import] = known_file"]
+  _f94_n354["return all_imports_list"]
+  _f97_n355["Expr"]
+  _f97_n356["''\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ''"]
+  _f97_n357["import_to_file_map = _get_import_to_file_map(input_path=input_path, python_files=python_files)"]
+  _f97_n358["all_imports_list = _create_import_table(python_files=python_files, import_to_file_map=import_to_file_map)"]
+  _f97_n359["return all_imports_list"]
 
   subgraph ImportMap
     direction TB
-    subgraph _c87___init__
+    subgraph _c88___init__
       direction TB
-      _c87_f88_n320 --> _c87_f88_n321
+      _c88_f89_n324 --> _c88_f89_n325
     end
-    subgraph _c87_add_import
+    subgraph _c88_add_import
       direction TB
-      _c87_f89_n322 --> _c87_f89_n323
-      _c87_f89_n323 --> _c87_f89_n324
-      _c87_f89_n324 --> _c87_f89_n325
-      _c87_f89_n325 --> _c87_f89_n326
-      _c87_f89_n326 --> _c87_f89_n327
-      _c87_f89_n327 --> _c87_f89_n328
-      _c87_f89_n328 --> _c87_f89_n329
-      _c87_f89_n329 --> _c87_f89_n330
-      _c87_f89_n330 --> _c87_f89_n331
+      _c88_f90_n326 --> _c88_f90_n327
+      _c88_f90_n327 --> _c88_f90_n328
+      _c88_f90_n328 --> _c88_f90_n329
+      _c88_f90_n329 --> _c88_f90_n330
+      _c88_f90_n330 --> _c88_f90_n331
+      _c88_f90_n331 --> _c88_f90_n332
+      _c88_f90_n332 --> _c88_f90_n333
+      _c88_f90_n333 --> _c88_f90_n334
+      _c88_f90_n334 --> _c88_f90_n335
     end
   end
   subgraph __get_import_to_file_map
     direction TB
-    _f90_n332 --> _f90_n333
-    _f90_n333 --> _f90_n334
-    _f90_n334 --> _f90_l91
+    _f91_n336 --> _f91_n337
+    _f91_n337 --> _f91_n338
+    _f91_n338 --> _f91_l92
     %% loop in_file
-      _f90_l91_n335 --> _f90_l91_n336
+      _f91_l92_n339 --> _f91_l92_n340
     %% end in_file
-    _f90_l91_n336 --> _f90_l91_n335
-    _f90_l91_n335 --> _f90_n337
+    _f91_l92_n340 --> _f91_l92_n339
+    _f91_l92_n339 --> _f91_n341
   end
   subgraph __get_parent_import
     direction TB
   end
   subgraph __create_import_table
     direction TB
-    _f93_n339 --> _f93_l94
+    _f94_n343 --> _f94_l95
     %% loop in_file
-      _f93_l94_n340 --> _f93_l94_n341
-      _f93_l94_n341 --> _f93_l94_n342
-      _f93_l94_n342 --> _f93_l94_n343
-      _f93_l94_n343 --> _f93_l94_l95
+      _f94_l95_n344 --> _f94_l95_n345
+      _f94_l95_n345 --> _f94_l95_n346
+      _f94_l95_n346 --> _f94_l95_n347
+      _f94_l95_n347 --> _f94_l95_l96
       %% loop used_import
-        _f93_l94_l95_n344 --> _f93_l94_l95_n345
-        _f93_l94_l95_n345 --> _f93_l94_l95_n346
-        _f93_l94_l95_n346 --> _f93_l94_l95_n347
-        _f93_l94_l95_n347 --> _f93_l94_l95_n348
-        _f93_l94_l95_n348 --> _f93_l94_l95_n349
+        _f94_l95_l96_n348 --> _f94_l95_l96_n349
+        _f94_l95_l96_n349 --> _f94_l95_l96_n350
+        _f94_l95_l96_n350 --> _f94_l95_l96_n351
+        _f94_l95_l96_n351 --> _f94_l95_l96_n352
+        _f94_l95_l96_n352 --> _f94_l95_l96_n353
       %% end used_import
-      _f93_l94_l95_n349 --> _f93_l94_l95_n344
+      _f94_l95_l96_n353 --> _f94_l95_l96_n348
     %% end in_file
-    _f93_l94_l95_n344 --> _f93_l94_n340
-    _f93_l94_n340 --> _f93_n350
+    _f94_l95_l96_n348 --> _f94_l95_n344
+    _f94_l95_n344 --> _f94_n354
   end
   subgraph _get_all_imports_from_files
     direction TB
-    _f96_n351 --> _f96_n352
-    _f96_n352 --> _f96_n353
-    _f96_n353 --> _f96_n354
-    _f96_n354 --> _f96_n355
+    _f97_n355 --> _f97_n356
+    _f97_n356 --> _f97_n357
+    _f97_n357 --> _f97_n358
+    _f97_n358 --> _f97_n359
   end
 
 ```

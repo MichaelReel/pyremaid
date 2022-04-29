@@ -2,72 +2,76 @@
 
 ### Imports
 
-  - os.*
+  - os.makedirs
+  - os.path
+  - os.remove
+  - os.rmdir
+  - os.walk
 
 ---
 ```mermaid
 flowchart TB
-  _f40_n139["If"]
-  _f40_n140["not os.path.isdir(output_path)"]
-  _f40_n141["Expr"]
-  _f40_n142["os.makedirs(output_path)"]
-  _f41_n143["Expr"]
-  _f41_n144["create_output_folder(output_path=output_path)"]
-  _f41_l42["(root, dirs, files)"]
-  _f41_l42_l43_n145["Expr"]
-  _f41_l42_l43_n146["os.remove(os.path.join(root, name))"]
-  _f41_l42_l44["name"]
-  _f41_l42_l44_n147["Expr"]
-  _f41_l42_l44_n148["os.rmdir(os.path.join(root, name))"]
-  _f41_l42_l43["name"]
-  _f46_n150["If"]
-  _f46_n151["not os.path.isdir(os.path.dirname(output_file))"]
-  _f46_n152["Expr"]
-  _f46_n153["os.makedirs(os.path.dirname(output_file))"]
-  _f46_n154["With"]
-  _f46_n155["withitem"]
-  _f46_n156["open(output_file, 'w')"]
-  _f46_n157["md_file"]
-  _f46_n158["Expr"]
-  _f46_n159["md_file.write(content)"]
+  _f41_n143["If"]
+  _f41_n144["not path.isdir(output_path)"]
+  _f41_n145["Expr"]
+  _f41_n146["makedirs(output_path)"]
+  _f42_n147["Expr"]
+  _f42_n148["_create_output_folder(output_path=output_path)"]
+  _f42_l43["(root, dirs, files)"]
+  _f42_l43_l44_n149["Expr"]
+  _f42_l43_l44_n150["remove(path.join(root, name))"]
+  _f42_l43_l45["name"]
+  _f42_l43_l45_n151["Expr"]
+  _f42_l43_l45_n152["rmdir(path.join(root, name))"]
+  _f42_l43_l44["name"]
+  _f47_n154["If"]
+  _f47_n155["not path.isdir(path.dirname(output_file))"]
+  _f47_n156["Expr"]
+  _f47_n157["makedirs(path.dirname(output_file))"]
+  _f47_n158["With"]
+  _f47_n159["withitem"]
+  _f47_n160["open(output_file, 'w')"]
+  _f47_n161["md_file"]
+  _f47_n162["Expr"]
+  _f47_n163["md_file.write(content)"]
 
-  subgraph _create_output_folder
+  subgraph __create_output_folder
     direction TB
-    _f40_n139 --> _f40_n140
-    _f40_n140 --> _f40_n141
-    _f40_n141 --> _f40_n142
+    _f41_n143 --> _f41_n144
+    _f41_n144 --> _f41_n145
+    _f41_n145 --> _f41_n146
   end
   subgraph _create_cleared_output_folder
     direction TB
-    _f41_n143 --> _f41_n144
-    _f41_n144 --> _f41_l42
+    _f42_n147 --> _f42_n148
+    _f42_n148 --> _f42_l43
     %% loop (root, dirs, files)
       %% loop name
-        _f41_l42_l43_n145 --> _f41_l42_l43_n146
+        _f42_l43_l44_n149 --> _f42_l43_l44_n150
       %% end name
-      _f41_l42_l43_n146 --> _f41_l42_l43_n145
-      _f41_l42_l43_n145 --> _f41_l42_l44
+      _f42_l43_l44_n150 --> _f42_l43_l44_n149
+      _f42_l43_l44_n149 --> _f42_l43_l45
       %% loop name
-        _f41_l42_l44_n147 --> _f41_l42_l44_n148
+        _f42_l43_l45_n151 --> _f42_l43_l45_n152
       %% end name
-      _f41_l42_l44_n148 --> _f41_l42_l44_n147
+      _f42_l43_l45_n152 --> _f42_l43_l45_n151
     %% end (root, dirs, files)
-    _f41_l42_l44_n147 --> _f41_l42_l43
+    _f42_l43_l45_n151 --> _f42_l43_l44
   end
   subgraph _get_output_file_path_for_input_file
     direction TB
   end
   subgraph _update_output_file
     direction TB
-    _f46_n150 --> _f46_n151
-    _f46_n151 --> _f46_n152
-    _f46_n152 --> _f46_n153
-    _f46_n153 --> _f46_n154
-    _f46_n154 --> _f46_n155
-    _f46_n155 --> _f46_n156
-    _f46_n156 --> _f46_n157
-    _f46_n157 --> _f46_n158
-    _f46_n158 --> _f46_n159
+    _f47_n154 --> _f47_n155
+    _f47_n155 --> _f47_n156
+    _f47_n156 --> _f47_n157
+    _f47_n157 --> _f47_n158
+    _f47_n158 --> _f47_n159
+    _f47_n159 --> _f47_n160
+    _f47_n160 --> _f47_n161
+    _f47_n161 --> _f47_n162
+    _f47_n162 --> _f47_n163
   end
 
 ```
@@ -79,20 +83,46 @@ flowchart TB
 ```
 Module(
   body=[
-    Import(
+    ImportFrom(
+      module='os',
       names=[
         alias(
-          name='os',
+          name='makedirs',
           lineno=1,
-          col_offset=7,
+          col_offset=15,
           end_lineno=1,
-          end_col_offset=9)],
+          end_col_offset=23),
+        alias(
+          name='path',
+          lineno=1,
+          col_offset=25,
+          end_lineno=1,
+          end_col_offset=29),
+        alias(
+          name='remove',
+          lineno=1,
+          col_offset=31,
+          end_lineno=1,
+          end_col_offset=37),
+        alias(
+          name='rmdir',
+          lineno=1,
+          col_offset=39,
+          end_lineno=1,
+          end_col_offset=44),
+        alias(
+          name='walk',
+          lineno=1,
+          col_offset=46,
+          end_lineno=1,
+          end_col_offset=50)],
+      level=0,
       lineno=1,
       col_offset=0,
       end_lineno=1,
-      end_col_offset=9),
+      end_col_offset=50),
     FunctionDef(
-      name='create_output_folder',
+      name='_create_output_folder',
       args=arguments(
         posonlyargs=[],
         args=[
@@ -102,13 +132,13 @@ Module(
               id='str',
               ctx=Load(),
               lineno=4,
-              col_offset=38,
+              col_offset=39,
               end_lineno=4,
-              end_col_offset=41),
+              end_col_offset=42),
             lineno=4,
-            col_offset=25,
+            col_offset=26,
             end_lineno=4,
-            end_col_offset=41)],
+            end_col_offset=42)],
         kwonlyargs=[],
         kw_defaults=[],
         defaults=[]),
@@ -118,93 +148,79 @@ Module(
             op=Not(),
             operand=Call(
               func=Attribute(
-                value=Attribute(
-                  value=Name(
-                    id='os',
-                    ctx=Load(),
-                    lineno=5,
-                    col_offset=11,
-                    end_lineno=5,
-                    end_col_offset=13),
-                  attr='path',
+                value=Name(
+                  id='path',
                   ctx=Load(),
                   lineno=5,
                   col_offset=11,
                   end_lineno=5,
-                  end_col_offset=18),
+                  end_col_offset=15),
                 attr='isdir',
                 ctx=Load(),
                 lineno=5,
                 col_offset=11,
                 end_lineno=5,
-                end_col_offset=24),
+                end_col_offset=21),
               args=[
                 Name(
                   id='output_path',
                   ctx=Load(),
                   lineno=5,
-                  col_offset=25,
+                  col_offset=22,
                   end_lineno=5,
-                  end_col_offset=36)],
+                  end_col_offset=33)],
               keywords=[],
               lineno=5,
               col_offset=11,
               end_lineno=5,
-              end_col_offset=37),
+              end_col_offset=34),
             lineno=5,
             col_offset=7,
             end_lineno=5,
-            end_col_offset=37),
+            end_col_offset=34),
           body=[
             Expr(
               value=Call(
-                func=Attribute(
-                  value=Name(
-                    id='os',
-                    ctx=Load(),
-                    lineno=6,
-                    col_offset=8,
-                    end_lineno=6,
-                    end_col_offset=10),
-                  attr='makedirs',
+                func=Name(
+                  id='makedirs',
                   ctx=Load(),
                   lineno=6,
                   col_offset=8,
                   end_lineno=6,
-                  end_col_offset=19),
+                  end_col_offset=16),
                 args=[
                   Name(
                     id='output_path',
                     ctx=Load(),
                     lineno=6,
-                    col_offset=20,
+                    col_offset=17,
                     end_lineno=6,
-                    end_col_offset=31)],
+                    end_col_offset=28)],
                 keywords=[],
                 lineno=6,
                 col_offset=8,
                 end_lineno=6,
-                end_col_offset=32),
+                end_col_offset=29),
               lineno=6,
               col_offset=8,
               end_lineno=6,
-              end_col_offset=32)],
+              end_col_offset=29)],
           orelse=[],
           lineno=5,
           col_offset=4,
           end_lineno=6,
-          end_col_offset=32)],
+          end_col_offset=29)],
       decorator_list=[],
       returns=Constant(
         value=None,
         lineno=4,
-        col_offset=46,
+        col_offset=47,
         end_lineno=4,
-        end_col_offset=50),
+        end_col_offset=51),
       lineno=4,
       col_offset=0,
       end_lineno=6,
-      end_col_offset=32),
+      end_col_offset=29),
     FunctionDef(
       name='create_cleared_output_folder',
       args=arguments(
@@ -230,12 +246,12 @@ Module(
         Expr(
           value=Call(
             func=Name(
-              id='create_output_folder',
+              id='_create_output_folder',
               ctx=Load(),
               lineno=10,
               col_offset=4,
               end_lineno=10,
-              end_col_offset=24),
+              end_col_offset=25),
             args=[],
             keywords=[
               keyword(
@@ -244,21 +260,21 @@ Module(
                   id='output_path',
                   ctx=Load(),
                   lineno=10,
-                  col_offset=37,
+                  col_offset=38,
                   end_lineno=10,
-                  end_col_offset=48),
+                  end_col_offset=49),
                 lineno=10,
-                col_offset=25,
+                col_offset=26,
                 end_lineno=10,
-                end_col_offset=48)],
+                end_col_offset=49)],
             lineno=10,
             col_offset=4,
             end_lineno=10,
-            end_col_offset=49),
+            end_col_offset=50),
           lineno=10,
           col_offset=4,
           end_lineno=10,
-          end_col_offset=49),
+          end_col_offset=50),
         For(
           target=Tuple(
             elts=[
@@ -289,45 +305,38 @@ Module(
             end_lineno=11,
             end_col_offset=25),
           iter=Call(
-            func=Attribute(
-              value=Name(
-                id='os',
-                ctx=Load(),
-                lineno=11,
-                col_offset=29,
-                end_lineno=11,
-                end_col_offset=31),
-              attr='walk',
+            func=Name(
+              id='walk',
               ctx=Load(),
               lineno=11,
               col_offset=29,
               end_lineno=11,
-              end_col_offset=36),
+              end_col_offset=33),
             args=[
               Name(
                 id='output_path',
                 ctx=Load(),
                 lineno=11,
-                col_offset=37,
+                col_offset=34,
                 end_lineno=11,
-                end_col_offset=48)],
+                end_col_offset=45)],
             keywords=[
               keyword(
                 arg='topdown',
                 value=Constant(
                   value=False,
                   lineno=11,
-                  col_offset=58,
+                  col_offset=55,
                   end_lineno=11,
-                  end_col_offset=63),
+                  end_col_offset=60),
                 lineno=11,
-                col_offset=50,
+                col_offset=47,
                 end_lineno=11,
-                end_col_offset=63)],
+                end_col_offset=60)],
             lineno=11,
             col_offset=29,
             end_lineno=11,
-            end_col_offset=64),
+            end_col_offset=61),
           body=[
             For(
               target=Name(
@@ -347,77 +356,63 @@ Module(
               body=[
                 Expr(
                   value=Call(
-                    func=Attribute(
-                      value=Name(
-                        id='os',
-                        ctx=Load(),
-                        lineno=13,
-                        col_offset=12,
-                        end_lineno=13,
-                        end_col_offset=14),
-                      attr='remove',
+                    func=Name(
+                      id='remove',
                       ctx=Load(),
                       lineno=13,
                       col_offset=12,
                       end_lineno=13,
-                      end_col_offset=21),
+                      end_col_offset=18),
                     args=[
                       Call(
                         func=Attribute(
-                          value=Attribute(
-                            value=Name(
-                              id='os',
-                              ctx=Load(),
-                              lineno=13,
-                              col_offset=22,
-                              end_lineno=13,
-                              end_col_offset=24),
-                            attr='path',
+                          value=Name(
+                            id='path',
                             ctx=Load(),
                             lineno=13,
-                            col_offset=22,
+                            col_offset=19,
                             end_lineno=13,
-                            end_col_offset=29),
+                            end_col_offset=23),
                           attr='join',
                           ctx=Load(),
                           lineno=13,
-                          col_offset=22,
+                          col_offset=19,
                           end_lineno=13,
-                          end_col_offset=34),
+                          end_col_offset=28),
                         args=[
                           Name(
                             id='root',
                             ctx=Load(),
                             lineno=13,
-                            col_offset=35,
+                            col_offset=29,
                             end_lineno=13,
-                            end_col_offset=39),
+                            end_col_offset=33),
                           Name(
                             id='name',
                             ctx=Load(),
                             lineno=13,
-                            col_offset=41,
+                            col_offset=35,
                             end_lineno=13,
-                            end_col_offset=45)],
+                            end_col_offset=39)],
                         keywords=[],
                         lineno=13,
-                        col_offset=22,
+                        col_offset=19,
                         end_lineno=13,
-                        end_col_offset=46)],
+                        end_col_offset=40)],
                     keywords=[],
                     lineno=13,
                     col_offset=12,
                     end_lineno=13,
-                    end_col_offset=47),
+                    end_col_offset=41),
                   lineno=13,
                   col_offset=12,
                   end_lineno=13,
-                  end_col_offset=47)],
+                  end_col_offset=41)],
               orelse=[],
               lineno=12,
               col_offset=8,
               end_lineno=13,
-              end_col_offset=47),
+              end_col_offset=41),
             For(
               target=Name(
                 id='name',
@@ -436,82 +431,68 @@ Module(
               body=[
                 Expr(
                   value=Call(
-                    func=Attribute(
-                      value=Name(
-                        id='os',
-                        ctx=Load(),
-                        lineno=15,
-                        col_offset=12,
-                        end_lineno=15,
-                        end_col_offset=14),
-                      attr='rmdir',
+                    func=Name(
+                      id='rmdir',
                       ctx=Load(),
                       lineno=15,
                       col_offset=12,
                       end_lineno=15,
-                      end_col_offset=20),
+                      end_col_offset=17),
                     args=[
                       Call(
                         func=Attribute(
-                          value=Attribute(
-                            value=Name(
-                              id='os',
-                              ctx=Load(),
-                              lineno=15,
-                              col_offset=21,
-                              end_lineno=15,
-                              end_col_offset=23),
-                            attr='path',
+                          value=Name(
+                            id='path',
                             ctx=Load(),
                             lineno=15,
-                            col_offset=21,
+                            col_offset=18,
                             end_lineno=15,
-                            end_col_offset=28),
+                            end_col_offset=22),
                           attr='join',
                           ctx=Load(),
                           lineno=15,
-                          col_offset=21,
+                          col_offset=18,
                           end_lineno=15,
-                          end_col_offset=33),
+                          end_col_offset=27),
                         args=[
                           Name(
                             id='root',
                             ctx=Load(),
                             lineno=15,
-                            col_offset=34,
+                            col_offset=28,
                             end_lineno=15,
-                            end_col_offset=38),
+                            end_col_offset=32),
                           Name(
                             id='name',
                             ctx=Load(),
                             lineno=15,
-                            col_offset=40,
+                            col_offset=34,
                             end_lineno=15,
-                            end_col_offset=44)],
+                            end_col_offset=38)],
                         keywords=[],
                         lineno=15,
-                        col_offset=21,
+                        col_offset=18,
                         end_lineno=15,
-                        end_col_offset=45)],
+                        end_col_offset=39)],
                     keywords=[],
                     lineno=15,
                     col_offset=12,
                     end_lineno=15,
-                    end_col_offset=46),
+                    end_col_offset=40),
                   lineno=15,
                   col_offset=12,
                   end_lineno=15,
-                  end_col_offset=46)],
+                  end_col_offset=40)],
               orelse=[],
               lineno=14,
               col_offset=8,
               end_lineno=15,
-              end_col_offset=46)],
+              end_col_offset=40)],
           orelse=[],
           lineno=11,
           col_offset=4,
           end_lineno=15,
-          end_col_offset=46)],
+          end_col_offset=40)],
       decorator_list=[],
       returns=Constant(
         value=None,
@@ -522,7 +503,7 @@ Module(
       lineno=9,
       col_offset=0,
       end_lineno=15,
-      end_col_offset=46),
+      end_col_offset=40),
     FunctionDef(
       name='get_output_file_path_for_input_file',
       args=arguments(
@@ -561,62 +542,55 @@ Module(
         Return(
           value=Call(
             func=Attribute(
-              value=Attribute(
-                value=Name(
-                  id='os',
-                  ctx=Load(),
-                  lineno=19,
-                  col_offset=11,
-                  end_lineno=19,
-                  end_col_offset=13),
-                attr='path',
+              value=Name(
+                id='path',
                 ctx=Load(),
                 lineno=19,
                 col_offset=11,
                 end_lineno=19,
-                end_col_offset=18),
+                end_col_offset=15),
               attr='join',
               ctx=Load(),
               lineno=19,
               col_offset=11,
               end_lineno=19,
-              end_col_offset=23),
+              end_col_offset=20),
             args=[
               Name(
                 id='output_root',
                 ctx=Load(),
                 lineno=19,
-                col_offset=24,
+                col_offset=21,
                 end_lineno=19,
-                end_col_offset=35),
+                end_col_offset=32),
               BinOp(
                 left=Name(
                   id='input_path',
                   ctx=Load(),
                   lineno=19,
-                  col_offset=37,
+                  col_offset=34,
                   end_lineno=19,
-                  end_col_offset=47),
+                  end_col_offset=44),
                 op=Add(),
                 right=Constant(
                   value='.md',
                   lineno=19,
-                  col_offset=50,
+                  col_offset=47,
                   end_lineno=19,
-                  end_col_offset=55),
+                  end_col_offset=52),
                 lineno=19,
-                col_offset=37,
+                col_offset=34,
                 end_lineno=19,
-                end_col_offset=55)],
+                end_col_offset=52)],
             keywords=[],
             lineno=19,
             col_offset=11,
             end_lineno=19,
-            end_col_offset=56),
+            end_col_offset=53),
           lineno=19,
           col_offset=4,
           end_lineno=19,
-          end_col_offset=56)],
+          end_col_offset=53)],
       decorator_list=[],
       returns=Name(
         id='str',
@@ -628,7 +602,7 @@ Module(
       lineno=18,
       col_offset=0,
       end_lineno=19,
-      end_col_offset=56),
+      end_col_offset=53),
     FunctionDef(
       name='update_output_file',
       args=arguments(
@@ -669,138 +643,110 @@ Module(
             op=Not(),
             operand=Call(
               func=Attribute(
-                value=Attribute(
-                  value=Name(
-                    id='os',
-                    ctx=Load(),
-                    lineno=23,
-                    col_offset=11,
-                    end_lineno=23,
-                    end_col_offset=13),
-                  attr='path',
+                value=Name(
+                  id='path',
                   ctx=Load(),
                   lineno=23,
                   col_offset=11,
                   end_lineno=23,
-                  end_col_offset=18),
+                  end_col_offset=15),
                 attr='isdir',
                 ctx=Load(),
                 lineno=23,
                 col_offset=11,
                 end_lineno=23,
-                end_col_offset=24),
+                end_col_offset=21),
               args=[
                 Call(
                   func=Attribute(
-                    value=Attribute(
-                      value=Name(
-                        id='os',
-                        ctx=Load(),
-                        lineno=23,
-                        col_offset=25,
-                        end_lineno=23,
-                        end_col_offset=27),
-                      attr='path',
+                    value=Name(
+                      id='path',
                       ctx=Load(),
                       lineno=23,
-                      col_offset=25,
+                      col_offset=22,
                       end_lineno=23,
-                      end_col_offset=32),
+                      end_col_offset=26),
                     attr='dirname',
                     ctx=Load(),
                     lineno=23,
-                    col_offset=25,
+                    col_offset=22,
                     end_lineno=23,
-                    end_col_offset=40),
+                    end_col_offset=34),
                   args=[
                     Name(
                       id='output_file',
                       ctx=Load(),
                       lineno=23,
-                      col_offset=41,
+                      col_offset=35,
                       end_lineno=23,
-                      end_col_offset=52)],
+                      end_col_offset=46)],
                   keywords=[],
                   lineno=23,
-                  col_offset=25,
+                  col_offset=22,
                   end_lineno=23,
-                  end_col_offset=53)],
+                  end_col_offset=47)],
               keywords=[],
               lineno=23,
               col_offset=11,
               end_lineno=23,
-              end_col_offset=54),
+              end_col_offset=48),
             lineno=23,
             col_offset=7,
             end_lineno=23,
-            end_col_offset=54),
+            end_col_offset=48),
           body=[
             Expr(
               value=Call(
-                func=Attribute(
-                  value=Name(
-                    id='os',
-                    ctx=Load(),
-                    lineno=24,
-                    col_offset=8,
-                    end_lineno=24,
-                    end_col_offset=10),
-                  attr='makedirs',
+                func=Name(
+                  id='makedirs',
                   ctx=Load(),
                   lineno=24,
                   col_offset=8,
                   end_lineno=24,
-                  end_col_offset=19),
+                  end_col_offset=16),
                 args=[
                   Call(
                     func=Attribute(
-                      value=Attribute(
-                        value=Name(
-                          id='os',
-                          ctx=Load(),
-                          lineno=24,
-                          col_offset=20,
-                          end_lineno=24,
-                          end_col_offset=22),
-                        attr='path',
+                      value=Name(
+                        id='path',
                         ctx=Load(),
                         lineno=24,
-                        col_offset=20,
+                        col_offset=17,
                         end_lineno=24,
-                        end_col_offset=27),
+                        end_col_offset=21),
                       attr='dirname',
                       ctx=Load(),
                       lineno=24,
-                      col_offset=20,
+                      col_offset=17,
                       end_lineno=24,
-                      end_col_offset=35),
+                      end_col_offset=29),
                     args=[
                       Name(
                         id='output_file',
                         ctx=Load(),
                         lineno=24,
-                        col_offset=36,
+                        col_offset=30,
                         end_lineno=24,
-                        end_col_offset=47)],
+                        end_col_offset=41)],
                     keywords=[],
                     lineno=24,
-                    col_offset=20,
+                    col_offset=17,
                     end_lineno=24,
-                    end_col_offset=48)],
+                    end_col_offset=42)],
                 keywords=[],
                 lineno=24,
                 col_offset=8,
                 end_lineno=24,
-                end_col_offset=49),
+                end_col_offset=43),
               lineno=24,
               col_offset=8,
               end_lineno=24,
-              end_col_offset=49)],
+              end_col_offset=43)],
           orelse=[],
           lineno=23,
           col_offset=4,
           end_lineno=24,
-          end_col_offset=49),
+          end_col_offset=43),
         With(
           items=[
             withitem(
@@ -877,6 +823,12 @@ Module(
           end_lineno=27,
           end_col_offset=30)],
       decorator_list=[],
+      returns=Constant(
+        value=None,
+        lineno=22,
+        col_offset=58,
+        end_lineno=22,
+        end_col_offset=62),
       lineno=22,
       col_offset=0,
       end_lineno=27,

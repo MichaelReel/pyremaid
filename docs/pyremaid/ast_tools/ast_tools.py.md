@@ -13,14 +13,14 @@
 ---
 ```mermaid
 flowchart TB
-  _f50_n162["finder = ImportNodeFinder()"]
-  _f50_n163["Expr"]
-  _f50_n164["finder.visit(ast_node)"]
-  _f50_n165["return finder.get_found_imports()"]
-  _f51_n166["generator = BlockGenerator()"]
+  _f51_n166["finder = ImportNodeFinder()"]
   _f51_n167["Expr"]
-  _f51_n168["generator.visit(node=model)"]
-  _f51_n169["return generator.get_list_of_elements()"]
+  _f51_n168["finder.visit(node=ast_node)"]
+  _f51_n169["return finder.get_found_imports()"]
+  _f52_n170["generator = BlockGenerator()"]
+  _f52_n171["Expr"]
+  _f52_n172["generator.visit(node=model)"]
+  _f52_n173["return generator.get_list_of_elements()"]
 
   subgraph _get_ast_root_node_for_file
     direction TB
@@ -30,15 +30,15 @@ flowchart TB
   end
   subgraph _get_used_import_list
     direction TB
-    _f50_n162 --> _f50_n163
-    _f50_n163 --> _f50_n164
-    _f50_n164 --> _f50_n165
-  end
-  subgraph _create_mermaid_model_from_ast_model
-    direction TB
     _f51_n166 --> _f51_n167
     _f51_n167 --> _f51_n168
     _f51_n168 --> _f51_n169
+  end
+  subgraph _create_mermaid_model_from_ast_model
+    direction TB
+    _f52_n170 --> _f52_n171
+    _f52_n171 --> _f52_n172
+    _f52_n172 --> _f52_n173
   end
 
 ```
@@ -284,59 +284,65 @@ Module(
               col_offset=11,
               end_lineno=18,
               end_col_offset=15),
-            args=[
-              Name(
-                id='ast_node',
-                ctx=Load(),
+            args=[],
+            keywords=[
+              keyword(
+                arg='node',
+                value=Name(
+                  id='ast_node',
+                  ctx=Load(),
+                  lineno=18,
+                  col_offset=21,
+                  end_lineno=18,
+                  end_col_offset=29),
                 lineno=18,
                 col_offset=16,
                 end_lineno=18,
-                end_col_offset=24)],
-            keywords=[
+                end_col_offset=29),
               keyword(
                 arg='annotate_fields',
                 value=Constant(
                   value=True,
                   lineno=18,
-                  col_offset=42,
+                  col_offset=47,
                   end_lineno=18,
-                  end_col_offset=46),
+                  end_col_offset=51),
                 lineno=18,
-                col_offset=26,
+                col_offset=31,
                 end_lineno=18,
-                end_col_offset=46),
+                end_col_offset=51),
               keyword(
                 arg='include_attributes',
                 value=Constant(
                   value=True,
                   lineno=18,
-                  col_offset=67,
+                  col_offset=72,
                   end_lineno=18,
-                  end_col_offset=71),
+                  end_col_offset=76),
                 lineno=18,
-                col_offset=48,
+                col_offset=53,
                 end_lineno=18,
-                end_col_offset=71),
+                end_col_offset=76),
               keyword(
                 arg='indent',
                 value=Constant(
                   value=2,
                   lineno=18,
-                  col_offset=80,
+                  col_offset=85,
                   end_lineno=18,
-                  end_col_offset=81),
+                  end_col_offset=86),
                 lineno=18,
-                col_offset=73,
+                col_offset=78,
                 end_lineno=18,
-                end_col_offset=81)],
+                end_col_offset=86)],
             lineno=18,
             col_offset=11,
             end_lineno=18,
-            end_col_offset=82),
+            end_col_offset=87),
           lineno=18,
           col_offset=4,
           end_lineno=18,
-          end_col_offset=82)],
+          end_col_offset=87)],
       decorator_list=[],
       returns=Name(
         id='str',
@@ -348,7 +354,7 @@ Module(
       lineno=17,
       col_offset=0,
       end_lineno=18,
-      end_col_offset=82),
+      end_col_offset=87),
     FunctionDef(
       name='get_used_import_list',
       args=arguments(
@@ -414,23 +420,29 @@ Module(
               col_offset=4,
               end_lineno=23,
               end_col_offset=16),
-            args=[
-              Name(
-                id='ast_node',
-                ctx=Load(),
+            args=[],
+            keywords=[
+              keyword(
+                arg='node',
+                value=Name(
+                  id='ast_node',
+                  ctx=Load(),
+                  lineno=23,
+                  col_offset=22,
+                  end_lineno=23,
+                  end_col_offset=30),
                 lineno=23,
                 col_offset=17,
                 end_lineno=23,
-                end_col_offset=25)],
-            keywords=[],
+                end_col_offset=30)],
             lineno=23,
             col_offset=4,
             end_lineno=23,
-            end_col_offset=26),
+            end_col_offset=31),
           lineno=23,
           col_offset=4,
           end_lineno=23,
-          end_col_offset=26),
+          end_col_offset=31),
         Return(
           value=Call(
             func=Attribute(

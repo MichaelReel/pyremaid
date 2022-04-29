@@ -2,53 +2,60 @@
 
 ### Imports
 
-  - os.*
+  - os.walk
+  - os.path
+  - os.sep
   - re.match
 
 ---
 ```mermaid
 flowchart TB
-  _f34_n125["python_files = []"]
-  _f34_l35["(dirpath, _dirnames, filenames)"]
-  _f34_l35_l36_n126["If"]
-  _f34_l35_l36_n127["match('.*\\.py$', filename)"]
-  _f34_l35_l36_n128["Expr"]
-  _f34_l35_l36_n129["python_files.append(os.path.join(dirpath, filename))"]
-  _f34_l35_l36["filename"]
-  _f34_n130["return python_files"]
-  _f37_n131["content = ''"]
-  _f37_n132["With"]
-  _f37_n133["withitem"]
-  _f37_n134["open(input_file, 'r')"]
-  _f37_n135["md_file"]
-  _f37_n136["content = md_file.read()"]
-  _f37_n137["return content"]
+  _f35_n127["python_files = []"]
+  _f35_l36["(dirpath, _dirnames, filenames)"]
+  _f35_l36_l37_n128["If"]
+  _f35_l36_l37_n129["match('.*\\.py$', filename)"]
+  _f35_l36_l37_n130["Expr"]
+  _f35_l36_l37_n131["python_files.append(path.join(dirpath, filename))"]
+  _f35_l36_l37["filename"]
+  _f35_n132["return python_files"]
+  _f38_n133["content = ''"]
+  _f38_n134["With"]
+  _f38_n135["withitem"]
+  _f38_n136["open(input_file, 'r')"]
+  _f38_n137["md_file"]
+  _f38_n138["content = md_file.read()"]
+  _f38_n139["return content"]
+  _f39_n140["Expr"]
+  _f39_n141["'\n    Attempt to figure out the module path from the python file name\n    Input_path is the root path and input_file is the full python file path\n\n    This _relies_ on the sanity of the input parameters\n\n    String input_path off the input_file, remove `.py`, remove `.`,\n    change file separator to `.`, remove `.__init__`,\n    replace `__init__` with `.`\n    '"]
+  _f39_n142["return input_file.replace(input_path, '').replace('.py', '').replace('.', '').replace(sep, '.').replace('.__init__', '').replace('__init__', '.')"]
 
   subgraph _find_all_python_files
     direction TB
-    _f34_n125 --> _f34_l35
+    _f35_n127 --> _f35_l36
     %% loop (dirpath, _dirnames, filenames)
       %% loop filename
-        _f34_l35_l36_n126 --> _f34_l35_l36_n127
-        _f34_l35_l36_n127 --> _f34_l35_l36_n128
-        _f34_l35_l36_n128 --> _f34_l35_l36_n129
+        _f35_l36_l37_n128 --> _f35_l36_l37_n129
+        _f35_l36_l37_n129 --> _f35_l36_l37_n130
+        _f35_l36_l37_n130 --> _f35_l36_l37_n131
       %% end filename
-      _f34_l35_l36_n129 --> _f34_l35_l36_n126
+      _f35_l36_l37_n131 --> _f35_l36_l37_n128
     %% end (dirpath, _dirnames, filenames)
-    _f34_l35_l36_n126 --> _f34_l35_l36
-    _f34_l35_l36 --> _f34_n130
+    _f35_l36_l37_n128 --> _f35_l36_l37
+    _f35_l36_l37 --> _f35_n132
   end
   subgraph _get_source_code_from_file
     direction TB
-    _f37_n131 --> _f37_n132
-    _f37_n132 --> _f37_n133
-    _f37_n133 --> _f37_n134
-    _f37_n134 --> _f37_n135
-    _f37_n135 --> _f37_n136
-    _f37_n136 --> _f37_n137
+    _f38_n133 --> _f38_n134
+    _f38_n134 --> _f38_n135
+    _f38_n135 --> _f38_n136
+    _f38_n136 --> _f38_n137
+    _f38_n137 --> _f38_n138
+    _f38_n138 --> _f38_n139
   end
   subgraph _get_import_name_from_path
     direction TB
+    _f39_n140 --> _f39_n141
+    _f39_n141 --> _f39_n142
   end
 
 ```
@@ -60,18 +67,32 @@ flowchart TB
 ```
 Module(
   body=[
-    Import(
+    ImportFrom(
+      module='os',
       names=[
         alias(
-          name='os',
+          name='walk',
           lineno=1,
-          col_offset=7,
+          col_offset=15,
           end_lineno=1,
-          end_col_offset=9)],
+          end_col_offset=19),
+        alias(
+          name='path',
+          lineno=1,
+          col_offset=21,
+          end_lineno=1,
+          end_col_offset=25),
+        alias(
+          name='sep',
+          lineno=1,
+          col_offset=27,
+          end_lineno=1,
+          end_col_offset=30)],
+      level=0,
       lineno=1,
       col_offset=0,
       end_lineno=1,
-      end_col_offset=9),
+      end_col_offset=30),
     ImportFrom(
       module='re',
       names=[
@@ -158,33 +179,26 @@ Module(
             end_lineno=7,
             end_col_offset=37),
           iter=Call(
-            func=Attribute(
-              value=Name(
-                id='os',
-                ctx=Load(),
-                lineno=7,
-                col_offset=41,
-                end_lineno=7,
-                end_col_offset=43),
-              attr='walk',
+            func=Name(
+              id='walk',
               ctx=Load(),
               lineno=7,
               col_offset=41,
               end_lineno=7,
-              end_col_offset=48),
+              end_col_offset=45),
             args=[
               Name(
                 id='input_path',
                 ctx=Load(),
                 lineno=7,
-                col_offset=49,
+                col_offset=46,
                 end_lineno=7,
-                end_col_offset=59)],
+                end_col_offset=56)],
             keywords=[],
             lineno=7,
             col_offset=41,
             end_lineno=7,
-            end_col_offset=60),
+            end_col_offset=57),
           body=[
             For(
               target=Name(
@@ -250,70 +264,63 @@ Module(
                         args=[
                           Call(
                             func=Attribute(
-                              value=Attribute(
-                                value=Name(
-                                  id='os',
-                                  ctx=Load(),
-                                  lineno=10,
-                                  col_offset=36,
-                                  end_lineno=10,
-                                  end_col_offset=38),
-                                attr='path',
+                              value=Name(
+                                id='path',
                                 ctx=Load(),
                                 lineno=10,
                                 col_offset=36,
                                 end_lineno=10,
-                                end_col_offset=43),
+                                end_col_offset=40),
                               attr='join',
                               ctx=Load(),
                               lineno=10,
                               col_offset=36,
                               end_lineno=10,
-                              end_col_offset=48),
+                              end_col_offset=45),
                             args=[
                               Name(
                                 id='dirpath',
                                 ctx=Load(),
                                 lineno=10,
-                                col_offset=49,
+                                col_offset=46,
                                 end_lineno=10,
-                                end_col_offset=56),
+                                end_col_offset=53),
                               Name(
                                 id='filename',
                                 ctx=Load(),
                                 lineno=10,
-                                col_offset=58,
+                                col_offset=55,
                                 end_lineno=10,
-                                end_col_offset=66)],
+                                end_col_offset=63)],
                             keywords=[],
                             lineno=10,
                             col_offset=36,
                             end_lineno=10,
-                            end_col_offset=67)],
+                            end_col_offset=64)],
                         keywords=[],
                         lineno=10,
                         col_offset=16,
                         end_lineno=10,
-                        end_col_offset=68),
+                        end_col_offset=65),
                       lineno=10,
                       col_offset=16,
                       end_lineno=10,
-                      end_col_offset=68)],
+                      end_col_offset=65)],
                   orelse=[],
                   lineno=9,
                   col_offset=12,
                   end_lineno=10,
-                  end_col_offset=68)],
+                  end_col_offset=65)],
               orelse=[],
               lineno=8,
               col_offset=8,
               end_lineno=10,
-              end_col_offset=68)],
+              end_col_offset=65)],
           orelse=[],
           lineno=7,
           col_offset=4,
           end_lineno=10,
-          end_col_offset=68),
+          end_col_offset=65),
         Return(
           value=Name(
             id='python_files',
@@ -527,6 +534,17 @@ Module(
         kw_defaults=[],
         defaults=[]),
       body=[
+        Expr(
+          value=Constant(
+            value='\n    Attempt to figure out the module path from the python file name\n    Input_path is the root path and input_file is the full python file path\n\n    This _relies_ on the sanity of the input parameters\n\n    String input_path off the input_file, remove `.py`, remove `.`,\n    change file separator to `.`, remove `.__init__`,\n    replace `__init__` with `.`\n    ',
+            lineno=23,
+            col_offset=4,
+            end_lineno=32,
+            end_col_offset=7),
+          lineno=23,
+          col_offset=4,
+          end_lineno=32,
+          end_col_offset=7),
         Return(
           value=Call(
             func=Attribute(
@@ -543,166 +561,159 @@ Module(
                                   value=Name(
                                     id='input_file',
                                     ctx=Load(),
-                                    lineno=24,
+                                    lineno=35,
                                     col_offset=8,
-                                    end_lineno=24,
+                                    end_lineno=35,
                                     end_col_offset=18),
                                   attr='replace',
                                   ctx=Load(),
-                                  lineno=24,
+                                  lineno=35,
                                   col_offset=8,
-                                  end_lineno=24,
+                                  end_lineno=35,
                                   end_col_offset=26),
                                 args=[
                                   Name(
                                     id='input_path',
                                     ctx=Load(),
-                                    lineno=24,
+                                    lineno=35,
                                     col_offset=27,
-                                    end_lineno=24,
+                                    end_lineno=35,
                                     end_col_offset=37),
                                   Constant(
                                     value='',
-                                    lineno=24,
+                                    lineno=35,
                                     col_offset=39,
-                                    end_lineno=24,
+                                    end_lineno=35,
                                     end_col_offset=41)],
                                 keywords=[],
-                                lineno=24,
+                                lineno=35,
                                 col_offset=8,
-                                end_lineno=24,
+                                end_lineno=35,
                                 end_col_offset=42),
                               attr='replace',
                               ctx=Load(),
-                              lineno=24,
+                              lineno=35,
                               col_offset=8,
-                              end_lineno=25,
+                              end_lineno=36,
                               end_col_offset=16),
                             args=[
                               Constant(
                                 value='.py',
-                                lineno=25,
+                                lineno=36,
                                 col_offset=17,
-                                end_lineno=25,
+                                end_lineno=36,
                                 end_col_offset=22),
                               Constant(
                                 value='',
-                                lineno=25,
+                                lineno=36,
                                 col_offset=24,
-                                end_lineno=25,
+                                end_lineno=36,
                                 end_col_offset=26)],
                             keywords=[],
-                            lineno=24,
+                            lineno=35,
                             col_offset=8,
-                            end_lineno=25,
+                            end_lineno=36,
                             end_col_offset=27),
                           attr='replace',
                           ctx=Load(),
-                          lineno=24,
+                          lineno=35,
                           col_offset=8,
-                          end_lineno=26,
+                          end_lineno=37,
                           end_col_offset=16),
                         args=[
                           Constant(
                             value='.',
-                            lineno=26,
+                            lineno=37,
                             col_offset=17,
-                            end_lineno=26,
+                            end_lineno=37,
                             end_col_offset=20),
                           Constant(
                             value='',
-                            lineno=26,
+                            lineno=37,
                             col_offset=22,
-                            end_lineno=26,
+                            end_lineno=37,
                             end_col_offset=24)],
                         keywords=[],
-                        lineno=24,
+                        lineno=35,
                         col_offset=8,
-                        end_lineno=26,
+                        end_lineno=37,
                         end_col_offset=25),
                       attr='replace',
                       ctx=Load(),
-                      lineno=24,
+                      lineno=35,
                       col_offset=8,
-                      end_lineno=27,
+                      end_lineno=38,
                       end_col_offset=16),
                     args=[
-                      Attribute(
-                        value=Name(
-                          id='os',
-                          ctx=Load(),
-                          lineno=27,
-                          col_offset=17,
-                          end_lineno=27,
-                          end_col_offset=19),
-                        attr='sep',
+                      Name(
+                        id='sep',
                         ctx=Load(),
-                        lineno=27,
+                        lineno=38,
                         col_offset=17,
-                        end_lineno=27,
-                        end_col_offset=23),
+                        end_lineno=38,
+                        end_col_offset=20),
                       Constant(
                         value='.',
-                        lineno=27,
-                        col_offset=25,
-                        end_lineno=27,
-                        end_col_offset=28)],
+                        lineno=38,
+                        col_offset=22,
+                        end_lineno=38,
+                        end_col_offset=25)],
                     keywords=[],
-                    lineno=24,
+                    lineno=35,
                     col_offset=8,
-                    end_lineno=27,
-                    end_col_offset=29),
+                    end_lineno=38,
+                    end_col_offset=26),
                   attr='replace',
                   ctx=Load(),
-                  lineno=24,
+                  lineno=35,
                   col_offset=8,
-                  end_lineno=28,
+                  end_lineno=39,
                   end_col_offset=16),
                 args=[
                   Constant(
                     value='.__init__',
-                    lineno=28,
+                    lineno=39,
                     col_offset=17,
-                    end_lineno=28,
+                    end_lineno=39,
                     end_col_offset=28),
                   Constant(
                     value='',
-                    lineno=28,
+                    lineno=39,
                     col_offset=30,
-                    end_lineno=28,
+                    end_lineno=39,
                     end_col_offset=32)],
                 keywords=[],
-                lineno=24,
+                lineno=35,
                 col_offset=8,
-                end_lineno=28,
+                end_lineno=39,
                 end_col_offset=33),
               attr='replace',
               ctx=Load(),
-              lineno=24,
+              lineno=35,
               col_offset=8,
-              end_lineno=29,
+              end_lineno=40,
               end_col_offset=16),
             args=[
               Constant(
                 value='__init__',
-                lineno=29,
+                lineno=40,
                 col_offset=17,
-                end_lineno=29,
+                end_lineno=40,
                 end_col_offset=27),
               Constant(
                 value='.',
-                lineno=29,
+                lineno=40,
                 col_offset=29,
-                end_lineno=29,
+                end_lineno=40,
                 end_col_offset=32)],
             keywords=[],
-            lineno=24,
+            lineno=35,
             col_offset=8,
-            end_lineno=29,
+            end_lineno=40,
             end_col_offset=33),
-          lineno=23,
+          lineno=34,
           col_offset=4,
-          end_lineno=30,
+          end_lineno=41,
           end_col_offset=5)],
       decorator_list=[],
       returns=Name(
@@ -714,7 +725,7 @@ Module(
         end_col_offset=70),
       lineno=22,
       col_offset=0,
-      end_lineno=30,
+      end_lineno=41,
       end_col_offset=5)],
   type_ignores=[])
 ```

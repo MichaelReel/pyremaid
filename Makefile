@@ -28,7 +28,7 @@ clean:
 	rm -rf htmlcov
 	rm -f .coverage
 	rm -rf .pytest_cache
-	rm -rf __pycache__
+	find . -type d -name __pycache__ -exec rm -r {} \+
 	rm -rf $(VENV)
 
 lint: init

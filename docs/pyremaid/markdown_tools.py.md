@@ -6,36 +6,36 @@
 ---
 ```mermaid
 flowchart TB
-  _f17_n51["debug_block = create_markdown_debug_dump_block(debug_content=debug_dump)"]
-  _f17_n52["import_block = turn_out_the_import_list(import_list=import_list, global_import_table=global_import_table)"]
-  _f17_n53["mermaid_blocks = '\n'.join(mermaid_diagrams)"]
-  _f17_n54["return f'# {input_file}\n\n{import_block}\n---\n{mermaid_blocks}---\n\n{debug_block}\n'"]
-  _f18_n55["list_str = '### Imports\n\n'"]
-  _f18_l19["import_item"]
-  _f18_l19_n56["url = global_import_table[import_item]"]
-  _f18_l19_n57["If"]
-  _f18_l19_n58["url"]
-  _f18_l19_n59["list_str += f'  - [{import_item}]({url})\n'"]
-  _f18_l19_n60["list_str += f'  - {import_item}\n'"]
-  _f18_n61["return list_str"]
+  _f18_n53["debug_block = create_markdown_debug_dump_block(debug_content=debug_dump)"]
+  _f18_n54["import_block = turn_out_the_import_list(import_list=import_list, global_import_table=global_import_table)"]
+  _f18_n55["mermaid_blocks = '\n'.join(mermaid_diagrams)"]
+  _f18_n56["return f'# {input_file}\n\n{import_block}\n---\n{mermaid_blocks}---\n\n{debug_block}\n'"]
+  _f19_n57["list_str = '### Imports\n\n'"]
+  _f19_l20["import_item"]
+  _f19_l20_n58["url = global_import_table[import_item]"]
+  _f19_l20_n59["If"]
+  _f19_l20_n60["url"]
+  _f19_l20_n61["list_str += f'  - [{import_item}]({url})\n'"]
+  _f19_l20_n62["list_str += f'  - {import_item}\n'"]
+  _f19_n63["return list_str"]
 
   subgraph _create_markdown_content
     direction TB
-    _f17_n51 --> _f17_n52
-    _f17_n52 --> _f17_n53
-    _f17_n53 --> _f17_n54
+    _f18_n53 --> _f18_n54
+    _f18_n54 --> _f18_n55
+    _f18_n55 --> _f18_n56
   end
   subgraph _turn_out_the_import_list
     direction TB
-    _f18_n55 --> _f18_l19
+    _f19_n57 --> _f19_l20
     %% loop import_item
-      _f18_l19_n56 --> _f18_l19_n57
-      _f18_l19_n57 --> _f18_l19_n58
-      _f18_l19_n58 --> _f18_l19_n59
-      _f18_l19_n59 --> _f18_l19_n60
+      _f19_l20_n58 --> _f19_l20_n59
+      _f19_l20_n59 --> _f19_l20_n60
+      _f19_l20_n60 --> _f19_l20_n61
+      _f19_l20_n61 --> _f19_l20_n62
     %% end import_item
-    _f18_l19_n60 --> _f18_l19_n56
-    _f18_l19_n56 --> _f18_n61
+    _f19_l20_n62 --> _f19_l20_n58
+    _f19_l20_n58 --> _f19_n63
   end
   subgraph _create_markdown_debug_dump_block
     direction TB

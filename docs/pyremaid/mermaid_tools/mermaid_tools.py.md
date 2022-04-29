@@ -13,153 +13,153 @@
 ---
 ```mermaid
 flowchart TB
-  _f23_n65["node_set = []"]
-  _f23_l24["element"]
-  _f23_l24_n66["If"]
-  _f23_l24_n67["isinstance(element, MermaidLink)"]
-  _f23_l24_n68["link: MermaidLink = element"]
-  _f23_l24_n69["If"]
-  _f23_l24_n70["link.from_ not in node_set"]
-  _f23_l24_n71["Expr"]
-  _f23_l24_n72["node_set.append(link.from_)"]
-  _f23_l24_n73["If"]
-  _f23_l24_n74["link.to not in node_set"]
-  _f23_l24_n75["Expr"]
-  _f23_l24_n76["node_set.append(link.to)"]
-  _f23_l24_n77["If"]
-  _f23_l24_n78["isinstance(element, MermaidBlock)"]
-  _f23_l24_n79["block: MermaidBlock = element"]
-  _f23_l24_n80["Expr"]
-  _f23_l24_n81["node_set.extend(_get_unique_nodes(block.block_contents))"]
-  _f23_n82["return node_set"]
-  _f25_n83["alias_string = ''"]
-  _f25_l26["node"]
-  _f25_l26_n84["alias_string += f'{TAB * indent}{node.mermaid_safe_name}[''{node.display_name}'']\n'"]
-  _f25_n85["return _sanitize(alias_string)"]
-  _f27_n86["from_name = link.from_.mermaid_safe_name"]
-  _f27_n87["to_name = link.to.mermaid_safe_name"]
-  _f27_n88["return f'{TAB * indent}{from_name} -- {to_name}\n'"]
-  _f28_n89["connection_text = ''"]
-  _f28_l29["element"]
-  _f28_l29_n90["If"]
-  _f28_l29_n91["isinstance(element, MermaidLink)"]
-  _f28_l29_n92["link: MermaidLink = element"]
-  _f28_l29_n93["connection_text += _get_flow_link_text(link=link, indent=indent)"]
-  _f28_l29_n94["If"]
-  _f28_l29_n95["isinstance(element, MermaidBlock)"]
-  _f28_l29_n96["block: MermaidBlock = element"]
-  _f28_l29_n97["connection_text += _get_block_text(block=block, indent=indent)"]
-  _f28_n98["return connection_text"]
-  _f30_n99["block_text = ''"]
-  _f30_n100["If"]
-  _f30_n101["isinstance(block, MermaidFunction)"]
-  _f30_n102["function_def: MermaidFunction = block"]
-  _f30_n103["block_text += f'{TAB * indent}subgraph {function_def.display_name}\n'"]
-  _f30_n104["block_text += f'{TAB * (indent + 1)}direction TB\n'"]
-  _f30_n105["block_text += _get_flow_connections(function_def.block_contents, indent + 1)"]
-  _f30_n106["block_text += f'{TAB * indent}end\n'"]
-  _f30_n107["If"]
-  _f30_n108["isinstance(block, MermaidClass)"]
-  _f30_n109["class_def: MermaidClass = block"]
-  _f30_n110["block_text += f'{TAB * indent}subgraph {class_def.display_name}\n'"]
-  _f30_n111["block_text += f'{TAB * (indent + 1)}direction TB\n'"]
-  _f30_n112["block_text += _get_flow_connections(class_def.block_contents, indent + 1)"]
-  _f30_n113["block_text += f'{TAB * indent}end\n'"]
-  _f30_n114["If"]
-  _f30_n115["isinstance(block, MermaidFor)"]
-  _f30_n116["for_def: MermaidFor = block"]
-  _f30_n117["block_text += f'{TAB * indent}%% loop {for_def.display_name}\n'"]
-  _f30_n118["block_text += _get_flow_connections(for_def.block_contents, indent + 1)"]
-  _f30_n119["block_text += f'{TAB * indent}%% end {for_def.display_name}\n'"]
-  _f30_n120["block_text += _get_flow_connections(block.block_contents, indent)"]
-  _f30_n121["return block_text"]
-  _f31_n122["alaises = _get_aliases_for_safe_names(elements=elements)"]
-  _f31_n123["flow_connections = _get_flow_connections(elements=elements)"]
-  _f31_n124["return f'```mermaid\nflowchart TB\n{alaises}\n{flow_connections}\n```\n'"]
+  _f24_n67["node_set = []"]
+  _f24_l25["element"]
+  _f24_l25_n68["If"]
+  _f24_l25_n69["isinstance(element, MermaidLink)"]
+  _f24_l25_n70["link: MermaidLink = element"]
+  _f24_l25_n71["If"]
+  _f24_l25_n72["link.from_ not in node_set"]
+  _f24_l25_n73["Expr"]
+  _f24_l25_n74["node_set.append(link.from_)"]
+  _f24_l25_n75["If"]
+  _f24_l25_n76["link.to not in node_set"]
+  _f24_l25_n77["Expr"]
+  _f24_l25_n78["node_set.append(link.to)"]
+  _f24_l25_n79["If"]
+  _f24_l25_n80["isinstance(element, MermaidBlock)"]
+  _f24_l25_n81["block: MermaidBlock = element"]
+  _f24_l25_n82["Expr"]
+  _f24_l25_n83["node_set.extend(_get_unique_nodes(block.block_contents))"]
+  _f24_n84["return node_set"]
+  _f26_n85["alias_string = ''"]
+  _f26_l27["node"]
+  _f26_l27_n86["alias_string += f'{TAB * indent}{node.mermaid_safe_name}[''{node.display_name}'']\n'"]
+  _f26_n87["return _sanitize(alias_string)"]
+  _f28_n88["from_name = link.from_.mermaid_safe_name"]
+  _f28_n89["to_name = link.to.mermaid_safe_name"]
+  _f28_n90["return f'{TAB * indent}{from_name} -- {to_name}\n'"]
+  _f29_n91["connection_text = ''"]
+  _f29_l30["element"]
+  _f29_l30_n92["If"]
+  _f29_l30_n93["isinstance(element, MermaidLink)"]
+  _f29_l30_n94["link: MermaidLink = element"]
+  _f29_l30_n95["connection_text += _get_flow_link_text(link=link, indent=indent)"]
+  _f29_l30_n96["If"]
+  _f29_l30_n97["isinstance(element, MermaidBlock)"]
+  _f29_l30_n98["block: MermaidBlock = element"]
+  _f29_l30_n99["connection_text += _get_block_text(block=block, indent=indent)"]
+  _f29_n100["return connection_text"]
+  _f31_n101["block_text = ''"]
+  _f31_n102["If"]
+  _f31_n103["isinstance(block, MermaidFunction)"]
+  _f31_n104["function_def: MermaidFunction = block"]
+  _f31_n105["block_text += f'{TAB * indent}subgraph {function_def.display_name}\n'"]
+  _f31_n106["block_text += f'{TAB * (indent + 1)}direction TB\n'"]
+  _f31_n107["block_text += _get_flow_connections(function_def.block_contents, indent + 1)"]
+  _f31_n108["block_text += f'{TAB * indent}end\n'"]
+  _f31_n109["If"]
+  _f31_n110["isinstance(block, MermaidClass)"]
+  _f31_n111["class_def: MermaidClass = block"]
+  _f31_n112["block_text += f'{TAB * indent}subgraph {class_def.display_name}\n'"]
+  _f31_n113["block_text += f'{TAB * (indent + 1)}direction TB\n'"]
+  _f31_n114["block_text += _get_flow_connections(class_def.block_contents, indent + 1)"]
+  _f31_n115["block_text += f'{TAB * indent}end\n'"]
+  _f31_n116["If"]
+  _f31_n117["isinstance(block, MermaidFor)"]
+  _f31_n118["for_def: MermaidFor = block"]
+  _f31_n119["block_text += f'{TAB * indent}%% loop {for_def.display_name}\n'"]
+  _f31_n120["block_text += _get_flow_connections(for_def.block_contents, indent + 1)"]
+  _f31_n121["block_text += f'{TAB * indent}%% end {for_def.display_name}\n'"]
+  _f31_n122["block_text += _get_flow_connections(block.block_contents, indent)"]
+  _f31_n123["return block_text"]
+  _f32_n124["aliases = _get_aliases_for_safe_names(elements=elements)"]
+  _f32_n125["flow_connections = _get_flow_connections(elements=elements)"]
+  _f32_n126["return f'```mermaid\nflowchart TB\n{aliases}\n{flow_connections}\n```\n'"]
 
   subgraph __sanitize
     direction TB
   end
   subgraph __get_unique_nodes
     direction TB
-    _f23_n65 --> _f23_l24
+    _f24_n67 --> _f24_l25
     %% loop element
-      _f23_l24_n66 --> _f23_l24_n67
-      _f23_l24_n67 --> _f23_l24_n68
-      _f23_l24_n68 --> _f23_l24_n69
-      _f23_l24_n69 --> _f23_l24_n70
-      _f23_l24_n70 --> _f23_l24_n71
-      _f23_l24_n71 --> _f23_l24_n72
-      _f23_l24_n72 --> _f23_l24_n73
-      _f23_l24_n73 --> _f23_l24_n74
-      _f23_l24_n74 --> _f23_l24_n75
-      _f23_l24_n75 --> _f23_l24_n76
-      _f23_l24_n76 --> _f23_l24_n77
-      _f23_l24_n77 --> _f23_l24_n78
-      _f23_l24_n78 --> _f23_l24_n79
-      _f23_l24_n79 --> _f23_l24_n80
-      _f23_l24_n80 --> _f23_l24_n81
+      _f24_l25_n68 --> _f24_l25_n69
+      _f24_l25_n69 --> _f24_l25_n70
+      _f24_l25_n70 --> _f24_l25_n71
+      _f24_l25_n71 --> _f24_l25_n72
+      _f24_l25_n72 --> _f24_l25_n73
+      _f24_l25_n73 --> _f24_l25_n74
+      _f24_l25_n74 --> _f24_l25_n75
+      _f24_l25_n75 --> _f24_l25_n76
+      _f24_l25_n76 --> _f24_l25_n77
+      _f24_l25_n77 --> _f24_l25_n78
+      _f24_l25_n78 --> _f24_l25_n79
+      _f24_l25_n79 --> _f24_l25_n80
+      _f24_l25_n80 --> _f24_l25_n81
+      _f24_l25_n81 --> _f24_l25_n82
+      _f24_l25_n82 --> _f24_l25_n83
     %% end element
-    _f23_l24_n81 --> _f23_l24_n66
-    _f23_l24_n66 --> _f23_n82
+    _f24_l25_n83 --> _f24_l25_n68
+    _f24_l25_n68 --> _f24_n84
   end
   subgraph __get_aliases_for_safe_names
     direction TB
-    _f25_n83 --> _f25_l26
+    _f26_n85 --> _f26_l27
     %% loop node
     %% end node
-    _f25_l26_n84 --> _f25_l26_n84
-    _f25_l26_n84 --> _f25_n85
+    _f26_l27_n86 --> _f26_l27_n86
+    _f26_l27_n86 --> _f26_n87
   end
   subgraph __get_flow_link_text
     direction TB
-    _f27_n86 --> _f27_n87
-    _f27_n87 --> _f27_n88
+    _f28_n88 --> _f28_n89
+    _f28_n89 --> _f28_n90
   end
   subgraph __get_flow_connections
     direction TB
-    _f28_n89 --> _f28_l29
+    _f29_n91 --> _f29_l30
     %% loop element
-      _f28_l29_n90 --> _f28_l29_n91
-      _f28_l29_n91 --> _f28_l29_n92
-      _f28_l29_n92 --> _f28_l29_n93
-      _f28_l29_n93 --> _f28_l29_n94
-      _f28_l29_n94 --> _f28_l29_n95
-      _f28_l29_n95 --> _f28_l29_n96
-      _f28_l29_n96 --> _f28_l29_n97
+      _f29_l30_n92 --> _f29_l30_n93
+      _f29_l30_n93 --> _f29_l30_n94
+      _f29_l30_n94 --> _f29_l30_n95
+      _f29_l30_n95 --> _f29_l30_n96
+      _f29_l30_n96 --> _f29_l30_n97
+      _f29_l30_n97 --> _f29_l30_n98
+      _f29_l30_n98 --> _f29_l30_n99
     %% end element
-    _f28_l29_n97 --> _f28_l29_n90
-    _f28_l29_n90 --> _f28_n98
+    _f29_l30_n99 --> _f29_l30_n92
+    _f29_l30_n92 --> _f29_n100
   end
   subgraph __get_block_text
     direction TB
-    _f30_n99 --> _f30_n100
-    _f30_n100 --> _f30_n101
-    _f30_n101 --> _f30_n102
-    _f30_n102 --> _f30_n103
-    _f30_n103 --> _f30_n104
-    _f30_n104 --> _f30_n105
-    _f30_n105 --> _f30_n106
-    _f30_n106 --> _f30_n107
-    _f30_n107 --> _f30_n108
-    _f30_n108 --> _f30_n109
-    _f30_n109 --> _f30_n110
-    _f30_n110 --> _f30_n111
-    _f30_n111 --> _f30_n112
-    _f30_n112 --> _f30_n113
-    _f30_n113 --> _f30_n114
-    _f30_n114 --> _f30_n115
-    _f30_n115 --> _f30_n116
-    _f30_n116 --> _f30_n117
-    _f30_n117 --> _f30_n118
-    _f30_n118 --> _f30_n119
-    _f30_n119 --> _f30_n120
-    _f30_n120 --> _f30_n121
+    _f31_n101 --> _f31_n102
+    _f31_n102 --> _f31_n103
+    _f31_n103 --> _f31_n104
+    _f31_n104 --> _f31_n105
+    _f31_n105 --> _f31_n106
+    _f31_n106 --> _f31_n107
+    _f31_n107 --> _f31_n108
+    _f31_n108 --> _f31_n109
+    _f31_n109 --> _f31_n110
+    _f31_n110 --> _f31_n111
+    _f31_n111 --> _f31_n112
+    _f31_n112 --> _f31_n113
+    _f31_n113 --> _f31_n114
+    _f31_n114 --> _f31_n115
+    _f31_n115 --> _f31_n116
+    _f31_n116 --> _f31_n117
+    _f31_n117 --> _f31_n118
+    _f31_n118 --> _f31_n119
+    _f31_n119 --> _f31_n120
+    _f31_n120 --> _f31_n121
+    _f31_n121 --> _f31_n122
+    _f31_n122 --> _f31_n123
   end
   subgraph _create_mermaid_flow_graph_from_links
     direction TB
-    _f31_n122 --> _f31_n123
-    _f31_n123 --> _f31_n124
+    _f32_n124 --> _f32_n125
+    _f32_n125 --> _f32_n126
   end
 
 ```
@@ -2634,7 +2634,7 @@ Module(
         Assign(
           targets=[
             Name(
-              id='alaises',
+              id='aliases',
               ctx=Store(),
               lineno=88,
               col_offset=4,
@@ -2722,7 +2722,7 @@ Module(
                 end_col_offset=86),
               FormattedValue(
                 value=Name(
-                  id='alaises',
+                  id='aliases',
                   ctx=Load(),
                   lineno=91,
                   col_offset=43,

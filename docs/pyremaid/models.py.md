@@ -10,25 +10,25 @@
 ---
 ```mermaid
 flowchart TB
-  _c2_n7["ast_node: AST"]
-  _c2_n8["mermaid_safe_name: str"]
-  _c2_n9["display_name: str"]
-  _c3_n10["from_: MermaidNode"]
-  _c3_n11["to: MermaidNode"]
-  _c8_n16["target: Optional[str] = None"]
-  _c8_n17["iterator: Optional[str] = None"]
+  _c3_n9["ast_node: AST"]
+  _c3_n10["mermaid_safe_name: str"]
+  _c3_n11["display_name: str"]
+  _c4_n12["from_: MermaidNode"]
+  _c4_n13["to: MermaidNode"]
+  _c9_n18["target: Optional[str] = None"]
+  _c9_n19["iterator: Optional[str] = None"]
 
   subgraph MermaidElement
     direction TB
   end
   subgraph MermaidNode
     direction TB
-    _c2_n7 --> _c2_n8
-    _c2_n8 --> _c2_n9
+    _c3_n9 --> _c3_n10
+    _c3_n10 --> _c3_n11
   end
   subgraph MermaidLink
     direction TB
-    _c3_n10 --> _c3_n11
+    _c4_n12 --> _c4_n13
   end
   subgraph MermaidBlock
     direction TB
@@ -44,7 +44,7 @@ flowchart TB
   end
   subgraph MermaidFor
     direction TB
-    _c8_n16 --> _c8_n17
+    _c9_n18 --> _c9_n19
   end
 
 ```
