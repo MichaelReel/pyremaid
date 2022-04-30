@@ -19,6 +19,9 @@ test: init
 	$(COVERAGE) run --branch -m pytest
 	$(COVERAGE) report --omit "tests/*"
 
+unit: init
+	$(VENV)/bin/pytest -vvv $(test)
+
 lint: init
 	$(VENV)/bin/black .
 	$(VENV)/bin/flake8 --ignore=E501 --exclude=$(VENV) .
