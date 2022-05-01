@@ -1,5 +1,5 @@
 from ast import AST
-from pytest import fixture, mark
+from pytest import mark
 from unittest.mock import MagicMock, patch
 
 from pyremaid.ast_tools.ast_tools import (
@@ -9,21 +9,6 @@ from pyremaid.ast_tools.ast_tools import (
     create_mermaid_model_from_ast_model,
 )
 from pyremaid.models import MermaidElement
-
-
-@fixture
-def ast() -> AST:
-    return AST()
-
-
-@fixture
-def import_list() -> list[str]:
-    return ["import A", "import B"]
-
-
-@fixture
-def mermaid_element_list() -> list[MermaidElement]:
-    return [MermaidElement(), MermaidElement()]
 
 
 @mark.parametrize("source_code", ["dummy source code"])

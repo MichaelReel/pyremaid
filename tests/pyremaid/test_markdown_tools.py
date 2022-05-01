@@ -1,4 +1,3 @@
-from pytest import fixture
 from unittest.mock import MagicMock, patch
 
 from pyremaid.markdown_tools import (
@@ -6,61 +5,6 @@ from pyremaid.markdown_tools import (
     turn_out_the_import_list,
     create_markdown_debug_dump_block,
 )
-
-
-@fixture
-def import_list() -> list[str]:
-    return ["import 1", "import 2"]
-
-
-@fixture
-def mermaid_diagrams() -> list[str]:
-    return ["diagram 1", "diagram 2"]
-
-
-@fixture
-def debug_dump() -> str:
-    return "debug dump"
-
-
-@fixture
-def mermaid_block(mermaid_diagrams: list[str]) -> str:
-    return "\n".join(mermaid_diagrams)
-
-
-@fixture
-def debug_dump_block(debug_dump: str) -> str:
-    return (
-        "<details>\n"
-        "<summary>Debug AST model dump</summary>\n\n"
-        "```\n"
-        f"{debug_dump}\n"
-        "```\n"
-        "</details>\n"
-    )
-
-
-@fixture
-def import_list_block() -> str:
-    return "### Imports\n\n  - [import 1](mapped import 1)\n  - import 2\n"
-
-
-@fixture
-def expected_markdown(
-    input_file: str,
-    import_list_block: str,
-    mermaid_block: str,
-    debug_dump_block: str,
-) -> str:
-    return (
-        f"# {input_file}\n\n"
-        f"{import_list_block}\n"
-        "---\n"
-        f"{mermaid_block}"
-        "---\n"
-        "\n"
-        f"{debug_dump_block}\n"
-    )
 
 
 @patch("pyremaid.markdown_tools.create_markdown_debug_dump_block")

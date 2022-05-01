@@ -1,13 +1,7 @@
-from pytest import fixture
 from unittest.mock import call, MagicMock, patch
 
 
 from pyremaid.pyremaid import create_mermaid_analysis_from_python
-
-
-@fixture
-def python_files() -> list[str]:
-    return ["python file 1", "python file 2"]
 
 
 @patch("pyremaid.pyremaid.create_new_mermaid_analysis_for_file")

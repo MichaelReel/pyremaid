@@ -15,8 +15,8 @@ from pyremaid.models import (
 
 
 @fixture
-def global_import_table() -> dict[str, str]:
-    return {"import 1": "mapped import 1", "import 2": None}
+def ast() -> AST:
+    return AST()
 
 
 @fixture
@@ -44,6 +44,44 @@ def root_path() -> str:
     # TODO: Need to get clear on how this is used compared to output_path
     #       and probably consider how path variables are named across the project
     return "root"
+
+
+@fixture
+def no_python_files() -> list[str]:
+    return []
+
+
+@fixture
+def empty_imports_table() -> dict[str, str]:
+    return {}
+
+
+@fixture
+def python_files() -> list[str]:
+    return ["python file 1", "python file 2"]
+
+
+@fixture
+def import_list() -> list[str]:
+    return ["import A", "import B"]
+
+
+@fixture
+def global_import_table(import_list: list[str]) -> dict[str, str]:
+    return {import_list[0]: "mapped import 1", import_list[1]: None}
+
+
+@fixture
+def all_imports_table(import_list: list[str]) -> dict[str, str]:
+    return {
+        import_list[0]: "",
+        import_list[1]: "",
+    }
+
+
+@fixture
+def mermaid_element_list() -> list[MermaidElement]:
+    return [MermaidElement(), MermaidElement()]
 
 
 file_content_data = (  # Appeasing the mock_open (I don't like this)
@@ -81,6 +119,14 @@ def walked_files(
 
 
 @fixture
+def resolved_python_files(root_path: str) -> list[str]:
+    return [
+        path.join(root_path, "python_file.py"),
+        path.join(root_path, "more_python.py"),
+    ]
+
+
+@fixture
 def no_mermaid_elements() -> list[MermaidElement]:
     return []
 
@@ -95,9 +141,9 @@ def mermaid_node() -> MermaidNode:
 
 
 @fixture
-def linked_mermaid_node() -> MermaidNode:
+def linked_mermaid_node(ast: AST) -> MermaidNode:
     return MermaidNode(
-        ast_node=AST(),
+        ast_node=ast,
         mermaid_safe_name="other_safe_name",
         display_name="other_display_name",
     )
@@ -280,4 +326,54 @@ def elements_graph() -> str:
         "  %% end display_name\n"
         "\n"
         "```\n"
+    )
+
+
+@fixture
+def mermaid_diagrams() -> list[str]:
+    return ["diagram 1", "diagram 2"]
+
+
+@fixture
+def debug_dump() -> str:
+    return "debug dump"
+
+
+@fixture
+def mermaid_diagram_block(mermaid_diagrams: list[str]) -> str:
+    return "\n".join(mermaid_diagrams)
+
+
+@fixture
+def debug_dump_block(debug_dump: str) -> str:
+    return (
+        "<details>\n"
+        "<summary>Debug AST model dump</summary>\n\n"
+        "```\n"
+        f"{debug_dump}\n"
+        "```\n"
+        "</details>\n"
+    )
+
+
+@fixture
+def import_list_block(import_list: list[str]) -> str:
+    return f"### Imports\n\n  - [{import_list[0]}](mapped import 1)\n  - {import_list[1]}\n"
+
+
+@fixture
+def expected_markdown(
+    input_file: str,
+    import_list_block: str,
+    mermaid_diagram_block: str,
+    debug_dump_block: str,
+) -> str:
+    return (
+        f"# {input_file}\n\n"
+        f"{import_list_block}\n"
+        "---\n"
+        f"{mermaid_diagram_block}"
+        "---\n"
+        "\n"
+        f"{debug_dump_block}\n"
     )

@@ -6,7 +6,6 @@ from pyremaid.files.destination import (
 from pyremaid.files.source import (
     find_all_python_files,
     get_source_code_from_file,
-    get_import_name_from_path,
 )
 from pyremaid.ast_tools import (
     create_mermaid_model_from_ast_model,

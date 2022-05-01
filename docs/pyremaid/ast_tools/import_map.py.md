@@ -10,104 +10,73 @@
 ---
 ```mermaid
 flowchart TB
-  _c88_f89_n324["self.import_to: dict[str, list[str]] = {}"]
-  _c88_f89_n325["self.import_from: dict[str, list[str]] = {}"]
-  _c88_f90_n326["If"]
-  _c88_f90_n327["from_ not in self.import_to"]
-  _c88_f90_n328["self.import_to[from_] = []"]
-  _c88_f90_n329["Expr"]
-  _c88_f90_n330["self.import_to[from_].append(to)"]
-  _c88_f90_n331["If"]
-  _c88_f90_n332["to not in self.import_from"]
-  _c88_f90_n333["self.import_from[to] = []"]
-  _c88_f90_n334["Expr"]
-  _c88_f90_n335["self.import_from[to].append[from_]"]
-  _f91_n336["Expr"]
-  _f91_n337["'Create a mapping of import paths to filenames first'"]
-  _f91_n338["import_to_file_map = {}"]
+  _f88_n324["Expr"]
+  _f88_n325["'Create a mapping of import paths to filenames first'"]
+  _f88_n326["import_to_file_map = {}"]
+  _f88_l89["in_file"]
+  _f88_l89_n327["import_name = get_import_name_from_path(input_path=input_path, input_file=in_file)"]
+  _f88_l89_n328["import_to_file_map[import_name] = in_file"]
+  _f88_n329["return import_to_file_map"]
+  _f91_n331["all_imports_table = {}"]
   _f91_l92["in_file"]
-  _f91_l92_n339["import_name = get_import_name_from_path(input_path=input_path, input_file=in_file)"]
-  _f91_l92_n340["import_to_file_map[import_name] = in_file"]
-  _f91_n341["return import_to_file_map"]
-  _f94_n343["all_imports_list = {}"]
-  _f94_l95["in_file"]
-  _f94_l95_n344["If"]
-  _f94_l95_n345["(source_code := get_source_code_from_file(input_file=in_file))"]
-  _f94_l95_n346["If"]
-  _f94_l95_n347["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
-  _f94_l95_l96["used_import"]
-  _f94_l95_l96_n348["known_file = ''"]
-  _f94_l95_l96_n349["parent_import = _get_parent_import(used_import)"]
-  _f94_l95_l96_n350["If"]
-  _f94_l95_l96_n351["parent_import in import_to_file_map"]
-  _f94_l95_l96_n352["known_file = import_to_file_map[parent_import]"]
-  _f94_l95_l96_n353["all_imports_list[used_import] = known_file"]
-  _f94_n354["return all_imports_list"]
-  _f97_n355["Expr"]
-  _f97_n356["''\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ''"]
-  _f97_n357["import_to_file_map = _get_import_to_file_map(input_path=input_path, python_files=python_files)"]
-  _f97_n358["all_imports_list = _create_import_table(python_files=python_files, import_to_file_map=import_to_file_map)"]
-  _f97_n359["return all_imports_list"]
+  _f91_l92_n332["If"]
+  _f91_l92_n333["(source_code := get_source_code_from_file(input_file=in_file))"]
+  _f91_l92_n334["If"]
+  _f91_l92_n335["(ast_node := get_ast_root_node_for_file(source_code=source_code, input_file=in_file))"]
+  _f91_l92_l93["used_import"]
+  _f91_l92_l93_n336["known_file = ''"]
+  _f91_l92_l93_n337["parent_import = _get_parent_import(used_import)"]
+  _f91_l92_l93_n338["If"]
+  _f91_l92_l93_n339["parent_import in import_to_file_map"]
+  _f91_l92_l93_n340["known_file = import_to_file_map[parent_import]"]
+  _f91_l92_l93_n341["all_imports_table[used_import] = known_file"]
+  _f91_n342["return all_imports_table"]
+  _f94_n343["Expr"]
+  _f94_n344["''\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ''"]
+  _f94_n345["import_to_file_map = _get_import_to_file_map(input_path=input_path, python_files=python_files)"]
+  _f94_n346["all_imports_table = _create_import_table(python_files=python_files, import_to_file_map=import_to_file_map)"]
+  _f94_n347["return all_imports_table"]
 
-  subgraph ImportMap
-    direction TB
-    subgraph _c88___init__
-      direction TB
-      _c88_f89_n324 --> _c88_f89_n325
-    end
-    subgraph _c88_add_import
-      direction TB
-      _c88_f90_n326 --> _c88_f90_n327
-      _c88_f90_n327 --> _c88_f90_n328
-      _c88_f90_n328 --> _c88_f90_n329
-      _c88_f90_n329 --> _c88_f90_n330
-      _c88_f90_n330 --> _c88_f90_n331
-      _c88_f90_n331 --> _c88_f90_n332
-      _c88_f90_n332 --> _c88_f90_n333
-      _c88_f90_n333 --> _c88_f90_n334
-      _c88_f90_n334 --> _c88_f90_n335
-    end
-  end
   subgraph __get_import_to_file_map
     direction TB
-    _f91_n336 --> _f91_n337
-    _f91_n337 --> _f91_n338
-    _f91_n338 --> _f91_l92
+    _f88_n324 --> _f88_n325
+    _f88_n325 --> _f88_n326
+    _f88_n326 --> _f88_l89
     %% loop in_file
-      _f91_l92_n339 --> _f91_l92_n340
+      _f88_l89_n327 --> _f88_l89_n328
     %% end in_file
-    _f91_l92_n340 --> _f91_l92_n339
-    _f91_l92_n339 --> _f91_n341
+    _f88_l89_n328 --> _f88_l89_n327
+    _f88_l89_n327 --> _f88_n329
   end
   subgraph __get_parent_import
     direction TB
   end
   subgraph __create_import_table
     direction TB
-    _f94_n343 --> _f94_l95
+    _f91_n331 --> _f91_l92
     %% loop in_file
-      _f94_l95_n344 --> _f94_l95_n345
-      _f94_l95_n345 --> _f94_l95_n346
-      _f94_l95_n346 --> _f94_l95_n347
-      _f94_l95_n347 --> _f94_l95_l96
+      _f91_l92_n332 --> _f91_l92_n333
+      _f91_l92_n333 --> _f91_l92_n334
+      _f91_l92_n334 --> _f91_l92_n335
+      _f91_l92_n335 --> _f91_l92_l93
       %% loop used_import
-        _f94_l95_l96_n348 --> _f94_l95_l96_n349
-        _f94_l95_l96_n349 --> _f94_l95_l96_n350
-        _f94_l95_l96_n350 --> _f94_l95_l96_n351
-        _f94_l95_l96_n351 --> _f94_l95_l96_n352
-        _f94_l95_l96_n352 --> _f94_l95_l96_n353
+        _f91_l92_l93_n336 --> _f91_l92_l93_n337
+        _f91_l92_l93_n337 --> _f91_l92_l93_n338
+        _f91_l92_l93_n338 --> _f91_l92_l93_n339
+        _f91_l92_l93_n339 --> _f91_l92_l93_n340
+        _f91_l92_l93_n340 --> _f91_l92_l93_n341
       %% end used_import
-      _f94_l95_l96_n353 --> _f94_l95_l96_n348
+      _f91_l92_l93_n341 --> _f91_l92_l93_n336
     %% end in_file
-    _f94_l95_l96_n348 --> _f94_l95_n344
-    _f94_l95_n344 --> _f94_n354
+    _f91_l92_l93_n336 --> _f91_l92_n332
+    _f91_l92_n332 --> _f91_n342
   end
   subgraph _get_all_imports_from_files
     direction TB
-    _f97_n355 --> _f97_n356
-    _f97_n356 --> _f97_n357
-    _f97_n357 --> _f97_n358
-    _f97_n358 --> _f97_n359
+    _f94_n343 --> _f94_n344
+    _f94_n344 --> _f94_n345
+    _f94_n345 --> _f94_n346
+    _f94_n346 --> _f94_n347
   end
 
 ```
@@ -159,499 +128,6 @@ Module(
       col_offset=0,
       end_lineno=2,
       end_col_offset=86),
-    ClassDef(
-      name='ImportMap',
-      bases=[],
-      keywords=[],
-      body=[
-        FunctionDef(
-          name='__init__',
-          args=arguments(
-            posonlyargs=[],
-            args=[
-              arg(
-                arg='self',
-                lineno=6,
-                col_offset=17,
-                end_lineno=6,
-                end_col_offset=21)],
-            kwonlyargs=[],
-            kw_defaults=[],
-            defaults=[]),
-          body=[
-            AnnAssign(
-              target=Attribute(
-                value=Name(
-                  id='self',
-                  ctx=Load(),
-                  lineno=7,
-                  col_offset=8,
-                  end_lineno=7,
-                  end_col_offset=12),
-                attr='import_to',
-                ctx=Store(),
-                lineno=7,
-                col_offset=8,
-                end_lineno=7,
-                end_col_offset=22),
-              annotation=Subscript(
-                value=Name(
-                  id='dict',
-                  ctx=Load(),
-                  lineno=7,
-                  col_offset=24,
-                  end_lineno=7,
-                  end_col_offset=28),
-                slice=Tuple(
-                  elts=[
-                    Name(
-                      id='str',
-                      ctx=Load(),
-                      lineno=7,
-                      col_offset=29,
-                      end_lineno=7,
-                      end_col_offset=32),
-                    Subscript(
-                      value=Name(
-                        id='list',
-                        ctx=Load(),
-                        lineno=7,
-                        col_offset=34,
-                        end_lineno=7,
-                        end_col_offset=38),
-                      slice=Name(
-                        id='str',
-                        ctx=Load(),
-                        lineno=7,
-                        col_offset=39,
-                        end_lineno=7,
-                        end_col_offset=42),
-                      ctx=Load(),
-                      lineno=7,
-                      col_offset=34,
-                      end_lineno=7,
-                      end_col_offset=43)],
-                  ctx=Load(),
-                  lineno=7,
-                  col_offset=29,
-                  end_lineno=7,
-                  end_col_offset=43),
-                ctx=Load(),
-                lineno=7,
-                col_offset=24,
-                end_lineno=7,
-                end_col_offset=44),
-              value=Dict(
-                keys=[],
-                values=[],
-                lineno=7,
-                col_offset=47,
-                end_lineno=7,
-                end_col_offset=49),
-              simple=0,
-              lineno=7,
-              col_offset=8,
-              end_lineno=7,
-              end_col_offset=49),
-            AnnAssign(
-              target=Attribute(
-                value=Name(
-                  id='self',
-                  ctx=Load(),
-                  lineno=8,
-                  col_offset=8,
-                  end_lineno=8,
-                  end_col_offset=12),
-                attr='import_from',
-                ctx=Store(),
-                lineno=8,
-                col_offset=8,
-                end_lineno=8,
-                end_col_offset=24),
-              annotation=Subscript(
-                value=Name(
-                  id='dict',
-                  ctx=Load(),
-                  lineno=8,
-                  col_offset=26,
-                  end_lineno=8,
-                  end_col_offset=30),
-                slice=Tuple(
-                  elts=[
-                    Name(
-                      id='str',
-                      ctx=Load(),
-                      lineno=8,
-                      col_offset=31,
-                      end_lineno=8,
-                      end_col_offset=34),
-                    Subscript(
-                      value=Name(
-                        id='list',
-                        ctx=Load(),
-                        lineno=8,
-                        col_offset=36,
-                        end_lineno=8,
-                        end_col_offset=40),
-                      slice=Name(
-                        id='str',
-                        ctx=Load(),
-                        lineno=8,
-                        col_offset=41,
-                        end_lineno=8,
-                        end_col_offset=44),
-                      ctx=Load(),
-                      lineno=8,
-                      col_offset=36,
-                      end_lineno=8,
-                      end_col_offset=45)],
-                  ctx=Load(),
-                  lineno=8,
-                  col_offset=31,
-                  end_lineno=8,
-                  end_col_offset=45),
-                ctx=Load(),
-                lineno=8,
-                col_offset=26,
-                end_lineno=8,
-                end_col_offset=46),
-              value=Dict(
-                keys=[],
-                values=[],
-                lineno=8,
-                col_offset=49,
-                end_lineno=8,
-                end_col_offset=51),
-              simple=0,
-              lineno=8,
-              col_offset=8,
-              end_lineno=8,
-              end_col_offset=51)],
-          decorator_list=[],
-          returns=Constant(
-            value=None,
-            lineno=6,
-            col_offset=26,
-            end_lineno=6,
-            end_col_offset=30),
-          lineno=6,
-          col_offset=4,
-          end_lineno=8,
-          end_col_offset=51),
-        FunctionDef(
-          name='add_import',
-          args=arguments(
-            posonlyargs=[],
-            args=[
-              arg(
-                arg='self',
-                lineno=10,
-                col_offset=19,
-                end_lineno=10,
-                end_col_offset=23),
-              arg(
-                arg='from_',
-                annotation=Name(
-                  id='str',
-                  ctx=Load(),
-                  lineno=10,
-                  col_offset=32,
-                  end_lineno=10,
-                  end_col_offset=35),
-                lineno=10,
-                col_offset=25,
-                end_lineno=10,
-                end_col_offset=35),
-              arg(
-                arg='to',
-                annotation=Name(
-                  id='str',
-                  ctx=Load(),
-                  lineno=10,
-                  col_offset=41,
-                  end_lineno=10,
-                  end_col_offset=44),
-                lineno=10,
-                col_offset=37,
-                end_lineno=10,
-                end_col_offset=44)],
-            kwonlyargs=[],
-            kw_defaults=[],
-            defaults=[]),
-          body=[
-            If(
-              test=Compare(
-                left=Name(
-                  id='from_',
-                  ctx=Load(),
-                  lineno=11,
-                  col_offset=11,
-                  end_lineno=11,
-                  end_col_offset=16),
-                ops=[
-                  NotIn()],
-                comparators=[
-                  Attribute(
-                    value=Name(
-                      id='self',
-                      ctx=Load(),
-                      lineno=11,
-                      col_offset=24,
-                      end_lineno=11,
-                      end_col_offset=28),
-                    attr='import_to',
-                    ctx=Load(),
-                    lineno=11,
-                    col_offset=24,
-                    end_lineno=11,
-                    end_col_offset=38)],
-                lineno=11,
-                col_offset=11,
-                end_lineno=11,
-                end_col_offset=38),
-              body=[
-                Assign(
-                  targets=[
-                    Subscript(
-                      value=Attribute(
-                        value=Name(
-                          id='self',
-                          ctx=Load(),
-                          lineno=12,
-                          col_offset=12,
-                          end_lineno=12,
-                          end_col_offset=16),
-                        attr='import_to',
-                        ctx=Load(),
-                        lineno=12,
-                        col_offset=12,
-                        end_lineno=12,
-                        end_col_offset=26),
-                      slice=Name(
-                        id='from_',
-                        ctx=Load(),
-                        lineno=12,
-                        col_offset=27,
-                        end_lineno=12,
-                        end_col_offset=32),
-                      ctx=Store(),
-                      lineno=12,
-                      col_offset=12,
-                      end_lineno=12,
-                      end_col_offset=33)],
-                  value=List(
-                    elts=[],
-                    ctx=Load(),
-                    lineno=12,
-                    col_offset=36,
-                    end_lineno=12,
-                    end_col_offset=38),
-                  lineno=12,
-                  col_offset=12,
-                  end_lineno=12,
-                  end_col_offset=38)],
-              orelse=[],
-              lineno=11,
-              col_offset=8,
-              end_lineno=12,
-              end_col_offset=38),
-            Expr(
-              value=Call(
-                func=Attribute(
-                  value=Subscript(
-                    value=Attribute(
-                      value=Name(
-                        id='self',
-                        ctx=Load(),
-                        lineno=13,
-                        col_offset=8,
-                        end_lineno=13,
-                        end_col_offset=12),
-                      attr='import_to',
-                      ctx=Load(),
-                      lineno=13,
-                      col_offset=8,
-                      end_lineno=13,
-                      end_col_offset=22),
-                    slice=Name(
-                      id='from_',
-                      ctx=Load(),
-                      lineno=13,
-                      col_offset=23,
-                      end_lineno=13,
-                      end_col_offset=28),
-                    ctx=Load(),
-                    lineno=13,
-                    col_offset=8,
-                    end_lineno=13,
-                    end_col_offset=29),
-                  attr='append',
-                  ctx=Load(),
-                  lineno=13,
-                  col_offset=8,
-                  end_lineno=13,
-                  end_col_offset=36),
-                args=[
-                  Name(
-                    id='to',
-                    ctx=Load(),
-                    lineno=13,
-                    col_offset=37,
-                    end_lineno=13,
-                    end_col_offset=39)],
-                keywords=[],
-                lineno=13,
-                col_offset=8,
-                end_lineno=13,
-                end_col_offset=40),
-              lineno=13,
-              col_offset=8,
-              end_lineno=13,
-              end_col_offset=40),
-            If(
-              test=Compare(
-                left=Name(
-                  id='to',
-                  ctx=Load(),
-                  lineno=15,
-                  col_offset=11,
-                  end_lineno=15,
-                  end_col_offset=13),
-                ops=[
-                  NotIn()],
-                comparators=[
-                  Attribute(
-                    value=Name(
-                      id='self',
-                      ctx=Load(),
-                      lineno=15,
-                      col_offset=21,
-                      end_lineno=15,
-                      end_col_offset=25),
-                    attr='import_from',
-                    ctx=Load(),
-                    lineno=15,
-                    col_offset=21,
-                    end_lineno=15,
-                    end_col_offset=37)],
-                lineno=15,
-                col_offset=11,
-                end_lineno=15,
-                end_col_offset=37),
-              body=[
-                Assign(
-                  targets=[
-                    Subscript(
-                      value=Attribute(
-                        value=Name(
-                          id='self',
-                          ctx=Load(),
-                          lineno=16,
-                          col_offset=12,
-                          end_lineno=16,
-                          end_col_offset=16),
-                        attr='import_from',
-                        ctx=Load(),
-                        lineno=16,
-                        col_offset=12,
-                        end_lineno=16,
-                        end_col_offset=28),
-                      slice=Name(
-                        id='to',
-                        ctx=Load(),
-                        lineno=16,
-                        col_offset=29,
-                        end_lineno=16,
-                        end_col_offset=31),
-                      ctx=Store(),
-                      lineno=16,
-                      col_offset=12,
-                      end_lineno=16,
-                      end_col_offset=32)],
-                  value=List(
-                    elts=[],
-                    ctx=Load(),
-                    lineno=16,
-                    col_offset=35,
-                    end_lineno=16,
-                    end_col_offset=37),
-                  lineno=16,
-                  col_offset=12,
-                  end_lineno=16,
-                  end_col_offset=37)],
-              orelse=[],
-              lineno=15,
-              col_offset=8,
-              end_lineno=16,
-              end_col_offset=37),
-            Expr(
-              value=Subscript(
-                value=Attribute(
-                  value=Subscript(
-                    value=Attribute(
-                      value=Name(
-                        id='self',
-                        ctx=Load(),
-                        lineno=17,
-                        col_offset=8,
-                        end_lineno=17,
-                        end_col_offset=12),
-                      attr='import_from',
-                      ctx=Load(),
-                      lineno=17,
-                      col_offset=8,
-                      end_lineno=17,
-                      end_col_offset=24),
-                    slice=Name(
-                      id='to',
-                      ctx=Load(),
-                      lineno=17,
-                      col_offset=25,
-                      end_lineno=17,
-                      end_col_offset=27),
-                    ctx=Load(),
-                    lineno=17,
-                    col_offset=8,
-                    end_lineno=17,
-                    end_col_offset=28),
-                  attr='append',
-                  ctx=Load(),
-                  lineno=17,
-                  col_offset=8,
-                  end_lineno=17,
-                  end_col_offset=35),
-                slice=Name(
-                  id='from_',
-                  ctx=Load(),
-                  lineno=17,
-                  col_offset=36,
-                  end_lineno=17,
-                  end_col_offset=41),
-                ctx=Load(),
-                lineno=17,
-                col_offset=8,
-                end_lineno=17,
-                end_col_offset=42),
-              lineno=17,
-              col_offset=8,
-              end_lineno=17,
-              end_col_offset=42)],
-          decorator_list=[],
-          returns=Constant(
-            value=None,
-            lineno=10,
-            col_offset=49,
-            end_lineno=10,
-            end_col_offset=53),
-          lineno=10,
-          col_offset=4,
-          end_lineno=17,
-          end_col_offset=42)],
-      decorator_list=[],
-      lineno=5,
-      col_offset=0,
-      end_lineno=17,
-      end_col_offset=42),
     FunctionDef(
       name='_get_import_to_file_map',
       args=arguments(
@@ -662,13 +138,13 @@ Module(
             annotation=Name(
               id='str',
               ctx=Load(),
-              lineno=20,
+              lineno=5,
               col_offset=40,
-              end_lineno=20,
+              end_lineno=5,
               end_col_offset=43),
-            lineno=20,
+            lineno=5,
             col_offset=28,
-            end_lineno=20,
+            end_lineno=5,
             end_col_offset=43),
           arg(
             arg='python_files',
@@ -676,25 +152,25 @@ Module(
               value=Name(
                 id='list',
                 ctx=Load(),
-                lineno=20,
+                lineno=5,
                 col_offset=59,
-                end_lineno=20,
+                end_lineno=5,
                 end_col_offset=63),
               slice=Name(
                 id='str',
                 ctx=Load(),
-                lineno=20,
+                lineno=5,
                 col_offset=64,
-                end_lineno=20,
+                end_lineno=5,
                 end_col_offset=67),
               ctx=Load(),
-              lineno=20,
+              lineno=5,
               col_offset=59,
-              end_lineno=20,
+              end_lineno=5,
               end_col_offset=68),
-            lineno=20,
+            lineno=5,
             col_offset=45,
-            end_lineno=20,
+            end_lineno=5,
             end_col_offset=68)],
         kwonlyargs=[],
         kw_defaults=[],
@@ -703,48 +179,48 @@ Module(
         Expr(
           value=Constant(
             value='Create a mapping of import paths to filenames first',
-            lineno=21,
+            lineno=6,
             col_offset=4,
-            end_lineno=21,
+            end_lineno=6,
             end_col_offset=61),
-          lineno=21,
+          lineno=6,
           col_offset=4,
-          end_lineno=21,
+          end_lineno=6,
           end_col_offset=61),
         Assign(
           targets=[
             Name(
               id='import_to_file_map',
               ctx=Store(),
-              lineno=22,
+              lineno=7,
               col_offset=4,
-              end_lineno=22,
+              end_lineno=7,
               end_col_offset=22)],
           value=Dict(
             keys=[],
             values=[],
-            lineno=22,
+            lineno=7,
             col_offset=25,
-            end_lineno=22,
+            end_lineno=7,
             end_col_offset=27),
-          lineno=22,
+          lineno=7,
           col_offset=4,
-          end_lineno=22,
+          end_lineno=7,
           end_col_offset=27),
         For(
           target=Name(
             id='in_file',
             ctx=Store(),
-            lineno=24,
+            lineno=9,
             col_offset=8,
-            end_lineno=24,
+            end_lineno=9,
             end_col_offset=15),
           iter=Name(
             id='python_files',
             ctx=Load(),
-            lineno=24,
+            lineno=9,
             col_offset=19,
-            end_lineno=24,
+            end_lineno=9,
             end_col_offset=31),
           body=[
             Assign(
@@ -752,17 +228,17 @@ Module(
                 Name(
                   id='import_name',
                   ctx=Store(),
-                  lineno=25,
+                  lineno=10,
                   col_offset=8,
-                  end_lineno=25,
+                  end_lineno=10,
                   end_col_offset=19)],
               value=Call(
                 func=Name(
                   id='get_import_name_from_path',
                   ctx=Load(),
-                  lineno=25,
+                  lineno=10,
                   col_offset=22,
-                  end_lineno=25,
+                  end_lineno=10,
                   end_col_offset=47),
                 args=[],
                 keywords=[
@@ -771,34 +247,34 @@ Module(
                     value=Name(
                       id='input_path',
                       ctx=Load(),
-                      lineno=26,
+                      lineno=11,
                       col_offset=23,
-                      end_lineno=26,
+                      end_lineno=11,
                       end_col_offset=33),
-                    lineno=26,
+                    lineno=11,
                     col_offset=12,
-                    end_lineno=26,
+                    end_lineno=11,
                     end_col_offset=33),
                   keyword(
                     arg='input_file',
                     value=Name(
                       id='in_file',
                       ctx=Load(),
-                      lineno=26,
+                      lineno=11,
                       col_offset=46,
-                      end_lineno=26,
+                      end_lineno=11,
                       end_col_offset=53),
-                    lineno=26,
+                    lineno=11,
                     col_offset=35,
-                    end_lineno=26,
+                    end_lineno=11,
                     end_col_offset=53)],
-                lineno=25,
+                lineno=10,
                 col_offset=22,
-                end_lineno=27,
+                end_lineno=12,
                 end_col_offset=9),
-              lineno=25,
+              lineno=10,
               col_offset=8,
-              end_lineno=27,
+              end_lineno=12,
               end_col_offset=9),
             Assign(
               targets=[
@@ -806,88 +282,88 @@ Module(
                   value=Name(
                     id='import_to_file_map',
                     ctx=Load(),
-                    lineno=28,
+                    lineno=13,
                     col_offset=8,
-                    end_lineno=28,
+                    end_lineno=13,
                     end_col_offset=26),
                   slice=Name(
                     id='import_name',
                     ctx=Load(),
-                    lineno=28,
+                    lineno=13,
                     col_offset=27,
-                    end_lineno=28,
+                    end_lineno=13,
                     end_col_offset=38),
                   ctx=Store(),
-                  lineno=28,
+                  lineno=13,
                   col_offset=8,
-                  end_lineno=28,
+                  end_lineno=13,
                   end_col_offset=39)],
               value=Name(
                 id='in_file',
                 ctx=Load(),
-                lineno=28,
+                lineno=13,
                 col_offset=42,
-                end_lineno=28,
+                end_lineno=13,
                 end_col_offset=49),
-              lineno=28,
+              lineno=13,
               col_offset=8,
-              end_lineno=28,
+              end_lineno=13,
               end_col_offset=49)],
           orelse=[],
-          lineno=24,
+          lineno=9,
           col_offset=4,
-          end_lineno=28,
+          end_lineno=13,
           end_col_offset=49),
         Return(
           value=Name(
             id='import_to_file_map',
             ctx=Load(),
-            lineno=30,
+            lineno=15,
             col_offset=11,
-            end_lineno=30,
+            end_lineno=15,
             end_col_offset=29),
-          lineno=30,
+          lineno=15,
           col_offset=4,
-          end_lineno=30,
+          end_lineno=15,
           end_col_offset=29)],
       decorator_list=[],
       returns=Subscript(
         value=Name(
           id='dict',
           ctx=Load(),
-          lineno=20,
+          lineno=5,
           col_offset=73,
-          end_lineno=20,
+          end_lineno=5,
           end_col_offset=77),
         slice=Tuple(
           elts=[
             Name(
               id='str',
               ctx=Load(),
-              lineno=20,
+              lineno=5,
               col_offset=78,
-              end_lineno=20,
+              end_lineno=5,
               end_col_offset=81),
             Name(
               id='str',
               ctx=Load(),
-              lineno=20,
+              lineno=5,
               col_offset=83,
-              end_lineno=20,
+              end_lineno=5,
               end_col_offset=86)],
           ctx=Load(),
-          lineno=20,
+          lineno=5,
           col_offset=78,
-          end_lineno=20,
+          end_lineno=5,
           end_col_offset=86),
         ctx=Load(),
-        lineno=20,
+        lineno=5,
         col_offset=73,
-        end_lineno=20,
+        end_lineno=5,
         end_col_offset=87),
-      lineno=20,
+      lineno=5,
       col_offset=0,
-      end_lineno=30,
+      end_lineno=15,
       end_col_offset=29),
     FunctionDef(
       name='_get_parent_import',
@@ -899,13 +375,13 @@ Module(
             annotation=Name(
               id='str',
               ctx=Load(),
-              lineno=33,
+              lineno=18,
               col_offset=36,
-              end_lineno=33,
+              end_lineno=18,
               end_col_offset=39),
-            lineno=33,
+            lineno=18,
             col_offset=23,
-            end_lineno=33,
+            end_lineno=18,
             end_col_offset=39)],
         kwonlyargs=[],
         kw_defaults=[],
@@ -916,9 +392,9 @@ Module(
             value=Name(
               id='import_name',
               ctx=Load(),
-              lineno=34,
+              lineno=19,
               col_offset=11,
-              end_lineno=34,
+              end_lineno=19,
               end_col_offset=22),
             slice=Slice(
               upper=Call(
@@ -926,52 +402,52 @@ Module(
                   value=Name(
                     id='import_name',
                     ctx=Load(),
-                    lineno=34,
+                    lineno=19,
                     col_offset=25,
-                    end_lineno=34,
+                    end_lineno=19,
                     end_col_offset=36),
                   attr='rfind',
                   ctx=Load(),
-                  lineno=34,
+                  lineno=19,
                   col_offset=25,
-                  end_lineno=34,
+                  end_lineno=19,
                   end_col_offset=42),
                 args=[
                   Constant(
                     value='.',
-                    lineno=34,
+                    lineno=19,
                     col_offset=43,
-                    end_lineno=34,
+                    end_lineno=19,
                     end_col_offset=46)],
                 keywords=[],
-                lineno=34,
+                lineno=19,
                 col_offset=25,
-                end_lineno=34,
+                end_lineno=19,
                 end_col_offset=47),
-              lineno=34,
+              lineno=19,
               col_offset=23,
-              end_lineno=34,
+              end_lineno=19,
               end_col_offset=47),
             ctx=Load(),
-            lineno=34,
+            lineno=19,
             col_offset=11,
-            end_lineno=34,
+            end_lineno=19,
             end_col_offset=48),
-          lineno=34,
+          lineno=19,
           col_offset=4,
-          end_lineno=34,
+          end_lineno=19,
           end_col_offset=48)],
       decorator_list=[],
       returns=Name(
         id='str',
         ctx=Load(),
-        lineno=33,
+        lineno=18,
         col_offset=44,
-        end_lineno=33,
+        end_lineno=18,
         end_col_offset=47),
-      lineno=33,
+      lineno=18,
       col_offset=0,
-      end_lineno=34,
+      end_lineno=19,
       end_col_offset=48),
     FunctionDef(
       name='_create_import_table',
@@ -984,25 +460,25 @@ Module(
               value=Name(
                 id='list',
                 ctx=Load(),
-                lineno=38,
+                lineno=23,
                 col_offset=18,
-                end_lineno=38,
+                end_lineno=23,
                 end_col_offset=22),
               slice=Name(
                 id='str',
                 ctx=Load(),
-                lineno=38,
+                lineno=23,
                 col_offset=23,
-                end_lineno=38,
+                end_lineno=23,
                 end_col_offset=26),
               ctx=Load(),
-              lineno=38,
+              lineno=23,
               col_offset=18,
-              end_lineno=38,
+              end_lineno=23,
               end_col_offset=27),
-            lineno=38,
+            lineno=23,
             col_offset=4,
-            end_lineno=38,
+            end_lineno=23,
             end_col_offset=27),
           arg(
             arg='import_to_file_map',
@@ -1010,39 +486,39 @@ Module(
               value=Name(
                 id='dict',
                 ctx=Load(),
-                lineno=38,
+                lineno=23,
                 col_offset=49,
-                end_lineno=38,
+                end_lineno=23,
                 end_col_offset=53),
               slice=Tuple(
                 elts=[
                   Name(
                     id='str',
                     ctx=Load(),
-                    lineno=38,
+                    lineno=23,
                     col_offset=54,
-                    end_lineno=38,
+                    end_lineno=23,
                     end_col_offset=57),
                   Name(
                     id='str',
                     ctx=Load(),
-                    lineno=38,
+                    lineno=23,
                     col_offset=59,
-                    end_lineno=38,
+                    end_lineno=23,
                     end_col_offset=62)],
                 ctx=Load(),
-                lineno=38,
+                lineno=23,
                 col_offset=54,
-                end_lineno=38,
+                end_lineno=23,
                 end_col_offset=62),
               ctx=Load(),
-              lineno=38,
+              lineno=23,
               col_offset=49,
-              end_lineno=38,
+              end_lineno=23,
               end_col_offset=63),
-            lineno=38,
+            lineno=23,
             col_offset=29,
-            end_lineno=38,
+            end_lineno=23,
             end_col_offset=63)],
         kwonlyargs=[],
         kw_defaults=[],
@@ -1051,37 +527,37 @@ Module(
         Assign(
           targets=[
             Name(
-              id='all_imports_list',
+              id='all_imports_table',
               ctx=Store(),
-              lineno=41,
+              lineno=26,
               col_offset=4,
-              end_lineno=41,
-              end_col_offset=20)],
+              end_lineno=26,
+              end_col_offset=21)],
           value=Dict(
             keys=[],
             values=[],
-            lineno=41,
-            col_offset=23,
-            end_lineno=41,
-            end_col_offset=25),
-          lineno=41,
+            lineno=26,
+            col_offset=24,
+            end_lineno=26,
+            end_col_offset=26),
+          lineno=26,
           col_offset=4,
-          end_lineno=41,
-          end_col_offset=25),
+          end_lineno=26,
+          end_col_offset=26),
         For(
           target=Name(
             id='in_file',
             ctx=Store(),
-            lineno=43,
+            lineno=28,
             col_offset=8,
-            end_lineno=43,
+            end_lineno=28,
             end_col_offset=15),
           iter=Name(
             id='python_files',
             ctx=Load(),
-            lineno=43,
+            lineno=28,
             col_offset=19,
-            end_lineno=43,
+            end_lineno=28,
             end_col_offset=31),
           body=[
             If(
@@ -1089,17 +565,17 @@ Module(
                 target=Name(
                   id='source_code',
                   ctx=Store(),
-                  lineno=44,
+                  lineno=29,
                   col_offset=11,
-                  end_lineno=44,
+                  end_lineno=29,
                   end_col_offset=22),
                 value=Call(
                   func=Name(
                     id='get_source_code_from_file',
                     ctx=Load(),
-                    lineno=44,
+                    lineno=29,
                     col_offset=26,
-                    end_lineno=44,
+                    end_lineno=29,
                     end_col_offset=51),
                   args=[],
                   keywords=[
@@ -1108,21 +584,21 @@ Module(
                       value=Name(
                         id='in_file',
                         ctx=Load(),
-                        lineno=44,
+                        lineno=29,
                         col_offset=63,
-                        end_lineno=44,
+                        end_lineno=29,
                         end_col_offset=70),
-                      lineno=44,
+                      lineno=29,
                       col_offset=52,
-                      end_lineno=44,
+                      end_lineno=29,
                       end_col_offset=70)],
-                  lineno=44,
+                  lineno=29,
                   col_offset=26,
-                  end_lineno=44,
+                  end_lineno=29,
                   end_col_offset=71),
-                lineno=44,
+                lineno=29,
                 col_offset=11,
-                end_lineno=44,
+                end_lineno=29,
                 end_col_offset=71),
               body=[
                 If(
@@ -1130,17 +606,17 @@ Module(
                     target=Name(
                       id='ast_node',
                       ctx=Store(),
-                      lineno=45,
+                      lineno=30,
                       col_offset=15,
-                      end_lineno=45,
+                      end_lineno=30,
                       end_col_offset=23),
                     value=Call(
                       func=Name(
                         id='get_ast_root_node_for_file',
                         ctx=Load(),
-                        lineno=45,
+                        lineno=30,
                         col_offset=27,
-                        end_lineno=45,
+                        end_lineno=30,
                         end_col_offset=53),
                       args=[],
                       keywords=[
@@ -1149,51 +625,51 @@ Module(
                           value=Name(
                             id='source_code',
                             ctx=Load(),
-                            lineno=46,
+                            lineno=31,
                             col_offset=28,
-                            end_lineno=46,
+                            end_lineno=31,
                             end_col_offset=39),
-                          lineno=46,
+                          lineno=31,
                           col_offset=16,
-                          end_lineno=46,
+                          end_lineno=31,
                           end_col_offset=39),
                         keyword(
                           arg='input_file',
                           value=Name(
                             id='in_file',
                             ctx=Load(),
-                            lineno=47,
+                            lineno=32,
                             col_offset=27,
-                            end_lineno=47,
+                            end_lineno=32,
                             end_col_offset=34),
-                          lineno=47,
+                          lineno=32,
                           col_offset=16,
-                          end_lineno=47,
+                          end_lineno=32,
                           end_col_offset=34)],
-                      lineno=45,
+                      lineno=30,
                       col_offset=27,
-                      end_lineno=48,
+                      end_lineno=33,
                       end_col_offset=13),
-                    lineno=45,
+                    lineno=30,
                     col_offset=15,
-                    end_lineno=48,
+                    end_lineno=33,
                     end_col_offset=13),
                   body=[
                     For(
                       target=Name(
                         id='used_import',
                         ctx=Store(),
-                        lineno=49,
+                        lineno=34,
                         col_offset=20,
-                        end_lineno=49,
+                        end_lineno=34,
                         end_col_offset=31),
                       iter=Call(
                         func=Name(
                           id='get_used_import_list',
                           ctx=Load(),
-                          lineno=49,
+                          lineno=34,
                           col_offset=35,
-                          end_lineno=49,
+                          end_lineno=34,
                           end_col_offset=55),
                         args=[],
                         keywords=[
@@ -1202,17 +678,17 @@ Module(
                             value=Name(
                               id='ast_node',
                               ctx=Load(),
-                              lineno=49,
+                              lineno=34,
                               col_offset=65,
-                              end_lineno=49,
+                              end_lineno=34,
                               end_col_offset=73),
-                            lineno=49,
+                            lineno=34,
                             col_offset=56,
-                            end_lineno=49,
+                            end_lineno=34,
                             end_col_offset=73)],
-                        lineno=49,
+                        lineno=34,
                         col_offset=35,
-                        end_lineno=49,
+                        end_lineno=34,
                         end_col_offset=74),
                       body=[
                         Assign(
@@ -1220,62 +696,62 @@ Module(
                             Name(
                               id='known_file',
                               ctx=Store(),
-                              lineno=50,
+                              lineno=35,
                               col_offset=20,
-                              end_lineno=50,
+                              end_lineno=35,
                               end_col_offset=30)],
                           value=Constant(
                             value='',
-                            lineno=50,
+                            lineno=35,
                             col_offset=33,
-                            end_lineno=50,
+                            end_lineno=35,
                             end_col_offset=35),
-                          lineno=50,
+                          lineno=35,
                           col_offset=20,
-                          end_lineno=50,
+                          end_lineno=35,
                           end_col_offset=35),
                         Assign(
                           targets=[
                             Name(
                               id='parent_import',
                               ctx=Store(),
-                              lineno=51,
+                              lineno=36,
                               col_offset=20,
-                              end_lineno=51,
+                              end_lineno=36,
                               end_col_offset=33)],
                           value=Call(
                             func=Name(
                               id='_get_parent_import',
                               ctx=Load(),
-                              lineno=51,
+                              lineno=36,
                               col_offset=36,
-                              end_lineno=51,
+                              end_lineno=36,
                               end_col_offset=54),
                             args=[
                               Name(
                                 id='used_import',
                                 ctx=Load(),
-                                lineno=51,
+                                lineno=36,
                                 col_offset=55,
-                                end_lineno=51,
+                                end_lineno=36,
                                 end_col_offset=66)],
                             keywords=[],
-                            lineno=51,
+                            lineno=36,
                             col_offset=36,
-                            end_lineno=51,
+                            end_lineno=36,
                             end_col_offset=67),
-                          lineno=51,
+                          lineno=36,
                           col_offset=20,
-                          end_lineno=51,
+                          end_lineno=36,
                           end_col_offset=67),
                         If(
                           test=Compare(
                             left=Name(
                               id='parent_import',
                               ctx=Load(),
-                              lineno=52,
+                              lineno=37,
                               col_offset=23,
-                              end_lineno=52,
+                              end_lineno=37,
                               end_col_offset=36),
                             ops=[
                               In()],
@@ -1283,13 +759,13 @@ Module(
                               Name(
                                 id='import_to_file_map',
                                 ctx=Load(),
-                                lineno=52,
+                                lineno=37,
                                 col_offset=40,
-                                end_lineno=52,
+                                end_lineno=37,
                                 end_col_offset=58)],
-                            lineno=52,
+                            lineno=37,
                             col_offset=23,
-                            end_lineno=52,
+                            end_lineno=37,
                             end_col_offset=58),
                           body=[
                             Assign(
@@ -1297,143 +773,143 @@ Module(
                                 Name(
                                   id='known_file',
                                   ctx=Store(),
-                                  lineno=53,
+                                  lineno=38,
                                   col_offset=24,
-                                  end_lineno=53,
+                                  end_lineno=38,
                                   end_col_offset=34)],
                               value=Subscript(
                                 value=Name(
                                   id='import_to_file_map',
                                   ctx=Load(),
-                                  lineno=53,
+                                  lineno=38,
                                   col_offset=37,
-                                  end_lineno=53,
+                                  end_lineno=38,
                                   end_col_offset=55),
                                 slice=Name(
                                   id='parent_import',
                                   ctx=Load(),
-                                  lineno=53,
+                                  lineno=38,
                                   col_offset=56,
-                                  end_lineno=53,
+                                  end_lineno=38,
                                   end_col_offset=69),
                                 ctx=Load(),
-                                lineno=53,
+                                lineno=38,
                                 col_offset=37,
-                                end_lineno=53,
+                                end_lineno=38,
                                 end_col_offset=70),
-                              lineno=53,
+                              lineno=38,
                               col_offset=24,
-                              end_lineno=53,
+                              end_lineno=38,
                               end_col_offset=70)],
                           orelse=[],
-                          lineno=52,
+                          lineno=37,
                           col_offset=20,
-                          end_lineno=53,
+                          end_lineno=38,
                           end_col_offset=70),
                         Assign(
                           targets=[
                             Subscript(
                               value=Name(
-                                id='all_imports_list',
+                                id='all_imports_table',
                                 ctx=Load(),
-                                lineno=54,
+                                lineno=39,
                                 col_offset=20,
-                                end_lineno=54,
-                                end_col_offset=36),
+                                end_lineno=39,
+                                end_col_offset=37),
                               slice=Name(
                                 id='used_import',
                                 ctx=Load(),
-                                lineno=54,
-                                col_offset=37,
-                                end_lineno=54,
-                                end_col_offset=48),
+                                lineno=39,
+                                col_offset=38,
+                                end_lineno=39,
+                                end_col_offset=49),
                               ctx=Store(),
-                              lineno=54,
+                              lineno=39,
                               col_offset=20,
-                              end_lineno=54,
-                              end_col_offset=49)],
+                              end_lineno=39,
+                              end_col_offset=50)],
                           value=Name(
                             id='known_file',
                             ctx=Load(),
-                            lineno=54,
-                            col_offset=52,
-                            end_lineno=54,
-                            end_col_offset=62),
-                          lineno=54,
+                            lineno=39,
+                            col_offset=53,
+                            end_lineno=39,
+                            end_col_offset=63),
+                          lineno=39,
                           col_offset=20,
-                          end_lineno=54,
-                          end_col_offset=62)],
+                          end_lineno=39,
+                          end_col_offset=63)],
                       orelse=[],
-                      lineno=49,
+                      lineno=34,
                       col_offset=16,
-                      end_lineno=54,
-                      end_col_offset=62)],
+                      end_lineno=39,
+                      end_col_offset=63)],
                   orelse=[],
-                  lineno=45,
+                  lineno=30,
                   col_offset=12,
-                  end_lineno=54,
-                  end_col_offset=62)],
+                  end_lineno=39,
+                  end_col_offset=63)],
               orelse=[],
-              lineno=44,
+              lineno=29,
               col_offset=8,
-              end_lineno=54,
-              end_col_offset=62)],
+              end_lineno=39,
+              end_col_offset=63)],
           orelse=[],
-          lineno=43,
+          lineno=28,
           col_offset=4,
-          end_lineno=54,
-          end_col_offset=62),
+          end_lineno=39,
+          end_col_offset=63),
         Return(
           value=Name(
-            id='all_imports_list',
+            id='all_imports_table',
             ctx=Load(),
-            lineno=56,
+            lineno=41,
             col_offset=11,
-            end_lineno=56,
-            end_col_offset=27),
-          lineno=56,
+            end_lineno=41,
+            end_col_offset=28),
+          lineno=41,
           col_offset=4,
-          end_lineno=56,
-          end_col_offset=27)],
+          end_lineno=41,
+          end_col_offset=28)],
       decorator_list=[],
       returns=Subscript(
         value=Name(
           id='dict',
           ctx=Load(),
-          lineno=39,
+          lineno=24,
           col_offset=5,
-          end_lineno=39,
+          end_lineno=24,
           end_col_offset=9),
         slice=Tuple(
           elts=[
             Name(
               id='str',
               ctx=Load(),
-              lineno=39,
+              lineno=24,
               col_offset=10,
-              end_lineno=39,
+              end_lineno=24,
               end_col_offset=13),
             Name(
               id='str',
               ctx=Load(),
-              lineno=39,
+              lineno=24,
               col_offset=15,
-              end_lineno=39,
+              end_lineno=24,
               end_col_offset=18)],
           ctx=Load(),
-          lineno=39,
+          lineno=24,
           col_offset=10,
-          end_lineno=39,
+          end_lineno=24,
           end_col_offset=18),
         ctx=Load(),
-        lineno=39,
+        lineno=24,
         col_offset=5,
-        end_lineno=39,
+        end_lineno=24,
         end_col_offset=19),
-      lineno=37,
+      lineno=22,
       col_offset=0,
-      end_lineno=56,
-      end_col_offset=27),
+      end_lineno=41,
+      end_col_offset=28),
     FunctionDef(
       name='get_all_imports_from_files',
       args=arguments(
@@ -1444,40 +920,40 @@ Module(
             annotation=Name(
               id='str',
               ctx=Load(),
-              lineno=59,
-              col_offset=43,
-              end_lineno=59,
-              end_col_offset=46),
-            lineno=59,
-            col_offset=31,
-            end_lineno=59,
-            end_col_offset=46),
+              lineno=45,
+              col_offset=16,
+              end_lineno=45,
+              end_col_offset=19),
+            lineno=45,
+            col_offset=4,
+            end_lineno=45,
+            end_col_offset=19),
           arg(
             arg='python_files',
             annotation=Subscript(
               value=Name(
                 id='list',
                 ctx=Load(),
-                lineno=59,
-                col_offset=62,
-                end_lineno=59,
-                end_col_offset=66),
+                lineno=45,
+                col_offset=35,
+                end_lineno=45,
+                end_col_offset=39),
               slice=Name(
                 id='str',
                 ctx=Load(),
-                lineno=59,
-                col_offset=67,
-                end_lineno=59,
-                end_col_offset=70),
+                lineno=45,
+                col_offset=40,
+                end_lineno=45,
+                end_col_offset=43),
               ctx=Load(),
-              lineno=59,
-              col_offset=62,
-              end_lineno=59,
-              end_col_offset=71),
-            lineno=59,
-            col_offset=48,
-            end_lineno=59,
-            end_col_offset=71)],
+              lineno=45,
+              col_offset=35,
+              end_lineno=45,
+              end_col_offset=44),
+            lineno=45,
+            col_offset=21,
+            end_lineno=45,
+            end_col_offset=44)],
         kwonlyargs=[],
         kw_defaults=[],
         defaults=[]),
@@ -1485,30 +961,30 @@ Module(
         Expr(
           value=Constant(
             value="\n    This is kind of expensive for what it does\n    It's tricky not to require multiple passes to achieve what is being done here\n    ",
-            lineno=60,
+            lineno=47,
             col_offset=4,
-            end_lineno=63,
+            end_lineno=50,
             end_col_offset=7),
-          lineno=60,
+          lineno=47,
           col_offset=4,
-          end_lineno=63,
+          end_lineno=50,
           end_col_offset=7),
         Assign(
           targets=[
             Name(
               id='import_to_file_map',
               ctx=Store(),
-              lineno=65,
+              lineno=52,
               col_offset=4,
-              end_lineno=65,
+              end_lineno=52,
               end_col_offset=22)],
           value=Call(
             func=Name(
               id='_get_import_to_file_map',
               ctx=Load(),
-              lineno=65,
+              lineno=52,
               col_offset=25,
-              end_lineno=65,
+              end_lineno=52,
               end_col_offset=48),
             args=[],
             keywords=[
@@ -1517,52 +993,52 @@ Module(
                 value=Name(
                   id='input_path',
                   ctx=Load(),
-                  lineno=66,
+                  lineno=53,
                   col_offset=19,
-                  end_lineno=66,
+                  end_lineno=53,
                   end_col_offset=29),
-                lineno=66,
+                lineno=53,
                 col_offset=8,
-                end_lineno=66,
+                end_lineno=53,
                 end_col_offset=29),
               keyword(
                 arg='python_files',
                 value=Name(
                   id='python_files',
                   ctx=Load(),
-                  lineno=66,
+                  lineno=53,
                   col_offset=44,
-                  end_lineno=66,
+                  end_lineno=53,
                   end_col_offset=56),
-                lineno=66,
+                lineno=53,
                 col_offset=31,
-                end_lineno=66,
+                end_lineno=53,
                 end_col_offset=56)],
-            lineno=65,
+            lineno=52,
             col_offset=25,
-            end_lineno=67,
+            end_lineno=54,
             end_col_offset=5),
-          lineno=65,
+          lineno=52,
           col_offset=4,
-          end_lineno=67,
+          end_lineno=54,
           end_col_offset=5),
         Assign(
           targets=[
             Name(
-              id='all_imports_list',
+              id='all_imports_table',
               ctx=Store(),
-              lineno=69,
+              lineno=56,
               col_offset=4,
-              end_lineno=69,
-              end_col_offset=20)],
+              end_lineno=56,
+              end_col_offset=21)],
           value=Call(
             func=Name(
               id='_create_import_table',
               ctx=Load(),
-              lineno=69,
-              col_offset=23,
-              end_lineno=69,
-              end_col_offset=43),
+              lineno=56,
+              col_offset=24,
+              end_lineno=56,
+              end_col_offset=44),
             args=[],
             keywords=[
               keyword(
@@ -1570,52 +1046,86 @@ Module(
                 value=Name(
                   id='python_files',
                   ctx=Load(),
-                  lineno=70,
+                  lineno=57,
                   col_offset=21,
-                  end_lineno=70,
+                  end_lineno=57,
                   end_col_offset=33),
-                lineno=70,
+                lineno=57,
                 col_offset=8,
-                end_lineno=70,
+                end_lineno=57,
                 end_col_offset=33),
               keyword(
                 arg='import_to_file_map',
                 value=Name(
                   id='import_to_file_map',
                   ctx=Load(),
-                  lineno=70,
+                  lineno=57,
                   col_offset=54,
-                  end_lineno=70,
+                  end_lineno=57,
                   end_col_offset=72),
-                lineno=70,
+                lineno=57,
                 col_offset=35,
-                end_lineno=70,
+                end_lineno=57,
                 end_col_offset=72)],
-            lineno=69,
-            col_offset=23,
-            end_lineno=71,
+            lineno=56,
+            col_offset=24,
+            end_lineno=58,
             end_col_offset=5),
-          lineno=69,
+          lineno=56,
           col_offset=4,
-          end_lineno=71,
+          end_lineno=58,
           end_col_offset=5),
         Return(
           value=Name(
-            id='all_imports_list',
+            id='all_imports_table',
             ctx=Load(),
-            lineno=73,
+            lineno=60,
             col_offset=11,
-            end_lineno=73,
-            end_col_offset=27),
-          lineno=73,
+            end_lineno=60,
+            end_col_offset=28),
+          lineno=60,
           col_offset=4,
-          end_lineno=73,
-          end_col_offset=27)],
+          end_lineno=60,
+          end_col_offset=28)],
       decorator_list=[],
-      lineno=59,
+      returns=Subscript(
+        value=Name(
+          id='dict',
+          ctx=Load(),
+          lineno=46,
+          col_offset=5,
+          end_lineno=46,
+          end_col_offset=9),
+        slice=Tuple(
+          elts=[
+            Name(
+              id='str',
+              ctx=Load(),
+              lineno=46,
+              col_offset=10,
+              end_lineno=46,
+              end_col_offset=13),
+            Name(
+              id='str',
+              ctx=Load(),
+              lineno=46,
+              col_offset=15,
+              end_lineno=46,
+              end_col_offset=18)],
+          ctx=Load(),
+          lineno=46,
+          col_offset=10,
+          end_lineno=46,
+          end_col_offset=18),
+        ctx=Load(),
+        lineno=46,
+        col_offset=5,
+        end_lineno=46,
+        end_col_offset=19),
+      lineno=44,
       col_offset=0,
-      end_lineno=73,
-      end_col_offset=27)],
+      end_lineno=60,
+      end_col_offset=28)],
   type_ignores=[])
 ```
 </details>

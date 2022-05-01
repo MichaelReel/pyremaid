@@ -1,6 +1,5 @@
-from os import path
 from unittest.mock import MagicMock, mock_open, patch
-from pytest import fixture, mark
+from pytest import mark
 
 from pyremaid.files.source import (
     find_all_python_files,
@@ -10,26 +9,18 @@ from pyremaid.files.source import (
 from tests.conftest import file_content_data
 
 
-@fixture
-def python_files(root_path: str) -> list[str]:
-    return [
-        path.join(root_path, "python_file.py"),
-        path.join(root_path, "more_python.py"),
-    ]
-
-
 @patch("pyremaid.files.source.walk")
 def test_find_all_python_files(
     mock_walk: MagicMock,
     input_path: str,
     walked_files: list[tuple[str, list[str], list[str]]],
-    python_files: list[str],
+    resolved_python_files: list[str],
 ) -> None:
     mock_walk.return_value = walked_files
 
     found_python_files = find_all_python_files(input_path=input_path)
 
-    assert found_python_files == python_files
+    assert found_python_files == resolved_python_files
 
 
 @patch("pyremaid.files.source.open", mock_open(read_data=file_content_data))
