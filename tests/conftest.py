@@ -58,24 +58,29 @@ def empty_imports_table() -> dict[str, str]:
 
 @fixture
 def python_files() -> list[str]:
-    return ["python file 1", "python file 2"]
+    return ["python file 1", "python file 2", "parent dir"]
 
 
 @fixture
 def import_list() -> list[str]:
-    return ["import A", "import B"]
+    return ["parent.import_A", "parent.import_B", "parent"]
 
 
 @fixture
 def global_import_table(import_list: list[str]) -> dict[str, str]:
-    return {import_list[0]: "mapped import 1", import_list[1]: None}
+    return {
+        import_list[0]: "mapped import 1",
+        import_list[1]: None,
+        import_list[2]: "mapped parent",
+    }
 
 
 @fixture
 def all_imports_table(import_list: list[str]) -> dict[str, str]:
     return {
-        import_list[0]: "",
-        import_list[1]: "",
+        import_list[0]: "parent dir",
+        import_list[1]: "parent dir",
+        import_list[2]: "",
     }
 
 
@@ -357,8 +362,16 @@ def debug_dump_block(debug_dump: str) -> str:
 
 
 @fixture
-def import_list_block(import_list: list[str]) -> str:
-    return f"### Imports\n\n  - [{import_list[0]}](mapped import 1)\n  - {import_list[1]}\n"
+def import_list_block(
+    import_list: list[str], global_import_table: dict[str, str]
+) -> str:
+    return (
+        "### Imports\n"
+        "\n"
+        f"  - [{import_list[0]}]({global_import_table[import_list[0]]})\n"
+        f"  - {import_list[1]}\n"
+        f"  - [{import_list[2]}]({global_import_table[import_list[2]]})\n"
+    )
 
 
 @fixture

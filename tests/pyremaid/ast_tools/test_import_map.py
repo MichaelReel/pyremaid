@@ -15,7 +15,7 @@ def test_get_no_imports_from_no_files(
 @patch("pyremaid.ast_tools.import_map.get_ast_root_node_for_file")
 @patch("pyremaid.ast_tools.import_map.get_source_code_from_file")
 @patch("pyremaid.ast_tools.import_map.get_import_name_from_path")
-def test_get_no_imports_from_some_files(
+def test_get_all_imports_from_files(
     mock_get_import_name_from_path: MagicMock,
     mock_get_source_code_from_file: MagicMock,
     mock_get_ast_root_node_for_file: MagicMock,
@@ -28,8 +28,8 @@ def test_get_no_imports_from_some_files(
     all_imports_table: dict[str, str],
 ) -> None:
     mock_get_import_name_from_path.side_effect = import_list
-    mock_get_source_code_from_file.return_value = file_content
-    mock_get_ast_root_node_for_file.return_value = ast
+    mock_get_source_code_from_file.side_effect = [file_content, file_content, None]
+    mock_get_ast_root_node_for_file.side_effect = [ast, None, None]
     mock_get_used_import_list.return_value = import_list
 
     result = get_all_imports_from_files(input_path, python_files)
@@ -42,8 +42,8 @@ def test_get_no_imports_from_some_files(
     )
     mock_get_ast_root_node_for_file.assert_has_calls(
         calls=[
-            call(source_code=file_content, input_file=in_file)
-            for in_file in python_files
+            call(source_code=file_content, input_file=python_files[0]),
+            call(source_code=file_content, input_file=python_files[1]),
         ]
     )
     mock_get_used_import_list.assert_called_with(ast_node=ast)
