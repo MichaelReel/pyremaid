@@ -37,7 +37,7 @@ def create_mermaid_analysis_from_python(input_path: str, output_path: str) -> No
 
 def create_new_mermaid_analysis_for_file(
     input_path: str, output_path: str, global_import_table: dict[str, str], in_file: str
-):
+) -> None:
     relative_in_file = in_file.replace(input_path, "")
     out_file = get_output_file_path_for_input_file(
         input_path=relative_in_file, output_root=output_path
@@ -61,7 +61,7 @@ def create_new_mermaid_analysis_for_file(
                 model=ast_node
             )
             # Get the mermaid translation of the link_info
-            mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)
+            mermaid_diagram = create_mermaid_flow_graph_from_links(elements=link_info)
             mermaid_diagrams = [mermaid_diagram]
 
     markdown_content = create_markdown_content(

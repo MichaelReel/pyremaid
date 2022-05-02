@@ -21,12 +21,17 @@ def ast() -> AST:
 
 @fixture
 def input_path() -> str:
-    return "input path"
+    return "input_path/"
 
 
 @fixture
-def input_file(input_path: str) -> str:
-    return path.join(input_path, "input file name")
+def relative_in_file() -> str:
+    return "input_file_name"
+
+
+@fixture
+def input_file(input_path: str, relative_in_file: str) -> str:
+    return path.join(input_path, relative_in_file)
 
 
 @fixture
@@ -67,6 +72,20 @@ def import_list() -> list[str]:
 
 
 @fixture
+def no_imports_from_files() -> dict[str, str]:
+    return {}
+
+
+@fixture
+def all_imports_from_files(python_files: list[str], input_path: str) -> dict[str, str]:
+    return {
+        python_files[0]: path.join(input_path, python_files[0]),
+        python_files[1]: "",
+        python_files[2]: path.join(input_path, python_files[2]),
+    }
+
+
+@fixture
 def global_import_table(import_list: list[str]) -> dict[str, str]:
     return {
         import_list[0]: "mapped import 1",
@@ -97,6 +116,11 @@ file_content_data = (  # Appeasing the mock_open (I don't like this)
 @fixture
 def file_content() -> str:
     return file_content_data
+
+
+@fixture
+def markdown_content() -> str:
+    return "mocked up markdown content"
 
 
 @fixture
@@ -335,8 +359,13 @@ def elements_graph() -> str:
 
 
 @fixture
-def mermaid_diagrams() -> list[str]:
-    return ["diagram 1", "diagram 2"]
+def mermaid_diagram() -> str:
+    return "diagram 1"
+
+
+@fixture
+def mermaid_diagrams(mermaid_diagram: str) -> list[str]:
+    return [mermaid_diagram]
 
 
 @fixture

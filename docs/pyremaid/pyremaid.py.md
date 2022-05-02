@@ -38,7 +38,7 @@ flowchart TB
   _f13_n35["debug_dump = get_markdown_dump_for_ast_node(ast_node=ast_node)"]
   _f13_n36["import_list = get_used_import_list(ast_node=ast_node)"]
   _f13_n37["link_info: list[MermaidElement] = create_mermaid_model_from_ast_model(model=ast_node)"]
-  _f13_n38["mermaid_diagram = create_mermaid_flow_graph_from_links(link_info)"]
+  _f13_n38["mermaid_diagram = create_mermaid_flow_graph_from_links(elements=link_info)"]
   _f13_n39["mermaid_diagrams = [mermaid_diagram]"]
   _f13_n40["markdown_content = create_markdown_content(input_file=in_file, import_list=import_list, global_import_table=global_import_table, mermaid_diagrams=mermaid_diagrams, debug_dump=debug_dump)"]
   _f13_n41["Expr"]
@@ -1015,23 +1015,29 @@ Module(
                       col_offset=30,
                       end_lineno=64,
                       end_col_offset=66),
-                    args=[
-                      Name(
-                        id='link_info',
-                        ctx=Load(),
+                    args=[],
+                    keywords=[
+                      keyword(
+                        arg='elements',
+                        value=Name(
+                          id='link_info',
+                          ctx=Load(),
+                          lineno=64,
+                          col_offset=76,
+                          end_lineno=64,
+                          end_col_offset=85),
                         lineno=64,
                         col_offset=67,
                         end_lineno=64,
-                        end_col_offset=76)],
-                    keywords=[],
+                        end_col_offset=85)],
                     lineno=64,
                     col_offset=30,
                     end_lineno=64,
-                    end_col_offset=77),
+                    end_col_offset=86),
                   lineno=64,
                   col_offset=12,
                   end_lineno=64,
-                  end_col_offset=77),
+                  end_col_offset=86),
                 Assign(
                   targets=[
                     Name(
@@ -1207,6 +1213,12 @@ Module(
           end_lineno=75,
           end_col_offset=70)],
       decorator_list=[],
+      returns=Constant(
+        value=None,
+        lineno=40,
+        col_offset=5,
+        end_lineno=40,
+        end_col_offset=9),
       lineno=38,
       col_offset=0,
       end_lineno=75,
